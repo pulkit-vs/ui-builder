@@ -1,0 +1,22 @@
+{
+  "name": "react-native-ui-builder",
+  "version": "1.0.0",
+  "description": "A package for generating UI by consuming json data.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pulkitsharma1995/ui-builder.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pulkitsharma1995/ui-builder/issues"
+  },
+  "homepage": "https://github.com/pulkitsharma1995/ui-builder#readme",
+  "devDependencies": {
+    "metro-react-native-babel-preset": "^0.59.0"
+  }
+}
