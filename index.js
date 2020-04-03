@@ -11,6 +11,7 @@ import { View } from "react-native";
 import { get } from "lodash";
 
 import Input from "./src/input";
+import Button from "./src/button";
 
 export default class UiBuilder extends React.Component {
   constructor() {
@@ -23,6 +24,8 @@ export default class UiBuilder extends React.Component {
     switch (type) {
       case "input":
         return <Input componentData={component} />;
+      case "button":
+        return <Button componentData = {component} />;
     }
   }
 
