@@ -9,6 +9,7 @@
 import React from 'react';
 import {View} from 'react-native';
 import {get} from 'lodash';
+import UiBuilder from 'react-native-ui-builder';
 
 import Input from './src/input';
 
@@ -23,23 +24,21 @@ const source = [
 export default class App extends React.Component {
   constructor() {
     super();
-    this.selectComponent = this.selectComponent.bind(this);
+    //this.selectComponent = this.selectComponent.bind(this);
   }
 
-  selectComponent(component) {
-    const type = get(component, 'type', '');
-    switch (type) {
-      case 'input':
-        return <Input componentData={component} />;
-    }
-  }
+  // selectComponent(component) {
+  //   const type = get(component, 'type', '');
+  //   switch (type) {
+  //     case 'input':
+  //       return <Input componentData={component} />;
+  //   }
+  // }
 
   render() {
     return (
       <View>
-        {source.map(component => {
-          return this.selectComponent(component);
-        })}
+        <UiBuilder source={source} />
       </View>
     );
   }
