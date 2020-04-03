@@ -7,22 +7,10 @@
  */
 
 import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-} from 'react-native';
+import {View} from 'react-native';
+import {get} from 'lodash';
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+import Input from './src/input';
 
 // import {ExampleComponent} from "../../ui-builder/app";
 
@@ -86,24 +74,40 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: '600',
     color: Colors.black,
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-  footer: {
-    color: Colors.dark,
-    fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'right',
-  },
+
+  }
 });
 
-export default App;
+const source = [
+  {
+    label: 'name',
+    style: {borderColor: 'grey', borderWidth: 1, width: 200},
+    type: 'input',
+  },
+];
+
+
+export default class App extends React.Component {
+  constructor() {
+    super();
+    this.selectComponent = this.selectComponent.bind(this);
+  }
+
+  selectComponent(component) {
+    const type = get(component, 'type', '');
+    switch (type) {
+      case 'input':
+        return <Input componentData={component} />;
+    }
+  }
+
+  render() {
+    return (
+      <View>
+        {source.map(component => {
+          return this.selectComponent(component);
+        })}
+      </View>
+    );
+  }
+}
