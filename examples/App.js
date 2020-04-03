@@ -6,10 +6,8 @@
  * @flow strict-local
  */
 
-// TODO: Will use UiBuilder builder library later for displaying components.
-// import UiBuilder from 'react-native-ui-builder';
+import UiBuilder from 'react-native-ui-builder';
 import React from 'react';
-import UiBuilder from "./src/index";
 import { View, StyleSheet, Text } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 
@@ -57,7 +55,6 @@ export default class App extends React.Component {
     );
   }
 }
-
 
 const styles = StyleSheet.create({
   scrollView: {

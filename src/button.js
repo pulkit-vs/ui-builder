@@ -10,7 +10,7 @@ import React from 'react';
 import { Button } from 'react-native-elements';
 import { View, StyleSheet } from 'react-native';
 
-export default class Button extends React.Component {
+export default class ButtonComponent extends React.Component {
 
     render() {
         const { componentData } = this.props;
