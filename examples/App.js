@@ -5,15 +5,13 @@
  * @format
  * @flow strict-local
  */
-import {
-  Colors,
-} from 'react-native/Libraries/NewAppScreen';
 
-import React from 'react';
-import { View, StyleSheet, Text } from 'react-native';
-// import { get } from 'lodash';
+// TODO: Will use UiBuilder builder library later for displaying components.
 // import UiBuilder from 'react-native-ui-builder';
+import React from 'react';
 import UiBuilder from "./src/index";
+import { View, StyleSheet, Text } from 'react-native';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 const onButtonClick = () => {
   alert('Button Pressed');
