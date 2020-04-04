@@ -8,32 +8,31 @@
 
 import UiBuilder from 'react-native-ui-builder';
 import React from 'react';
-import { View, StyleSheet, Text } from 'react-native';
-import { Colors } from 'react-native/Libraries/NewAppScreen';
+import {View, StyleSheet, Text} from 'react-native';
+import {Colors} from 'react-native/Libraries/NewAppScreen';
 
 const onButtonClick = () => {
   alert('Button Pressed');
-}
+};
 
 const source = [
   {
     label: 'name',
-    style: { borderColor: 'grey', borderWidth: 1, width: 200 },
+    style: {borderColor: 'grey', borderWidth: 1, width: 200},
     type: 'input',
   },
   {
-    'type': 'button',
-    'properties': {
-      'onPress': onButtonClick,
-      'title': 'Custom Button',
-      'disabled': false,
-      'color': '#f194ff',
-      'showCircle': false,
-      'buttonStyle': { left: 50 }
-    }
-  }
+    type: 'button',
+    properties: {
+      onPress: onButtonClick,
+      title: 'Custom Button',
+      disabled: false,
+      color: '#f194ff',
+      showCircle: false,
+      buttonStyle: {left: 50},
+    },
+  },
 ];
-
 
 export default class App extends React.Component {
   constructor() {
@@ -43,9 +42,9 @@ export default class App extends React.Component {
   render() {
     return (
       <>
-        <View style={styles.body}>
+        <View className="react-view" style={{width: 200}}>
           <View style={styles.sectionContainer}>
-            <Text> React Native Building Blocks  </Text>
+            <Text> React Native Building Blocks </Text>
           </View>
         </View>
         <View style={styles.sectionContainer}>
@@ -75,6 +74,5 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: '600',
     color: Colors.black,
-
-  }
+  },
 });

@@ -10,8 +10,8 @@ import React from "react";
 import { View } from "react-native";
 import { get } from "lodash";
 
-import Input from "./src/input";
-import ButtonComponent from "./src/button";
+import ButtonComponent from "./src/components/button";
+import Input from "./src/components/input";
 
 export default class UiBuilder extends React.Component {
   constructor() {
@@ -25,7 +25,7 @@ export default class UiBuilder extends React.Component {
       case "input":
         return <Input componentData={component} />;
       case "button":
-        return <ButtonComponent componentData = {component} />;
+        return <ButtonComponent componentData={component} />;
     }
   }
 

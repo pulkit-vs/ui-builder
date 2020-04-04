@@ -6,15 +6,15 @@
  * @flow strict-local
  */
 
-import React from 'react';
-import {View, TextInput} from 'react-native';
-import {get} from 'lodash';
+import React from "react";
+import { View, TextInput } from "react-native";
+import { get } from "lodash";
 
 export default class Input extends React.Component {
   constructor() {
     super();
     this.state = {
-      value: '',
+      value: ""
     };
 
     //Function Binders
@@ -22,13 +22,13 @@ export default class Input extends React.Component {
   }
 
   onChangeText(event) {
-    this.setState({value: event});
+    this.setState({ value: event });
   }
 
   render() {
-    const {componentData} = this.props;
-    const label = get(componentData, 'label', '');
-    const style = get(componentData, 'style', null);
+    const { componentData } = this.props;
+    const label = get(componentData, "label", "");
+    const style = get(componentData, "style", null);
 
     return (
       <View>
