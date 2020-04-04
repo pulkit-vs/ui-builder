@@ -6,86 +6,88 @@
  * @flow strict-local
  */
 
-import React from "react";
-import { Button } from "react-native-elements";
-import { View, StyleSheet } from "react-native";
+import React from 'react';
+import { Button, ThemeProvider } from 'react-native-elements';
+import { View, StyleSheet } from 'react-native';
+import { setTheme } from "./theme";
 
 export default class ButtonComponent extends React.Component {
-  render() {
-    const { componentData } = this.props;
-    const properties = componentData.properties;
-    const style = properties.showCircle
-      ? { ...styles.circleShapeView, ...properties.buttonStyle }
-      : properties.ShowSquare
-      ? { ...styles.squareShapeView, ...properties.buttonStyle }
-      : properties.showRectangle
-      ? { ...styles.rectangleShapeView, ...properties.buttonStyle }
-      : properties.showTriangle
-      ? { ...styles.triangleShapeView, ...properties.buttonStyle }
-      : { ...styles.buttonStyle, ...properties.buttonStyle };
-    return (
-      <View>
-        <Button
-          buttonStyle={style}
-          color={properties.color ? properties.color : null}
-          disabled={properties.disabled}
-          onPress={() => properties.onPress()}
-          title={properties.title}
-          type={properties.type ? properties.type : "outline"}
-          {...(properties.loading ? loading : null)}
-        />
-      </View>
-    );
-  }
+    render() {
+        const { componentData } = this.props;
+        const properties = componentData.properties;
+        const style = properties.showCircle ? { ...styles.circleShapeView, ...properties.buttonStyle } :
+            properties.ShowSquare ? { ...styles.squareShapeView, ...properties.buttonStyle } :
+                properties.showRectangle ? { ...styles.rectangleShapeView, ...properties.buttonStyle } :
+                    properties.showTriangle ? { ...styles.triangleShapeView, ...properties.buttonStyle } :
+                        { ...styles.buttonStyle, ...properties.buttonStyle }
+
+        return (
+            <View>
+                <ThemeProvider theme={{ Button: setTheme(properties.theme) }}>
+                    <Button
+                        title={properties.title}
+                        onPress={() => properties.onPress()}
+                        disabled={properties.disabled}
+                        buttonStyle={style}
+                        color={properties.color ? properties.color : null}
+                        type={properties.type ? properties.type : "outline"}
+                        {...properties.loading ? loading : null}
+                    />
+                </ThemeProvider>
+            </View>
+        );
+    }
 }
 
+// ThemeProvider is to provide a theme for a component.
 const styles = StyleSheet.create({
-  buttonStyle: {
-    alignItems: "center",
-    alignSelf: "center",
-    backgroundColor: "#fdd7ac",
-    borderRadius: 12,
-    justifyContent: "center",
-    left: 24,
-    position: "absolute",
-    right: 24
-  },
 
-  circleShapeView: {
-    //To make Circle Shape
-    backgroundColor: "#fdd7ac",
-    borderRadius: 100 / 2,
-    height: 100,
-    position: "absolute",
-    width: 100
-  },
+    buttonStyle: {
+        backgroundColor: "#fdd7ac",
+        borderRadius: 12,
+        justifyContent: "center",
+        alignItems: "center",
+        position: "absolute",
+        alignSelf: "center",
+        left: 24,
+        right: 24
+    },
 
-  rectangleShapeView: {
-    //To make Rectangle Shape
-    backgroundColor: "#14ff5f",
-    height: 120,
-    marginTop: 20,
-    width: 120 * 2
-  },
+    circleShapeView: {
+        //To make Circle Shape
+        width: 100,
+        height: 100,
+        borderRadius: 100 / 2,
+        backgroundColor: '#fdd7ac',
+        position: "absolute"
+    },
 
-  triangleShapeView: {
-    //To make Triangle Shape
-    backgroundColor: "transparent",
-    borderBottomColor: "#606070",
-    borderBottomWidth: 120,
-    borderLeftColor: "transparent",
-    borderLeftWidth: 60,
-    borderRightColor: "transparent",
-    borderRightWidth: 60,
-    borderStyle: "solid",
-    height: 0,
-    width: 0
-  },
+    rectangleShapeView: {
+        //To make Rectangle Shape
+        marginTop: 20,
+        width: 120 * 2,
+        height: 120,
+        backgroundColor: '#14ff5f',
+    },
 
-  squareShapeView: {
-    //To make Square Shape
-    backgroundColor: "#14ff5f",
-    height: 100,
-    width: 100
-  }
-});
+    triangleShapeView: {
+        //To make Triangle Shape
+        width: 0,
+        height: 0,
+        borderLeftWidth: 60,
+        borderRightWidth: 60,
+        borderBottomWidth: 120,
+        borderStyle: 'solid',
+        backgroundColor: 'transparent',
+        borderLeftColor: 'transparent',
+        borderRightColor: 'transparent',
+        borderBottomColor: '#606070',
+    },
+
+    squareShapeView: {
+        //To make Square Shape
+        width: 100,
+        height: 100,
+        backgroundColor: '#14ff5f',
+    },
+})
