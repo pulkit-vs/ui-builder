@@ -1,38 +1,61 @@
-
-// TODO: will use colors later.
-// import { colors } from "./colors";
 import { StyleSheet } from 'react-native';
-import { styles } from "./style";
 
-export const createStyle = (themeType) => {
+// dark and light theme
+export const lightTheme = {
 
-    let style = { ...styles };
-    let themeStyle = {};
-
-    themeType ? themeStyle = setTheme(themeType) : null;
-
-    // make a style for a component and return
-    themeType && (
-        style = {
-            titleStyle: { ...styles.titleStyle, ...themeStyle.titleStyle },
-            buttonStyle: { ...styles.buttonStyle, ...themeStyle.buttonStyle }
-        }
-    )
-    return style;
+    color: 'black',
+    backgroundColor: 'white',
+    fontFamily: 'arial',
+    fontSize: 10
 }
 
-const setTheme = (themeType) => {
+export const darkTheme = {
+    color: 'white',
+    backgroundColor: 'black',
+    fontFamily: 'arial',
+    fontSize: 12
+}
 
-    return StyleSheet.create({
-        titleStyle: {
-            color: themeType === 'darkTheme' ? 'white' : themeType === 'lightTheme' ? 'black' : 'blue',
-            fontFamily: 'arial'
-        },
-        // imageStyle: {},
+
+export const applyThemeOnButtonStyle = (buttonStyles, theme) => {
+
+    let style = {};
+    switch (theme) {
+        case 'darkTheme':
+            style = darkTheme
+            break;
+        case 'lightTheme':
+            style = lightTheme;
+    }
+
+    let customizeButtonStyle = StyleSheet.create({
+
         buttonStyle: {
-            backgroundColor: themeType === 'darkTheme' ? 'black' : themeType === 'lightTheme' ? 'white' : 'pink'
+            backgroundColor: style.backgroundColor ? style.backgroundColor : buttonStyles.buttonStyle.backgroundColor,
+            borderRadius: style.borderRadius ? style.borderRadius : buttonStyles.buttonStyle.borderRadius,
+            alignContent: style.alignContent ? style.alignContent : buttonStyles.buttonStyle.alignContent,
+            alignItems: style.alignContent ? alignItems : buttonStyles.buttonStyle.alignItems,
+            position: style.position ? style.position : buttonStyles.buttonStyle.position,
+            alignSelf: style.alignSelf ? style.alignSelf : buttonStyles.buttonStyle.alignSelf,
+            left: style.left ? style.left : buttonStyles.buttonStyle.left,
+            right: style.right ? style.right : buttonStyles.buttonStyle.right,
+            width: style.width ? style.width : buttonStyles.buttonStyle.width,
+            height: style.height ? style.height : buttonStyles.buttonStyle.height,
+            marginTop: style.marginTop ? style.marginTop : buttonStyles.buttonStyle.marginTop,
+            borderStyle: style.borderStyle ? style.borderStyle : buttonStyles.buttonStyle.borderStyle,
+            borderLeftWidth: style.borderStyle ? style.borderLeftWidth : buttonStyles.buttonStyle.borderLeftWidth,
+            borderRightWidth: style.borderStyle ? style.borderRightWidth : buttonStyles.buttonStyle.borderRightWidth,
+            borderBottomWidth: style.borderStyle ? style.borderBottomWidth : buttonStyles.buttonStyle.borderBottomWidth,
+            borderLeftColor: style.borderStyle ? style.borderBottomWidth : buttonStyles.buttonStyle.borderLeftColor,
+            borderRightColor: style.borderStyle ? style.borderBottomWidth : buttonStyles.buttonStyle.borderRightColor,
+            borderBottomColor: style.borderStyle ? style.borderBottomWidth : buttonStyles.buttonStyle.borderBottomColor,
         },
-        // headerStyle: {},
-        // borderStyle: {borderColor: colors.errorRed}
+
+        titleStyle: {
+            color: style.color ? style.color : buttonStyles.titleStyle.color,
+            fontFamily: style.fontFamily ? style.fontFamily : buttonStyles.titleStyle.fontFamily
+        }
     })
+
+    return customizeButtonStyle;
 }

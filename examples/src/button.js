@@ -8,9 +8,9 @@
 
 import React from 'react';
 import { Button, ThemeProvider } from 'react-native-elements';
-import { View, StyleSheet } from 'react-native';
-import { createStyle } from "./theme";
-import { customizeStyle } from "./style";
+import { View } from 'react-native';
+import { applyThemeOnButtonStyle } from "./theme";
+import { createButtonStyle } from "./style";
 import { theme } from "../App";
 
 export default class ButtonComponent extends React.Component {
@@ -19,22 +19,25 @@ export default class ButtonComponent extends React.Component {
         const properties = componentData.properties;
 
         // Update pre-defined style as per given props.
-        customizeStyle(properties)
+        let style = createButtonStyle(properties, theme)
+
+        // Applying theme on button style
+        style = theme ? applyThemeOnButtonStyle(style, theme) : style;
 
         return (
             <View>
                 {/* ThemeProvider is to provide a theme for a component. */}
-                <ThemeProvider theme={{ Button: createStyle(theme) }}>
-                    <Button
-                        title={properties.title}
-                        onPress={() => properties.onPress()}
-                        disabled={properties.disabled}
-                        // buttonStyle={styles}
-                        color={properties.color ? properties.color : null}
-                        type={properties.type ? properties.type : "outline"}
-                        {...properties.loading ? loading : null}
-                    />
-                </ThemeProvider>
+                {/* <ThemeProvider theme={{ Button: createStyle(theme) }}> */}
+                <Button
+                    title={properties.title}
+                    onPress={() => properties.onPress()}
+                    disabled={properties.disabled}
+                    buttonStyle={style.buttonStyle}
+                    titleStyle={style.titleStyle}
+                    type={properties.type ? properties.type : "outline"}
+                    {...properties.loading ? loading : null}
+                />
+                {/* </ThemeProvider> */}
             </View>
         );
     }

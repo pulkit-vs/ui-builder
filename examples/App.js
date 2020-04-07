@@ -23,14 +23,19 @@ const source = {
   theme: 'lightTheme',
   data: [
     {
+      label: 'name',
+      selectionColor: "blue",
+      style: {borderColor: 'grey', borderWidth: 1, width: 200, height: 50},
+      type: 'input',
+    },
+    {
       type: 'button',
       properties: {
         onPress: onButtonClick,
         title: 'Custom Button2',
         disabled: false,
-        // color: '#f194ff',
         showCircle: true,
-        buttonStyle: { left: 10 },
+        style: { left: 10 },
       },
     }
   ]

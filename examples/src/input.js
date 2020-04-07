@@ -15,6 +15,7 @@ export default class Input extends React.Component {
     super();
     this.state = {
       value: '',
+      // isFocused: false
     };
 
     //Function Binders
@@ -25,6 +26,9 @@ export default class Input extends React.Component {
     this.setState({value: event});
   }
 
+  // handleFocus() {
+  //   this.setState({isFocused : true})
+  // }
   render() {
     const {componentData} = this.props;
     const label = get(componentData, 'label', '');
@@ -35,8 +39,12 @@ export default class Input extends React.Component {
         <TextInput
           onChangeText={this.onChangeText}
           placeholder={label}
+          selectionColor = {componentData.selectionColor}
           style={style}
           value={this.state.value}
+          placeholderTextColor = {'white'}
+          backgroundColor = {'black'}
+          style = { textInputStyle  = {color : 'white'}}
         />
       </View>
     );
