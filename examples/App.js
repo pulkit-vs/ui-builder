@@ -20,7 +20,7 @@ const onButtonClick = () => {
 export let theme;
 const source = {
 
-  theme: 'lightTheme',
+  theme: 'darkTheme',
   data: [
     {
       label: 'name',

@@ -1,33 +1,9 @@
 import { StyleSheet } from 'react-native';
-
-// dark and light theme
-export const lightTheme = {
-
-    color: 'black',
-    backgroundColor: 'white',
-    fontFamily: 'arial',
-    fontSize: 10
-}
-
-export const darkTheme = {
-    color: 'white',
-    backgroundColor: 'black',
-    fontFamily: 'arial',
-    fontSize: 12
-}
-
+import { getThemeStyle } from "./utility/utils";
 
 export const applyThemeOnButtonStyle = (buttonStyles, theme) => {
 
-    let style = {};
-    switch (theme) {
-        case 'darkTheme':
-            style = darkTheme
-            break;
-        case 'lightTheme':
-            style = lightTheme;
-    }
-
+    const style = getThemeStyle(theme);
     let customizeButtonStyle = StyleSheet.create({
 
         buttonStyle: {
@@ -56,6 +32,24 @@ export const applyThemeOnButtonStyle = (buttonStyles, theme) => {
             fontFamily: style.fontFamily ? style.fontFamily : buttonStyles.titleStyle.fontFamily
         }
     })
-
     return customizeButtonStyle;
+}
+
+
+export const applyThemeOnTextInputStyle = (textInputStyles, theme) => {
+
+    const style = getThemeStyle(theme);
+    const customizeTextInputStyle = {
+
+        placeholder: style.placeholder ? style.placeholder : textInputStyles.placeholder,
+        selectionColor: style.selectionColor ? style.selectionColor : textInputStyles.selectionColor,
+        placeholderTextColor: style.placeholderTextColor ? style.placeholderTextColor : textInputStyles.placeholderTextColor,
+        style: {
+            backgroundColor: style.backgroundColor ? style.backgroundColor : textInputStyles.style.backgroundColor,
+            borderColor: style.borderColor ? style.borderColor : textInputStyles.style.borderColor,
+            fontFamily: style.fontFamily ? style.fontFamily : textInputStyles.style.fontFamily,
+            color: style.color ? style.color : textInputStyles.style.color
+        }
+    }
+    return customizeTextInputStyle;
 }

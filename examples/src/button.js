@@ -10,7 +10,7 @@ import React from 'react';
 import { Button, ThemeProvider } from 'react-native-elements';
 import { View } from 'react-native';
 import { applyThemeOnButtonStyle } from "./theme";
-import { createButtonStyle } from "./style";
+import { createButtonStyle } from "./buttonStyle";
 import { theme } from "../App";
 
 export default class ButtonComponent extends React.Component {
@@ -19,7 +19,7 @@ export default class ButtonComponent extends React.Component {
         const properties = componentData.properties;
 
         // Update pre-defined style as per given props.
-        let style = createButtonStyle(properties, theme)
+        let style = createButtonStyle(properties)
 
         // Applying theme on button style
         style = theme ? applyThemeOnButtonStyle(style, theme) : style;
