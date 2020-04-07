@@ -6,11 +6,10 @@
  * @flow strict-local
  */
 
-// import UiBuilder from 'react-native-ui-builder';
-import UiBuilder from "./src/index";
 import React from 'react';
-import { View, StyleSheet, Text } from 'react-native';
+import UiBuilder from 'react-native-ui-builder';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
+import { View, StyleSheet, Text } from 'react-native';
 
 const onButtonClick = () => {
   alert('Button Pressed');
@@ -25,7 +24,7 @@ const source = {
     {
       label: 'name',
       selectionColor: "blue",
-      style: {borderColor: 'grey', borderWidth: 1, width: 200, height: 50},
+      style: {borderColor: 'grey', borderWidth: 1},
       type: 'input',
     },
     {

@@ -6,15 +6,18 @@
  * @flow strict-local
  */
 
-import React from "react";
-import { View, TextInput } from "react-native";
-import { get } from "lodash";
+// import { get } from 'lodash';
+import React from 'react';
+import { View, TextInput } from 'react-native';
+import { applyThemeOnTextInputStyle } from "../theme";
+import { createTextInputStyle } from "../style/inputStyle";
+import { theme } from "../../examples/App";
 
 export default class Input extends React.Component {
   constructor() {
     super();
     this.state = {
-      value: ""
+      value: ''
     };
 
     //Function Binders
@@ -27,16 +30,22 @@ export default class Input extends React.Component {
 
   render() {
     const { componentData } = this.props;
-    const label = get(componentData, "label", "");
-    const style = get(componentData, "style", null);
+
+    // Update pre-defined style as per given props.
+    let textInputStyle = createTextInputStyle(componentData);
+
+    // Applying theme on text input style
+    textInputStyle = theme ? applyThemeOnTextInputStyle(textInputStyle, theme) : textInputStyle;
 
     return (
       <View>
         <TextInput
           onChangeText={this.onChangeText}
-          placeholder={label}
-          style={style}
+          placeholder={textInputStyle.placeholder}
+          selectionColor={textInputStyle.selectionColor}
+          style={textInputStyle.style}
           value={this.state.value}
+          placeholderTextColor={textInputStyle.placeholderTextColor}
         />
       </View>
     );

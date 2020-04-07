@@ -7,8 +7,8 @@
  */
 
 
-import ButtonComponent from "./button";
-import Input from "./input";
+import ButtonComponent from "./components/button";
+import Input from "./components/input";
 import React from "react";
 import { View } from "react-native";
 import { get } from "lodash";

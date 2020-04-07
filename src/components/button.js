@@ -7,11 +7,11 @@
  */
 
 import React from 'react';
-import { Button, ThemeProvider } from 'react-native-elements';
+import { Button } from 'react-native-elements';
 import { View } from 'react-native';
-import { applyThemeOnButtonStyle } from "./theme";
-import { createButtonStyle } from "./buttonStyle";
-import { theme } from "../App";
+import { applyThemeOnButtonStyle } from "../theme";
+import { createButtonStyle } from "../style/buttonStyle";
+import { theme } from "../../examples/App";
 
 export default class ButtonComponent extends React.Component {
     render() {
