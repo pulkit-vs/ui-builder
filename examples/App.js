@@ -45,7 +45,6 @@ export default class App extends React.Component {
     super();
   }
 
-  // TODO: theme can be applied to all components.
   render() {
     theme = source.theme;
     return (
