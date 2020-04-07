@@ -11,7 +11,7 @@ import React from 'react';
 import { View, TextInput } from 'react-native';
 import { applyThemeOnTextInputStyle } from "../theme";
 import { createTextInputStyle } from "../style/inputStyle";
-import { theme } from "../../examples/App";
+import { theme } from "../../App";
 
 export default class Input extends React.Component {
   constructor() {

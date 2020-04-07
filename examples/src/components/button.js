@@ -11,7 +11,7 @@ import { Button } from 'react-native-elements';
 import { View } from 'react-native';
 import { applyThemeOnButtonStyle } from "../theme";
 import { createButtonStyle } from "../style/buttonStyle";
-import { theme } from "../../examples/App";
+import { theme } from "../../App";
 
 export default class ButtonComponent extends React.Component {
     render() {

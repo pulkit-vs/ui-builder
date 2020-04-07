@@ -6,12 +6,12 @@
  * @flow strict-local
  */
 
+
+import ButtonComponent from "./components/button";
+import Input from "./components/input";
 import React from "react";
 import { View } from "react-native";
 import { get } from "lodash";
-
-import ButtonComponent from "./src/components/button";
-import Input from "./src/components/input";
 
 export default class UiBuilder extends React.Component {
   constructor() {
@@ -19,7 +19,7 @@ export default class UiBuilder extends React.Component {
     this.selectComponent = this.selectComponent.bind(this);
   }
 
-  selectComponent(component) {
+  selectComponent(component, theme) {
     const type = get(component, "type", "");
     switch (type) {
       case "input":
