@@ -6,8 +6,10 @@
  * @flow strict-local
  */
 
+// TODO: will use Uibuilder from npm package later.
+// import UiBuilder from 'react-native-ui-builder';
 import React from 'react';
-import UiBuilder from 'react-native-ui-builder';
+import UiBuilder from "./src/index";
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { View, StyleSheet, Text } from 'react-native';
 
@@ -31,10 +33,19 @@ const source = {
       type: 'button',
       properties: {
         onPress: onButtonClick,
+        title: 'Custom Button1',
+        disabled: false,
+        style: { left: 150, width: 200},
+      },
+    },
+    {
+      type: 'button',
+      properties: {
+        onPress: onButtonClick,
         title: 'Custom Button2',
         disabled: false,
         showCircle: true,
-        style: { left: 10 },
+        style: {left: 10}
       },
     }
   ]
