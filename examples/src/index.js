@@ -6,12 +6,12 @@
  * @flow strict-local
  */
 
-
-import ButtonComponent from "./components/button";
-import Input from "./components/input";
-import React from "react";
-import { View } from "react-native";
-import { get } from "lodash";
+import ButtonComponent from './components/button';
+import Input from './components/input';
+import HeaderComponent from './components/header';
+import React from 'react';
+import {View} from 'react-native';
+import {get} from 'lodash';
 
 export default class UiBuilder extends React.Component {
   constructor() {
@@ -20,20 +20,22 @@ export default class UiBuilder extends React.Component {
   }
 
   selectComponent(component, theme) {
-    const type = get(component, "type", "");
+    const type = get(component, 'type', '');
     switch (type) {
-      case "input":
+      case 'input':
         return <Input componentData={component} />;
-      case "button":
+      case 'button':
         return <ButtonComponent componentData={component} />;
+      case 'header':
+        return <HeaderComponent componentData={component} />;
     }
   }
 
   render() {
-    const { source } = this.props;
+    const {source} = this.props;
     return (
       <View>
-        {source.map(component => {
+        {source.map((component) => {
           return this.selectComponent(component);
         })}
       </View>
