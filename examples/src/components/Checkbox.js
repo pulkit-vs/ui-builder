@@ -7,13 +7,8 @@ export default class Checkbox extends Component {
     this.state = {
       checked: false,
     };
-    this.handleChange = this.handleChange.bind(this);
   }
-  handleChange() {
-    this.setState({
-      checked: !this.state.checked,
-    });
-  }
+
   componentDidMount() {
     const {componentData} = this.props;
     const properties = componentData.properties;
@@ -31,7 +26,7 @@ export default class Checkbox extends Component {
         <View>
           <CheckBox
             value={this.state.checked}
-            onChange={this.handleChange}
+            onChange={() => this.setState({checked: !this.state.checked})}
             disabled={properties.disabled}
             style={styles.checkbox}
           />

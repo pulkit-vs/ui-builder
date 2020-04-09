@@ -32,8 +32,8 @@ const source = {
       type: 'checkbox',
       properties: {
         value: true,
-        title: 'Enter the label',
-        disabled: false,
+        title: 'Enter ',
+        disabled: true,
       },
     },
     {
