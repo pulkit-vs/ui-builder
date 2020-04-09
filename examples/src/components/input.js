@@ -33,7 +33,7 @@ export default class Input extends React.Component {
     // Customize button style
     this.state.props = { ...this.props };
 
-    // Applying theme on button style
+    // Applying theme on text input
     this.state.props = theme ? applyThemeOnTextInputStyle(theme, this.state.props) : this.state.props
   }
 
