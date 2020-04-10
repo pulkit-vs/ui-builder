@@ -1,60 +1,86 @@
 import React, {Component} from 'react';
-import {CheckBox} from 'react-native';
 import {View, StyleSheet, Text} from 'react-native';
-export default class Checkbox extends Component {
-  constructor() {
-    super();
+import {CheckBox, Icon, colors} from 'react-native-elements';
+
+import {applyThemeOnCheckboxStyle} from '../theme';
+import {theme} from '../../App';
+import PropTypes from 'prop-types';
+
+export default class CheckboxComponent extends Component {
+  constructor(props) {
+    super(props);
     this.state = {
       checked: false,
     };
   }
 
   componentDidMount() {
-    const {componentData} = this.props;
-    const properties = componentData.properties;
+    // Applying theme on button style
     this.setState({
-      checked: properties.value,
+      checked: this.props.checked,
     });
   }
   render() {
-    // console.error(this.props, this.state);
-    const {componentData} = this.props;
-    const properties = componentData.properties;
-    console.log(this.props);
-    return (
-      <View style={styles.container}>
-        <View>
-          <CheckBox
-            value={this.state.checked}
-            onChange={() => this.setState({checked: !this.state.checked})}
-            disabled={properties.disabled}
-            style={styles.checkbox}
-          />
+    let props = this.props;
+    console.log('oldProps', props);
 
-          <Text>{properties.title}</Text>
-        </View>
-        <View></View>
+    props = theme ? applyThemeOnCheckboxStyle(props, theme) : props;
+
+    // console.log(props);
+    return (
+      <View>
+        <CheckBox
+          checked={this.state.checked}
+          title={props.title}
+          onPress={() => this.setState({checked: !this.state.checked})}
+          containerStyle={props.containerStyle}
+          textStyle={props.titleStyle}
+          disabled={props.disabled}
+          uncheckedColor={props.checkboxStyle.color}
+          checkedColor={props.checkboxStyle.color}
+          iconRight={props.checkboxStyle.iconRight}
+        />
       </View>
     );
   }
 }
-const styles = StyleSheet.create({
-  container: {
-    padding: 20,
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
+
+CheckboxComponent.propTypes = {
+  title: PropTypes.string,
+  disabled: PropTypes.bool,
+  containerStyle: PropTypes.shape({
+    backgroundColor: PropTypes.string,
+    left: PropTypes.number,
+    right: PropTypes.number,
+    width: PropTypes.string,
+    borderColor: PropTypes.string,
+    borderWidth: PropTypes.number,
+    borderRadius: PropTypes.number,
+  }),
+  checkboxStyle: PropTypes.shape({
+    uncheckedColor: PropTypes.string,
+    checkedColor: PropTypes.string,
+  }),
+};
+
+// Defaultprops is to set the default props for the class.
+CheckboxComponent.defaultProps = {
+  title: 'Checkbox',
+  disabled: false,
+  iconRight: false,
+  checkboxStyle: {
+    checkedColor: 'black',
+    uncheckedColor: 'black',
   },
-  checkboxContainer: {
-    flexDirection: 'row',
-    // marginBottom: 100,
+  titleStyle: {
+    color: 'blue',
+    fontFamily: 'arial',
+    fontSize: 18,
   },
-  checkbox: {
-    alignSelf: 'center',
-    height: 20,
-    width: 20,
+  containerStyle: {
+    borderWidth: 3,
+    borderRadius: 20,
+    backgroundColor: 'white',
+    borderColor: 'black',
   },
-  label: {
-    margin: 8,
-  },
-});
+};
