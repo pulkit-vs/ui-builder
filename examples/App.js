@@ -7,12 +7,12 @@
  */
 
 // TODO: will use Uibuilder from npm package later.
-// import UiBuilder from 'react-native-ui-builder';
+//import UiBuilder from 'react-native-ui-builder';
 import React from 'react';
 import UiBuilder from './src/index';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {View, StyleSheet, Text} from 'react-native';
-
+import {CheckBox, Icon} from 'react-native-elements';
 const onButtonClick = () => {
   alert('Button Pressed');
 };
@@ -20,39 +20,22 @@ const onButtonClick = () => {
 // Global variable to get theme type in other files.
 export let theme;
 const source = {
-  theme: 'darkTheme',
+  theme: '',
   data: [
-    {
-      label: 'name',
-      selectionColor: 'blue',
-      style: {borderColor: 'grey', borderWidth: 1},
-      type: 'input',
-    },
     {
       type: 'checkbox',
       properties: {
-        value: true,
-        title: 'Enter ',
-        disabled: true,
-      },
-    },
-    {
-      type: 'button',
-      properties: {
-        onPress: onButtonClick,
-        title: 'Custom Button1',
+        checked: true,
+
         disabled: false,
-        style: {left: 150, width: 200},
-      },
-    },
-    {
-      type: 'button',
-      properties: {
-        onPress: onButtonClick,
-        title: 'Custom Button2',
+        title: 'Enter title here using props ',
         disabled: false,
-        showCircle: true,
-        style: {left: 10},
+        checkboxStyle: {
+          color: 'red',
+          iconRight: false,
+        },
+
+        titleStyle: {color: 'black', fontFamily: 'arial'},
       },
     },
   ],
@@ -61,6 +44,9 @@ const source = {
 export default class App extends React.Component {
   constructor() {
     super();
+    this.state = {
+      checked: true,
+    };
   }
 
   render() {

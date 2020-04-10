@@ -27,7 +27,7 @@ export default class UiBuilder extends React.Component {
       case 'button':
         return <ButtonComponent componentData={component} />;
       case 'checkbox':
-        return <Checkbox componentData={component} />;
+        return <Checkbox {...component.properties} />;
     }
   }
 
