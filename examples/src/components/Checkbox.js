@@ -22,11 +22,9 @@ export default class CheckboxComponent extends Component {
   }
   render() {
     let props = this.props;
-    console.log('oldProps', props);
 
     props = theme ? applyThemeOnCheckboxStyle(props, theme) : props;
 
-    // console.log(props);
     return (
       <View>
         <CheckBox

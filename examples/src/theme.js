@@ -143,7 +143,6 @@ export const applyThemeOnCheckboxStyle = (styleWithouthTheme, theme) => {
   let containerStyle = changeStyleContainer(newProps.containerStyle, style);
   let checkboxStyle = changeStyleContainer(newProps.checkboxStyle, style);
   let titleStyle = changeStyleContainer(newProps.titleStyle, style);
-  console.log('----------------', containerStyle);
   newProps.containerStyle = containerStyle;
   newProps.checkboxStyle = checkboxStyle;
   newProps.titleStyle = titleStyle;
