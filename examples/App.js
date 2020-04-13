@@ -12,6 +12,8 @@ import React from 'react';
 import UiBuilder from './src/index';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {View, StyleSheet, Text} from 'react-native';
+// import Icon from 'react-native-ionicons';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const onButtonClick = () => {
   alert('Button Pressed');
@@ -27,16 +29,32 @@ const source = {
       properties: {
         containerStyle: {
           backgroundColor: 'pink',
-          color: 'black',
-          borderLeftWidth: 2,
-          borderLeftColor: 'red',
+          borderWidth: 5,
+          borderColor: 'gray',
+
+          borderBottomWidth: 5,
+          borderBottomColor: 'gray',
+
+          height: 70,
         },
-        leftComponent: {icon: 'menu', color: 'white'},
-        centerComponent: {text: 'MY TITLE', style: {color: 'white'}},
-        rightComponent: {icon: 'home', color: 'white'},
-        // placement: 'right',
+        leftComponent: {
+          name: 'logo-facebook',
+          type: 'ionicon',
+          color: 'lightblue',
+          size: 40,
+        },
+        centerComponent: {text: 'MY Account', style: {color: 'blue'}},
+
+        rightComponent: {
+          name: 'ios-person',
+          type: 'ionicon',
+          color: 'lightblue',
+          size: 40,
+        },
+        placement: 'center',
       },
     },
+
     {
       label: 'name',
       selectionColor: 'blue',
@@ -79,6 +97,11 @@ export default class App extends React.Component {
             <Text> React Native Building Blocks </Text>
           </View>
         </View>
+        {/* <Text>
+          <Icon name="rocket" size={'{30}'} color="#900" />
+        </Text> */}
+
+        {/* <Icon name="rocket" size={30} color="#900" /> */}
         <View style={styles.sectionContainer}>
           <UiBuilder source={source.data} />
         </View>

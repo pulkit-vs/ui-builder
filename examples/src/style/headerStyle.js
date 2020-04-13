@@ -46,6 +46,7 @@ export const createHeaderStyle = (props) => {
         : 10,
     },
 
+    placement: placement ? placement : 'center',
     // leftContainerStyle: leftContainerStyle ? {
     //     color:leftContainerStyle.color ? leftContainerStyle.color : 'black'
     // }

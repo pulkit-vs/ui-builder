@@ -27,7 +27,7 @@ export default class UiBuilder extends React.Component {
       case 'button':
         return <ButtonComponent componentData={component} />;
       case 'header':
-        return <HeaderComponent componentData={component} />;
+        return <HeaderComponent {...component.properties} />;
     }
   }
 
