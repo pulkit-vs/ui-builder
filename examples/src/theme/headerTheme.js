@@ -2,7 +2,6 @@ import {getThemeStyle} from '../utility/utils';
 
 export const applyThemeOnHeaderStyle = (headerStyles, theme) => {
   const style = getThemeStyle(theme);
-  console.log(headerStyles);
   let customizeHeaderStyle = {
     ...headerStyles,
     containerStyle: {
@@ -10,7 +9,6 @@ export const applyThemeOnHeaderStyle = (headerStyles, theme) => {
       backgroundColor: style.backgroundColor
         ? style.backgroundColor
         : headerStyles.backgroundColor,
-
       borderWidth: style.borderWidth
         ? style.borderWidth
         : headerStyles.containerStyle.borderWidth,

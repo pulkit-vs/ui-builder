@@ -6,22 +6,30 @@ import {theme} from '../../App';
 import PropTypes from 'prop-types';
 
 export default class HeaderComponent extends React.Component {
-  state = {
-    props: {},
-  };
-  componentWillMount() {
-    this.state.props = {...this.props};
-    // Applying theme on header style
-    this.state.props = theme
+  constructor(props) {
+    super(props);
+    this.state = {
+      props: {},
+    };
+  }
+
+  componentDidMount() {
+    // Applying theme on button style
+
+    this.setState({
+      props: this.props,
+    });
+  }
+
+  render() {
+    let style = theme
       ? applyThemeOnHeaderStyle(this.state.props, theme)
       : this.state.props;
-  }
-  render() {
-    let style = this.props;
+
     return (
       <View>
         <Header
-          containerStyle={this.state.props.containerStyle}
+          containerStyle={style.containerStyle}
           placement={style.placement}
           leftComponent={
             <Icon
@@ -31,7 +39,7 @@ export default class HeaderComponent extends React.Component {
               color={style.leftComponent.color}
             />
           }
-          centerComponent={this.state.props.centerComponent}
+          centerComponent={style.centerComponent}
           rightComponent={
             <Icon
               name={style.rightComponent.name}
@@ -40,9 +48,9 @@ export default class HeaderComponent extends React.Component {
               color={style.rightComponent.color}
             />
           }
-          leftContainerStyle={this.props.leftContainerStyle}
-          centerContainerStyle={this.props.centerContainerStyle}
-          rightContainerStyle={this.props.rightContainerStyle}
+          leftContainerStyle={style.leftContainerStyle}
+          centerContainerStyle={style.centerContainerStyle}
+          rightContainerStyle={style.rightContainerStyle}
         />
       </View>
     );
