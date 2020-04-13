@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {View, StyleSheet, Text} from 'react-native';
 import {CheckBox, Icon, colors} from 'react-native-elements';
 
-import {applyThemeOnCheckboxStyle} from '../theme';
+import {applyThemeOnCheckboxStyle} from '../theme/checkboxTheme';
 import {theme} from '../../App';
 import PropTypes from 'prop-types';
 
