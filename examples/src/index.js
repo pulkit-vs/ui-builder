@@ -19,13 +19,34 @@ export default class UiBuilder extends React.Component {
     this.selectComponent = this.selectComponent.bind(this);
   }
 
-  selectComponent(component, theme) {
+  selectComponent(component) {
     const type = get(component, 'type', '');
     switch (type) {
       case 'input':
-        return <Input componentData={component} />;
+        return <Input {...component.properties} />;
       case 'button':
-        return <ButtonComponent componentData={component} />;
+        return <ButtonComponent {...component.properties} />;
+      case 'view':
+        return (
+          <View>
+            {/* TODO: will add header in a seperate class later */}
+            <Header
+              backgroundColor="white"
+              containerStyle={{borderBottomColor: 'grey', borderBottomWidth: 1}}
+              fontSize={30}
+              width={'10%'}
+              placement="left"
+              leftComponent={{
+                text: 'Create an account to checkout',
+                style: {color: 'black', fontSize: 20},
+              }}
+              // rightComponent={{ icon: 'cross', color: 'black' }}
+            />
+            {component.childrens.map((componentData) => {
+              return this.selectComponent(componentData);
+            })}
+          </View>
+        );
       case 'checkbox':
         return <Checkbox {...component.properties} />;
     }

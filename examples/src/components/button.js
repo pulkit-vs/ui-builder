@@ -6,41 +6,91 @@
  * @flow strict-local
  */
 
+import PropTypes from 'prop-types';
 import React from 'react';
 import {Button} from 'react-native-elements';
 import {View} from 'react-native';
-import {applyThemeOnButtonStyle} from '../theme';
-import {createButtonStyle} from '../style/buttonStyle';
+import {applyThemeOnButtonStyle} from '../buttonTheme';
 import {theme} from '../../App';
+import {shapeStyles} from '../style/buttonStyle';
 
 export default class ButtonComponent extends React.Component {
-  render() {
-    const {componentData} = this.props;
-    const properties = componentData.properties;
+  state = {
+    props: {},
+  };
 
-    // Update pre-defined style as per given props.
-    let style = createButtonStyle(properties);
+  componentWillMount() {
+    // Customize button style
+    this.state.props = {...this.props};
+    const shapeStyle = this.props.showCircle
+      ? {...shapeStyles.circleShapeView}
+      : this.props.ShowSquare
+      ? {...shapeStyles.squareShapeView}
+      : this.props.showRectangle
+      ? {...shapeStyles.rectangleShapeView}
+      : this.props.showTriangle
+      ? {...shapeStyles.triangleShapeView}
+      : null;
+
+    this.state.props.buttonStyle = shapeStyle
+      ? {...this.state.props.buttonStyle, ...shapeStyle}
+      : this.state.props.buttonStyle;
 
     // Applying theme on button style
-    style = theme ? applyThemeOnButtonStyle(style, theme) : style;
-    const textstyle = {
-      color: 'black',
-    };
+    this.state.props = theme
+      ? applyThemeOnButtonStyle(theme, this.state.props)
+      : this.state.props;
+  }
+
+  render() {
+    const props = this.props;
+    // alert(`button: ${JSON.stringify(this.state.props)}`)
     return (
       <View>
-        {/* ThemeProvider is to provide a theme for a component. */}
-        {/* <ThemeProvider theme={{ Button: createStyle(theme) }}> */}
         <Button
-          title={properties.title}
-          onPress={() => properties.onPress()}
-          disabled={properties.disabled}
-          buttonStyle={style.buttonStyle}
-          titleStyle={textstyle.color}
-          type={properties.type ? properties.type : 'outline'}
-          {...(properties.loading ? loading : null)}
+          title={props.title}
+          onPress={props.onPress()}
+          disabled={props.disabled}
+          buttonStyle={this.state.props.buttonStyle}
+          titleStyle={this.state.props.titleStyle}
+          type={props.buttonType}
+          loading={props.loading}
         />
-        {/* </ThemeProvider> */}
       </View>
     );
   }
 }
+
+// To run typechecking on the props for a component, for validating a props
+ButtonComponent.propTypes = {
+  title: PropTypes.string,
+  onPress: PropTypes.func,
+  disabled: PropTypes.bool,
+  buttonStyle: PropTypes.shape({
+    backgroundColor: PropTypes.string,
+    left: PropTypes.number,
+    right: PropTypes.number,
+    width: PropTypes.string,
+    borderColor: PropTypes.string,
+    borderWidth: PropTypes.number,
+    marginTop: PropTypes.number,
+  }),
+};
+
+// Defaultprops is to set the default props for the class.
+ButtonComponent.defaultProps = {
+  title: 'Button',
+  onPress: () => console.log('Please attach a method to this component'),
+  disabled: false,
+  buttonStyle: {
+    backgroundColor: 'yellow',
+    borderColor: 'yellow',
+  },
+  titleStyle: {
+    color: 'blue',
+    fontFamily: 'arial',
+    fontSize: 40,
+  },
+  type: 'solid',
+  loading: false,
+};

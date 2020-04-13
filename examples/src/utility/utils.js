@@ -14,13 +14,14 @@ const lightTheme = {
     color: 'black',
     backgroundColor: 'white',
     fontFamily: 'arial',
-    fontSize: 10,
-    placeholderTextColor: 'green'
+    placeholderTextColor: 'black',
+    borderColor: 'black'
 }
 
 const darkTheme = {
     color: 'white',
     backgroundColor: 'black',
     fontFamily: 'arial',
-    fontSize: 12
+    placeholderTextColor: 'white',
+    borderColor: 'white'
 }

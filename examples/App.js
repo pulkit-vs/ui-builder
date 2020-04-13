@@ -24,6 +24,44 @@ const source = {
   data: [
     {
       type: 'checkbox',
+    },
+    {
+      type: 'view',
+      style: {},
+      childrens: [
+        {
+          type: 'input',
+          properties: {
+            label: 'Mobile Number (10 digits)',
+            placeholderTextColor: 'grey',
+            style: {
+              backgroundColor: 'white',
+              borderColor: 'grey',
+              borderWidth: 2,
+              width: '90%',
+              left: 20,
+              marginTop: 40,
+            },
+          },
+        },
+        {
+          type: 'button',
+          properties: {
+            title: 'FACEBOOK',
+            titleStyle: {color: 'blue', fontSize: 20},
+            buttonStyle: {
+              backgroundColor: 'white',
+              width: '90%',
+              left: 20,
+              borderWidth: 3,
+              marginTop: 20,
+            },
+          },
+        },
+      ],
+    },
+    {
+      type: 'button',
       properties: {
         checked: true,
 
@@ -36,6 +74,8 @@ const source = {
         },
 
         titleStyle: {color: 'black', fontFamily: 'arial'},
+        buttonStyle: {backgroundColor: 'pink'},
+        titleStyle: {color: 'blue', fontSize: 40},
       },
     },
   ],
@@ -58,32 +98,10 @@ export default class App extends React.Component {
             <Text> React Native Building Blocks </Text>
           </View>
         </View>
-        <View style={styles.sectionContainer}>
+        <View>
           <UiBuilder source={source.data} />
         </View>
       </>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter,
-  },
-  engine: {
-    position: 'absolute',
-    right: 0,
-  },
-  body: {
-    backgroundColor: Colors.white,
-  },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
-  },
-});
