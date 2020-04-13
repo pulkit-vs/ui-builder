@@ -6,7 +6,6 @@
  * @flow strict-local
  */
 
-// import { get } from 'lodash';
 import React from 'react';
 import { View, TextInput } from 'react-native';
 import { applyThemeOnTextInputStyle } from "../theme";

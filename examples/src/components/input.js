@@ -9,7 +9,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { View, TextInput } from 'react-native';
-import { applyThemeOnTextInputStyle } from "../theme";
+import { applyThemeOnTextInputStyle } from "../theme/textInputTheme";
 import { theme } from "../../App";
 
 export default class Input extends React.Component {

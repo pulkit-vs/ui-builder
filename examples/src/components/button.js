@@ -10,42 +10,40 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { Button } from 'react-native-elements';
 import { View } from 'react-native';
-import { applyThemeOnButtonStyle } from "../buttonTheme";
+import { applyThemeOnButtonStyle } from "../theme/buttonTheme";
+import { shapeStyles } from "../style/buttonStyle";
 import { theme } from "../../App";
-import {shapeStyles} from "../style/buttonStyle";
 
 export default class ButtonComponent extends React.Component {
-    state = {
-        props: {}
-    }
 
     componentWillMount() {
 
         // Customize button style
-        this.state.props = { ...this.props };
         const shapeStyle = this.props.showCircle ? { ...shapeStyles.circleShapeView } :
             this.props.ShowSquare ? { ...shapeStyles.squareShapeView } :
                 this.props.showRectangle ? { ...shapeStyles.rectangleShapeView } :
                     this.props.showTriangle ? { ...shapeStyles.triangleShapeView } : null;
 
 
-        this.state.props.buttonStyle = shapeStyle ? { ...this.state.props.buttonStyle, ...shapeStyle } : this.state.props.buttonStyle
-
+        if (shapeStyle) {
+            this.props.buttonStyle = { ...this.props.buttonStyle, ...shapeStyle }
+        }
         // Applying theme on button style
-        this.state.props = theme ? applyThemeOnButtonStyle(theme, this.state.props) : this.state.props
+        if (theme) {
+            this.props = applyThemeOnButtonStyle(theme, this.props)
+        }
     }
 
     render() {
         const props = this.props;
-        // alert(`button: ${JSON.stringify(this.state.props)}`)
         return (
             <View>
                 <Button
                     title={props.title}
                     onPress={props.onPress()}
                     disabled={props.disabled}
-                    buttonStyle={this.state.props.buttonStyle}
-                    titleStyle={this.state.props.titleStyle}
+                    buttonStyle={props.buttonStyle}
+                    titleStyle={props.titleStyle}
                     type={props.buttonType}
                     loading={props.loading}
                 />
@@ -66,7 +64,7 @@ ButtonComponent.propTypes = {
         right: PropTypes.number,
         width: PropTypes.string,
         borderColor: PropTypes.string,
-        borderWidth : PropTypes.number,
+        borderWidth: PropTypes.number,
         marginTop: PropTypes.number
     })
 }

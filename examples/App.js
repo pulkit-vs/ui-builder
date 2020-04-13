@@ -8,8 +8,9 @@
 
 // TODO: will use Uibuilder from npm package later.
 // import UiBuilder from 'react-native-ui-builder';
+
 import React from 'react';
-import UiBuilder from "./src/index";
+import UiBuilder from './src/index';
 import { View } from 'react-native';
 
 const onButtonClick = () => {
@@ -20,7 +21,7 @@ const onButtonClick = () => {
 export let theme;
 const source = {
 
-  theme: 'lightTheme',
+  theme: 'darkTheme',
   data: [
     {
       type: 'view',
@@ -52,7 +53,7 @@ const source = {
         disabled: false,
         buttonStyle: { backgroundColor: 'pink' },
         titleStyle: { color: 'blue', fontSize: 40 }
-      },
+      }
     }
   ]
 };
