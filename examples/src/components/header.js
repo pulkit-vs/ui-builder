@@ -1,7 +1,7 @@
 import React from 'react';
 import {View} from 'react-native';
 import {Header, Icon} from 'react-native-elements';
-import {applyThemeOnHeaderStyle} from '../theme';
+import {applyThemeOnHeaderStyle} from '../theme/headerTheme';
 import {theme} from '../../App';
 import PropTypes from 'prop-types';
 

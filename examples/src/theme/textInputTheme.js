@@ -1,11 +1,13 @@
-import { getThemeStyle } from "./utility/utils";
+import { getThemeStyle } from "../utility/utils";
 
 export const applyThemeOnTextInputStyle = (theme, textInputStyles) => {
 
     const style = getThemeStyle(theme);
+    // alert(`textInputStyles: ${JSON.stringify(textInputStyles)}`)
+
     const customizeTextInputStyle = {
 
-        placeholder: style.placeholder ? style.placeholder : textInputStyles.placeholder,
+        placeholder: textInputStyles.label,
         selectionColor: style.selectionColor ? style.selectionColor : textInputStyles.selectionColor,
         placeholderTextColor: style.placeholderTextColor ? style.placeholderTextColor : textInputStyles.placeholderTextColor,
         style: {

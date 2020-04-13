@@ -5,7 +5,6 @@
  * @format
  * @flow strict-local
  */
-
 import ButtonComponent from './components/button';
 import Input from './components/input';
 import HeaderComponent from './components/header';
@@ -23,9 +22,9 @@ export default class UiBuilder extends React.Component {
     const type = get(component, 'type', '');
     switch (type) {
       case 'input':
-        return <Input componentData={component} />;
+        return <Input {...component.properties} />;
       case 'button':
-        return <ButtonComponent componentData={component} />;
+        return <ButtonComponent {...component.properties} />;
       case 'header':
         return <HeaderComponent {...component.properties} />;
     }
