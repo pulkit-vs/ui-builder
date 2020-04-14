@@ -3,8 +3,6 @@ import { getThemeStyle } from "../utility/utils";
 export const applyThemeOnTextInputStyle = (theme, textInputStyles) => {
 
     const style = getThemeStyle(theme);
-    // alert(`textInputStyles: ${JSON.stringify(textInputStyles)}`)
-
     const customizeTextInputStyle = {
 
         placeholder: textInputStyles.label,

@@ -6,7 +6,6 @@
  * @flow strict-local
  */
 
-
 import ButtonComponent from "./components/button";
 import Input from "./components/input";
 import React from "react";
@@ -19,7 +18,7 @@ export default class UiBuilder extends React.Component {
     this.selectComponent = this.selectComponent.bind(this);
   }
 
-  selectComponent(component, theme) {
+  selectComponent(component) {
     const type = get(component, "type", "");
     switch (type) {
       case "input":
