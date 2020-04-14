@@ -2,6 +2,7 @@ import {getThemeStyle} from '../utility/utils';
 
 export const applyThemeOnHeaderStyle = (headerStyles, theme) => {
   const style = getThemeStyle(theme);
+
   let customizeHeaderStyle = {
     ...headerStyles,
     containerStyle: {
@@ -9,20 +10,20 @@ export const applyThemeOnHeaderStyle = (headerStyles, theme) => {
       backgroundColor: style.backgroundColor
         ? style.backgroundColor
         : headerStyles.backgroundColor,
-      borderWidth: style.borderWidth
-        ? style.borderWidth
-        : headerStyles.containerStyle.borderWidth,
+      // borderWidth: style.borderWidth
+      //   ? style.borderWidth
+      //   : headerStyles.containerStyle.borderWidth,
 
-      borderColor: style.borderColor
-        ? style.borderColor
-        : headerStyles.containerStyle.borderColor,
+      //   borderColor: style.borderColor
+      //     ? style.borderColor
+      //     : headerStyles.containerStyle.borderColor,
 
-      marginTop: style.marginTop
-        ? style.marginTop
-        : headerStyles.containerStyle.marginTop,
+      //   marginTop: style.marginTop
+      //     ? style.marginTop
+      //     : headerStyles.containerStyle.marginTop,
 
-      width: style.width ? style.width : headerStyles.containerStyle.width,
-      height: style.height ? style.height : headerStyles.containerStyle.height,
+      //   width: style.width ? style.width : headerStyles.containerStyle.width,
+      //   height: style.height ? style.height : headerStyles.containerStyle.height,
     },
 
     centerComponent: {

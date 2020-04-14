@@ -26,6 +26,9 @@ export default class HeaderComponent extends React.Component {
       ? applyThemeOnHeaderStyle(this.state.props, theme)
       : this.state.props;
 
+    let leftComponent = {...style.leftComponent};
+    let rightComponent = {...style.rightComponent};
+
     return (
       <View>
         <Header
@@ -33,19 +36,19 @@ export default class HeaderComponent extends React.Component {
           placement={style.placement}
           leftComponent={
             <Icon
-              name={style.leftComponent.name}
-              type={style.leftComponent.type}
-              size={style.leftComponent.size}
-              color={style.leftComponent.color}
+              name={leftComponent.name}
+              type={leftComponent.type}
+              size={leftComponent.size}
+              color={leftComponent.color}
             />
           }
           centerComponent={style.centerComponent}
           rightComponent={
             <Icon
-              name={style.rightComponent.name}
-              type={style.rightComponent.type}
-              size={style.rightComponent.size}
-              color={style.rightComponent.color}
+              name={rightComponent.name}
+              type={rightComponent.type}
+              size={rightComponent.size}
+              color={rightComponent.color}
             />
           }
           leftContainerStyle={style.leftContainerStyle}
