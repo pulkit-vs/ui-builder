@@ -6,25 +6,15 @@ import {theme} from '../../App';
 import PropTypes from 'prop-types';
 
 export default class HeaderComponent extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      props: {},
-    };
-  }
 
   componentDidMount() {
     // Applying theme on button style
-
-    this.setState({
-      props: this.props,
-    });
   }
 
   render() {
     let style = theme
-      ? applyThemeOnHeaderStyle(this.state.props, theme)
-      : this.state.props;
+      ? applyThemeOnHeaderStyle(this.props, theme)
+      : this.props;
 
     let leftComponent = {...style.leftComponent};
     let rightComponent = {...style.rightComponent};
