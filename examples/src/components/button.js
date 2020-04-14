@@ -28,11 +28,6 @@ export default class ButtonComponent extends React.Component {
       ? {...shapeStyles.triangleShapeView}
       : null;
 
-    // Applying theme on button style
-    this.state.props = theme
-      ? applyThemeOnButtonStyle(theme, this.state.props)
-      : this.state.props;
-
     if (shapeStyle) {
       this.props.buttonStyle = {...this.props.buttonStyle, ...shapeStyle};
     }

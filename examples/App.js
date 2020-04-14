@@ -59,25 +59,6 @@ const source = {
       type: 'input',
     },
     {
-      type: 'button',
-      properties: {
-        onPress: onButtonClick,
-        title: 'Custom Button1',
-        disabled: false,
-        style: {left: 150, width: 200},
-      },
-    },
-    {
-      type: 'button',
-      properties: {
-        onPress: onButtonClick,
-        title: 'Custom Button2',
-        disabled: false,
-        showCircle: true,
-        style: {left: 10},
-      },
-    },
-    {
       type: 'view',
       style: {},
       childrens: [
