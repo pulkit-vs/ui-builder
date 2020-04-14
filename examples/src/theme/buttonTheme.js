@@ -1,4 +1,3 @@
-import { StyleSheet } from 'react-native';
 import { getThemeStyle } from "../utility/utils";
 
 export const applyThemeOnButtonStyle = (theme, customStyle) => {
@@ -7,7 +6,9 @@ export const applyThemeOnButtonStyle = (theme, customStyle) => {
     const buttonStyle = customStyle.buttonStyle;
     const titleStyle = customStyle.titleStyle;
 
-    const customizeButtonStyle = StyleSheet.create({
+    const customizeButtonStyle = {
+
+        ...customStyle,
 
         buttonStyle: {
             backgroundColor: style.backgroundColor ? style.backgroundColor : buttonStyle.backgroundColor,
@@ -37,6 +38,6 @@ export const applyThemeOnButtonStyle = (theme, customStyle) => {
             fontFamily: style.fontFamily ? style.fontFamily : titleStyle.fontFamily,
             fontSize: style.fontSize ? style.fontSize : titleStyle.fontSize
         }
-    })
+    }
     return customizeButtonStyle;
 }
