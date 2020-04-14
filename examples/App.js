@@ -20,64 +20,63 @@ const onButtonClick = () => {
 // Global variable to get theme type in other files.
 export let theme;
 const source = {
-  theme: '',
   data: [
     {
       type: 'checkbox',
     },
-    {
-      type: 'view',
-      style: {},
-      childrens: [
-        {
-          type: 'input',
-          properties: {
-            label: 'Mobile Number (10 digits)',
-            placeholderTextColor: 'grey',
-            style: {
-              backgroundColor: 'white',
-              borderColor: 'grey',
-              borderWidth: 2,
-              width: '90%',
-              left: 20,
-              marginTop: 40,
-            },
-          },
-        },
-        {
-          type: 'button',
-          properties: {
-            title: 'FACEBOOK',
-            titleStyle: {color: 'blue', fontSize: 20},
-            buttonStyle: {
-              backgroundColor: 'white',
-              width: '90%',
-              left: 20,
-              borderWidth: 3,
-              marginTop: 20,
-            },
-          },
-        },
-      ],
-    },
-    {
-      type: 'button',
-      properties: {
-        checked: true,
+    // {
+    //   type: 'view',
+    //   style: {},
+    //   childrens: [
+    //     {
+    //       type: 'input',
+    //       properties: {
+    //         label: 'Mobile Number (10 digits)',
+    //         placeholderTextColor: 'grey',
+    //         style: {
+    //           backgroundColor: 'white',
+    //           borderColor: 'grey',
+    //           borderWidth: 2,
+    //           width: '90%',
+    //           left: 20,
+    //           marginTop: 40,
+    //         },
+    //       },
+    //     },
+    //     {
+    //       type: 'button',
+    //       properties: {
+    //         title: 'FACEBOOK',
+    //         titleStyle: {color: 'blue', fontSize: 20},
+    //         buttonStyle: {
+    //           backgroundColor: 'white',
+    //           width: '90%',
+    //           left: 20,
+    //           borderWidth: 3,
+    //           marginTop: 20,
+    //         },
+    //       },
+    //     },
+    //   ],
+    // },
+    // {
+    //   type: 'button',
+    //   properties: {
+    //     checked: true,
 
-        disabled: false,
-        title: 'Enter title here using props ',
-        disabled: false,
-        checkboxStyle: {
-          color: 'red',
-          iconRight: false,
-        },
+    //     disabled: false,
+    //     title: 'Enter title here using props ',
+    //     disabled: false,
+    //     checkboxStyle: {
+    //       color: 'red',
+    //       iconRight: false,
+    //     },
 
-        titleStyle: {color: 'black', fontFamily: 'arial'},
-        buttonStyle: {backgroundColor: 'pink'},
-        titleStyle: {color: 'blue', fontSize: 40},
-      },
-    },
+    //     titleStyle: {color: 'black', fontFamily: 'arial'},
+    //     buttonStyle: {backgroundColor: 'pink'},
+    //     titleStyle: {color: 'blue', fontSize: 40},
+    //   },
+    // },
   ],
 };
 
@@ -94,7 +93,7 @@ export default class App extends React.Component {
     return (
       <>
         <View className="react-view" style={{width: 200}}>
-          <View style={styles.sectionContainer}>
+          <View>
             <Text> React Native Building Blocks </Text>
           </View>
         </View>
