@@ -28,8 +28,6 @@ const source = {
       properties: {
         containerStyle: {
           backgroundColor: 'pink',
-          borderWidth: 5,
-          borderColor: 'gray',
 
           borderBottomWidth: 5,
           borderBottomColor: 'gray',
