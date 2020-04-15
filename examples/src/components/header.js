@@ -1,13 +1,12 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Header, Icon } from 'react-native-elements';
-import { View } from 'react-native';
-import { applyThemeOnHeaderStyle } from '../theme/headerTheme';
-import { theme } from '../../App';
+import {Header, Icon} from 'react-native-elements';
+import {View} from 'react-native';
+import {applyThemeOnHeaderStyle} from '../theme/headerTheme';
+import {theme} from '../../App';
 
 export default class HeaderComponent extends React.Component {
   render() {
-
     let style = theme ? applyThemeOnHeaderStyle(this.props, theme) : this.props;
 
     return (
@@ -15,39 +14,18 @@ export default class HeaderComponent extends React.Component {
         <Header
           containerStyle={style.containerStyle}
           placement={style.placement}
-          leftComponent={
-            {
-              ...style.leftComponent,
-              ...style.leftComponent.icon && <Icon
-                name={style.leftComponent.icon.name}
-                type={style.leftComponent.icon.type}
-                size={style.leftComponent.icon.size}
-                color={style.leftComponent.icon.color}
-              />
-            }
-          }
-          centerComponent={
-            {
-              ...style.centerComponent,
-              ...style.centerComponent.icon && <Icon
-                name={style.centerComponent.icon.name}
-                type={style.centerComponent.icon.type}
-                size={style.centerComponent.icon.size}
-                color={style.centerComponent.icon.color}
-              />
-            }
-          }
-          rightComponent={
-            {
-              ...style.rightComponent,
-              ...style.rightComponent.icon && <Icon
-                name={style.rightComponent.icon.name}
-                type={style.rightComponent.icon.type}
-                size={style.rightComponent.icon.size}
-                color={style.rightComponent.icon.color}
-              />
-            }
-          }
+          leftComponent={{
+            ...style.leftComponent,
+            ...style.leftComponent.icon,
+          }}
+          centerComponent={{
+            ...style.centerComponent,
+            ...style.centerComponent.icon,
+          }}
+          rightComponent={{
+            ...style.rightComponent,
+            ...style.rightComponent.icon,
+          }}
           leftContainerStyle={style.leftContainerStyle}
           centerContainerStyle={style.centerContainerStyle}
           rightContainerStyle={style.rightContainerStyle}
@@ -59,16 +37,43 @@ export default class HeaderComponent extends React.Component {
 
 HeaderComponent.propTypes = {
   leftComponent: PropTypes.shape({
-    name: PropTypes.string,
-    type: PropTypes.string,
-    size: PropTypes.number,
-    color: PropTypes.string,
+    icon: PropTypes.shape({
+      icon: PropTypes.string,
+      type: PropTypes.string,
+      size: PropTypes.number,
+      color: PropTypes.string,
+    }),
+    text: PropTypes.string,
+    style: PropTypes.shape({
+      color: PropTypes.string,
+      fontSize: PropTypes.number,
+    }),
   }),
   rightComponent: PropTypes.shape({
-    name: PropTypes.string,
-    type: PropTypes.string,
-    size: PropTypes.number,
-    color: PropTypes.string,
+    icon: PropTypes.shape({
+      icon: PropTypes.string,
+      type: PropTypes.string,
+      size: PropTypes.number,
+      color: PropTypes.string,
+    }),
+    text: PropTypes.string,
+    style: PropTypes.shape({
+      color: PropTypes.string,
+      fontSize: PropTypes.number,
+    }),
+  }),
+  centerComponent: PropTypes.shape({
+    icon: PropTypes.shape({
+      icon: PropTypes.string,
+      type: PropTypes.string,
+      size: PropTypes.number,
+      color: PropTypes.string,
+    }),
+    text: PropTypes.string,
+    style: PropTypes.shape({
+      color: PropTypes.string,
+      fontSize: PropTypes.number,
+    }),
   }),
   placement: PropTypes.string,
   containerStyle: PropTypes.shape({
@@ -78,30 +83,17 @@ HeaderComponent.propTypes = {
     backgroundColor: PropTypes.string,
     borderWidth: PropTypes.number,
     borderColor: PropTypes.string,
+    borderBottomWidth: PropTypes.number,
+    borderBottomColor: PropTypes.string,
   }),
 };
 
 HeaderComponent.defaultProps = {
   placement: 'center',
 
-  leftComponent: {
-    name: 'ios-menu',
-    type: 'ionicon',
-    size: 40,
-    color: 'green',
-  },
-  centerComponent: {
-    // text: 'MY TITLE',
-    style: {
-      color: 'green',
-    },
-  },
-  rightComponent: {
-    // name: 'ios-home',
-    // type: 'ionicon',
-    // size: 40,
-    // color: 'green',
-  },
+  leftComponent: {style: {color: 'red'}},
+  centerComponent: {style: {color: 'red'}},
+  rightComponent: {style: {color: 'red'}},
   containerStyle: {
     backgroundColor: 'blue',
     justifyContent: 'space-around',

@@ -11,8 +11,8 @@
 
 import React from 'react';
 import UiBuilder from './src/index';
-import { Colors } from 'react-native/Libraries/NewAppScreen';
-import { View, StyleSheet, Text } from 'react-native';
+import {Colors} from 'react-native/Libraries/NewAppScreen';
+import {View, StyleSheet, Text} from 'react-native';
 
 const onButtonClick = () => {
   alert('Button Pressed');
@@ -21,43 +21,8 @@ const onButtonClick = () => {
 // Global variable to get theme type in other files.
 export let theme;
 const source = {
-  // theme: 'darkTheme',
+  theme: 'darkTheme',
   data: [
-    // {
-    //   type: 'header',
-    //   properties: {
-    //     containerStyle: {
-    //       backgroundColor: 'pink',
-
-    //       borderBottomWidth: 5,
-    //       borderBottomColor: 'gray',
-
-    //       height: 70,
-    //     },
-    // leftComponent: {
-    //   name: 'logo-facebook',
-    //   type: 'ionicon',
-    //   color: 'lightblue',
-    //   size: 40,
-    // },
-    //     centerComponent: {text: 'MY Account', style: {color: 'blue'}},
-
-    //     rightComponent: {
-    //       name: 'ios-person',
-    //       type: 'ionicon',
-    //       color: 'lightblue',
-    //       size: 40,
-    //     },
-    //     placement: 'center',
-    //   },
-    // },
-
-    // {
-    //   label: 'name',
-    //   selectionColor: 'blue',
-    //   style: {borderColor: 'grey', borderWidth: 1},
-    //   type: 'input',
-    // },
     {
       type: 'view',
       style: {},
@@ -65,24 +30,28 @@ const source = {
         {
           type: 'header',
           properties: {
-            containerStyle: { borderBottomColor: 'grey', borderBottomWidth: 1, backgroundColor: "white" },
-            placement: "left",
+            containerStyle: {
+              borderBottomColor: 'grey',
+              borderBottomWidth: 1,
+              backgroundColor: 'white',
+              height: 70,
+            },
+            placement: 'left',
             fontSize: 30,
             width: '10%',
             leftComponent: {
               // icon : {},
               text: 'Create an account to checkout',
-              style: { color: 'black', fontSize: 20 }
+              style: {color: 'black', fontSize: 18},
             },
             rightComponent: {
               icon: {
-                name: 'close-outline',
-                type: 'ionicon',
+                icon: 'close',
                 color: 'grey',
-                size: 40,
-              }
-            }
-          }
+                size: 30,
+              },
+            },
+          },
         },
         {
           type: 'input',
@@ -103,7 +72,7 @@ const source = {
           type: 'button',
           properties: {
             title: 'FACEBOOK',
-            titleStyle: { color: 'blue', fontSize: 20 },
+            titleStyle: {color: 'blue', fontSize: 20},
             buttonStyle: {
               backgroundColor: 'white',
               width: '90%',
@@ -115,16 +84,16 @@ const source = {
         },
       ],
     },
-    // {
-    //   type: 'button',
-    //   properties: {
-    //     onPress: onButtonClick,
-    //     title: 'Custom Button1',
-    //     disabled: false,
-    //     buttonStyle: {backgroundColor: 'pink'},
-    //     titleStyle: {color: 'blue', fontSize: 40},
-    //   },
-    // },
+    {
+      type: 'button',
+      properties: {
+        onPress: onButtonClick,
+        title: 'Custom Button1',
+        disabled: false,
+        buttonStyle: {backgroundColor: 'pink'},
+        titleStyle: {color: 'blue', fontSize: 40},
+      },
+    },
   ],
 };
 
@@ -144,4 +113,3 @@ export default class App extends React.Component {
     );
   }
 }
-
