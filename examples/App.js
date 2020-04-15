@@ -11,8 +11,8 @@
 
 import React from 'react';
 import UiBuilder from './src/index';
-import {Colors} from 'react-native/Libraries/NewAppScreen';
-import {View, StyleSheet, Text} from 'react-native';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
+import { View, StyleSheet, Text } from 'react-native';
 
 const onButtonClick = () => {
   alert('Button Pressed');
@@ -21,47 +21,62 @@ const onButtonClick = () => {
 // Global variable to get theme type in other files.
 export let theme;
 const source = {
-  theme: 'darkTheme',
+  // theme: 'darkTheme',
   data: [
-    {
-      type: 'header',
-      properties: {
-        containerStyle: {
-          backgroundColor: 'pink',
+    // {
+    //   type: 'header',
+    //   properties: {
+    //     containerStyle: {
+    //       backgroundColor: 'pink',
 
-          borderBottomWidth: 5,
-          borderBottomColor: 'gray',
+    //       borderBottomWidth: 5,
+    //       borderBottomColor: 'gray',
 
-          height: 70,
-        },
-        leftComponent: {
-          name: 'logo-facebook',
-          type: 'ionicon',
-          color: 'lightblue',
-          size: 40,
-        },
-        centerComponent: {text: 'MY Account', style: {color: 'blue'}},
+    //       height: 70,
+    //     },
+    // leftComponent: {
+    //   name: 'logo-facebook',
+    //   type: 'ionicon',
+    //   color: 'lightblue',
+    //   size: 40,
+    // },
+    //     centerComponent: {text: 'MY Account', style: {color: 'blue'}},
 
-        rightComponent: {
-          name: 'ios-person',
-          type: 'ionicon',
-          color: 'lightblue',
-          size: 40,
-        },
-        placement: 'center',
-      },
-    },
+    //     rightComponent: {
+    //       name: 'ios-person',
+    //       type: 'ionicon',
+    //       color: 'lightblue',
+    //       size: 40,
+    //     },
+    //     placement: 'center',
+    //   },
+    // },
 
-    {
-      label: 'name',
-      selectionColor: 'blue',
-      style: {borderColor: 'grey', borderWidth: 1},
-      type: 'input',
-    },
+    // {
+    //   label: 'name',
+    //   selectionColor: 'blue',
+    //   style: {borderColor: 'grey', borderWidth: 1},
+    //   type: 'input',
+    // },
     {
       type: 'view',
       style: {},
       childrens: [
+        {
+          type: 'header',
+          properties: {
+            containerStyle: { borderBottomColor: 'grey', borderBottomWidth: 1 },
+            placement: "left",
+            backgroundColor: "white",
+            fontSize: 30,
+            width: '10%',
+            leftComponent: {
+              // icon : {},
+              text: 'Create an account to checkout',
+              style: { color: 'black', fontSize: 20 }
+            }
+          }
+        },
         {
           type: 'input',
           properties: {
@@ -81,7 +96,7 @@ const source = {
           type: 'button',
           properties: {
             title: 'FACEBOOK',
-            titleStyle: {color: 'blue', fontSize: 20},
+            titleStyle: { color: 'blue', fontSize: 20 },
             buttonStyle: {
               backgroundColor: 'white',
               width: '90%',
@@ -93,16 +108,16 @@ const source = {
         },
       ],
     },
-    {
-      type: 'button',
-      properties: {
-        onPress: onButtonClick,
-        title: 'Custom Button1',
-        disabled: false,
-        buttonStyle: {backgroundColor: 'pink'},
-        titleStyle: {color: 'blue', fontSize: 40},
-      },
-    },
+    // {
+    //   type: 'button',
+    //   properties: {
+    //     onPress: onButtonClick,
+    //     title: 'Custom Button1',
+    //     disabled: false,
+    //     buttonStyle: {backgroundColor: 'pink'},
+    //     titleStyle: {color: 'blue', fontSize: 40},
+    //   },
+    // },
   ],
 };
 
@@ -115,12 +130,7 @@ export default class App extends React.Component {
     theme = source.theme;
     return (
       <>
-        <View className="react-view" style={{width: 200}}>
-          <View style={styles.sectionContainer}>
-            <Text> React Native Building Blocks </Text>
-          </View>
-        </View>
-        <View style={styles.sectionContainer}>
+        <View>
           <UiBuilder source={source.data} />
         </View>
       </>
@@ -128,24 +138,3 @@ export default class App extends React.Component {
   }
 }
 
-const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter,
-  },
-  engine: {
-    position: 'absolute',
-    right: 0,
-  },
-  body: {
-    backgroundColor: Colors.white,
-  },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
-  },
-});

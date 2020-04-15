@@ -1,12 +1,14 @@
-import React from 'react';
-import {View} from 'react-native';
-import {Header, Icon} from 'react-native-elements';
-import {applyThemeOnHeaderStyle} from '../theme/headerTheme';
-import {theme} from '../../App';
 import PropTypes from 'prop-types';
+import React from 'react';
+import { Header, Icon } from 'react-native-elements';
+import { View } from 'react-native';
+import { applyThemeOnHeaderStyle } from '../theme/headerTheme';
+import { theme } from '../../App';
 
 export default class HeaderComponent extends React.Component {
   render() {
+
+    alert(JSON.stringify(this.props.leftComponent))
     let style = theme ? applyThemeOnHeaderStyle(this.props, theme) : this.props;
 
     return (
@@ -15,16 +17,19 @@ export default class HeaderComponent extends React.Component {
           containerStyle={style.containerStyle}
           placement={style.placement}
           leftComponent={
-            <Icon
-              name={style.leftComponent.name}
-              type={style.leftComponent.type}
-              size={style.leftComponent.size}
-              color={style.leftComponent.color}
-            />
+            {
+              ...style.leftComponent,
+              ...style.leftComponent.icon && <Icon
+                name={style.leftComponent.name}
+                type={style.leftComponent.type}
+                size={style.leftComponent.size}
+                color={style.leftComponent.color}
+              />
+            }
           }
           centerComponent={style.centerComponent}
           rightComponent={
-            <Icon
+           <Icon
               name={style.rightComponent.name}
               type={style.rightComponent.type}
               size={style.rightComponent.size}
@@ -39,6 +44,7 @@ export default class HeaderComponent extends React.Component {
     );
   }
 }
+
 HeaderComponent.propTypes = {
   leftComponent: PropTypes.shape({
     name: PropTypes.string,
@@ -73,7 +79,7 @@ HeaderComponent.defaultProps = {
     color: 'green',
   },
   centerComponent: {
-    text: 'MY TITLE',
+    // text: 'MY TITLE',
     style: {
       color: 'green',
     },

@@ -4,6 +4,7 @@ export const applyThemeOnHeaderStyle = (headerStyles, theme) => {
   const style = getThemeStyle(theme);
 
   let customizeHeaderStyle = {
+    
     ...headerStyles,
     containerStyle: {
       ...headerStyles.containerStyle,

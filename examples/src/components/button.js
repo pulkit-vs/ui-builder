@@ -8,28 +8,29 @@
 
 import PropTypes from 'prop-types';
 import React from 'react';
-import {Button} from 'react-native-elements';
-import {View} from 'react-native';
-import {applyThemeOnButtonStyle} from '../theme/buttonTheme';
-import {shapeStyles} from '../style/buttonStyle';
-import {theme} from '../../App';
+import { Button } from 'react-native-elements';
+import { View } from 'react-native';
+import { applyThemeOnButtonStyle } from '../theme/buttonTheme';
+import { shapeStyles } from '../style/buttonStyle';
+import { theme } from '../../App';
 
 export default class ButtonComponent extends React.Component {
+
   componentWillMount() {
+
     // Customize button style
-    this.state.props = {...this.props};
     const shapeStyle = this.props.showCircle
-      ? {...shapeStyles.circleShapeView}
+      ? { ...shapeStyles.circleShapeView }
       : this.props.ShowSquare
-      ? {...shapeStyles.squareShapeView}
-      : this.props.showRectangle
-      ? {...shapeStyles.rectangleShapeView}
-      : this.props.showTriangle
-      ? {...shapeStyles.triangleShapeView}
-      : null;
+        ? { ...shapeStyles.squareShapeView }
+        : this.props.showRectangle
+          ? { ...shapeStyles.rectangleShapeView }
+          : this.props.showTriangle
+            ? { ...shapeStyles.triangleShapeView }
+            : null;
 
     if (shapeStyle) {
-      this.props.buttonStyle = {...this.props.buttonStyle, ...shapeStyle};
+      this.props.buttonStyle = { ...this.props.buttonStyle, ...shapeStyle };
     }
     // Applying theme on button style
     if (theme) {
