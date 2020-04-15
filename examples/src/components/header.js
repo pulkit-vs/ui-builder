@@ -8,7 +8,6 @@ import { theme } from '../../App';
 export default class HeaderComponent extends React.Component {
   render() {
 
-    alert(JSON.stringify(this.props.leftComponent))
     let style = theme ? applyThemeOnHeaderStyle(this.props, theme) : this.props;
 
     return (
@@ -20,21 +19,34 @@ export default class HeaderComponent extends React.Component {
             {
               ...style.leftComponent,
               ...style.leftComponent.icon && <Icon
-                name={style.leftComponent.name}
-                type={style.leftComponent.type}
-                size={style.leftComponent.size}
-                color={style.leftComponent.color}
+                name={style.leftComponent.icon.name}
+                type={style.leftComponent.icon.type}
+                size={style.leftComponent.icon.size}
+                color={style.leftComponent.icon.color}
               />
             }
           }
-          centerComponent={style.centerComponent}
+          centerComponent={
+            {
+              ...style.centerComponent,
+              ...style.centerComponent.icon && <Icon
+                name={style.centerComponent.icon.name}
+                type={style.centerComponent.icon.type}
+                size={style.centerComponent.icon.size}
+                color={style.centerComponent.icon.color}
+              />
+            }
+          }
           rightComponent={
-           <Icon
-              name={style.rightComponent.name}
-              type={style.rightComponent.type}
-              size={style.rightComponent.size}
-              color={style.rightComponent.color}
-            />
+            {
+              ...style.rightComponent,
+              ...style.rightComponent.icon && <Icon
+                name={style.rightComponent.icon.name}
+                type={style.rightComponent.icon.type}
+                size={style.rightComponent.icon.size}
+                color={style.rightComponent.icon.color}
+              />
+            }
           }
           leftContainerStyle={style.leftContainerStyle}
           centerContainerStyle={style.centerContainerStyle}
@@ -85,10 +97,10 @@ HeaderComponent.defaultProps = {
     },
   },
   rightComponent: {
-    name: 'ios-home',
-    type: 'ionicon',
-    size: 40,
-    color: 'green',
+    // name: 'ios-home',
+    // type: 'ionicon',
+    // size: 40,
+    // color: 'green',
   },
   containerStyle: {
     backgroundColor: 'blue',

@@ -65,15 +65,22 @@ const source = {
         {
           type: 'header',
           properties: {
-            containerStyle: { borderBottomColor: 'grey', borderBottomWidth: 1 },
+            containerStyle: { borderBottomColor: 'grey', borderBottomWidth: 1, backgroundColor: "white" },
             placement: "left",
-            backgroundColor: "white",
             fontSize: 30,
             width: '10%',
             leftComponent: {
               // icon : {},
               text: 'Create an account to checkout',
               style: { color: 'black', fontSize: 20 }
+            },
+            rightComponent: {
+              icon: {
+                name: 'close-outline',
+                type: 'ionicon',
+                color: 'grey',
+                size: 40,
+              }
             }
           }
         },
