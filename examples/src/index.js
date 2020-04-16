@@ -8,10 +8,11 @@
 
 import ButtonComponent from "./components/button";
 import Input from "./components/input";
+import ModalComponent from "./components/modal";
 import React from "react";
+import { Header } from "react-native-elements";
 import { View } from "react-native";
 import { get } from "lodash";
-import {Header} from "react-native-elements";
 
 export default class UiBuilder extends React.Component {
   constructor() {
@@ -24,20 +25,22 @@ export default class UiBuilder extends React.Component {
     switch (type) {
       case "input":
         return <Input {...component.properties} />;
+      case "modal":
+        return <ModalComponent {...component.properties} />;
       case "button":
         return <ButtonComponent {...component.properties} />;
       case "view":
         return (
           <View>
             {/* TODO: will add header in a seperate class later */}
-            <Header 
+            <Header
               backgroundColor="white"
-              containerStyle = {{borderBottomColor : 'grey', borderBottomWidth: 1}}
-              fontSize = {30}
-              width = {"10%"}
+              containerStyle={{ borderBottomColor: 'grey', borderBottomWidth: 1 }}
+              fontSize={30}
+              width={"10%"}
               placement="left"
-              leftComponent={{ text: 'Create an account to checkout', style: { color: 'black', fontSize: 20}}}
-              // rightComponent={{ icon: 'cross', color: 'black' }}
+              leftComponent={{ text: 'Create an account to checkout', style: { color: 'black', fontSize: 20 } }}
+            // rightComponent={{ icon: 'cross', color: 'black' }}
             />
             {component.childrens.map(componentData => {
               return this.selectComponent(componentData);
