@@ -1,24 +1,34 @@
-import React, {Component} from 'react';
-import {View, StyleSheet, Text} from 'react-native';
-import {Icon} from 'react-native-elements';
 import PropTypes from 'prop-types';
-import {theme} from '../../App';
+import React, {Component} from 'react';
+import {Icon} from 'react-native-elements';
+import {View, StyleSheet, Text} from 'react-native';
 import {applyThemeOnIconStyle} from '../theme/iconTheme';
+import {theme} from '../../App';
+
+// TODO :remove warnings laters
 export default class IconComponent extends Component {
+  constructor() {
+    super();
+  }
+
   render() {
-    //  console.log(this.props);
+    const style = {
+      marginRight: 40,
+      alignSelf: 'flex-end',
+      marginTop: 190,
+    };
     props = this.props;
     props = theme ? applyThemeOnIconStyle(props, theme) : props;
     return (
       <View>
         <Icon
-          name={'g-translate'}
+          name={props.name}
           size={props.size}
           type={props.iconType}
-          color={props.color}
           onPress={props.onPress}
-          containerStyle={props.containerStyle}
           iconStyle={props.iconStyle}
+          raised={props.raised}
+          containerStyle={props.containerStyle}
         />
       </View>
     );
@@ -35,14 +45,14 @@ IconComponent.propTypes = {
   }),
 };
 
-// Defaultprops is to set the default props for the class.
+//Defaultprops is to set the default props for the class.
 IconComponent.defaultProps = {
   disabled: false,
   size: 30,
   type: 'material',
-  raised: true,
   iconStyle: {
-    color: 'red',
+    color: 'white',
+    backgroundColor: 'black',
   },
   containerStyle: {
     padding: 0,

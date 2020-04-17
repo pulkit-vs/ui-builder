@@ -11,18 +11,38 @@
 
 import React from 'react';
 import UiBuilder from './src/index';
-import { View } from 'react-native';
+import {View} from 'react-native';
 
 const onButtonClick = () => {
   alert('Button Pressed');
+};
+const onIconClick = () => {
+  alert('Icon Pressed');
 };
 
 // Global variable to get theme type in other files.
 export let theme;
 const source = {
-
-  theme: 'darkTheme',
+  theme: 'lightTheme',
   data: [
+    {
+      type: 'icon',
+      properties: {
+        name: 'battery',
+        size: 30,
+        iconType: 'font-awesome',
+        disabled: false,
+        onPress: onIconClick,
+        raised: false,
+        iconStyle: {
+          color: 'blue',
+        },
+        containerStyle: {
+          alignSelf: 'flex-end',
+        },
+      },
+    },
+
     {
       type: 'view',
       style: {},
@@ -32,18 +52,31 @@ const source = {
           properties: {
             label: 'Mobile Number (10 digits)',
             placeholderTextColor: 'grey',
-            style: { backgroundColor: 'white', borderColor: 'grey', borderWidth: 2, width: "90%", left: 20, marginTop: 40 }
-          }
+            style: {
+              backgroundColor: 'white',
+              borderColor: 'grey',
+              borderWidth: 2,
+              width: '90%',
+              left: 20,
+              marginTop: 10,
+            },
+          },
         },
         {
           type: 'button',
           properties: {
             title: 'FACEBOOK',
-            titleStyle: { color: 'blue', fontSize: 20 },
-            buttonStyle: { backgroundColor: 'white', width: "90%", left: 20, borderWidth: 3, marginTop: 20 }
-          }
-        }
-      ]
+            titleStyle: {color: 'blue', fontSize: 20},
+            buttonStyle: {
+              backgroundColor: 'white',
+              width: '90%',
+              left: 20,
+              borderWidth: 3,
+              marginTop: 70,
+            },
+          },
+        },
+      ],
     },
     {
       type: 'button',
@@ -51,11 +84,11 @@ const source = {
         onPress: onButtonClick,
         title: 'Custom Button1',
         disabled: false,
-        buttonStyle: { backgroundColor: 'pink' },
-        titleStyle: { color: 'blue', fontSize: 40 }
-      }
-    }
-  ]
+        buttonStyle: {backgroundColor: 'pink'},
+        titleStyle: {color: 'blue', fontSize: 40},
+      },
+    },
+  ],
 };
 
 export default class App extends React.Component {
