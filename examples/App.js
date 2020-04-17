@@ -63,8 +63,6 @@ const source = {
                       containerStyle: {
                         width: 150,
                         height: 50,
-                        borderColor: 'black',
-                        borderWidth: 2,
                       },
                       inputStyle: {
                         height: 10,
@@ -111,6 +109,12 @@ const source = {
           type: 'button',
           properties: {
             title: 'FACEBOOK',
+            icon: {
+              name: 'facebook',
+              color: 'blue',
+              size: 20,
+              iconStyle: {marginRight: 10},
+            },
             titleStyle: {color: 'blue', fontSize: 20},
             buttonStyle: {
               backgroundColor: 'white',
@@ -122,16 +126,6 @@ const source = {
           },
         },
       ],
-    },
-    {
-      type: 'button',
-      properties: {
-        onPress: onButtonClick,
-        title: 'Custom Button1',
-        disabled: false,
-        buttonStyle: {backgroundColor: 'pink'},
-        titleStyle: {color: 'blue', fontSize: 40},
-      },
     },
   ],
 };
