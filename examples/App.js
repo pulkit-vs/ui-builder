@@ -11,8 +11,7 @@
 
 import React from 'react';
 import UiBuilder from './src/index';
-import {Colors} from 'react-native/Libraries/NewAppScreen';
-import {View, StyleSheet, Text} from 'react-native';
+import {View} from 'react-native';
 
 const onButtonClick = () => {
   alert('Button Pressed');
@@ -34,21 +33,61 @@ const source = {
               borderBottomColor: 'grey',
               borderBottomWidth: 1,
               backgroundColor: 'white',
-              height: 70,
+              height: 80,
             },
             placement: 'left',
             fontSize: 30,
             width: '10%',
             leftComponent: {
-              // icon : {},
-              text: 'Create an account to checkout',
-              style: {color: 'black', fontSize: 18},
-            },
-            rightComponent: {
               icon: {
-                icon: 'close',
+                icon: 'menu',
                 color: 'grey',
                 size: 30,
+              },
+            },
+            centerComponent: {
+              text: 'Welcome',
+              style: {color: 'black', fontSize: 15},
+            },
+            rightComponent: {
+              properties: {
+                type: 'view',
+                style: {
+                  flex: 1,
+                  flexDirection: 'row',
+                },
+                childrens: [
+                  {
+                    type: 'input',
+                    properties: {
+                      containerStyle: {
+                        width: 150,
+                        height: 50,
+                        borderColor: 'black',
+                        borderWidth: 2,
+                      },
+                      inputStyle: {
+                        height: 10,
+                        width: 200,
+                        color: 'white',
+                      },
+                      rightIcon: {
+                        name: 'search',
+                        color: 'lightblue',
+                        size: 40,
+                      },
+                      placeholder: 'search user',
+                    },
+                  },
+                  {
+                    type: 'icon',
+                    properties: {
+                      name: 'home',
+                      color: 'lightblue',
+                      size: 40,
+                    },
+                  },
+                ],
               },
             },
           },

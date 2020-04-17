@@ -9,8 +9,8 @@ import ButtonComponent from './components/button';
 import Input from './components/input';
 import HeaderComponent from './components/header';
 import React from 'react';
-import { View } from 'react-native';
-import { get } from 'lodash';
+import {View} from 'react-native';
+import {get} from 'lodash';
 
 export default class UiBuilder extends React.Component {
   constructor() {
@@ -30,19 +30,6 @@ export default class UiBuilder extends React.Component {
       case 'view':
         return (
           <View>
-            {/* TODO: will add header in a seperate class later */}
-            {/* <Header
-              backgroundColor="white"
-              containerStyle={{borderBottomColor: 'grey', borderBottomWidth: 1}}
-              fontSize={30}
-              width={'10%'}
-              placement="left"
-              leftComponent={{
-                text: 'Create an account to checkout',
-                style: {color: 'black', fontSize: 20},
-              }}
-              // rightComponent={{ icon: 'cross', color: 'black' }}
-            /> */}
             {component.childrens.map((componentData) => {
               return this.selectComponent(componentData);
             })}
@@ -52,7 +39,7 @@ export default class UiBuilder extends React.Component {
   }
 
   render() {
-    const { source } = this.props;
+    const {source} = this.props;
     return (
       <View>
         {source.map((component) => {
