@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import {Header, Icon} from 'react-native-elements';
-import {View} from 'react-native';
-import {applyThemeOnHeaderStyle} from '../theme/headerTheme';
-import {theme} from '../../App';
+import { Header } from 'react-native-elements';
+import { View } from 'react-native';
+import { applyThemeOnHeaderStyle } from '../theme/headerTheme';
+import { theme } from '../../App';
 
 export default class HeaderComponent extends React.Component {
   render() {
@@ -91,9 +91,9 @@ HeaderComponent.propTypes = {
 HeaderComponent.defaultProps = {
   placement: 'center',
 
-  leftComponent: {style: {color: 'red'}},
-  centerComponent: {style: {color: 'red'}},
-  rightComponent: {style: {color: 'red'}},
+  leftComponent: { style: { color: 'red' } },
+  centerComponent: { style: { color: 'red' } },
+  rightComponent: { style: { color: 'red' } },
   containerStyle: {
     backgroundColor: 'blue',
     justifyContent: 'space-around',

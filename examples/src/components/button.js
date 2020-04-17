@@ -13,6 +13,7 @@ import { View } from 'react-native';
 import { applyThemeOnButtonStyle } from '../theme/buttonTheme';
 import { shapeStyles } from '../style/buttonStyle';
 import { theme } from '../../App';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default class ButtonComponent extends React.Component {
 
@@ -50,6 +51,11 @@ export default class ButtonComponent extends React.Component {
           titleStyle={props.titleStyle}
           type={props.buttonType}
           loading={props.loading}
+          icon={
+            <Icon
+              {...props.icon}
+            />
+          }
         />
       </View>
     );

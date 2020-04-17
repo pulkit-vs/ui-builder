@@ -11,8 +11,8 @@
 
 import React from 'react';
 import UiBuilder from './src/index';
-import {Colors} from 'react-native/Libraries/NewAppScreen';
-import {View, StyleSheet, Text} from 'react-native';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
+import { View, StyleSheet, Text } from 'react-native';
 
 const onButtonClick = () => {
   alert('Button Pressed');
@@ -21,7 +21,7 @@ const onButtonClick = () => {
 // Global variable to get theme type in other files.
 export let theme;
 const source = {
-  theme: 'darkTheme',
+  // theme: 'darkTheme',
   data: [
     {
       type: 'view',
@@ -42,7 +42,7 @@ const source = {
             leftComponent: {
               // icon : {},
               text: 'Create an account to checkout',
-              style: {color: 'black', fontSize: 18},
+              style: { color: 'black', fontSize: 18 },
             },
             rightComponent: {
               icon: {
@@ -72,7 +72,13 @@ const source = {
           type: 'button',
           properties: {
             title: 'FACEBOOK',
-            titleStyle: {color: 'blue', fontSize: 20},
+            icon: {
+              name: 'facebook',
+              color: 'blue',
+              size: 20,
+              iconStyle: { marginRight: 10 }
+            },
+            titleStyle: { color: 'blue', fontSize: 20 },
             buttonStyle: {
               backgroundColor: 'white',
               width: '90%',
@@ -83,17 +89,7 @@ const source = {
           },
         },
       ],
-    },
-    {
-      type: 'button',
-      properties: {
-        onPress: onButtonClick,
-        title: 'Custom Button1',
-        disabled: false,
-        buttonStyle: {backgroundColor: 'pink'},
-        titleStyle: {color: 'blue', fontSize: 40},
-      },
-    },
+    }
   ],
 };
 
