@@ -12,7 +12,6 @@ export default class ImageComponent extends React.Component {
       <View>
         <Image
           style={styles.style}
-          blurRadius={styles.blurRadius}
           source={{
             uri: styles.uri,
           }}

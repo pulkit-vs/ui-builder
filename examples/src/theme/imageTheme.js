@@ -3,7 +3,7 @@ import {getThemeStyle} from '../utility/utils';
 export const applyThemeOnImageStyle = (imageStyles, theme) => {
   const style = getThemeStyle(theme);
 
-  let customizeImageStyle = {
+  const customizeImageStyle = {
     ...imageStyles,
     style: {
       ...imageStyles.style,
