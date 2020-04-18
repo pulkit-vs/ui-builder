@@ -6,12 +6,13 @@
  * @flow strict-local
  */
 
-import ButtonComponent from "./components/button";
-import Input from "./components/input";
-import React from "react";
-import { View } from "react-native";
-import { get } from "lodash";
-import {Header} from "react-native-elements";
+import ButtonComponent from './components/button';
+import Input from './components/input';
+import ImageComponent from './components/image';
+import React from 'react';
+import {View} from 'react-native';
+import {get} from 'lodash';
+import {Header} from 'react-native-elements';
 
 export default class UiBuilder extends React.Component {
   constructor() {
@@ -20,38 +21,43 @@ export default class UiBuilder extends React.Component {
   }
 
   selectComponent(component) {
-    const type = get(component, "type", "");
+    const type = get(component, 'type', '');
     switch (type) {
-      case "input":
+      case 'input':
         return <Input {...component.properties} />;
-      case "button":
+      case 'button':
         return <ButtonComponent {...component.properties} />;
-      case "view":
+      case 'view':
         return (
           <View>
             {/* TODO: will add header in a seperate class later */}
-            <Header 
+            <Header
               backgroundColor="white"
-              containerStyle = {{borderBottomColor : 'grey', borderBottomWidth: 1}}
-              fontSize = {30}
-              width = {"10%"}
+              containerStyle={{borderBottomColor: 'grey', borderBottomWidth: 1}}
+              fontSize={30}
+              width={'10%'}
               placement="left"
-              leftComponent={{ text: 'Create an account to checkout', style: { color: 'black', fontSize: 20}}}
+              leftComponent={{
+                text: 'Create an account to checkout',
+                style: {color: 'black', fontSize: 20},
+              }}
               // rightComponent={{ icon: 'cross', color: 'black' }}
             />
-            {component.childrens.map(componentData => {
+            {component.childrens.map((componentData) => {
               return this.selectComponent(componentData);
             })}
           </View>
-        )
+        );
+      case 'image':
+        return <ImageComponent {...component.properties} />;
     }
   }
 
   render() {
-    const { source } = this.props;
+    const {source} = this.props;
     return (
       <View>
-        {source.map(component => {
+        {source.map((component) => {
           return this.selectComponent(component);
         })}
       </View>
