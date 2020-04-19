@@ -12,59 +12,105 @@ import React from 'react';
 import { Button, Icon } from 'react-native-elements';
 import { StyleSheet } from 'react-native';
 import { View, Text, TextInput } from 'react-native';
+import { CLOSE_MODAL } from "../utility/utils";
 
 export default class ModalComponent extends React.Component {
 
     state = {
-        isModalVisible: true
+        isModalVisible: true,
+        value: ''
     };
 
     inVisibleModal() {
         this.setState({ isModalVisible: !this.state.isModalVisible });
     }
 
-    render() {
+    onChangeText(event) {
+        this.setState({ value: event });
+    }
 
+    getChildrenData(children) {
         return (
-            <Modal isVisible={this.state.isModalVisible}
-                backdropColor={"grey"}
-                style={{ marginBottom: 0, margin: 15 }}
-                onSwipeComplete={() => this.inVisibleModal()}
-                swipeDirection="left"
-                onBackdropPress={() => this.inVisibleModal()}
-                onBackButtonPress={() => this.inVisibleModal()}
-            >
-                <View style={{ flex: 1, position: 'absolute', width: "100%", backgroundColor: 'yellow' }}>
-                    <Text style={{ fontSize: 20, fontWeight: 'bold', textAlign: 'center', marginTop: 40 }} > Custom Modal </Text>
+            <View style = {{flex: 1}}>
 
-                    <Icon
-                        containerStyle={{ alignSelf: 'flex-end', right: 20, marginTop: 20, position: 'absolute' }}
-                        name={'close'}
-                        color={'red'}
-                        size={40}
-                        onPress={() => this.inVisibleModal()}
-                    />
-                    <TextInput
-                        // onChangeText={this.onChangeText}
-                        placeholder={'Email'}
-                        style={{ backgroundColor: 'white', borderColor: 'grey', borderWidth: 2, width: "60%", left: 70, marginTop: 40 }}
-                        value={''}
-                        placeholderTextColor={'grey'}
-                    />
+                {(() => {
+                    if (children.type === 'text') {
+                        return (<Text 
+                        style={children.properties.style}
+                        >
+                        {children.properties.title}
+                        </Text>
+                        )
+                    }
+                })()}
 
-                    <Button
-                        title={"Close Modal"}
-                        onPress={() => this.inVisibleModal()}
-                        buttonStyle={{ backgroundColor: 'white', width: "60%", left: 70, borderWidth: 3, marginTop: 40, marginBottom: 10 }}
-                        titleStyle={{ color: 'black' }}
-                    />
-                </View>
+                {(() => {
+                    if (children.type === 'icon') {
+                        return (<Icon
+                            containerStyle={children.properties.containerStyle}
+                            name={children.properties.name}
+                            color={children.properties.color}
+                            size={children.properties.size}
+                            onPress={children.properties.onPress === 'closeModal' ? () => this.inVisibleModal() : children.properties.onPress}
+                        />)
+                    }
+                })()}
 
-            </Modal>
+                {(() => {
+                    if (children.type === 'input') {
+                        return (<TextInput
+
+                            onChangeText={this.onChangeText}
+                            placeholder={children.properties.label}
+                            selectionColor={children.properties.style.selectionColor}
+                            style={children.properties.style}
+                            value={this.state.value}
+                            placeholderTextColor={children.properties.placeholderTextColor}
+                        />)
+                    }
+                })()}
+
+                {(() => {
+                    if (children.type === 'button') {
+                        return (<Button
+                            title={children.properties.title}
+                            onPress={() => this.inVisibleModal()}
+                            disabled={children.properties.disabled}
+                            buttonStyle={children.properties.buttonStyle}
+                            titleStyle={children.properties.titleStyle}
+                            type={children.properties.buttonType}
+                            loading={children.properties.loading}
+                        />)
+                    }
+                })()}
+            </View>
         );
     }
-}
 
+    render() {
+
+        const closeModal = this.props.properties.closeModal;
+        // const properties = theme ? applyThemeOnModal(theme, component.properties) : component.properties;
+
+        return (
+            <Modal
+                isVisible={this.state.isModalVisible}
+                {...this.props.properties}
+                style={this.props.properties.style}
+                backdropColor={this.props.properties.backdropColor}
+                onBackdropPress={closeModal.includes(CLOSE_MODAL.onBackdropPress) ? () => this.inVisibleModal() : null}
+                onBackButtonPress={closeModal.includes(CLOSE_MODAL.onBackButtonPress) ? () => this.inVisibleModal() : null}
+                onSwipeComplete={closeModal.includes(CLOSE_MODAL.onSwipeComplete) ? () => this.inVisibleModal() : null}
+                swipeDirection={closeModal.includes(CLOSE_MODAL.onSwipeComplete) ? this.props.properties.swipeDirection : null}
+            >
+
+                {this.props.childrens.map(children => {
+                    return this.getChildrenData(children)
+                })}
+            </Modal>
+        )
+    }
+}
 
 // To run typechecking on the props for a component, for validating a props
 ModalComponent.propTypes = {

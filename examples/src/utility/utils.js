@@ -25,3 +25,9 @@ const darkTheme = {
     placeholderTextColor: 'white',
     borderColor: 'white'
 }
+
+export const CLOSE_MODAL = {
+    onBackdropPress: 'onBackdropPress',
+    onBackButtonPress: 'onBackButtonPress',
+    onSwipeComplete: 'onSwipeComplete'
+}

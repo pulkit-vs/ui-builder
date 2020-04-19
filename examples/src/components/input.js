@@ -37,6 +37,7 @@ export default class Input extends React.Component {
     this.state.props = theme ? applyThemeOnTextInputStyle(theme, this.state.props) : this.state.props
   }
 
+  // Will provide support for icon in text input using react-native-elements library.
   render() {
 
     const props = this.state.props;
