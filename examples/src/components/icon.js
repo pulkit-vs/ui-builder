@@ -2,9 +2,8 @@ import PropTypes from 'prop-types';
 import React, {Component} from 'react';
 import {Icon} from 'react-native-elements';
 import {View, StyleSheet, Text} from 'react-native';
-import {applyThemeOnIconStyle} from '../theme/iconTheme';
 import {theme} from '../../App';
-
+import {applyTheme} from '../utility/utils';
 export default class IconComponent extends Component {
   constructor() {
     super();
@@ -12,7 +11,7 @@ export default class IconComponent extends Component {
 
   render() {
     const props = this.props;
-    const style = theme ? applyThemeOnIconStyle(props, theme) : props;
+    const style = theme ? applyTheme(props, theme) : props;
     return (
       <View>
         <Icon
@@ -42,6 +41,7 @@ IconComponent.propTypes = {
 //Defaultprops is to set the default props for the class.
 IconComponent.defaultProps = {
   disabled: false,
+  onPress: () => console.log('Please add message on Icon click'),
   size: 30,
   type: 'material',
   iconStyle: {
