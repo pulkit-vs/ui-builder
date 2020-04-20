@@ -82,8 +82,9 @@ export default class HeaderComponent extends React.Component {
       ) : null,
     );
 
-    console.log(this.valueOfComponent);
-    let style = theme ? applyThemeOnHeaderStyle(this.props, theme) : this.props;
+    const style = theme
+      ? applyThemeOnHeaderStyle(this.props, theme)
+      : this.props;
 
     return (
       <View>
@@ -109,45 +110,63 @@ export default class HeaderComponent extends React.Component {
 }
 
 HeaderComponent.propTypes = {
-  leftComponent: PropTypes.shape({
-    icon: PropTypes.shape({
-      icon: PropTypes.string,
-      type: PropTypes.string,
-      size: PropTypes.number,
-      color: PropTypes.string,
-    }),
-    text: PropTypes.string,
-    style: PropTypes.shape({
-      color: PropTypes.string,
-      fontSize: PropTypes.number,
-    }),
-  }),
-  rightComponent: PropTypes.shape({
-    icon: PropTypes.shape({
-      icon: PropTypes.string,
-      type: PropTypes.string,
-      size: PropTypes.number,
-      color: PropTypes.string,
-    }),
-    text: PropTypes.string,
-    style: PropTypes.shape({
-      color: PropTypes.string,
-      fontSize: PropTypes.number,
-    }),
-  }),
-  centerComponent: PropTypes.shape({
-    icon: PropTypes.shape({
-      icon: PropTypes.string,
-      type: PropTypes.string,
-      size: PropTypes.number,
-      color: PropTypes.string,
-    }),
-    text: PropTypes.string,
-    style: PropTypes.shape({
-      color: PropTypes.string,
-      fontSize: PropTypes.number,
-    }),
-  }),
+  // leftComponent: PropTypes.shape({
+  //   childrens: PropTypes.arrayOf(
+  //     PropTypes.shape({
+  //       type: PropTypes.string,
+  //       properties: PropTypes.shape({
+  //         containerStyle: PropTypes.object,
+  //         inputStyle: PropTypes.object,
+  //         leftIcon: PropTypes.object,
+  //         rightIcon: PropTypes.object,
+  //         placeholder: PropTypes.string,
+  //         size: PropTypes.number,
+  //         color: PropTypes.string,
+  //         name: PropTypes.string,
+  //         title: PropTypes.string,
+  //         style: PropTypes.object,
+  //       }),
+  //     }),
+  //   ),
+  // }),
+  // rightComponent: PropTypes.shape({
+  //   childrens: PropTypes.arrayof(
+  //     PropTypes.shape({
+  //       type: PropTypes.string,
+  //       properties: PropTypes.shape({
+  //         containerStyle: PropTypes.object,
+  //         inputStyle: PropTypes.object,
+  //         leftIcon: PropTypes.object,
+  //         rightIcon: PropTypes.object,
+  //         placeholder: PropTypes.string,
+  //         size: PropTypes.number,
+  //         color: PropTypes.string,
+  //         name: PropTypes.string,
+  //         title: PropTypes.string,
+  //         style: PropTypes.object,
+  //       }),
+  //     }),
+  //   ),
+  // }),
+  // centerComponent: PropTypes.shape({
+  //   childrens: PropTypes.arrayof(
+  //     PropTypes.shape({
+  //       type: PropTypes.string,
+  //       properties: PropTypes.shape({
+  //         containerStyle: PropTypes.object,
+  //         inputStyle: PropTypes.object,
+  //         leftIcon: PropTypes.object,
+  //         rightIcon: PropTypes.object,
+  //         placeholder: PropTypes.string,
+  //         size: PropTypes.number,
+  //         color: PropTypes.string,
+  //         name: PropTypes.string,
+  //         title: PropTypes.string,
+  //         style: PropTypes.object,
+  //       }),
+  //     }),
+  //   ),
+  // }),
   placement: PropTypes.string,
   containerStyle: PropTypes.shape({
     color: PropTypes.string,

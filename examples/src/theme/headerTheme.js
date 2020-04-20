@@ -51,8 +51,7 @@ export const applyThemeOnIcon = (iconStyles, theme) => {
 
 export const applyThemeOnText = (textStyles, theme) => {
   const style = getThemeStyle(theme);
-  console.log('themesty', style);
-  console.log('textstyle', textStyles);
+
   const customizeTextStyle = {
     ...textStyles,
     style: {
