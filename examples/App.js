@@ -75,6 +75,82 @@ const source = {
       style: {},
       childrens: [
         {
+          type: 'header',
+          properties: {
+            containerStyle: {
+              borderBottomColor: 'grey',
+              borderBottomWidth: 1,
+              backgroundColor: 'white',
+              height: 80,
+            },
+            placement: 'left',
+            fontSize: 30,
+            width: '10%',
+            leftComponent: {
+              childrens: [
+                {
+                  type: 'icon',
+                  properties: {
+                    name: 'menu',
+                    color: 'grey',
+                    size: 40,
+                  },
+                },
+              ],
+            },
+            centerComponent: {
+              childrens: [
+                {
+                  type: 'text',
+                  properties: {
+                    title: 'Welcome',
+                    style: {color: 'black', fontSize: 15},
+                  },
+                },
+              ],
+            },
+            rightComponent: {
+              childrens: [
+                {
+                  type: 'view',
+                  style: {
+                    flex: 1,
+                    flexDirection: 'row',
+                  },
+                },
+                {
+                  type: 'input',
+                  properties: {
+                    containerStyle: {
+                      width: 150,
+                      height: 50,
+                    },
+                    inputStyle: {
+                      height: 10,
+                      width: 200,
+                      color: 'black',
+                    },
+                    rightIcon: {
+                      name: 'search',
+                      color: 'lightblue',
+                      size: 40,
+                    },
+                    placeholder: 'search user',
+                  },
+                },
+                {
+                  type: 'icon',
+                  properties: {
+                    name: 'home',
+                    color: 'lightblue',
+                    size: 40,
+                  },
+                },
+              ],
+            },
+          },
+        },
+        {
           type: 'input',
           properties: {
             label: 'Mobile Number (10 digits)',

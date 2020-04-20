@@ -5,7 +5,6 @@
  * @format
  * @flow strict-local
  */
-
 import ButtonComponent from './components/button';
 import Input from './components/input';
 import React from 'react';
@@ -30,7 +29,8 @@ export default class UiBuilder extends React.Component {
         return <IconComponent {...component.properties} />;
       case 'button':
         return <ButtonComponent {...component.properties} />;
-
+      case 'header':
+        return <HeaderComponent {...component.properties} />;
       case 'view':
         return (
           <View style={component.style}>

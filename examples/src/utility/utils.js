@@ -23,6 +23,7 @@ const darkTheme = {
   placeholderTextColor: 'white',
   borderColor: 'white',
 };
+<<<<<<< HEAD
 
 // method to apply theme
 export const applyTheme = (componentStyle, theme) => {
@@ -50,3 +51,5 @@ export const applyTheme = (componentStyle, theme) => {
 
   return existingStyle;
 };
+=======
+>>>>>>> master
