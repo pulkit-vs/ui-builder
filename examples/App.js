@@ -11,8 +11,8 @@
 import React from 'react';
 import UiBuilder from './src/index';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import {View, StyleSheet, Text} from 'react-native';
-import {CheckBox, Icon} from 'react-native-elements';
+import {View, Text} from 'react-native';
+import {CheckBox} from 'react-native-elements';
 const onButtonClick = () => {
   alert('Button Pressed');
 };
@@ -20,31 +20,10 @@ const onButtonClick = () => {
 // Global variable to get theme type in other files.
 export let theme;
 const source = {
+  theme: 'darkTheme',
   data: [
     {
       type: 'checkbox',
-      properties: {
-        title: 'PHP',
-        disabled: false,
-        checked: false,
-        titleStyle: {
-          color: 'black',
-          fontSize: 22,
-          uncheckedColor: 'black',
-          checkedColor: 'pink',
-        },
-        checkboxStyle: {
-          color: 'pink',
-          size: 25,
-          checkedIcon: 'check-circle',
-          uncheckedIcon: 'circle-o',
-        },
-        containerStyle: {
-          borderColor: '#DCDCDC',
-          borderRadius: 20,
-          width: '80%',
-        },
-      },
     },
     {
       type: 'checkbox',
@@ -57,7 +36,7 @@ const source = {
           checkedColor: 'pink',
         },
         checkboxStyle: {
-          color: 'pink',
+          color: 'red',
           size: 25,
         },
         containerStyle: {
