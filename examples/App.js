@@ -19,10 +19,145 @@ const onButtonClick = () => {
 // Global variable to get theme type in other files.
 export let theme;
 const source = {
-  theme: 'darkTheme',
+  // theme: 'darkTheme',
+
   data: [
     {
-      type: 'checkbox',
+      type: 'view',
+      style: {flexDirection: 'row'},
+      childrens: [
+        {
+          type: 'image',
+          properties: {
+            uri: 'https://picsum.photos/seed/picsum/200/300',
+            style: {
+              width: 180,
+              height: 300,
+            },
+          },
+        },
+        {
+          type: 'image',
+          properties: {
+            uri: 'https://picsum.photos/200/300/?blur=1',
+            style: {
+              width: 200,
+              height: 300,
+            },
+          },
+        },
+      ],
+    },
+    {
+      type: 'view',
+      style: {},
+      childrens: [
+        {
+          type: 'header',
+          properties: {
+            containerStyle: {
+              borderBottomColor: 'grey',
+              borderBottomWidth: 1,
+              backgroundColor: 'white',
+              height: 80,
+            },
+            placement: 'left',
+            fontSize: 30,
+            width: '10%',
+            leftComponent: {
+              childrens: [
+                {
+                  type: 'icon',
+                  properties: {
+                    name: 'menu',
+                    color: 'grey',
+                    size: 40,
+                  },
+                },
+              ],
+            },
+            centerComponent: {
+              childrens: [
+                {
+                  type: 'text',
+                  properties: {
+                    title: 'Welcome',
+                    style: {color: 'black', fontSize: 15},
+                  },
+                },
+              ],
+            },
+            rightComponent: {
+              childrens: [
+                {
+                  type: 'view',
+                  style: {
+                    flex: 1,
+                    flexDirection: 'row',
+                  },
+                },
+                {
+                  type: 'input',
+                  properties: {
+                    containerStyle: {
+                      width: 150,
+                      height: 50,
+                    },
+                    inputStyle: {
+                      height: 10,
+                      width: 200,
+                      color: 'black',
+                    },
+                    rightIcon: {
+                      name: 'search',
+                      color: 'lightblue',
+                      size: 40,
+                    },
+                    placeholder: 'search user',
+                  },
+                },
+                {
+                  type: 'icon',
+                  properties: {
+                    name: 'home',
+                    color: 'lightblue',
+                    size: 40,
+                  },
+                },
+              ],
+            },
+          },
+        },
+        {
+          type: 'input',
+          properties: {
+            label: 'Mobile Number (10 digits)',
+            placeholderTextColor: 'grey',
+            style: {
+              backgroundColor: 'white',
+              borderColor: 'grey',
+              borderWidth: 2,
+              width: '90%',
+              left: 20,
+              marginTop: 40,
+            },
+          },
+        },
+        {
+          type: 'button',
+          properties: {
+            title: 'FACEBOOK',
+            titleStyle: {color: 'blue', fontSize: 20},
+            buttonStyle: {
+              backgroundColor: 'white',
+              width: '90%',
+              left: 20,
+              borderWidth: 3,
+              marginTop: 20,
+            },
+          },
+        },
+      ],
     },
     {
       type: 'checkbox',

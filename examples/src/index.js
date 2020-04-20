@@ -5,12 +5,14 @@
  * @format
  * @flow strict-local
  */
-
 import ButtonComponent from './components/button';
 import Input from './components/input';
+import HeaderComponent from './components/header';
+import ImageComponent from './components/image';
 import React from 'react';
 import {View} from 'react-native';
 import {get} from 'lodash';
+
 import Checkbox from './components/Checkbox';
 
 export default class UiBuilder extends React.Component {
@@ -24,31 +26,20 @@ export default class UiBuilder extends React.Component {
     switch (type) {
       case 'input':
         return <Input {...component.properties} />;
-      // case 'button':
-      //   return <ButtonComponent {...component.properties} />;
-      // case 'view':
-      //   return (
-      //     <View>
-      //       {/* TODO: will add header in a seperate class later */}
-      //       <Header
-      //         backgroundColor="white"
-      //         containerStyle={{borderBottomColor: 'grey', borderBottomWidth: 1}}
-      //         fontSize={30}
-      //         width={'10%'}
-      //         placement="left"
-      //         leftComponent={{
-      //           text: 'Create an account to checkout',
-      //           style: {color: 'black', fontSize: 20},
-      //         }}
-      //         // rightComponent={{ icon: 'cross', color: 'black' }}
-      //       />
-      //       {component.childrens.map((componentData) => {
-      //         return this.selectComponent(componentData);
-      //       })}
-      //     </View>
-      //   );
-      case 'checkbox':
-        return <Checkbox {...component.properties} />;
+      case 'button':
+        return <ButtonComponent {...component.properties} />;
+      case 'header':
+        return <HeaderComponent {...component.properties} />;
+      case 'view':
+        return (
+          <View style={component.style}>
+            {component.childrens.map((componentData) => {
+              return this.selectComponent(componentData);
+            })}
+          </View>
+        );
+      case 'image':
+        return <ImageComponent {...component.properties} />;
     }
   }
 

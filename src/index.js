@@ -32,7 +32,7 @@ export default class UiBuilder extends React.Component {
     const { source } = this.props;
     return (
       <View>
-        {source.map(component => {
+        {source.map((component) => {
           return this.selectComponent(component);
         })}
       </View>
