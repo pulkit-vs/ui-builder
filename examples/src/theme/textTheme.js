@@ -1,5 +1,6 @@
 import { getThemeStyle } from "../utility/utils";
 
+// Not required as created a generic method to handle theme, will remove.
 export const applyThemeOnText = (theme, textStyles) => {
 
     const style = getThemeStyle(theme);

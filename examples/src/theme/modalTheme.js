@@ -1,5 +1,6 @@
 import { getThemeStyle } from "../utility/utils";
 
+// Not required as created a generic method to handle theme, will remove.
 export const applyThemeOnModal = (theme, modalStyle) => {
     const style = getThemeStyle(theme);
 
