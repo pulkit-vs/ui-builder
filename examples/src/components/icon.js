@@ -12,23 +12,18 @@ export default class IconComponent extends Component {
   }
 
   render() {
-    const style = {
-      marginRight: 40,
-      alignSelf: 'flex-end',
-      marginTop: 190,
-    };
-    props = this.props;
-    props = theme ? applyThemeOnIconStyle(props, theme) : props;
+    const props = this.props;
+    const style = theme ? applyThemeOnIconStyle(props, theme) : props;
     return (
       <View>
         <Icon
-          name={props.name}
-          size={props.size}
-          type={props.iconType}
-          onPress={props.onPress}
-          iconStyle={props.iconStyle}
-          raised={props.raised}
-          containerStyle={props.containerStyle}
+          name={style.name}
+          size={style.size}
+          type={style.iconType}
+          onPress={style.onPress}
+          iconStyle={style.iconStyle}
+          raised={style.raised}
+          containerStyle={style.containerStyle}
         />
       </View>
     );

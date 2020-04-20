@@ -17,13 +17,13 @@ const onButtonClick = () => {
   alert('Button Pressed');
 };
 const onIconClick = () => {
-  alert('Icon Pressed');
+  alert('Please add message on Icon click');
 };
 
 // Global variable to get theme type in other files.
 export let theme;
 const source = {
-  theme: 'lightTheme',
+  theme: 'darkTheme',
   data: [
     {
       type: 'icon',
