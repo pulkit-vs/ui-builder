@@ -1,27 +1,25 @@
 export const getThemeStyle = (theme) => {
-    switch (theme) {
-        case 'darkTheme':
-            return darkTheme
-        case 'lightTheme':
-            return lightTheme;
-    }
-}
-
+  switch (theme) {
+    case 'darkTheme':
+      return darkTheme;
+    case 'lightTheme':
+      return lightTheme;
+  }
+};
 
 // dark and light theme styles
 const lightTheme = {
-
-    color: 'black',
-    backgroundColor: 'white',
-    fontFamily: 'arial',
-    placeholderTextColor: 'black',
-    borderColor: 'black'
-}
+  color: 'black',
+  backgroundColor: 'white',
+  fontFamily: 'arial',
+  placeholderTextColor: 'black',
+  borderColor: 'black',
+};
 
 const darkTheme = {
-    color: 'white',
-    backgroundColor: 'black',
-    fontFamily: 'arial',
-    placeholderTextColor: 'white',
-    borderColor: 'white'
-}
+  color: 'white',
+  backgroundColor: 'black',
+  fontFamily: 'arial',
+  placeholderTextColor: 'white',
+  borderColor: 'white',
+};

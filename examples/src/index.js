@@ -5,9 +5,9 @@
  * @format
  * @flow strict-local
  */
-
 import ButtonComponent from './components/button';
 import Input from './components/input';
+import HeaderComponent from './components/header';
 import ImageComponent from './components/image';
 import React from 'react';
 import {View} from 'react-native';
@@ -26,6 +26,8 @@ export default class UiBuilder extends React.Component {
         return <Input {...component.properties} />;
       case 'button':
         return <ButtonComponent {...component.properties} />;
+      case 'header':
+        return <HeaderComponent {...component.properties} />;
       case 'view':
         return (
           <View style={component.style}>
