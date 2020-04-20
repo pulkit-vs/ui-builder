@@ -23,7 +23,8 @@ const onIconClick = () => {
 // Global variable to get theme type in other files.
 export let theme;
 const source = {
-  theme: 'darkTheme',
+  // theme: 'darkTheme',
+
   data: [
     {
       type: 'icon',
@@ -45,6 +46,32 @@ const source = {
 
     {
       type: 'view',
+      style: {flexDirection: 'row'},
+      childrens: [
+        {
+          type: 'image',
+          properties: {
+            uri: 'https://picsum.photos/seed/picsum/200/300',
+            style: {
+              width: 180,
+              height: 300,
+            },
+          },
+        },
+        {
+          type: 'image',
+          properties: {
+            uri: 'https://picsum.photos/200/300/?blur=1',
+            style: {
+              width: 200,
+              height: 300,
+            },
+          },
+        },
+      ],
+    },
+    {
+      type: 'view',
       style: {},
       childrens: [
         {
@@ -58,7 +85,7 @@ const source = {
               borderWidth: 2,
               width: '90%',
               left: 20,
-              marginTop: 10,
+              marginTop: 40,
             },
           },
         },
@@ -72,7 +99,7 @@ const source = {
               width: '90%',
               left: 20,
               borderWidth: 3,
-              marginTop: 70,
+              marginTop: 20,
             },
           },
         },

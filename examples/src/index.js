@@ -13,6 +13,8 @@ import {View, Text} from 'react-native';
 import {get} from 'lodash';
 import {Header} from 'react-native-elements';
 import IconComponent from './components/icon';
+import ImageComponent from './components/image';
+
 export default class UiBuilder extends React.Component {
   constructor() {
     super();
@@ -31,7 +33,7 @@ export default class UiBuilder extends React.Component {
 
       case 'view':
         return (
-          <View>
+          <View style={component.style}>
             //TODO: will add header in a seperate class later */
             <Header
               backgroundColor="white"
@@ -49,8 +51,9 @@ export default class UiBuilder extends React.Component {
               return this.selectComponent(componentData);
             })}
           </View>
-          //)
         );
+      case 'image':
+        return <ImageComponent {...component.properties} />;
     }
   }
 
