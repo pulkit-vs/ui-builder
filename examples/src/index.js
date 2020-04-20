@@ -8,6 +8,7 @@
 import ButtonComponent from './components/button';
 import Input from './components/input';
 import HeaderComponent from './components/header';
+import ImageComponent from './components/image';
 import React from 'react';
 import {View} from 'react-native';
 import {get} from 'lodash';
@@ -29,12 +30,14 @@ export default class UiBuilder extends React.Component {
         return <HeaderComponent {...component.properties} />;
       case 'view':
         return (
-          <View>
+          <View style={component.style}>
             {component.childrens.map((componentData) => {
               return this.selectComponent(componentData);
             })}
           </View>
         );
+      case 'image':
+        return <ImageComponent {...component.properties} />;
     }
   }
 

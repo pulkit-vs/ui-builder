@@ -20,8 +20,35 @@ const onButtonClick = () => {
 // Global variable to get theme type in other files.
 export let theme;
 const source = {
-  theme: 'lightTheme',
+  // theme: 'darkTheme',
+
   data: [
+    {
+      type: 'view',
+      style: {flexDirection: 'row'},
+      childrens: [
+        {
+          type: 'image',
+          properties: {
+            uri: 'https://picsum.photos/seed/picsum/200/300',
+            style: {
+              width: 180,
+              height: 300,
+            },
+          },
+        },
+        {
+          type: 'image',
+          properties: {
+            uri: 'https://picsum.photos/200/300/?blur=1',
+            style: {
+              width: 200,
+              height: 300,
+            },
+          },
+        },
+      ],
+    },
     {
       type: 'view',
       style: {},
@@ -121,12 +148,6 @@ const source = {
           type: 'button',
           properties: {
             title: 'FACEBOOK',
-            icon: {
-              name: 'facebook',
-              color: 'blue',
-              size: 20,
-              iconStyle: {marginRight: 10},
-            },
             titleStyle: {color: 'blue', fontSize: 20},
             buttonStyle: {
               backgroundColor: 'white',
@@ -138,6 +159,16 @@ const source = {
           },
         },
       ],
+    },
+    {
+      type: 'button',
+      properties: {
+        onPress: onButtonClick,
+        title: 'Custom Button1',
+        disabled: false,
+        buttonStyle: {backgroundColor: 'pink'},
+        titleStyle: {color: 'blue', fontSize: 40},
+      },
     },
   ],
 };
