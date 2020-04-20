@@ -42,7 +42,6 @@ export default class ModalComponent extends React.Component {
                         // Applying theme on text
                         const properties = theme ? applyThemeOnText(theme, children.properties) : children.properties
 
-                        console.log('text Properties:', JSON.stringify(properties));
                         return (<Text
                             style={properties.style}
                         >
@@ -56,7 +55,7 @@ export default class ModalComponent extends React.Component {
                     if (children.type === 'icon') {
 
                         // Will apply theme on icon
-                        //    const properties = theme ? applyThemeOnIcon(theme, children.properties) : children.properties  
+                        // const properties = theme ? applyThemeOnIcon(theme, children.properties) : children.properties  
 
                         return (<Icon
                             containerStyle={children.properties.containerStyle}
