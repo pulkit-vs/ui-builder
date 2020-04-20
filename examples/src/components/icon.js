@@ -4,11 +4,8 @@ import {Icon} from 'react-native-elements';
 import {View, StyleSheet, Text} from 'react-native';
 import {theme} from '../../App';
 import {applyTheme} from '../utility/utils';
-export default class IconComponent extends Component {
-  constructor() {
-    super();
-  }
 
+export default class IconComponent extends Component {
   render() {
     this.props = theme ? applyTheme(this.props, theme) : this.props;
     return (
