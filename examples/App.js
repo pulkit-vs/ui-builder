@@ -10,7 +10,6 @@
 //import UiBuilder from 'react-native-ui-builder';
 import React from 'react';
 import UiBuilder from './src/index';
-import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {View, Text} from 'react-native';
 import {CheckBox} from 'react-native-elements';
 const onButtonClick = () => {
