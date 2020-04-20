@@ -16,7 +16,7 @@ import { View } from 'react-native';
 // Global variable to get theme type in other files.
 export let theme;
 const source = {
-  // theme: 'darkTheme',
+  theme: 'lightTheme',
   data: [
     {
       type: 'modal',

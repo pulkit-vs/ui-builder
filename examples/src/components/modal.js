@@ -12,11 +12,8 @@ import React from 'react';
 import { Button, Icon } from 'react-native-elements';
 import { CLOSE_MODAL } from "../utility/utils";
 import { View, Text, TextInput } from 'react-native';
-import { applyThemeOnButtonStyle } from "../theme/buttonTheme";
-import { applyThemeOnModal } from "../theme/modalTheme";
-import { applyThemeOnText } from "../theme/textTheme";
-import { applyThemeOnTextInputStyle } from "../theme/textInputTheme";
 import { theme } from "../../App";
+import { handleTheme } from "../utility/utils";
 
 export default class ModalComponent extends React.Component {
 
@@ -40,7 +37,7 @@ export default class ModalComponent extends React.Component {
                     if (children.type === 'text') {
 
                         // Applying theme on text
-                        const properties = theme ? applyThemeOnText(theme, children.properties) : children.properties
+                        let properties = theme ? handleTheme(theme, children.properties) : children.properties
 
                         return (<Text
                             style={properties.style}
@@ -71,7 +68,7 @@ export default class ModalComponent extends React.Component {
                     if (children.type === 'input') {
 
                         // Applying theme on text input
-                        const properties = theme ? applyThemeOnTextInputStyle(theme, children.properties) : children.properties
+                        const properties = theme ? handleTheme(theme, children.properties) : children.properties
 
                         return (<TextInput
 
@@ -89,7 +86,7 @@ export default class ModalComponent extends React.Component {
                     if (children.type === 'button') {
 
                         // Applying theme on button style
-                        const properties = theme ? applyThemeOnButtonStyle(theme, children.properties) : children.properties
+                        const properties = theme ? handleTheme(theme, children.properties) : children.properties
 
                         return (<Button
                             title={properties.title}
@@ -106,10 +103,11 @@ export default class ModalComponent extends React.Component {
         );
     }
 
+
     render() {
 
         const closeModal = this.props.properties.closeModal;
-        const properties = theme ? applyThemeOnModal(theme, this.props.properties) : this.props.properties;
+        const properties = theme ? handleTheme(theme, this.props.properties) : this.props.properties;
 
         return (
             <Modal
