@@ -24,14 +24,14 @@ const darkTheme = {
   borderColor: 'white',
 };
 
+// method to apply theme
 export const applyTheme = (componentStyle, theme) => {
   const existingStyle = {...componentStyle};
   const themeStyle = getThemeStyle(theme);
-
-  //stores key values of theme object
+  // get key values from theme
   const keys = Object.keys(themeStyle);
 
-  //iterate over every key and change the theme if style of that theme is defined by user
+  // iterate over each key and checks if style is defined then change the style sccording to theme
   for (let i = 0; i < keys.length; i++) {
     if (existingStyle.checkboxStyle && existingStyle.checkboxStyle[keys[i]]) {
       existingStyle.checkboxStyle[keys[i]] = themeStyle[keys[i]];
