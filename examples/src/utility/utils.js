@@ -31,20 +31,22 @@ export const applyTheme = (componentStyle, theme) => {
   // get key values from theme
   const keys = Object.keys(themeStyle);
 
-  // iterate over each key and checks if style is defined then change the style sccording to theme
-  for (let i = 0; i < keys.length; i++) {
-    if (existingStyle.checkboxStyle && existingStyle.checkboxStyle[keys[i]]) {
-      existingStyle.checkboxStyle[keys[i]] = themeStyle[keys[i]];
+  // iterate over each key and checks if style is defined then change the style according to theme
+
+  keys.forEach((key) => {
+    if (existingStyle.checkboxStyle && existingStyle.checkboxStyle[key]) {
+      existingStyle.checkboxStyle[key] = themeStyle[key];
     }
-    if (existingStyle.containerStyle && existingStyle.containerStyle[keys[i]]) {
-      existingStyle.containerStyle[keys[i]] = themeStyle[keys[i]];
+    if (existingStyle.containerStyle && existingStyle.containerStyle[key]) {
+      existingStyle.containerStyle[keys] = themeStyle[key];
     }
-    if (existingStyle.titleStyle && existingStyle.titleStyle[keys[i]]) {
-      existingStyle.titleStyle[keys[i]] = themeStyle[keys[i]];
+    if (existingStyle.titleStyle && existingStyle.titleStyle[key]) {
+      existingStyle.titleStyle[key] = themeStyle[key];
     }
-    if (existingStyle.iconStyle && existingStyle.iconStyle[keys[i]]) {
-      existingStyle.iconStyle[keys[i]] = themeStyle[keys[i]];
+    if (existingStyle.iconStyle && existingStyle.iconStyle[key]) {
+      existingStyle.iconStyle[key] = themeStyle[key];
     }
-  }
+  });
+
   return existingStyle;
 };

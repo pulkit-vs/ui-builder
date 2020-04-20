@@ -10,18 +10,17 @@ export default class IconComponent extends Component {
   }
 
   render() {
-    const props = this.props;
-    const style = theme ? applyTheme(props, theme) : props;
+    this.props = theme ? applyTheme(this.props, theme) : this.props;
     return (
       <View>
         <Icon
-          name={style.name}
-          size={style.size}
-          type={style.iconType}
-          onPress={style.onPress}
-          iconStyle={style.iconStyle}
-          raised={style.raised}
-          containerStyle={style.containerStyle}
+          name={this.props.name}
+          size={this.props.size}
+          type={this.props.iconType}
+          onPress={this.props.onPress}
+          iconStyle={this.props.iconStyle}
+          raised={this.props.raised}
+          containerStyle={this.props.containerStyle}
         />
       </View>
     );
