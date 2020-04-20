@@ -3,7 +3,7 @@ import {getThemeStyle} from '../utility/utils';
 export const applyThemeOnHeaderStyle = (headerStyles, theme) => {
   const style = getThemeStyle(theme);
 
-  let customizeHeaderStyle = {
+  const customizeHeaderStyle = {
     ...headerStyles,
     containerStyle: {
       ...headerStyles.containerStyle,
@@ -33,34 +33,49 @@ export const applyThemeOnHeaderStyle = (headerStyles, theme) => {
       width: style.width ? style.width : headerStyles.containerStyle.width,
       height: style.height ? style.height : headerStyles.containerStyle.height,
     },
-
-    leftComponent: {
-      ...headerStyles.leftComponent,
-      style: {
-        ...headerStyles.leftComponent.style,
-        color: style.color
-          ? style.color
-          : headerStyles.leftComponent.style.color,
-      },
-    },
-    centerComponent: {
-      ...headerStyles.centerComponent,
-      style: {
-        ...headerStyles.centerComponent.style,
-        color: style.color
-          ? style.color
-          : headerStyles.centerComponent.style.color,
-      },
-    },
-    rightComponent: {
-      ...headerStyles.rightComponent,
-      style: {
-        ...headerStyles.rightComponent.style,
-        color: style.color
-          ? style.color
-          : headerStyles.rightComponent.style.color,
-      },
-    },
   };
   return customizeHeaderStyle;
+};
+
+export const applyThemeOnIcon = (iconStyles, theme) => {
+  const style = getThemeStyle(theme);
+
+  const customizeIconStyle = {
+    ...iconStyles,
+    color: style.color ? style.color : iconStyles.color,
+    size: style.size ? style.size : iconStyles.size,
+  };
+
+  return customizeIconStyle;
+};
+
+export const applyThemeOnText = (textStyles, theme) => {
+  const style = getThemeStyle(theme);
+  console.log('themesty', style);
+  console.log('textstyle', textStyles);
+  const customizeTextStyle = {
+    ...textStyles,
+    style: {
+      ...textStyles.style,
+      color: style.color ? style.color : textStyles,
+      size: style.size ? style.size : textStyles.size,
+    },
+  };
+
+  return customizeTextStyle;
+};
+
+export const applyThemeOnInput = (inputStyles, theme) => {
+  const style = getThemeStyle(theme);
+
+  const customizeInputStyle = {
+    ...inputStyles,
+    inputStyle: {
+      ...inputStyles.inputStyle,
+      color: style.color ? style.color : inputStyles.inputStyle.color,
+      fontSize: style.size ? style.size : inputStyles.inputStyle.fontSize,
+    },
+  };
+
+  return customizeInputStyle;
 };

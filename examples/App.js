@@ -20,7 +20,7 @@ const onButtonClick = () => {
 // Global variable to get theme type in other files.
 export let theme;
 const source = {
-  theme: 'darkTheme',
+  theme: 'lightTheme',
   data: [
     {
       type: 'view',
@@ -39,54 +39,66 @@ const source = {
             fontSize: 30,
             width: '10%',
             leftComponent: {
-              icon: {
-                icon: 'menu',
-                color: 'grey',
-                size: 30,
-              },
+              childrens: [
+                {
+                  type: 'icon',
+                  properties: {
+                    name: 'menu',
+                    color: 'grey',
+                    size: 40,
+                  },
+                },
+              ],
             },
             centerComponent: {
-              text: 'Welcome',
-              style: {color: 'black', fontSize: 15},
+              childrens: [
+                {
+                  type: 'text',
+                  properties: {
+                    title: 'Welcome',
+                    style: {color: 'black', fontSize: 15},
+                  },
+                },
+              ],
             },
             rightComponent: {
-              properties: {
-                type: 'view',
-                style: {
-                  flex: 1,
-                  flexDirection: 'row',
-                },
-                childrens: [
-                  {
-                    type: 'input',
-                    properties: {
-                      containerStyle: {
-                        width: 150,
-                        height: 50,
-                      },
-                      inputStyle: {
-                        height: 10,
-                        width: 200,
-                        color: 'white',
-                      },
-                      rightIcon: {
-                        name: 'search',
-                        color: 'lightblue',
-                        size: 40,
-                      },
-                      placeholder: 'search user',
-                    },
+              childrens: [
+                {
+                  type: 'view',
+                  style: {
+                    flex: 1,
+                    flexDirection: 'row',
                   },
-                  {
-                    type: 'icon',
-                    properties: {
-                      name: 'home',
+                },
+                {
+                  type: 'input',
+                  properties: {
+                    containerStyle: {
+                      width: 150,
+                      height: 50,
+                    },
+                    inputStyle: {
+                      height: 10,
+                      width: 200,
+                      color: 'black',
+                    },
+                    rightIcon: {
+                      name: 'search',
                       color: 'lightblue',
                       size: 40,
                     },
+                    placeholder: 'search user',
                   },
-                ],
-              },
+                },
+                {
+                  type: 'icon',
+                  properties: {
+                    name: 'home',
+                    color: 'lightblue',
+                    size: 40,
+                  },
+                },
+              ],
             },
           },
         },
