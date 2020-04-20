@@ -1,4 +1,4 @@
-
+// Sample JSON Structure
 const data = {
     type: 'input',
     properties: {
@@ -26,14 +26,15 @@ const data = {
 
 
 const data2 = {
-    type: 'view',
-    style: {},
-    properties: {
-        viewStyle : {
-            
-        }
-    },
     childrens: [
+        {
+            type: 'view',
+            properties: {
+                viewStyle : {
+                    
+                }
+            },
+        },
         {
             type: 'input',
             properties: {

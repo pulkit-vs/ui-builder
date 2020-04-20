@@ -2,7 +2,6 @@ import { getThemeStyle } from "../utility/utils";
 
 export const applyThemeOnModal = (theme, modalStyle) => {
     const style = getThemeStyle(theme);
-    alert(JSON.stringify(style))
 
     const customizeModalStyle = {
 

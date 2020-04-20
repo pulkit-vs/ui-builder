@@ -16,7 +16,7 @@ export default class TextComponent extends React.Component {
 
   componentWillMount() {
 
-    // Applying theme on text input
+    // Applying theme on text
     this.props = theme ? applyThemeOnText(theme, this.props) : this.props
   }
 
