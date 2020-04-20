@@ -23,6 +23,49 @@ const source = {
   data: [
     {
       type: 'checkbox',
+      properties: {
+        title: 'PHP',
+        disabled: false,
+        checked: false,
+        titleStyle: {
+          color: 'black',
+          fontSize: 22,
+          uncheckedColor: 'black',
+          checkedColor: 'pink',
+        },
+        checkboxStyle: {
+          color: 'pink',
+          size: 25,
+          checkedIcon: 'check-circle',
+          uncheckedIcon: 'circle-o',
+        },
+        containerStyle: {
+          borderColor: '#DCDCDC',
+          borderRadius: 20,
+          width: '80%',
+        },
+      },
+    },
+    {
+      type: 'checkbox',
+      properties: {
+        title: 'JAVASCRIPT',
+        titleStyle: {
+          color: 'pink',
+          fontSize: 22,
+          uncheckedColor: 'black',
+          checkedColor: 'pink',
+        },
+        checkboxStyle: {
+          color: 'pink',
+          size: 25,
+        },
+        containerStyle: {
+          borderColor: '#DCDCDC',
+          borderRadius: 20,
+          width: '80%',
+        },
+      },
     },
   ],
 };

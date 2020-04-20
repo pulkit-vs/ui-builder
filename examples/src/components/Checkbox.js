@@ -11,18 +11,55 @@ export default class CheckboxComponent extends Component {
     super(props);
     this.state = {
       checked: false,
+      color: '',
     };
   }
 
   componentDidMount() {
-    // Applying theme on button style
+    let colorCopy;
+    if (this.props.checked === true) {
+      colorCopy = this.props.titleStyle.checkedColor
+        ? this.props.titleStyle.checkedColor
+        : this.props.titleStyle.color;
+    } else {
+      colorCopy = this.props.titleStyle.uncheckedColor
+        ? this.props.titleStyle.uncheckedColor
+        : this.props.titleStyle.color;
+    }
+    // to set the initial state of checkbox component given by user and color of text content
     this.setState({
       checked: this.props.checked,
+      color: colorCopy,
     });
   }
+  handleChange = () => {
+    const initialValue = this.state.checked;
+    const checkedColor = this.props.titleStyle.checkedColor
+      ? this.props.titleStyle.checkedColor
+      : this.props.titleStyle.color;
+    const uncheckedColor = this.props.titleStyle.uncheckedColor
+      ? this.props.titleStyle.uncheckedColor
+      : this.props.titleStyle.color;
+    // console.log('handleChnage', this.props.titleStyle);
+    if (initialValue === true) {
+      this.setState({
+        checked: !this.state.checked,
+        color: uncheckedColor,
+      });
+    }
+    if (initialValue !== true) {
+      this.setState({
+        checked: !this.state.checked,
+        color: checkedColor,
+      });
+    }
+  };
   render() {
     let props = this.props;
-
+    //console.log(this.state);
+    props.titleStyle.color = this.state.color
+      ? this.state.color
+      : props.titleStyle.color;
     props = theme ? applyThemeOnCheckboxStyle(props, theme) : props;
 
     return (
@@ -30,13 +67,15 @@ export default class CheckboxComponent extends Component {
         <CheckBox
           checked={this.state.checked}
           title={props.title}
-          onPress={() => this.setState({checked: !this.state.checked})}
+          onPress={this.handleChange}
           containerStyle={props.containerStyle}
           textStyle={props.titleStyle}
           disabled={props.disabled}
           uncheckedColor={props.checkboxStyle.color}
           checkedColor={props.checkboxStyle.color}
           iconRight={props.checkboxStyle.iconRight}
+          checkedIcon={props.checkboxStyle.checkedIcon}
+          uncheckedIcon={props.checkboxStyle.uncheckedIcon}
         />
       </View>
     );
@@ -48,9 +87,7 @@ CheckboxComponent.propTypes = {
   disabled: PropTypes.bool,
   containerStyle: PropTypes.shape({
     backgroundColor: PropTypes.string,
-    left: PropTypes.number,
-    right: PropTypes.number,
-    width: PropTypes.string,
+
     borderColor: PropTypes.string,
     borderWidth: PropTypes.number,
     borderRadius: PropTypes.number,
@@ -67,11 +104,11 @@ CheckboxComponent.defaultProps = {
   disabled: false,
   iconRight: false,
   checkboxStyle: {
-    checkedColor: 'black',
+    checkedColor: 'red',
     uncheckedColor: 'black',
   },
   titleStyle: {
-    color: 'blue',
+    color: 'black',
     fontFamily: 'arial',
     fontSize: 18,
   },
