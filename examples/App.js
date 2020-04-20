@@ -24,22 +24,30 @@ const source = {
 
   data: [
     {
-      type: 'image',
-      properties: {
-        uri: 'https://reactnative.dev/img/tiny_logo.png',
-        style: {
-          width: 330,
-          height: 200,
-          borderRadius: 10,
-          borderTopRightRadius: 10,
-          borderBottomRightRadius: 10,
-          borderWidth: 5,
-          borderColor: 'black',
-          margin: 10,
-          marginRight: 10,
+      type: 'view',
+      style: {flexDirection: 'row'},
+      childrens: [
+        {
+          type: 'image',
+          properties: {
+            uri: 'https://picsum.photos/seed/picsum/200/300',
+            style: {
+              width: 180,
+              height: 300,
+            },
+          },
         },
-        resizeMode: 'repeat',
-      },
+        {
+          type: 'image',
+          properties: {
+            uri: 'https://picsum.photos/200/300/?blur=1',
+            style: {
+              width: 200,
+              height: 300,
+            },
+          },
+        },
+      ],
     },
     {
       type: 'view',

@@ -6,7 +6,9 @@ import {View, Image} from 'react-native';
 
 export default class ImageComponent extends React.Component {
   render() {
-    let styles = theme ? applyThemeOnImageStyle(this.props, theme) : this.props;
+    const styles = theme
+      ? applyThemeOnImageStyle(this.props, theme)
+      : this.props;
 
     return (
       <View>

@@ -12,7 +12,6 @@ import ImageComponent from './components/image';
 import React from 'react';
 import {View} from 'react-native';
 import {get} from 'lodash';
-import {Header} from 'react-native-elements';
 
 export default class UiBuilder extends React.Component {
   constructor() {
@@ -29,20 +28,7 @@ export default class UiBuilder extends React.Component {
         return <ButtonComponent {...component.properties} />;
       case 'view':
         return (
-          <View>
-            {/* TODO: will add header in a seperate class later */}
-            <Header
-              backgroundColor="white"
-              containerStyle={{borderBottomColor: 'grey', borderBottomWidth: 1}}
-              fontSize={30}
-              width={'10%'}
-              placement="left"
-              leftComponent={{
-                text: 'Create an account to checkout',
-                style: {color: 'black', fontSize: 20},
-              }}
-              // rightComponent={{ icon: 'cross', color: 'black' }}
-            />
+          <View style={component.style}>
             {component.childrens.map((componentData) => {
               return this.selectComponent(componentData);
             })}
