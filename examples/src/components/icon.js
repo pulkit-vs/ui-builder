@@ -5,7 +5,6 @@ import {View, StyleSheet, Text} from 'react-native';
 import {applyThemeOnIconStyle} from '../theme/iconTheme';
 import {theme} from '../../App';
 
-// TODO :remove warnings laters
 export default class IconComponent extends Component {
   constructor() {
     super();
