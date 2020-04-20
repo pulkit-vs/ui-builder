@@ -9,20 +9,24 @@ export default class HeaderComponent extends React.Component {
   valueOfComponent = ['leftComponent', 'centerComponent', 'rightComponent'];
 
   render() {
-    this.valueOfComponent = this.valueOfComponent.map((component) =>
+    this.valueOfComponent = this.valueOfComponent.map((component, index) =>
       this.props[component].properties ? (
-        <View style={this.props[component].properties.style}>
-          {this.props[component].properties.childrens.map((item) =>
+        <View keys={index} style={this.props[component].properties.style}>
+          {this.props[component].properties.childrens.map((item, index) =>
             item.type == 'icon' ? (
               <Icon
+                keys={index}
                 name={item.properties.name}
                 color={item.properties.color}
                 size={item.properties.size}
               />
             ) : item.type == 'text' ? (
-              <Text style={item.properties.style}>{item.properties.title}</Text>
+              <Text keys={index} style={item.properties.style}>
+                {item.properties.title}
+              </Text>
             ) : item.type == 'input' ? (
               <Input
+                keys={index}
                 containerStyle={item.properties.containerStyle}
                 inputStyle={item.properties.inputStyle}
                 placeholder={item.properties.placeholder}
@@ -47,7 +51,6 @@ export default class HeaderComponent extends React.Component {
         </View>
       ) : null,
     );
-    console.log(this.valueOfComponent);
 
     let style = theme ? applyThemeOnHeaderStyle(this.props, theme) : this.props;
 
