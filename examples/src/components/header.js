@@ -9,7 +9,6 @@ import {
   applyThemeOnInput,
 } from '../theme/headerTheme';
 import {theme} from '../../App';
-import {applyThemeOnTextInputStyle} from '../theme/textInputTheme';
 
 export default class HeaderComponent extends React.Component {
   valueOfComponent = ['leftComponent', 'centerComponent', 'rightComponent'];
