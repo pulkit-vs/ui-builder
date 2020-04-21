@@ -18,7 +18,6 @@ import Input from "./components/input";
 import ModalComponent from "./components/modal";
 import TextComponent from "./components/text";
 
-
 export default class UiBuilder extends React.Component {
   constructor() {
     super();
@@ -37,19 +36,19 @@ export default class UiBuilder extends React.Component {
       case 'header':
         return <HeaderComponent {...component.properties} key={4} />;
       case "text":
-        return <TextComponent {...component.properties} />;
+        return <TextComponent {...component.properties} key={5} />;
       case "modal":
-        return <ModalComponent {...component} />
+        return <ModalComponent {...component} key={6} />
       case 'view':
         return (
-          <View style={component.style}>
+          <View style={component.style} key={7} >
             {component.childrens.map((componentData) => {
               return this.selectComponent(componentData);
             })}
           </View>
         );
       case 'image':
-        return <ImageComponent {...component.properties} />;
+        return <ImageComponent {...component.properties} key={8} />;
     }
   }
 

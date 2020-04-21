@@ -10,10 +10,10 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import {Button} from 'react-native-elements';
 import {View} from 'react-native';
-import {applyThemeOnButtonStyle} from '../theme/buttonTheme';
 import {shapeStyles} from '../style/buttonStyle';
 import {theme} from '../../App';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import {applyTheme} from '../utility/utils';
 
 export default class ButtonComponent extends React.Component {
   componentWillMount() {
@@ -33,7 +33,7 @@ export default class ButtonComponent extends React.Component {
     }
     // Applying theme on button style
     if (theme) {
-      this.props = applyThemeOnButtonStyle(theme, this.props);
+      this.props = applyTheme(this.props, theme);
     }
   }
 

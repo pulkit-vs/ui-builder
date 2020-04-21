@@ -8,9 +8,9 @@
 
 import PropTypes from 'prop-types';
 import React from 'react';
-import { View, Text } from 'react-native';
-import { theme } from "../../App";
+import { Text } from 'react-native';
 import { handleTheme } from "../utility/utils";
+import { theme } from "../../App";
 
 export default class TextComponent extends React.Component {
 
@@ -39,11 +39,11 @@ TextComponent.propTypes = {
 
   title: PropTypes.string,
   style: PropTypes.shape({
+    color: PropTypes.string,
     fontSize: PropTypes.number,
     fontWeight: PropTypes.string,
-    textAlign: PropTypes.string,
     marginTop: PropTypes.number,
-    color: PropTypes.string
+    textAlign: PropTypes.string
   })
 }
 
@@ -52,8 +52,8 @@ TextComponent.defaultProps = {
   style: {
     fontSize: 20,
     fontWeight: 'bold',
-    textAlign: 'center',
-    marginTop: 0
+    marginTop: 0,
+    textAlign: 'center'
   }
 
 }
