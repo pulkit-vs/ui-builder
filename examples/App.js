@@ -16,6 +16,9 @@ import {View} from 'react-native';
 const onButtonClick = () => {
   alert('Button Pressed');
 };
+const onIconClick = () => {
+  alert('Please add message on Icon click');
+};
 
 // Global variable to get theme type in other files.
 export let theme;
@@ -23,6 +26,24 @@ const source = {
   // theme: 'darkTheme',
 
   data: [
+    {
+      type: 'icon',
+      properties: {
+        name: 'battery',
+        size: 30,
+        iconType: 'font-awesome',
+        disabled: false,
+        onPress: onIconClick,
+        raised: false,
+        iconStyle: {
+          color: 'blue',
+        },
+        containerStyle: {
+          alignSelf: 'flex-end',
+        },
+      },
+    },
+
     {
       type: 'view',
       style: {flexDirection: 'row'},
