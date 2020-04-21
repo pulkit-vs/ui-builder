@@ -5,17 +5,18 @@
  * @format
  * @flow strict-local
  */
-import ButtonComponent from './components/button';
-import Input from './components/input';
-import React from 'react';
-import {View, Text} from 'react-native';
-import {get} from 'lodash';
-import {Header} from 'react-native-elements';
+
+import React from "react";
+import { View } from 'react-native';
+import { get } from "lodash";
+
+import ButtonComponent from "./components/button";
+import HeaderComponent from './components/header';
 import IconComponent from './components/icon';
 import ImageComponent from './components/image';
-import HeaderComponent from './components/header';
-
-import Checkbox from './components/Checkbox';
+import Input from "./components/input";
+import ModalComponent from "./components/modal";
+import TextComponent from "./components/text";
 
 export default class UiBuilder extends React.Component {
   constructor() {
@@ -34,21 +35,25 @@ export default class UiBuilder extends React.Component {
         return <ButtonComponent {...component.properties} key={3} />;
       case 'header':
         return <HeaderComponent {...component.properties} key={4} />;
+      case "text":
+        return <TextComponent {...component.properties} key={5} />;
+      case "modal":
+        return <ModalComponent {...component} key={6} />
       case 'view':
         return (
-          <View style={component.style}>
+          <View style={component.style} key={7} >
             {component.childrens.map((componentData) => {
               return this.selectComponent(componentData);
             })}
           </View>
         );
       case 'image':
-        return <ImageComponent {...component.properties} />;
+        return <ImageComponent {...component.properties} key={8} />;
     }
   }
 
   render() {
-    const {source} = this.props;
+    const { source } = this.props;
     return (
       <View>
         {source.map((component) => {

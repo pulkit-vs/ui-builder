@@ -32,6 +32,7 @@ export default class HeaderComponent extends React.Component {
 
               return (
                 <Icon
+                  type="font-awesome"
                   keys={index}
                   name={styleOfIcon.name}
                   color={styleOfIcon.color}
