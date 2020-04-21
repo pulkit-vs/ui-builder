@@ -20,7 +20,8 @@ const data = {
                 color: 'red',
                 size: 40
             }
-        }]
+        }
+    ]
     }
 }
 
