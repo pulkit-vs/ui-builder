@@ -85,30 +85,35 @@ const source = {
           properties: {
             containerStyle: {
               backgroundColor: 'red',
-              hieght: 45,
+              borderBottomWidth: 0,
+              hieght: 80,
             },
             centerComponent: {
               childrens: [
                 {
                   type: 'view',
-                  style: {flex: 1, flexDiretion: 'row'},
+                  style: {flexDirection: 'row'},
                 },
                 {
                   type: 'icon',
                   properties: {
                     name: 'add',
                     color: 'white',
-                    size: 10,
                   },
                 },
                 {
                   type: 'text',
                   properties: {
-                    title: 'Your Addresses',
-                    style: {
-                      color: 'white',
-                      size: 10,
-                    },
+                    title: 'Your Adresses',
+                    style: {color: 'white', fontSize: 23},
+                  },
+                },
+                {
+                  type: 'icon',
+                  properties: {
+                    name: 'add',
+                    color: 'red',
+                    size: 20,
                   },
                 },
               ],
@@ -120,30 +125,31 @@ const source = {
           properties: {
             containerStyle: {
               backgroundColor: 'white',
-              hieght: 30,
+              borderBottomWidth: 0,
             },
-            width: 200,
+            hieght: 20,
             leftComponent: {
               childrens: [
                 {
                   type: 'view',
-                  style: {flexDiretion: 'row'},
+                  style: {flexDirection: 'row'},
                 },
                 {
                   type: 'icon',
                   properties: {
                     name: 'add',
                     color: 'red',
-                    size: 10,
                   },
                 },
                 {
                   type: 'text',
                   properties: {
-                    title: 'Add new Adresses',
+                    title: 'Add Your Addresses',
                     style: {
                       color: 'red',
-                      size: 10,
+                      fontSize: 18,
+                      width: 200,
+                      marginBottom: 10,
                     },
                   },
                 },
