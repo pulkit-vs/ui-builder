@@ -9,28 +9,28 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { View, Text } from 'react-native';
-import { applyThemeOnText } from "../theme/textTheme";
 import { theme } from "../../App";
+import { handleTheme } from "../utility/utils";
 
 export default class TextComponent extends React.Component {
 
   componentWillMount() {
 
     // Applying theme on text
-    this.props = theme ? applyThemeOnText(theme, this.props) : this.props
+    this.props = theme ? handleTheme(theme, this.props) : this.props
   }
 
   render() {
 
     const props = this.props;
     return (
-      <View>
+      <>
         <Text
           style={props.style}
         >
           {props.title}
         </Text>
-      </View>
+      </>
     );
   }
 }
