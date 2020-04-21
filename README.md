@@ -1,8 +1,21 @@
 ## Get Started - 
 - ui-builder is an npm package that can generate UI components by passing a JSON data.
-- ui-builder package suppports 'input' and 'button' components that can be used in react-native project.
+- ui-builder package suppports low-level components and some of the high-level components as well that can be used in react-native project.
+
+## Supported Components - 
+```
+- Button
+- Text Input
+- Icon
+- Image
+- Modal
+- Header
+```
+
+## Highlights- 
 - Input component is for displaying text input.
 - Button component is for displaying a button that can be made as per passed JSON data. It supports common shapes as well.
+- Button component supports including icon as well.
 
 ## Steps for Installation [Android steps]-
 - Install using 'npm i react-native-ui-builder'
