@@ -16,20 +16,20 @@ export default class CheckboxComponent extends Component {
   }
 
   componentDidMount() {
-    let newTextColor;
+    let updatedTextColor;
     if (this.props.checked) {
-      newTextColor = this.props.titleStyle.checkedColor
+      updatedTextColor = this.props.titleStyle.checkedColor
         ? this.props.titleStyle.checkedColor
         : this.props.titleStyle.color;
     } else {
-      newTextColor = this.props.titleStyle.uncheckedColor
+      updatedTextColor = this.props.titleStyle.uncheckedColor
         ? this.props.titleStyle.uncheckedColor
         : this.props.titleStyle.color;
     }
     // to set the initial state of checkbox component given by user and color of text content
     this.setState({
       checked: this.props.checked,
-      color: newTextColor,
+      color: updatedTextColor,
     });
   }
   handleCheckboxStatus = () => {
