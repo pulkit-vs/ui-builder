@@ -9,7 +9,7 @@
 // TODO: will use Uibuilder from npm package later.
 // import UiBuilder from 'react-native-ui-builder';
 
-import React from 'react';
+import React, {Children} from 'react';
 import UiBuilder from './src/index';
 import {View} from 'react-native';
 
@@ -171,6 +171,101 @@ const source = {
       },
     },
   ],
+  // data: [
+  //   {
+  //     type: 'view',
+  //     style: {backgroundColor: 'red', width: '100%', height: '100%'},
+  //     childrens: [
+  //       {
+  //         type: 'header',
+  //         properties: {
+  //           containerStyle: {
+  //             backgroundColor: 'yellow',
+  //           },
+  //           centerComponent: {
+  //             childrens: [
+  //               {
+  //                 type: 'text',
+  //                 properties: {
+  //                   title: 'Account',
+  //                   style: {color: 'black', fontSize: 20},
+  //                 },
+  //               },
+  //             ],
+  //           },
+  //         },
+  //       },
+  //       {
+  //         type: 'header',
+  //         properties: {
+  //           containerStyle: {
+  //             height: 150,
+  //             backgroundColor: 'blue',
+  //           },
+  //           leftComponent: {
+  //             childrens: [
+  //               {
+  //                 type: 'icon',
+  //                 properties: {
+  //                   name: 'add',
+  //                   color: 'red',
+  //                   size: 20,
+  //                 },
+  //               },
+  //             ],
+  //           },
+  //           centerComponent: {
+  //             childrens: [
+  //               {
+  //                 type: 'text',
+  //                 properties: {
+  //                   title: 'Medipick',
+  //                   style: {color: 'white', fontSize: 45},
+  //                 },
+  //               },
+  //             ],
+  //           },
+  //         },
+  //       },
+  //       {
+  //         type: 'header',
+  //         properties: {
+  //           containerStyle: {
+  //             height: 60,
+  //           },
+  //           leftComponent: {
+  //             childrens: [
+  //               {
+  //                 type: 'text',
+  //                 properties: {
+  //                   title: 'Welcome',
+  //                   style: {color: 'white', fontSize: 14},
+  //                 },
+  //               },
+  //             ],
+  //           },
+  //           // leftContainerStyle: {
+  //           //   width: 100,
+  //           // },
+  //           centerComponent: {
+  //             childrens: [
+  //               {
+  //                 type: 'text',
+  //                 properties: {
+  //                   title: 'Please login here',
+  //                   style: {color: 'white', fontSize: 20},
+  //                 },
+  //               },
+  //             ],
+  //           },
+  //         },
+  //       },
+  //       {
+
+  //       }
+  //     ],
+  //   },
+  // ],
 };
 
 export default class App extends React.Component {
