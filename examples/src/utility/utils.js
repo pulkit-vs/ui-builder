@@ -24,14 +24,12 @@ const darkTheme = {
   borderColor: 'white',
 };
 
-// function will be called when user defined any theme and will change the style of component .
-
+// function will be called when user defined any theme and will change the style of component.
 export const applyTheme = (componentStyle, theme) => {
   const existingStyle = {...componentStyle};
   const themeStyle = getThemeStyle(theme);
 
   // iterate over each key and checks if style is defined then change the style according to theme
-
   Object.keys(themeStyle).forEach((key) => {
     if (existingStyle.checkboxStyle && existingStyle.checkboxStyle[key]) {
       existingStyle.checkboxStyle[key] = themeStyle[key];
