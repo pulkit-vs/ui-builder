@@ -86,7 +86,7 @@ const source = {
             containerStyle: {
               backgroundColor: 'red',
               borderBottomWidth: 0,
-              hieght: 80,
+              height: 70,
             },
             centerComponent: {
               childrens: [
@@ -126,8 +126,9 @@ const source = {
             containerStyle: {
               backgroundColor: 'white',
               borderBottomWidth: 0,
+
+              height: 40,
             },
-            hieght: 20,
             leftComponent: {
               childrens: [
                 {
