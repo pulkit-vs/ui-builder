@@ -8,16 +8,16 @@
 
 import PropTypes from 'prop-types';
 import React from 'react';
-import { View, TextInput } from 'react-native';
-import { applyThemeOnTextInputStyle } from "../theme/textInputTheme";
-import { theme } from "../../App";
+import {View, TextInput} from 'react-native';
+import {applyThemeOnTextInputStyle} from '../theme/textInputTheme';
+import {theme} from '../../App';
 
 export default class Input extends React.Component {
   constructor() {
     super();
     this.state = {
       value: '',
-      props: {}
+      props: {},
     };
 
     //Function Binders
@@ -25,21 +25,21 @@ export default class Input extends React.Component {
   }
 
   onChangeText(event) {
-    this.setState({ value: event });
+    this.setState({value: event});
   }
 
   componentWillMount() {
-
     // Customize button style
-    this.state.props = { ...this.props };
+    this.state.props = {...this.props};
 
     // Applying theme on text input
-    this.state.props = theme ? applyThemeOnTextInputStyle(theme, this.state.props) : this.state.props
+    this.state.props = theme
+      ? applyThemeOnTextInputStyle(theme, this.state.props)
+      : this.state.props;
   }
 
   // Will provide support for icon in text input using react-native-elements library.
   render() {
-
     const props = this.state.props;
     return (
       <View>
@@ -57,7 +57,6 @@ export default class Input extends React.Component {
 }
 
 Input.propTypes = {
-
   label: PropTypes.string,
   selectionColor: PropTypes.string,
   style: PropTypes.shape({
@@ -69,9 +68,9 @@ Input.propTypes = {
     width: PropTypes.string,
     left: PropTypes.number,
     right: PropTypes.number,
-    marginTop: PropTypes.number
-  })
-}
+    marginTop: PropTypes.number,
+  }),
+};
 
 Input.defaultProps = {
   label: 'name',
@@ -81,6 +80,6 @@ Input.defaultProps = {
     backgroundColor: 'pink',
     borderColor: 'black',
     fontFamily: 'arial',
-    color: "black"
-  }
-}
+    color: 'black',
+  },
+};

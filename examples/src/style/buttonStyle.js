@@ -1,25 +1,30 @@
 // Styles for differnt shapes of button
 
 export const shapeStyles = {
+  rectangleShapeView: {
+    //To make Rectangle Shape
+    marginTop: 20,
+    width: 120 * 2,
+    height: 120,
+  },
 
-    circleShapeView: {
-        //To make Circle Shape
-        width: 100,
-        height: 100,
-        borderRadius: 100 / 2,
-        position: "absolute"
-    },
+  triangleShapeView: {
+    //To make Triangle Shape
+    width: 0,
+    height: 0,
+    borderLeftWidth: 60,
+    borderRightWidth: 60,
+    borderBottomWidth: 120,
+    borderStyle: 'solid',
+    // backgroundColor: 'transparent',
+    // borderLeftColor: 'transparent',
+    // borderRightColor: 'transparent',
+    // borderBottomColor: '#606070',
+  },
 
-    rectangleShapeView: {
-        //To make Rectangle Shape
-        marginTop: 20,
-        width: 120 * 2,
-        height: 120
-    },
-
-    squareShapeView: {
-        //To make Square Shape
-        width: 100,
-        height: 100,
-    },
-}
+  squareShapeView: {
+    //To make Square Shape
+    width: 100,
+    height: 100,
+  },
+};

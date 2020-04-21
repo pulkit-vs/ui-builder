@@ -6,14 +6,18 @@
  * @flow strict-local
  */
 
+import React from "react";
+import { View } from 'react-native';
+import { get } from "lodash";
+
 import ButtonComponent from "./components/button";
+import HeaderComponent from './components/header';
+import IconComponent from './components/icon';
+import ImageComponent from './components/image';
 import Input from "./components/input";
 import ModalComponent from "./components/modal";
-import React from "react";
-import { Header } from "react-native-elements";
-import { View } from "react-native";
-import { get } from "lodash";
 import TextComponent from "./components/text";
+
 
 export default class UiBuilder extends React.Component {
   constructor() {
@@ -22,34 +26,30 @@ export default class UiBuilder extends React.Component {
   }
 
   selectComponent(component) {
-    const type = get(component, "type", "");
+    const type = get(component, 'type', '');
     switch (type) {
-      case "input":
-        return <Input {...component.properties} />;
+      case 'input':
+        return <Input {...component.properties} key={1} />;
+      case 'icon':
+        return <IconComponent {...component.properties} key={2} />;
+      case 'button':
+        return <ButtonComponent {...component.properties} key={3} />;
+      case 'header':
+        return <HeaderComponent {...component.properties} key={4} />;
       case "text":
         return <TextComponent {...component.properties} />;
       case "modal":
         return <ModalComponent {...component} />
-      case "button":
-        return <ButtonComponent {...component.properties} />;
-      case "view":
+      case 'view':
         return (
-          <View>
-            {/* TODO: will add header in a seperate class later */}
-            <Header
-              backgroundColor="white"
-              containerStyle={{ borderBottomColor: 'grey', borderBottomWidth: 1 }}
-              fontSize={30}
-              width={"10%"}
-              placement="left"
-              leftComponent={{ text: 'Create an account to checkout', style: { color: 'black', fontSize: 20 } }}
-            // rightComponent={{ icon: 'cross', color: 'black' }}
-            />
-            {component.childrens.map(componentData => {
+          <View style={component.style}>
+            {component.childrens.map((componentData) => {
               return this.selectComponent(componentData);
             })}
           </View>
-        )
+        );
+      case 'image':
+        return <ImageComponent {...component.properties} />;
     }
   }
 
@@ -57,7 +57,7 @@ export default class UiBuilder extends React.Component {
     const { source } = this.props;
     return (
       <View>
-        {source.map(component => {
+        {source.map((component) => {
           return this.selectComponent(component);
         })}
       </View>
