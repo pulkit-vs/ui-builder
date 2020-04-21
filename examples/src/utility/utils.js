@@ -44,6 +44,5 @@ export const applyTheme = (componentStyle, theme) => {
       existingStyle.iconStyle[key] = themeStyle[key];
     }
   });
-
   return existingStyle;
 };

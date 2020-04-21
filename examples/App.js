@@ -7,12 +7,11 @@
  */
 
 // TODO: will use Uibuilder from npm package later.
-// import UiBuilder from 'react-native-ui-builder';
-
+//import UiBuilder from 'react-native-ui-builder';
 import React from 'react';
 import UiBuilder from './src/index';
-import {View} from 'react-native';
-
+import {View, Text} from 'react-native';
+import {CheckBox} from 'react-native-elements';
 const onButtonClick = () => {
   alert('Button Pressed');
 };
@@ -182,13 +181,24 @@ const source = {
       ],
     },
     {
-      type: 'button',
+      type: 'checkbox',
       properties: {
-        onPress: onButtonClick,
-        title: 'Custom Button1',
-        disabled: false,
-        buttonStyle: {backgroundColor: 'pink'},
-        titleStyle: {color: 'blue', fontSize: 40},
+        title: 'JAVASCRIPT',
+        titleStyle: {
+          color: 'pink',
+          fontSize: 22,
+          uncheckedColor: 'black',
+          checkedColor: 'pink',
+        },
+        checkboxStyle: {
+          color: 'red',
+          size: 25,
+        },
+        containerStyle: {
+          borderColor: '#DCDCDC',
+          borderRadius: 20,
+          width: '80%',
+        },
       },
     },
   ],
@@ -197,12 +207,20 @@ const source = {
 export default class App extends React.Component {
   constructor() {
     super();
+    this.state = {
+      checked: true,
+    };
   }
 
   render() {
     theme = source.theme;
     return (
       <>
+        <View className="react-view" style={{width: 200}}>
+          <View>
+            <Text> React Native Building Blocks </Text>
+          </View>
+        </View>
         <View>
           <UiBuilder source={source.data} />
         </View>
