@@ -6,15 +6,15 @@
  * @flow strict-local
  */
 
+import Icon from 'react-native-vector-icons/FontAwesome';
 import PropTypes from 'prop-types';
 import React from 'react';
-
-import Icon from 'react-native-vector-icons/FontAwesome';
 import { Button } from 'react-native-elements';
 import { View } from 'react-native';
+
 import { applyTheme } from '../utility/utils';
 import { shapeStyles } from '../style/buttonStyle';
-import { theme } from '../index';
+import { theme } from '../../index';
 
 export default class ButtonComponent extends React.Component {
   componentWillMount() {

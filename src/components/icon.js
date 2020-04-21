@@ -4,7 +4,7 @@ import React, {Component} from 'react';
 import {Icon} from 'react-native-elements';
 import {View} from 'react-native';
 import {applyTheme} from '../utility/utils';
-import { theme } from '../index';
+import { theme } from '../../index';
 
 export default class IconComponent extends Component {
   render() {

@@ -9,12 +9,12 @@
 import Modal from 'react-native-modal';
 import PropTypes from 'prop-types';
 import React from 'react';
-
 import { Button, Icon } from 'react-native-elements';
+
 import { CLOSE_MODAL } from "../utility/utils";
 import { View, Text, TextInput } from 'react-native';
 import { applyTheme } from "../utility/utils";
-import { theme } from '../index';
+import { theme } from '../../index';
 
 export default class ModalComponent extends React.Component {
 

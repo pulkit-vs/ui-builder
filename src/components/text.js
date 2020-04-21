@@ -8,17 +8,17 @@
 
 import PropTypes from 'prop-types';
 import React from 'react';
-
 import { Text } from 'react-native';
-import { handleTheme } from "../utility/utils";
-import { theme } from '../index';
+
+import { applyTheme } from "../utility/utils";
+import { theme } from '../../index';
 
 export default class TextComponent extends React.Component {
 
   componentWillMount() {
 
     // Applying theme on text
-    this.props = theme ? handleTheme(theme, this.props) : this.props
+    this.props = theme ? applyTheme(theme, this.props) : this.props
   }
 
   render() {
