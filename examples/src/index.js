@@ -7,11 +7,14 @@
  */
 import ButtonComponent from './components/button';
 import Input from './components/input';
-import HeaderComponent from './components/header';
-import ImageComponent from './components/image';
 import React from 'react';
-import {View} from 'react-native';
+import {View, Text} from 'react-native';
 import {get} from 'lodash';
+import IconComponent from './components/icon';
+import ImageComponent from './components/image';
+import HeaderComponent from './components/header';
+
+import Checkbox from './components/Checkbox';
 
 export default class UiBuilder extends React.Component {
   constructor() {
@@ -23,11 +26,13 @@ export default class UiBuilder extends React.Component {
     const type = get(component, 'type', '');
     switch (type) {
       case 'input':
-        return <Input {...component.properties} />;
+        return <Input {...component.properties} key={1} />;
+      case 'icon':
+        return <IconComponent {...component.properties} key={2} />;
       case 'button':
-        return <ButtonComponent {...component.properties} />;
+        return <ButtonComponent {...component.properties} key={3} />;
       case 'header':
-        return <HeaderComponent {...component.properties} />;
+        return <HeaderComponent {...component.properties} key={4} />;
       case 'view':
         return (
           <View style={component.style}>
@@ -38,6 +43,12 @@ export default class UiBuilder extends React.Component {
         );
       case 'image':
         return <ImageComponent {...component.properties} />;
+      case 'text':
+        return (
+          <Text style={component.properties.style}>
+            {component.properties.title}
+          </Text>
+        );
     }
   }
 
