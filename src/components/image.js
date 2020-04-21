@@ -3,7 +3,7 @@ import React from 'react';
 
 import {View, Image} from 'react-native';
 import {applyThemeOnImageStyle} from '../theme/imageTheme';
-import {theme} from '../../App';
+import { theme } from '../index';
 
 export default class ImageComponent extends React.Component {
   render() {

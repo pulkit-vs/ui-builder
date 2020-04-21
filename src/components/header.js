@@ -8,7 +8,7 @@ import {
   applyThemeOnIcon,
   applyThemeOnInput,
 } from '../theme/headerTheme';
-import {theme} from '../../App';
+import { theme } from '../index';
 
 export default class HeaderComponent extends React.Component {
   valueOfComponent = ['leftComponent', 'centerComponent', 'rightComponent'];
