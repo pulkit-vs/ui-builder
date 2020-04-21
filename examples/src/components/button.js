@@ -8,28 +8,28 @@
 
 import PropTypes from 'prop-types';
 import React from 'react';
-import {Button} from 'react-native-elements';
-import {View} from 'react-native';
-import {shapeStyles} from '../style/buttonStyle';
-import {theme} from '../../App';
+import { Button } from 'react-native-elements';
+import { View } from 'react-native';
+import { shapeStyles } from '../style/buttonStyle';
+import { theme } from '../../App';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import {applyTheme} from '../utility/utils';
+import { applyTheme } from '../utility/utils';
 
 export default class ButtonComponent extends React.Component {
   componentWillMount() {
     // Customize button style
     const shapeStyle = this.props.showCircle
-      ? {...shapeStyles.circleShapeView}
+      ? { ...shapeStyles.circleShapeView }
       : this.props.ShowSquare
-      ? {...shapeStyles.squareShapeView}
-      : this.props.showRectangle
-      ? {...shapeStyles.rectangleShapeView}
-      : this.props.showTriangle
-      ? {...shapeStyles.triangleShapeView}
-      : null;
+        ? { ...shapeStyles.squareShapeView }
+        : this.props.showRectangle
+          ? { ...shapeStyles.rectangleShapeView }
+          : this.props.showTriangle
+            ? { ...shapeStyles.triangleShapeView }
+            : null;
 
     if (shapeStyle) {
-      this.props.buttonStyle = {...this.props.buttonStyle, ...shapeStyle};
+      this.props.buttonStyle = { ...this.props.buttonStyle, ...shapeStyle };
     }
     // Applying theme on button style
     if (theme) {
@@ -38,18 +38,17 @@ export default class ButtonComponent extends React.Component {
   }
 
   render() {
-    const props = this.props;
     return (
       <View>
         <Button
-          title={props.title}
-          onPress={props.onPress()}
-          disabled={props.disabled}
-          buttonStyle={props.buttonStyle}
-          titleStyle={props.titleStyle}
-          type={props.buttonType}
-          loading={props.loading}
-          icon={<Icon {...props.icon} />}
+          title={this.props.title}
+          onPress={this.props.onPress()}
+          disabled={this.props.disabled}
+          buttonStyle={this.props.buttonStyle}
+          titleStyle={this.props.titleStyle}
+          type={this.props.buttonType}
+          loading={this.props.loading}
+          icon={<Icon {...this.props.icon} />}
         />
       </View>
     );
@@ -82,7 +81,7 @@ ButtonComponent.defaultProps = {
     borderColor: 'yellow',
   },
   titleStyle: {
-    color: 'blue',
+    // color: 'blue',
     fontFamily: 'arial',
     fontSize: 40,
   },

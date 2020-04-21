@@ -18,12 +18,26 @@ import { theme } from "../../App";
 
 export default class ModalComponent extends React.Component {
 
-    state = {
-        isModalVisible: true,
-        value: ''
-    };
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            isModalVisible: true,
+            value: ''
+        };
+        if (theme) {
+
+            // Applying theme on components.
+            props.properties = applyTheme(this.props.properties, theme)
+
+            props.childrens.forEach(children => {
+                children.properties = applyTheme(children.properties, theme)
+            })
+        }
+    }
 
     inVisibleModal() {
+        alert('close modal')
         this.setState({ isModalVisible: !this.state.isModalVisible });
     }
 
@@ -37,13 +51,10 @@ export default class ModalComponent extends React.Component {
                 {(() => {
                     if (children.type === 'text') {
 
-                        // Applying theme on text
-                        let properties = theme ? applyTheme(children.properties, theme) : children.properties
-
                         return (<Text
-                            style={properties.style}
+                            style={children.properties.style}
                         >
-                            {properties.title}
+                            {children.properties.title}
                         </Text>
                         )
                     }
@@ -52,15 +63,12 @@ export default class ModalComponent extends React.Component {
                 {(() => {
                     if (children.type === 'icon') {
 
-                        // Apply theme on icon
-                        let properties = theme ? applyTheme(children.properties, theme) : children.properties
-
                         return (<Icon
-                            containerStyle={properties.containerStyle}
-                            name={properties.name}
-                            color={properties.color}
-                            size={properties.size}
-                            onPress={children.properties.onPress === 'closeModal' ? () => this.inVisibleModal() : children.properties.onPress}
+                            containerStyle={children.properties.containerStyle}
+                            name={children.properties.name}
+                            color={children.properties.color}
+                            size={children.properties.size}
+                            onPress={children.properties.onPress === 'closeModal' ? () => this.inVisibleModal() : properties.onPress}
                         />)
                     }
                 })()}
@@ -68,17 +76,14 @@ export default class ModalComponent extends React.Component {
                 {(() => {
                     if (children.type === 'input') {
 
-                        // Applying theme on text input
-                        let properties = theme ? applyTheme(children.properties, theme) : children.properties
-
                         return (<TextInput
 
                             onChangeText={() => this.onChangeText()}
-                            placeholder={properties.label}
-                            selectionColor={properties.style.selectionColor}
-                            style={properties.style}
+                            placeholder={children.properties.label}
+                            selectionColor={children.properties.style.selectionColor}
+                            style={children.properties.style}
                             value={this.state.value}
-                            placeholderTextColor={properties.placeholderTextColor}
+                            placeholderTextColor={children.properties.placeholderTextColor}
                         />)
                     }
                 })()}
@@ -86,17 +91,14 @@ export default class ModalComponent extends React.Component {
                 {(() => {
                     if (children.type === 'button') {
 
-                        // Applying theme on button style
-                        let properties = theme ? applyTheme(children.properties, theme) : children.properties
-
                         return (<Button
-                            title={properties.title}
+                            title={children.properties.title}
                             onPress={() => this.inVisibleModal()}
-                            disabled={properties.disabled}
-                            buttonStyle={properties.buttonStyle}
-                            titleStyle={properties.titleStyle}
-                            type={properties.buttonType}
-                            loading={properties.loading}
+                            disabled={children.properties.disabled}
+                            buttonStyle={children.properties.buttonStyle}
+                            titleStyle={children.properties.titleStyle}
+                            type={children.properties.buttonType}
+                            loading={children.properties.loading}
                         />)
                     }
                 })()}
@@ -107,13 +109,12 @@ export default class ModalComponent extends React.Component {
     render() {
 
         const closeModal = this.props.properties.closeModal;
-        const properties = theme ? applyTheme(this.props.properties, theme) : this.props.properties;
         return (
             <Modal
                 isVisible={this.state.isModalVisible}
-                {...properties}
-                style={properties.style}
-                backdropColor={properties.backdropColor}
+                {...this.props.properties}
+                style={this.props.properties.style}
+                backdropColor={this.props.properties.backdropColor}
                 onBackdropPress={closeModal.includes(CLOSE_MODAL.onBackdropPress) ? () => this.inVisibleModal() : null}
                 onBackButtonPress={closeModal.includes(CLOSE_MODAL.onBackButtonPress) ? () => this.inVisibleModal() : null}
                 onSwipeComplete={closeModal.includes(CLOSE_MODAL.onSwipeComplete) ? () => this.inVisibleModal() : null}

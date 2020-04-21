@@ -24,7 +24,6 @@ const data = {
     }
 }
 
-
 const data2 = {
     childrens: [
         {

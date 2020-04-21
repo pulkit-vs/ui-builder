@@ -18,16 +18,8 @@ const onIconClick = () => {
 // Global variable to get theme type in other files.
 export let theme;
 const source = {
-  theme: 'darkTheme',
+  theme: 'lightTheme',
   data: [
-    {
-      type: 'button',
-      properties: {
-        title: 'FACEBOOK',
-        titleStyle: { color: 'blue', fontSize: 20 },
-        buttonStyle: { backgroundColor: 'white', width: "90%", left: 20, borderWidth: 3, marginTop: 20 }
-      }
-    },
     {
       type: 'modal',
       properties: {
