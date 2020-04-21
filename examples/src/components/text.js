@@ -8,6 +8,7 @@
 
 import PropTypes from 'prop-types';
 import React from 'react';
+
 import { Text } from 'react-native';
 import { handleTheme } from "../utility/utils";
 import { theme } from "../../App";

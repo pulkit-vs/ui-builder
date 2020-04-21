@@ -1,19 +1,20 @@
-// /**
-//  * Sample React Native App
-//  * https://github.com/facebook/react-native
-//  *
-//  * @format
-//  * @flow strict-local
-//  */
+/**
+ * Sample React Native App
+ * https://github.com/facebook/react-native
+ *
+ * @format
+ * @flow strict-local
+ */
 
 import PropTypes from 'prop-types';
 import React from 'react';
+
+import Icon from 'react-native-vector-icons/FontAwesome';
 import { Button } from 'react-native-elements';
 import { View } from 'react-native';
+import { applyTheme } from '../utility/utils';
 import { shapeStyles } from '../style/buttonStyle';
 import { theme } from '../../App';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import { applyTheme } from '../utility/utils';
 
 export default class ButtonComponent extends React.Component {
   componentWillMount() {

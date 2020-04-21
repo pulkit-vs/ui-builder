@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import {theme} from '../../App';
-import {applyThemeOnImageStyle} from '../theme/imageTheme';
+
 import {View, Image} from 'react-native';
+import {applyThemeOnImageStyle} from '../theme/imageTheme';
+import {theme} from '../../App';
 
 export default class ImageComponent extends React.Component {
   render() {
