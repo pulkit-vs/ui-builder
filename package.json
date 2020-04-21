@@ -1,6 +1,6 @@
 {
   "name": "react-native-ui-builder",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "A package for generating UI by consuming json data.",
   "main": "index.js",
   "scripts": {
