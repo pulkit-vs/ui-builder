@@ -10,13 +10,13 @@ import React from "react";
 import { View } from 'react-native';
 import { get } from "lodash";
 
-import ButtonComponent from "./components/button";
-import HeaderComponent from './components/header';
-import IconComponent from './components/icon';
-import ImageComponent from './components/image';
-import Input from "./components/input";
-import ModalComponent from "./components/modal";
-import TextComponent from "./components/text";
+import ButtonComponent from "./src/components/button";
+import HeaderComponent from './src/components/header';
+import IconComponent from './src/components/icon';
+import ImageComponent from './src/components/image';
+import Input from "./src/components/input";
+import ModalComponent from "./src/components/modal";
+import TextComponent from "./src/components/text";
 
 // Global variable to get theme type in other files.
 export let theme;
