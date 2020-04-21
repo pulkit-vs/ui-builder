@@ -37,7 +37,6 @@ export default class ModalComponent extends React.Component {
     }
 
     inVisibleModal() {
-        alert('close modal')
         this.setState({ isModalVisible: !this.state.isModalVisible });
     }
 
@@ -129,14 +128,41 @@ export default class ModalComponent extends React.Component {
     }
 }
 
-// TODO: Will add propTypes and defaultProps
 // To run typechecking on the props for a component, for validating a props
 ModalComponent.propTypes = {
 
+    properties: PropTypes.shape({
+        style: PropTypes.shape({
+            backgroundColor: PropTypes.string,
+            margin: PropTypes.number,
+            marginBottom: PropTypes.number,
+            marginTop: PropTypes.number,
+            width: PropTypes.string
+        }),
+        backdropColor: PropTypes.string,
+        closeModal: PropTypes.array,
+        swipeDirection: PropTypes.string
+    }),
+
+    childrens: PropTypes.array
 }
 
 // Defaultprops is to set the default props for the class.
 ModalComponent.defaultProps = {
 
+    properties: {
+        style: { margin: 0, width: '100%', marginBottom: 200, marginTop: 200, backgroundColor: 'yellow' },
+        closeModal: ['onBackdropPress', 'onBackButtonPress', 'onSwipeComplete'],
+        swipeDirection: 'left'
+    },
+    childrens: [
+        {
+            type: 'text',
+            properties: {
+                style: { fontSize: 20, fontWeight: 'bold', textAlign: 'center', marginBottom: 10, color: 'black' },
+                title: 'Please add components in a modal'
+            }
+        }
+    ]
 }
 
