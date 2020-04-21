@@ -23,18 +23,14 @@ const darkTheme = {
   placeholderTextColor: 'white',
   borderColor: 'white',
 };
-<<<<<<< HEAD
 
-// method to apply theme
+// function will be called when user defined any theme and will change the style of component.
 export const applyTheme = (componentStyle, theme) => {
   const existingStyle = {...componentStyle};
   const themeStyle = getThemeStyle(theme);
-  // get key values from theme
-  const keys = Object.keys(themeStyle);
 
   // iterate over each key and checks if style is defined then change the style according to theme
-
-  keys.forEach((key) => {
+  Object.keys(themeStyle).forEach((key) => {
     if (existingStyle.checkboxStyle && existingStyle.checkboxStyle[key]) {
       existingStyle.checkboxStyle[key] = themeStyle[key];
     }
@@ -51,5 +47,3 @@ export const applyTheme = (componentStyle, theme) => {
 
   return existingStyle;
 };
-=======
->>>>>>> master

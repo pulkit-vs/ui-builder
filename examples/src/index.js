@@ -13,6 +13,7 @@ import {get} from 'lodash';
 import {Header} from 'react-native-elements';
 import IconComponent from './components/icon';
 import ImageComponent from './components/image';
+import HeaderComponent from './components/header';
 
 export default class UiBuilder extends React.Component {
   constructor() {
@@ -24,34 +25,34 @@ export default class UiBuilder extends React.Component {
     const type = get(component, 'type', '');
     switch (type) {
       case 'input':
-        return <Input {...component.properties} />;
+        return <Input {...component.properties} key={1} />;
       case 'icon':
-        return <IconComponent {...component.properties} />;
+        return <IconComponent {...component.properties} key={2} />;
       case 'button':
-        return <ButtonComponent {...component.properties} />;
+        return <ButtonComponent {...component.properties} key={3} />;
       case 'header':
-        return <HeaderComponent {...component.properties} />;
-      case 'view':
-        return (
-          <View style={component.style}>
-            //TODO: will add header in a seperate class later */
-            <Header
-              backgroundColor="white"
-              containerStyle={{borderBottomColor: 'grey', borderBottomWidth: 1}}
-              fontSize={30}
-              width={'10%'}
-              placement="left"
-              leftComponent={{
-                text: 'Create an account to checkout',
-                style: {color: 'black', fontSize: 20},
-              }}
-              // rightComponent={{ icon: 'cross', color: 'black' }}
-            />
-            {component.childrens.map((componentData) => {
-              return this.selectComponent(componentData);
-            })}
-          </View>
-        );
+        return <HeaderComponent {...component.properties} key={4} />;
+      // case 'view':
+      //   return (
+      //     <View style={component.style}>
+      //       //TODO: will add header in a seperate class later */
+      //       <Header
+      //         backgroundColor="white"
+      //         containerStyle={{borderBottomColor: 'grey', borderBottomWidth: 1}}
+      //         fontSize={30}
+      //         width={'10%'}
+      //         placement="left"
+      //         leftComponent={{
+      //           text: 'Create an account to checkout',
+      //           style: {color: 'black', fontSize: 20},
+      //         }}
+      //         // rightComponent={{ icon: 'cross', color: 'black' }}
+      //       />
+      //       {component.childrens.map((componentData) => {
+      //         return this.selectComponent(componentData);
+      //       })}
+      //     </View>
+      //   );
       case 'image':
         return <ImageComponent {...component.properties} />;
     }
