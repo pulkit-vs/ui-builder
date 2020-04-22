@@ -113,6 +113,24 @@ You can use flex-end and marginRight for moving an icon at the rightmost-corner.
 }
 ```
 
+## How to change a color of a title on clicked of a checkbox
+```
+{
+      type: 'checkbox',
+      properties: {
+        title: 'Ui Builder',
+        titleStyle: {
+          uncheckedColor: 'black',
+          checkedColor: 'pink',
+        },
+        checkboxStyle: {
+          color: 'red',
+          size: 25,
+        }
+      }
+}
+```
+
 ## Steps for Installation [Android steps]-
 - Install using 'npm i react-native-ui-builder'
 - Components can be used by giving UiBuilder tag with a JSON data
