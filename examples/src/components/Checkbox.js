@@ -13,6 +13,7 @@ export default class CheckboxComponent extends Component {
       checked: false,
       color: '',
     };
+    props = theme ? applyTheme(props, theme) : props;
   }
 
   componentDidMount() {
@@ -54,10 +55,9 @@ export default class CheckboxComponent extends Component {
     }
   };
   render() {
-    props.titleStyle.color = this.state.color
+    this.props.titleStyle.color = this.state.color
       ? this.state.color
-      : props.titleStyle.color;
-    this.props = theme ? applyTheme(this.props, theme) : this.props;
+      : this.props.titleStyle.color;
 
     return (
       <View>

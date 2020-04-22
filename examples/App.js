@@ -11,7 +11,6 @@
 import React from 'react';
 import UiBuilder from './src/index';
 import {View, Text} from 'react-native';
-import {CheckBox} from 'react-native-elements';
 const onButtonClick = () => {
   alert('Button Pressed');
 };
@@ -184,12 +183,7 @@ const source = {
       type: 'checkbox',
       properties: {
         title: 'JAVASCRIPT',
-        titleStyle: {
-          color: 'pink',
-          fontSize: 22,
-          uncheckedColor: 'black',
-          checkedColor: 'pink',
-        },
+
         checkboxStyle: {
           color: 'red',
           size: 25,
@@ -205,13 +199,6 @@ const source = {
 };
 
 export default class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      checked: true,
-    };
-  }
-
   render() {
     theme = source.theme;
     return (

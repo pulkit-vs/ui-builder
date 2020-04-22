@@ -44,6 +44,8 @@ export default class UiBuilder extends React.Component {
         );
       case 'image':
         return <ImageComponent {...component.properties} />;
+      case 'checkbox':
+        return <Checkbox {...component.properties} />;
     }
   }
 
