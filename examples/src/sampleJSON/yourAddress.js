@@ -1,4 +1,4 @@
-export const source = {
+export const sourceData = {
   theme: '',
   data: [
     {
@@ -103,7 +103,7 @@ export const source = {
           borderRadius: 15,
         },
         backdropColor: 'grey',
-        closeModal: ['onBackdropPress', 'onBackButtonPress', 'onSwipeComplete'],
+        closeModal: ['onBackButtonPress', 'onSwipeComplete'],
         swipeDirection: 'left',
       },
       childrens: [
