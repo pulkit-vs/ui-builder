@@ -18,7 +18,7 @@ export default class TextComponent extends React.Component {
   componentWillMount() {
 
     // Applying theme on text
-    this.props = theme ? applyTheme(theme, this.props) : this.props
+    this.props = theme ? applyTheme(this.props, theme) : this.props
   }
 
   render() {
@@ -51,10 +51,10 @@ TextComponent.propTypes = {
 TextComponent.defaultProps = {
   title: 'Text',
   style: {
+    color : 'black',
     fontSize: 20,
     fontWeight: 'bold',
     marginTop: 0,
     textAlign: 'center'
   }
-
 }
