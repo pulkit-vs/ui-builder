@@ -44,9 +44,11 @@ Checkbox Component :
 - Checkboxes are used for a list of options where the user have an option to select one or more items.
 - You can customize checkbox with different set of icons and can place it anywhere on the screen.
 Icon Component :
-- Icons are visual indicators that can be used to describe action or intent. You can move icons anywhere in the screen by passing ```selfAlign``` and ```margin```.
+- Icons are visual indicators that can be used to describe action or intent. You can move icons anywhere in the screen by passing selfAlign and margin.
 - Basic props for the icon are: name, size, iconType. You can customize by passing more props in JSON structure.
 ```
+
+## Frequently Asked Questions
 
 # How would i pass icon data inside a button
 ```
@@ -64,6 +66,51 @@ Icon Component :
         }
 }
 
+```
+
+# How to move an icon in the rightmost corner
+You can use flex-end and marginRight for moving an icon at the rightmost-corner.
+```
+{
+      type: 'icon',
+      properties: {
+        name: 'battery',
+        size: 20,
+        iconType: 'font-awesome'
+        containerStyle: {
+          alignSelf: 'flex-end',
+          marginRight: 5,
+        },
+      },
+    },
+```
+
+# How to show multiple components at the center of a header
+```
+{
+  centerComponent: {
+    childrens: [
+      {
+        type: 'icon',
+        properties: {
+          name: 'plus-circle',
+          color: 'white',
+          size: 60,
+        },
+      },
+      {
+        type: 'text',
+        properties: {
+          title: 'User',
+          style: {
+            color: 'white',
+            fontWeight: 'bold',
+          },
+        },
+      },
+    ]
+  }
+}
 ```
 
 ## Steps for Installation [Android steps]-
