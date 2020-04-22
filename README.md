@@ -3,7 +3,6 @@
 - ui-builder package suppports low-level components and some of the high-level components as well that can be used in react-native project.
 
 ## Supported Components - 
-```
 - Button
 - Text Input
 - Icon
@@ -11,14 +10,17 @@
 - Modal
 - Header
 - Theme
-```
 
 ## Highlights- 
 Input:
+```
 - Input component is for displaying text input.
+```
 Button:
+```
 - Button component is for displaying a button that can be made as per passed JSON data. It supports common shapes as well.
 - Button component supports icon as well, you can include icon inside a button.
+```
 Modal:
 - Modal component is for displaying a modal, you can place modal anywhere on the screen by passing marginTop/marginBottom.
 - Modal component supports input/text/button/icon as a sub-component.
