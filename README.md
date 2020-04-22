@@ -113,7 +113,7 @@ You can use flex-end and marginRight for moving an icon at the rightmost-corner.
 }
 ```
 
-## How to change a color of a title on clicked of a checkbox
+## How to change a color of a title on click of a checkbox
 ```
 {
       type: 'checkbox',
