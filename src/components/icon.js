@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
 import React, {Component} from 'react';
-
 import {Icon} from 'react-native-elements';
 import {View} from 'react-native';
-import {applyTheme} from '../utility/utils';
+
 import { theme } from '../../index';
+import {applyTheme} from '../utility/utils';
 
 export default class IconComponent extends Component {
   render() {
@@ -24,6 +24,7 @@ export default class IconComponent extends Component {
     );
   }
 }
+
 IconComponent.propTypes = {
   size: PropTypes.number,
   name: PropTypes.string,
@@ -42,11 +43,11 @@ IconComponent.defaultProps = {
   size: 30,
   type: 'material',
   iconStyle: {
-    color: 'white',
     backgroundColor: 'black',
+    color: 'white',
   },
   containerStyle: {
-    padding: 0,
     margin: 0,
+    padding: 0,
   },
 };

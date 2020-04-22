@@ -28,7 +28,7 @@ export default class ModalComponent extends React.Component {
         if (theme) {
 
             // Applying theme on components.
-            props.properties = applyTheme(this.props.properties, theme)
+            props.properties = applyTheme(props.properties, theme)
 
             props.childrens.forEach(children => {
                 children.properties = applyTheme(children.properties, theme)
