@@ -35,7 +35,7 @@ export const applyTheme = (componentStyle, theme) => {
       existingStyle.checkboxStyle[key] = themeStyle[key];
     }
     if (existingStyle.containerStyle && existingStyle.containerStyle[key]) {
-      existingStyle.containerStyle[keys] = themeStyle[key];
+      existingStyle.containerStyle[key] = themeStyle[key];
     }
     if (existingStyle.titleStyle && existingStyle.titleStyle[key]) {
       existingStyle.titleStyle[key] = themeStyle[key];

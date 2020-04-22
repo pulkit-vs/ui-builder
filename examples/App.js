@@ -21,7 +21,7 @@ const onIconClick = () => {
 // Global variable to get theme type in other files.
 export let theme;
 const source = {
-  // theme: 'darkTheme',
+  theme: 'lightTheme',
 
   data: [
     {
@@ -203,14 +203,7 @@ export default class App extends React.Component {
     theme = source.theme;
     return (
       <>
-        <View className="react-view" style={{width: 200}}>
-          <View>
-            <Text> React Native Building Blocks </Text>
-          </View>
-        </View>
-        <View>
-          <UiBuilder source={source.data} />
-        </View>
+        <UiBuilder source={source.data} />
       </>
     );
   }

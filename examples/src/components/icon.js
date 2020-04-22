@@ -6,8 +6,12 @@ import {theme} from '../../App';
 import {applyTheme} from '../utility/utils';
 
 export default class IconComponent extends Component {
+  constructor(props) {
+    super(props);
+
+    props = theme ? applyTheme(props, theme) : props;
+  }
   render() {
-    this.props = theme ? applyTheme(this.props, theme) : this.props;
     return (
       <View>
         <Icon
