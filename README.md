@@ -43,7 +43,9 @@ Checkbox Component :
 ```
 - Checkboxes are used for a list of options where the user have an option to select one or more items.
 - You can customize checkbox with different set of icons and can place it anywhere on the screen.
+```
 Icon Component :
+```
 - Icons are visual indicators that can be used to describe action or intent. You can move icons anywhere in the screen by passing selfAlign and margin.
 - Basic props for the icon are: name, size, iconType. You can customize by passing more props in JSON structure.
 ```
