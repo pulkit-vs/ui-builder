@@ -1,28 +1,29 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import {theme} from '../../App';
-import {applyThemeOnImageStyle} from '../theme/imageTheme';
 import {View, Image} from 'react-native';
 
-export default class ImageComponent extends React.Component {
-  render() {
-    const styles = theme
-      ? applyThemeOnImageStyle(this.props, theme)
-      : this.props;
+import {applyTheme} from '../utility/utils';
+import {theme} from '../../App';
 
+export default class ImageComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    props = theme ? applyTheme(this.props, theme) : this.props;
+  }
+  render() {
     return (
       <View>
         <Image
-          style={styles.style}
+          accessibilityLabel={this.props.accessibilityLabel}
+          blurRadius={this.props.blurRadius}
+          capInsets={this.props.capInsets}
+          fadeDuration={this.props.fadeDuration}
+          resizeMethod={this.props.resizeMethod}
+          resizeMode={this.props.resizeMode}
+          style={this.props.style}
           source={{
-            uri: styles.uri,
+            uri: this.props.uri,
           }}
-          blurRadius={styles.blurRadius}
-          accessibilityLabel={styles.accessibilityLabel}
-          capInsets={styles.capInsets}
-          fadeDuration={styles.fadeDuration}
-          resizeMethod={styles.resizeMethod}
-          resizeMode={styles.resizeMode}
         />
       </View>
     );
@@ -30,24 +31,24 @@ export default class ImageComponent extends React.Component {
 }
 ImageComponent.propTypes = {
   blurRadius: PropTypes.number,
-  style: PropTypes.shape({
-    height: PropTypes.number,
-    width: PropTypes.number,
-    borderColor: PropTypes.string,
-    borderRadius: PropTypes.number,
-    borderWidth: PropTypes.number,
-    opacity: PropTypes.number,
-    overflow: PropTypes.strig,
-  }),
   fadeDuration: PropTypes.number,
   resizeMethod: PropTypes.string,
   resizeMode: PropTypes.string,
+  style: PropTypes.shape({
+    borderColor: PropTypes.string,
+    borderRadius: PropTypes.number,
+    borderWidth: PropTypes.number,
+    height: PropTypes.number,
+    opacity: PropTypes.number,
+    overflow: PropTypes.strig,
+    width: PropTypes.number,
+  }),
 };
 ImageComponent.defaultProps = {
   blurRadius: 0,
-  style: {height: 100, width: 100, borderColor: 'red'},
-  fadeDuration: 0,
   capInsets: {},
+  fadeDuration: 0,
   resizeMethod: 'auto',
   resizeMode: 'cover',
+  style: {height: 100, width: 100, borderColor: 'red'},
 };

@@ -31,17 +31,29 @@ export const applyTheme = (componentStyle, theme) => {
 
   // iterate over each key and checks if style is defined then change the style according to theme
   Object.keys(themeStyle).forEach((key) => {
+    if (existingStyle && existingStyle[key]) {
+      existingStyle[key] = themeStyle[key];
+    }
     if (existingStyle.checkboxStyle && existingStyle.checkboxStyle[key]) {
       existingStyle.checkboxStyle[key] = themeStyle[key];
     }
     if (existingStyle.containerStyle && existingStyle.containerStyle[key]) {
-      existingStyle.containerStyle[keys] = themeStyle[key];
+      existingStyle.containerStyle[key] = themeStyle[key];
     }
     if (existingStyle.titleStyle && existingStyle.titleStyle[key]) {
       existingStyle.titleStyle[key] = themeStyle[key];
     }
+    if (existingStyle.buttonStyle && existingStyle.buttonStyle[key]) {
+      existingStyle.buttonStyle[key] = themeStyle[key];
+    }
     if (existingStyle.iconStyle && existingStyle.iconStyle[key]) {
       existingStyle.iconStyle[key] = themeStyle[key];
+    }
+    if (existingStyle.inputStyle && existingStyle.inputStyle[key]) {
+      existingStyle.inputStyle[key] = themeStyle[key];
+    }
+    if (existingStyle.style && existingStyle.style[key]) {
+      existingStyle.style[key] = themeStyle[key];
     }
   });
   return existingStyle;

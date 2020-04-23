@@ -22,10 +22,6 @@ export const applyThemeOnImageStyle = (imageStyles, theme) => {
         ? style.borderBottomWidth
         : imageStyles.style.borderBottomWidth,
 
-      borderBottomColor: style.borderBottomColor
-        ? style.borderBottomColor
-        : imageStyles.style.borderBottomColor,
-
       marginTop: style.marginTop
         ? style.marginTop
         : imageStyles.style.marginTop,
