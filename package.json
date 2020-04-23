@@ -1,6 +1,6 @@
 {
   "name": "react-native-ui-builder",
-  "version": "1.0.2",
+  "version": "1.0.10",
   "description": "A package for generating UI by consuming json data.",
   "main": "index.js",
   "scripts": {
@@ -22,6 +22,9 @@
   "dependencies": {
     "lodash": "^4.17.15",
     "react-native-elements": "^1.2.7",
-    "react-native-vector-icons": "^6.6.0"
+    "react-native-vector-icons": "^6.6.0",
+    "react-native": "0.62.0",
+    "react": "16.11.0",
+    "react-native-modal": "^11.5.6"
   }
 }

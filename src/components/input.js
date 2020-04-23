@@ -6,17 +6,19 @@
  * @flow strict-local
  */
 
+import PropTypes from 'prop-types';
 import React from 'react';
 import { View, TextInput } from 'react-native';
-import { applyThemeOnTextInputStyle } from "../theme";
-import { createTextInputStyle } from "../style/inputStyle";
-import { theme } from "../../examples/App";
+
+import { applyTheme } from '../utility/utils';
+import { theme } from '../../index';
 
 export default class Input extends React.Component {
   constructor() {
     super();
     this.state = {
-      value: ''
+      value: '',
+      props: {},
     };
 
     //Function Binders
@@ -27,26 +29,58 @@ export default class Input extends React.Component {
     this.setState({ value: event });
   }
 
+  componentWillMount() {
+    // Customize button style
+    this.state.props = { ...this.props };
+
+    // Applying theme on text input
+    this.state.props = theme
+      ? applyTheme(this.state.props, theme)
+      : this.state.props;
+  }
+
+  // Will provide support for icon in text input using react-native-elements library.
   render() {
-    const { componentData } = this.props;
-
-    // Update pre-defined style as per given props.
-    let textInputStyle = createTextInputStyle(componentData);
-
-    // Applying theme on text input style
-    textInputStyle = theme ? applyThemeOnTextInputStyle(textInputStyle, theme) : textInputStyle;
-
+    const props = this.state.props;
     return (
       <View>
         <TextInput
           onChangeText={this.onChangeText}
-          placeholder={textInputStyle.placeholder}
-          selectionColor={textInputStyle.selectionColor}
-          style={textInputStyle.style}
+          placeholder={props.label}
+          selectionColor={props.style.selectionColor}
+          style={props.style}
           value={this.state.value}
-          placeholderTextColor={textInputStyle.placeholderTextColor}
+          placeholderTextColor={props.placeholderTextColor}
         />
       </View>
     );
   }
 }
+
+Input.propTypes = {
+  label: PropTypes.string,
+  selectionColor: PropTypes.string,
+  style: PropTypes.shape({
+    backgroundColor: PropTypes.string,
+    borderColor: PropTypes.string,
+    fontFamily: PropTypes.string,
+    color: PropTypes.string,
+    borderWidth: PropTypes.number,
+    width: PropTypes.string,
+    left: PropTypes.number,
+    right: PropTypes.number,
+    marginTop: PropTypes.number,
+  }),
+};
+
+Input.defaultProps = {
+  label: 'name',
+  selectionColor: 'green',
+  placeholderTextColor: 'pink',
+  style: {
+    backgroundColor: 'pink',
+    borderColor: 'black',
+    fontFamily: 'arial',
+    color: 'black',
+  },
+};

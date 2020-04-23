@@ -1,9 +1,9 @@
-import PropTypes from 'prop-types';
-import React from 'react';
+import PropTypes from "prop-types";
+import React from "react";
 
-import {View, Image} from 'react-native';
-import {applyThemeOnImageStyle} from '../theme/imageTheme';
-import {theme} from '../../App';
+import { View, Image } from "react-native";
+import { applyThemeOnImageStyle } from "../theme/imageTheme";
+import { theme } from "../../App";
 
 export default class ImageComponent extends React.Component {
   render() {
@@ -46,9 +46,9 @@ ImageComponent.propTypes = {
 };
 ImageComponent.defaultProps = {
   blurRadius: 0,
-  style: {height: 100, width: 100, borderColor: 'red'},
+  style: { height: 100, width: 100, borderColor: "red" },
   fadeDuration: 0,
   capInsets: {},
-  resizeMethod: 'auto',
-  resizeMode: 'cover',
+  resizeMethod: "auto",
+  resizeMode: "cover",
 };

@@ -7,13 +7,13 @@
  */
 
 import React from "react";
-import { View } from 'react-native';
+import { View } from "react-native";
 import { get } from "lodash";
 
 import ButtonComponent from "./components/button";
-import HeaderComponent from './components/header';
-import IconComponent from './components/icon';
-import ImageComponent from './components/image';
+import HeaderComponent from "./components/header";
+import IconComponent from "./components/icon";
+import ImageComponent from "./components/image";
 import Input from "./components/input";
 import ModalComponent from "./components/modal";
 import TextComponent from "./components/text";
@@ -25,29 +25,29 @@ export default class UiBuilder extends React.Component {
   }
 
   selectComponent(component) {
-    const type = get(component, 'type', '');
+    const type = get(component, "type", "");
     switch (type) {
-      case 'input':
+      case "input":
         return <Input {...component.properties} key={1} />;
-      case 'icon':
+      case "icon":
         return <IconComponent {...component.properties} key={2} />;
-      case 'button':
+      case "button":
         return <ButtonComponent {...component.properties} key={3} />;
-      case 'header':
+      case "header":
         return <HeaderComponent {...component.properties} key={4} />;
       case "text":
         return <TextComponent {...component.properties} key={5} />;
       case "modal":
-        return <ModalComponent {...component} key={6} />
-      case 'view':
+        return <ModalComponent {...component} key={6} />;
+      case "view":
         return (
-          <View style={component.style} key={7} >
+          <View style={component.style} key={7}>
             {component.childrens.map((componentData) => {
               return this.selectComponent(componentData);
             })}
           </View>
         );
-      case 'image':
+      case "image":
         return <ImageComponent {...component.properties} key={8} />;
     }
   }
@@ -56,7 +56,7 @@ export default class UiBuilder extends React.Component {
     const { source } = this.props;
     return (
       <View>
-        {source.map((component) => {
+        {source.data.map((component) => {
           return this.selectComponent(component);
         })}
       </View>

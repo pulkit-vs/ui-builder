@@ -1,10 +1,10 @@
-import PropTypes from 'prop-types';
-import React, {Component} from 'react';
+import PropTypes from "prop-types";
+import React, { Component } from "react";
 
-import {Icon} from 'react-native-elements';
-import {View} from 'react-native';
-import {applyTheme} from '../utility/utils';
-import {theme} from '../../App';
+import { Icon } from "react-native-elements";
+import { View } from "react-native";
+import { applyTheme } from "../utility/utils";
+import { theme } from "../../App";
 
 export default class IconComponent extends Component {
   constructor(props) {
@@ -30,6 +30,7 @@ export default class IconComponent extends Component {
     );
   }
 }
+
 IconComponent.propTypes = {
   size: PropTypes.number,
   name: PropTypes.string,
@@ -44,15 +45,15 @@ IconComponent.propTypes = {
 //Defaultprops is to set the default props for the class.
 IconComponent.defaultProps = {
   disabled: false,
-  onPress: () => console.log('Please add message on Icon click'),
+  onPress: () => console.log("Please add message on Icon click"),
   size: 30,
-  type: 'material',
+  type: "material",
   iconStyle: {
-    color: 'white',
-    backgroundColor: 'black',
+    backgroundColor: "black",
+    color: "white",
   },
   containerStyle: {
-    padding: 0,
     margin: 0,
+    padding: 0,
   },
 };

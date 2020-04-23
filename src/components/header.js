@@ -8,7 +8,7 @@ import {
   applyThemeOnIcon,
   applyThemeOnInput,
 } from '../theme/headerTheme';
-import {theme} from '../../App';
+import { theme } from '../../index';
 
 export default class HeaderComponent extends React.Component {
   valueOfComponent = ['leftComponent', 'centerComponent', 'rightComponent'];
@@ -34,6 +34,7 @@ export default class HeaderComponent extends React.Component {
                 <Icon
                   type="font-awesome"
                   keys={index}
+                  type = {styleOfIcon.type}
                   name={styleOfIcon.name}
                   color={styleOfIcon.color}
                   size={styleOfIcon.size}
@@ -62,6 +63,7 @@ export default class HeaderComponent extends React.Component {
                   leftIcon={
                     styleOfInput.leftIcon ? (
                       <Icon
+                        type = {styleOfInput.leftIcon.type}
                         name={styleOfInput.leftIcon.name}
                         size={styleOfInput.leftIcon.size}
                         color={styleOfInput.leftIcon.color}></Icon>
@@ -70,6 +72,7 @@ export default class HeaderComponent extends React.Component {
                   rightIcon={
                     styleOfInput.rightIcon ? (
                       <Icon
+                        type = {styleOfInput.rightIcon.type}
                         name={styleOfInput.rightIcon.name}
                         size={styleOfInput.rightIcon.size}
                         color={styleOfInput.rightIcon.color}></Icon>
