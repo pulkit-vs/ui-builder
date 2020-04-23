@@ -19,15 +19,6 @@ export default class HeaderComponent extends React.Component {
 
   render() {
     // Map for access left , right and center component JSON
-    // this.props = theme ? applyTheme(this.props, theme) : this.props;
-    // this.state.ValueOfComponent.forEach((value) => {
-    //   this.props[value].childrens.forEach((children) => {
-    //     this.props[value].childrens.properties = applyTheme(
-    //       children.properties,
-    //       theme,
-    //     );
-    //   });
-    // });
     const valueOfComponent = this.state.ValueOfComponent.map(
       (component, index) =>
         this.props[component].childrens ? (
