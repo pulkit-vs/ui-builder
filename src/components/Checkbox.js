@@ -1,10 +1,9 @@
+import PropTypes from 'prop-types';
 import React, {Component} from 'react';
-import {View} from 'react-native';
 import {CheckBox, Icon, colors} from 'react-native-elements';
-
+import {View} from 'react-native';
 import {applyTheme} from '../utility/utils';
 import {theme} from '../../App';
-import PropTypes from 'prop-types';
 
 export default class CheckboxComponent extends Component {
   constructor(props) {
@@ -32,6 +31,7 @@ export default class CheckboxComponent extends Component {
       color: updatedTextColor,
     });
   }
+
   handleCheckboxStatus = () => {
     const checkedColor = this.props.titleStyle.checkedColor
       ? this.props.titleStyle.checkedColor
@@ -53,6 +53,7 @@ export default class CheckboxComponent extends Component {
       });
     }
   };
+
   render() {
     props.titleStyle.color = this.state.color
       ? this.state.color
@@ -112,7 +113,6 @@ CheckboxComponent.defaultProps = {
     //borderWidth: '80%',
     borderRadius: 20,
     backgroundColor: 'red',
-
     borderColor: 'black',
   },
 };
