@@ -14,14 +14,9 @@
 - Theme
 
 ## Highlights- 
-Input:
+
 ```
-- Input component is for displaying text input.
-```
-Button:
-```
-- Button component is for displaying a button that can be made as per passed JSON data. It supports common shapes as well.
-- Button component supports icon as well, you can include icon inside a button.
+- Button Component supports common shapes, icons. You can give shapes to a button such as circle, square, rectangle.
 ```
 Modal:
 ```
@@ -122,6 +117,23 @@ export default class MyReactApp extends React.Component {
             title: 'FACEBOOK',
             titleStyle: { color: 'blue', fontSize: 20 },
             buttonStyle: { backgroundColor: 'white', width: "90%", left: 20, borderWidth: 3, marginTop: 20 },
+            icon: {
+              name: 'facebook',
+              color: 'blue',
+              size: 20
+            }
+        }
+}
+
+```
+
+# How would i give shape to a button
+```
+{
+        type: 'button',
+        properties: {
+            title: 'FACEBOOK',
+            showCircle: true,
             icon: {
               name: 'facebook',
               color: 'blue',

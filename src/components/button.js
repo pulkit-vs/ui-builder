@@ -21,7 +21,7 @@ export default class ButtonComponent extends React.Component {
     // Customize button style
     const shapeStyle = this.props.showCircle
       ? { ...shapeStyles.circleShapeView }
-      : this.props.ShowSquare
+      : this.props.showSquare
         ? { ...shapeStyles.squareShapeView }
         : this.props.showRectangle
           ? { ...shapeStyles.rectangleShapeView }
@@ -35,6 +35,11 @@ export default class ButtonComponent extends React.Component {
     // Applying theme on button style
     if (theme) {
       this.props = applyTheme(this.props, theme);
+
+      if (this.props.icon) {
+        // Applying theme on icon.
+        this.props.icon = applyTheme(this.props.icon, theme);
+      }
     }
   }
 

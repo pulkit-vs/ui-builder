@@ -1,6 +1,13 @@
 // Styles for differnt shapes of button
-
 export const shapeStyles = {
+
+  squareShapeView: {
+    //To make Square Shape
+    width: 100,
+    height: 100,
+    backgroundColor: '#14ff5f',
+  },
+
   rectangleShapeView: {
     //To make Rectangle Shape
     marginTop: 20,
