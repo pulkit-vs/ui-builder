@@ -15,7 +15,7 @@ export const sourceData = {
                 containerStyle: {
                   backgroundColor: 'red',
                   borderBottomWidth: 0,
-                  height: 30,
+                  height: 65,
                   textAlign: 'center',
                 },
                 centerComponent: {
@@ -30,9 +30,6 @@ export const sourceData = {
                         name: 'long-arrow-left',
                         color: 'white',
                         size: 30,
-                        style: {
-                          marginTop: 3,
-                        },
                       },
                     },
                     {
@@ -57,35 +54,34 @@ export const sourceData = {
           properties: {
             containerStyle: {
               backgroundColor: 'white',
-              borderBottomWidth: 2,
-              borderBottomColor: 'grey',
+              borderBottomWidth: 0,
 
-              height: 45,
+              height: 40,
             },
             leftComponent: {
               childrens: [
                 {
                   type: 'view',
-                  style: {flexDirection: 'row'},
+                  style: {
+                    flexDirection: 'row',
+                    borderBottomWidth: 2,
+                    borderBottomColor: 'grey',
+                  },
                 },
                 {
                   type: 'icon',
                   properties: {
                     name: 'plus-circle',
                     color: 'red',
-                    size: 22,
-                    style: {
-                      marginTop: -2,
-                    },
                   },
                 },
                 {
                   type: 'text',
                   properties: {
-                    title: ' ADD NEW ADDRESSES',
+                    title: 'Add Your Addresses',
                     style: {
                       color: 'red',
-                      fontSize: 12,
+                      fontSize: 18,
                       width: 200,
                       marginBottom: 10,
                       marginLeft: 7,
@@ -104,12 +100,9 @@ export const sourceData = {
         style: {
           margin: 0,
           width: '100%',
-          height: 500,
           marginTop: 350,
           backgroundColor: 'white',
-
-          borderTopLeftRadius: 15,
-          borderTopRightRadius: 15,
+          borderRadius: 0,
         },
         backdropColor: 'grey',
         closeModal: ['onBackButtonPress', 'onSwipeComplete'],
@@ -122,7 +115,6 @@ export const sourceData = {
             containerStyle: {
               alignSelf: 'flex-end',
               right: 20,
-
               position: 'absolute',
             },
             name: 'close',
@@ -135,14 +127,14 @@ export const sourceData = {
           type: 'text',
           properties: {
             style: {
-              fontSize: 16,
+              fontSize: 20,
               fontWeight: 'bold',
               textAlign: 'center',
               color: 'black',
               alignSelf: 'flex-start',
               marginLeft: 10,
             },
-            title: 'Add new Address',
+            title: 'Add new address',
           },
         },
 
@@ -154,7 +146,7 @@ export const sourceData = {
               backgroundColor: 'white',
               borderColor: '#D3D3D3',
               borderWidth: 2,
-              width: '47.8%',
+              width: '47%',
               left: 5,
               position: 'absolute',
               height: 40,
@@ -205,7 +197,7 @@ export const sourceData = {
               backgroundColor: 'white',
               borderColor: '#D3D3D3',
               borderWidth: 2,
-              width: '47.8%',
+              width: '47%',
               left: 5,
               position: 'absolute',
               height: 40,
@@ -240,7 +232,7 @@ export const sourceData = {
               backgroundColor: 'white',
               borderColor: '#D3D3D3',
               borderWidth: 2,
-              width: '47.8%',
+              width: '47%',
               left: 5,
               position: 'absolute',
               height: 40,
@@ -273,12 +265,12 @@ export const sourceData = {
             title: 'SAVE ADDRESS',
             onPress: 'closeModal',
             buttonStyle: {
-              backgroundColor: 'red',
+              backgroundColor: 'yellow',
               borderColor: 'red',
               width: '98%',
               left: 70,
               borderWidth: 3,
-              marginTop: 7,
+              marginTop: 5,
               alignSelf: 'center',
               marginRight: 137,
             },

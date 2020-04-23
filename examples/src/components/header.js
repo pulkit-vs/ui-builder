@@ -37,6 +37,7 @@ export default class HeaderComponent extends React.Component {
                   name={styleOfIcon.name}
                   color={styleOfIcon.color}
                   size={styleOfIcon.size}
+                  iconStyle={styleOfIcon.style}
                 />
               );
             } else if (item.type == 'text') {
