@@ -1,16 +1,16 @@
-import PropTypes from 'prop-types';
-import React, {Component} from 'react';
-import {CheckBox, Icon, colors} from 'react-native-elements';
-import {View} from 'react-native';
-import {applyTheme} from '../utility/utils';
-import {theme} from '../../App';
+import PropTypes from "prop-types";
+import React, { Component } from "react";
+import { CheckBox, Icon, colors } from "react-native-elements";
+import { View } from "react-native";
+import { applyTheme } from "../utility/utils";
+import { theme } from "../../index";
 
 export default class CheckboxComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
       checked: false,
-      color: '',
+      color: "",
     };
     if (theme) {
       // Applying theme on components.
@@ -100,22 +100,22 @@ CheckboxComponent.propTypes = {
 
 // Defaultprops is to set the default props for the class.
 CheckboxComponent.defaultProps = {
-  title: 'checkbox',
+  title: "checkbox",
   disabled: false,
   iconRight: false,
   checkboxStyle: {
-    checkedColor: 'black',
-    uncheckedColor: 'black',
+    checkedColor: "black",
+    uncheckedColor: "black",
   },
   titleStyle: {
-    color: 'blue',
-    fontFamily: 'arial',
+    color: "blue",
+    fontFamily: "arial",
     fontSize: 18,
   },
   containerStyle: {
     //borderWidth: '80%',
     borderRadius: 20,
-    backgroundColor: 'red',
-    borderColor: 'black',
+    backgroundColor: "red",
+    borderColor: "black",
   },
 };

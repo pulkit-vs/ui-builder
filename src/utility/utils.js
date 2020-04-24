@@ -1,44 +1,44 @@
 export const getThemeStyle = (theme) => {
   switch (theme) {
-    case 'darkTheme':
+    case "darkTheme":
       return darkTheme;
-    case 'lightTheme':
+    case "lightTheme":
       return lightTheme;
   }
 };
 
 // dark and light theme styles
 const lightTheme = {
-  color: 'black',
-  backgroundColor: 'white',
-  fontFamily: 'arial',
-  placeholderTextColor: 'black',
-  borderColor: 'black',
+  color: "black",
+  backgroundColor: "white",
+  fontFamily: "arial",
+  placeholderTextColor: "black",
+  borderColor: "black",
+  borderBottomColor: "black",
 };
 
 export const CLOSE_MODAL = {
-  onBackdropPress: 'onBackdropPress',
-  onBackButtonPress: 'onBackButtonPress',
-  onSwipeComplete: 'onSwipeComplete'
-}
+  onBackdropPress: "onBackdropPress",
+  onBackButtonPress: "onBackButtonPress",
+  onSwipeComplete: "onSwipeComplete",
+};
 
 const darkTheme = {
-  color: 'white',
-  backgroundColor: 'black',
-  fontFamily: 'arial',
-  placeholderTextColor: 'white',
-  borderColor: 'white',
+  color: "white",
+  backgroundColor: "black",
+  fontFamily: "arial",
+  placeholderTextColor: "white",
+  borderColor: "white",
+  borderBottomColor: "white",
 };
 
 // Method will be called when user defined any theme and will apply the theme style on the component.
 export const applyTheme = (componentStyle, theme) => {
-
   let existingStyle = { ...componentStyle };
   const themeStyle = getThemeStyle(theme);
 
   // Iterate over each key and checks if style is defined then change the style according to theme
   Object.keys(themeStyle).forEach((key) => {
-
     if (existingStyle && existingStyle[key]) {
       existingStyle[key] = themeStyle[key];
     }
@@ -46,7 +46,7 @@ export const applyTheme = (componentStyle, theme) => {
       existingStyle.checkboxStyle[key] = themeStyle[key];
     }
     if (existingStyle.containerStyle && existingStyle.containerStyle[key]) {
-      existingStyle.containerStyle[keys] = themeStyle[key];
+      existingStyle.containerStyle[key] = themeStyle[key];
     }
     if (existingStyle.titleStyle && existingStyle.titleStyle[key]) {
       existingStyle.titleStyle[key] = themeStyle[key];

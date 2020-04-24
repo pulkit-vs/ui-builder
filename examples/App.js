@@ -8,19 +8,54 @@
 
 // TODO: will use Uibuilder from npm package later.
 //import UiBuilder from 'react-native-ui-builder';
-import React, {Children} from 'react';
+import React from 'react';
 import UiBuilder from './src/index';
-import {sourceData} from './src/sampleJSON/yourAddress';
 
-// Global variable to get theme type in other files.
-export let theme;
+const source = {
+  theme: 'lightTheme',
+  data: [
+    {
+      type: 'input',
+      properties: {
+        label: 'Mobile Number (10 digits)',
+        placeholderTextColor: 'grey',
+        style: {
+          backgroundColor: 'white',
+          borderColor: 'grey',
+          borderWidth: 2,
+          width: '90%',
+          left: 20,
+          marginTop: 40,
+        },
+      },
+    },
+    {
+      type: 'button',
+      properties: {
+        title: 'FACEBOOK',
+        titleStyle: {color: 'blue', fontSize: 20},
+        buttonStyle: {
+          backgroundColor: 'white',
+          width: '90%',
+          left: 20,
+          borderWidth: 3,
+          marginTop: 20,
+        },
+        icon: {
+          name: 'facebook',
+          color: 'blue',
+          size: 20,
+        },
+      },
+    },
+  ],
+};
 
 export default class App extends React.Component {
   render() {
-    theme = sourceData.theme;
     return (
       <>
-        <UiBuilder source={sourceData.data} />
+        <UiBuilder source={source} />
       </>
     );
   }

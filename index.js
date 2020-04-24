@@ -10,13 +10,17 @@ import React from "react";
 import { View } from "react-native";
 import { get } from "lodash";
 
-import ButtonComponent from "./components/button";
-import HeaderComponent from "./components/header";
-import IconComponent from "./components/icon";
-import ImageComponent from "./components/image";
-import Input from "./components/input";
-import ModalComponent from "./components/modal";
-import TextComponent from "./components/text";
+import ButtonComponent from "./src/components/button";
+import CheckboxComponent from "./src/components/Checkbox";
+import HeaderComponent from "./src/components/header";
+import IconComponent from "./src/components/icon";
+import ImageComponent from "./src/components/image";
+import Input from "./src/components/input";
+import ModalComponent from "./src/components/modal";
+import TextComponent from "./src/components/text";
+
+// Global variable to get theme type in other files.
+export let theme;
 
 export default class UiBuilder extends React.Component {
   constructor() {
@@ -24,40 +28,47 @@ export default class UiBuilder extends React.Component {
     this.selectComponent = this.selectComponent.bind(this);
   }
 
-  selectComponent(component) {
+  selectComponent(component, index) {
     const type = get(component, "type", "");
     switch (type) {
       case "input":
-        return <Input {...component.properties} key={1} />;
+        return <Input {...component.properties} key={index} />;
       case "icon":
-        return <IconComponent {...component.properties} key={2} />;
+        return <IconComponent {...component.properties} key={index} />;
       case "button":
-        return <ButtonComponent {...component.properties} key={3} />;
+        return <ButtonComponent {...component.properties} key={index} />;
+      case "checkbox":
+        return <CheckboxComponent {...component.properties} key={index} />;
       case "header":
-        return <HeaderComponent {...component.properties} key={4} />;
+        return <HeaderComponent {...component.properties} key={index} />;
       case "text":
-        return <TextComponent {...component.properties} key={5} />;
+        return <TextComponent {...component.properties} key={index} />;
       case "modal":
-        return <ModalComponent {...component} key={6} />;
-      case "view":
+        return <ModalComponent {...component} key={index} />;
+      case "view": {
+        if (theme) {
+          component.style = applyTheme(component.style, theme);
+        }
         return (
-          <View style={component.style} key={7}>
-            {component.childrens.map((componentData) => {
-              return this.selectComponent(componentData);
+          <View style={component.style} key={index}>
+            {component.childrens.map((componentData, i) => {
+              return this.selectComponent(componentData, i);
             })}
           </View>
         );
+      }
       case "image":
-        return <ImageComponent {...component.properties} key={8} />;
+        return <ImageComponent {...component.properties} key={index} />;
     }
   }
 
   render() {
     const { source } = this.props;
+    theme = source.theme;
     return (
       <View>
-        {source.data.map((component) => {
-          return this.selectComponent(component);
+        {source.data.map((component, index) => {
+          return this.selectComponent(component, index);
         })}
       </View>
     );
