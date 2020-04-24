@@ -27,31 +27,31 @@ export default class UiBuilder extends React.Component {
     this.selectComponent = this.selectComponent.bind(this);
   }
 
-  selectComponent(component) {
+  selectComponent(component, index) {
     const type = get(component, "type", "");
     switch (type) {
       case "input":
-        return <Input {...component.properties} key={1} />;
+        return <Input {...component.properties} key={index} />;
       case "icon":
-        return <IconComponent {...component.properties} key={2} />;
+        return <IconComponent {...component.properties} key={index} />;
       case "button":
-        return <ButtonComponent {...component.properties} key={3} />;
+        return <ButtonComponent {...component.properties} key={index} />;
       case "header":
-        return <HeaderComponent {...component.properties} key={4} />;
+        return <HeaderComponent {...component.properties} key={index} />;
       case "text":
-        return <TextComponent {...component.properties} key={5} />;
+        return <TextComponent {...component.properties} key={index} />;
       case "modal":
-        return <ModalComponent {...component} key={6} />;
+        return <ModalComponent {...component} key={index} />;
       case "view":
         return (
-          <View style={component.style} key={7}>
-            {component.childrens.map((componentData) => {
-              return this.selectComponent(componentData);
+          <View style={component.style} key={index}>
+            {component.childrens.map((componentData, i) => {
+              return this.selectComponent(componentData, i);
             })}
           </View>
         );
       case "image":
-        return <ImageComponent {...component.properties} key={8} />;
+        return <ImageComponent {...component.properties} key={index} />;
     }
   }
 
@@ -60,8 +60,8 @@ export default class UiBuilder extends React.Component {
     theme = source.theme;
     return (
       <View>
-        {source.data.map((component) => {
-          return this.selectComponent(component);
+        {source.data.map((component, index) => {
+          return this.selectComponent(component, index);
         })}
       </View>
     );

@@ -15,7 +15,7 @@ export const sourceData = {
               childrens: [
                 {
                   type: 'view',
-                  style: {flexDirection: 'row'},
+                  properties: {style: {flexDirection: 'row'}},
                 },
                 {
                   type: 'text',
@@ -45,7 +45,7 @@ export const sourceData = {
                   childrens: [
                     {
                       type: 'view',
-                      style: {flexDirection: 'row'},
+                      properties: {style: {flexDirection: 'row'}},
                     },
                     {
                       type: 'icon',

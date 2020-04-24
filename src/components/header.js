@@ -12,55 +12,57 @@ export default class HeaderComponent extends React.Component {
     this.state = {
       ValueOfComponent: ["leftComponent", "centerComponent", "rightComponent"],
     };
-    if (theme) {
-      this.props = applyTheme(this.props, theme);
+    // apply theme
+    if (theme == "darkTheme" || theme == "lightTheme") {
+      props = applyTheme(this.props, theme);
+      this.state.ValueOfComponent.forEach((value) => {
+        props[value].childrens.forEach((children) => {
+          children.properties = applyTheme(children.properties, theme);
+        });
+      });
     }
   }
 
   render() {
-    // Map for access left , right and center component JSON
+    //for creating customized header's (left , right and center component)
     const valueOfComponent = this.state.ValueOfComponent.map(
       (component, index) =>
         this.props[component].childrens ? (
           <View
-            keys={index}
+            key={index}
             style={
               this.props[component].childrens[0].type == "view"
                 ? this.props[component].childrens[0].properties.style
                 : {}
             }
           >
-            {this.props[component].childrens.map((item, index) => {
+            {this.props[component].childrens.map((item, i) => {
               if (item.type == "icon") {
-                const styleOfIcon = theme
-                  ? applyTheme(item.properties, theme)
-                  : item.properties;
+                const styleOfIcon = item.properties;
 
                 return (
                   <Icon
                     color={styleOfIcon.color}
-                    keys={index}
+                    key={i}
                     name={styleOfIcon.name}
                     type={styleOfIcon.type}
                     size={styleOfIcon.size}
                   />
                 );
               } else if (item.type == "text") {
-                const styleOfText = applyTheme(item.properties, theme);
+                const styleOfText = item.properties;
                 return (
-                  <Text keys={index} style={styleOfText.style}>
+                  <Text key={i} style={styleOfText.style}>
                     {styleOfText.title}
                   </Text>
                 );
               } else if (item.type == "input") {
-                const styleOfInput = theme
-                  ? applyTheme(item.properties, theme)
-                  : item.properties;
+                const styleOfInput = item.properties;
                 return (
                   <Input
                     containerStyle={styleOfInput.containerStyle}
                     inputStyle={styleOfInput.inputStyle}
-                    keys={index}
+                    key={i}
                     leftIcon={
                       styleOfInput.leftIcon ? (
                         <Icon
@@ -91,7 +93,6 @@ export default class HeaderComponent extends React.Component {
           </View>
         ) : null
     );
-
     return (
       <View>
         <Header
@@ -133,7 +134,14 @@ HeaderComponent.propTypes = {
 };
 
 HeaderComponent.defaultProps = {
-  centerComponent: { style: { color: "red" } },
+  centerComponent: {
+    childrens: [
+      {
+        type: "view",
+        properties: { style: { flexDirection: "row" } },
+      },
+    ],
+  },
   containerStyle: {
     backgroundColor: "blue",
     justifyContent: "space-around",
@@ -141,7 +149,21 @@ HeaderComponent.defaultProps = {
     borderWidth: 0,
     height: 70,
   },
-  leftComponent: { style: { color: "red" } },
+  leftComponent: {
+    childrens: [
+      {
+        type: "view",
+        properties: { style: { flexDirection: "row" } },
+      },
+    ],
+  },
   placement: "center",
-  rightComponent: { style: { color: "red" } },
+  rightComponent: {
+    childrens: [
+      {
+        type: "view",
+        properties: { style: { flexDirection: "row" } },
+      },
+    ],
+  },
 };

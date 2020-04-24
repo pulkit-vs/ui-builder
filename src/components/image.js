@@ -1,14 +1,15 @@
 import PropTypes from "prop-types";
 import React from "react";
+import { View, Image } from "react-native";
 
 import { applyTheme } from "../utility/utils";
 import { theme } from "../../index";
-import { View, Image } from "react-native";
 
 export default class ImageComponent extends React.Component {
   constructor(props) {
     super(props);
-    props = theme ? applyTheme(this.props, theme) : this.props;
+    if (theme == "darkTheme" || theme == "lightTheme")
+      props = applyTheme(this.props, theme);
   }
   render() {
     return (
