@@ -17,28 +17,37 @@ import { shapeStyles } from '../style/buttonStyle';
 import { theme } from '../../index';
 
 export default class ButtonComponent extends React.Component {
-  componentWillMount() {
-    // Customize button style
+
+  constructor(props) {
+    super(props)
+    this.state = {
+      properties: {}
+    }
+  }
+
+  async componentDidMount() {
+
+    await this.setState({ properties: this.props })
+
+    // Customizing button style
     const shapeStyle = this.props.showCircle
       ? { ...shapeStyles.circleShapeView }
       : this.props.showSquare
         ? { ...shapeStyles.squareShapeView }
         : this.props.showRectangle
           ? { ...shapeStyles.rectangleShapeView }
-          : this.props.showTriangle
-            ? { ...shapeStyles.triangleShapeView }
-            : null;
+          : null;
 
     if (shapeStyle) {
-      this.props.buttonStyle = { ...this.props.buttonStyle, ...shapeStyle };
+      await this.setState({ properties: { ...this.state.properties, buttonStyle: { ...this.state.properties.buttonStyle, ...shapeStyle } } })
     }
+
     // Applying theme on button style
     if (theme) {
-      this.props = applyTheme(this.props, theme);
+      await this.setState({ properties: applyTheme(this.state.properties, theme) })
 
       if (this.props.icon) {
-        // Applying theme on icon.
-        this.props.icon = applyTheme(this.props.icon, theme);
+        await this.setState({ properties: { ...this.state.properties, icon: applyTheme(this.state.properties.icon, theme) } })
       }
     }
   }
@@ -47,14 +56,14 @@ export default class ButtonComponent extends React.Component {
     return (
       <View>
         <Button
-          title={this.props.title}
-          onPress={this.props.onPress()}
-          disabled={this.props.disabled}
-          buttonStyle={this.props.buttonStyle}
-          titleStyle={this.props.titleStyle}
-          type={this.props.buttonType}
-          loading={this.props.loading}
-          icon={<Icon {...this.props.icon} />}
+          title={this.state.properties.title}
+          onPress={() => this.state.properties.onPress()}
+          disabled={this.state.properties.disabled}
+          buttonStyle={this.state.properties.buttonStyle}
+          titleStyle={this.state.properties.titleStyle}
+          type={this.state.properties.buttonType}
+          loading={this.state.properties.loading}
+          icon={<Icon {...this.state.properties.icon} />}
         />
       </View>
     );
@@ -87,7 +96,7 @@ ButtonComponent.defaultProps = {
     borderColor: 'yellow',
   },
   titleStyle: {
-    // color: 'blue',
+    color: 'blue',
     fontFamily: 'arial',
     fontSize: 40,
   },
