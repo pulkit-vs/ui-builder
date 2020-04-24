@@ -8,8 +8,9 @@ import { theme } from "../../index";
 export default class ImageComponent extends React.Component {
   constructor(props) {
     super(props);
-    if (theme == "darkTheme" || theme == "lightTheme")
+    if (theme) {
       props = applyTheme(this.props, theme);
+    }
   }
   render() {
     return (

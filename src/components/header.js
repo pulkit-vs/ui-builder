@@ -13,12 +13,16 @@ export default class HeaderComponent extends React.Component {
       ValueOfComponent: ["leftComponent", "centerComponent", "rightComponent"],
     };
     // apply theme
-    if (theme == "darkTheme" || theme == "lightTheme") {
+    if (theme) {
       props = applyTheme(this.props, theme);
-      this.state.ValueOfComponent.forEach((value) => {
-        props[value].childrens.forEach((children) => {
-          children.properties = applyTheme(children.properties, theme);
-        });
+      props.leftComponent.childrens.forEach((children) => {
+        children.properties = applyTheme(children.properties, theme);
+      });
+      props.rightComponent.childrens.forEach((children) => {
+        children.properties = applyTheme(children.properties, theme);
+      });
+      props.centerComponent.childrens.forEach((children) => {
+        children.properties = applyTheme(children.properties, theme);
       });
     }
   }

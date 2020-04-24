@@ -17,6 +17,7 @@ import ImageComponent from "./src/components/image";
 import Input from "./src/components/input";
 import ModalComponent from "./src/components/modal";
 import TextComponent from "./src/components/text";
+import { applyTheme } from "./src/utility/utils";
 
 // Global variable to get theme type in other files.
 export let theme;
@@ -42,7 +43,10 @@ export default class UiBuilder extends React.Component {
         return <TextComponent {...component.properties} key={index} />;
       case "modal":
         return <ModalComponent {...component} key={index} />;
-      case "view":
+      case "view": {
+        if (theme) {
+          component.style = applyTheme(component.style, theme);
+        }
         return (
           <View style={component.style} key={index}>
             {component.childrens.map((componentData, i) => {
@@ -50,6 +54,7 @@ export default class UiBuilder extends React.Component {
             })}
           </View>
         );
+      }
       case "image":
         return <ImageComponent {...component.properties} key={index} />;
     }

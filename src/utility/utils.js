@@ -14,6 +14,7 @@ const lightTheme = {
   fontFamily: "arial",
   placeholderTextColor: "black",
   borderColor: "black",
+  borderBottomColor: "black",
 };
 
 export const CLOSE_MODAL = {
@@ -28,6 +29,7 @@ const darkTheme = {
   fontFamily: "arial",
   placeholderTextColor: "white",
   borderColor: "white",
+  borderBottomColor: "white",
 };
 
 // Method will be called when user defined any theme and will apply the theme style on the component.

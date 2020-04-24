@@ -14,6 +14,13 @@ const lightTheme = {
   fontFamily: 'arial',
   placeholderTextColor: 'black',
   borderColor: 'black',
+  borderBottomColor: 'black',
+};
+
+export const CLOSE_MODAL = {
+  onBackdropPress: 'onBackdropPress',
+  onBackButtonPress: 'onBackButtonPress',
+  onSwipeComplete: 'onSwipeComplete',
 };
 
 const darkTheme = {
@@ -22,14 +29,15 @@ const darkTheme = {
   fontFamily: 'arial',
   placeholderTextColor: 'white',
   borderColor: 'white',
+  borderBottomColor: 'white',
 };
 
-// function will be called when user defined any theme and will change the style of component.
+// Method will be called when user defined any theme and will apply the theme style on the component.
 export const applyTheme = (componentStyle, theme) => {
-  const existingStyle = {...componentStyle};
+  let existingStyle = {...componentStyle};
   const themeStyle = getThemeStyle(theme);
 
-  // iterate over each key and checks if style is defined then change the style according to theme
+  // Iterate over each key and checks if style is defined then change the style according to theme
   Object.keys(themeStyle).forEach((key) => {
     if (existingStyle && existingStyle[key]) {
       existingStyle[key] = themeStyle[key];
