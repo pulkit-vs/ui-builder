@@ -35,6 +35,7 @@ export default class CheckboxComponent extends Component {
       color: updatedTextColor,
     });
   }
+  // this method is used to change the state of checkbox from unchecked -> checked and vice versa.
 
   handleCheckboxStatus = () => {
     const checkedColor = this.props.titleStyle.checkedColor

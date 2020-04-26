@@ -11,13 +11,13 @@ import { View } from "react-native";
 import { get } from "lodash";
 
 import ButtonComponent from "./src/components/button";
-import CheckboxComponent from "./src/components/Checkbox";
 import HeaderComponent from "./src/components/header";
 import IconComponent from "./src/components/icon";
 import ImageComponent from "./src/components/image";
 import Input from "./src/components/input";
 import ModalComponent from "./src/components/modal";
 import TextComponent from "./src/components/text";
+import { applyTheme } from "./src/utility/utils";
 
 // Global variable to get theme type in other files.
 export let theme;
@@ -37,8 +37,6 @@ export default class UiBuilder extends React.Component {
         return <IconComponent {...component.properties} key={index} />;
       case "button":
         return <ButtonComponent {...component.properties} key={index} />;
-      case "checkbox":
-        return <CheckboxComponent {...component.properties} key={index} />;
       case "header":
         return <HeaderComponent {...component.properties} key={index} />;
       case "text":

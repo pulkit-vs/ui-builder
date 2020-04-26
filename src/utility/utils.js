@@ -57,6 +57,9 @@ export const applyTheme = (componentStyle, theme) => {
     if (existingStyle.iconStyle && existingStyle.iconStyle[key]) {
       existingStyle.iconStyle[key] = themeStyle[key];
     }
+    if (existingStyle.inputStyle && existingStyle.inputStyle[key]) {
+      existingStyle.inputStyle[key] = themeStyle[key];
+    }
     if (existingStyle.style && existingStyle.style[key]) {
       existingStyle.style[key] = themeStyle[key];
     }

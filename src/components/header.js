@@ -1,113 +1,113 @@
-import PropTypes from 'prop-types';
-import React from 'react';
-import {Header, Icon, Input} from 'react-native-elements';
-import {View, Text} from 'react-native';
-import {
-  applyThemeOnHeaderStyle,
-  applyThemeOnText,
-  applyThemeOnIcon,
-  applyThemeOnInput,
-} from '../theme/headerTheme';
-import { theme } from '../../index';
+import { Header, Icon, Input } from "react-native-elements";
+import PropTypes from "prop-types";
+import React from "react";
+import { View, Text } from "react-native";
+
+import { applyTheme } from "../utility/utils";
+import { theme } from "../../index";
 
 export default class HeaderComponent extends React.Component {
-  valueOfComponent = ['leftComponent', 'centerComponent', 'rightComponent'];
+  constructor(props) {
+    super(props);
+    this.state = {
+      ValueOfComponent: ["leftComponent", "centerComponent", "rightComponent"],
+    };
+    // apply theme
+    if (theme) {
+      props = applyTheme(this.props, theme);
+      props.leftComponent.childrens.forEach((children) => {
+        children.properties = applyTheme(children.properties, theme);
+      });
+      props.rightComponent.childrens.forEach((children) => {
+        children.properties = applyTheme(children.properties, theme);
+      });
+      props.centerComponent.childrens.forEach((children) => {
+        children.properties = applyTheme(children.properties, theme);
+      });
+    }
+  }
 
   render() {
-    // Map for access left , right and center component JSON
-    this.valueOfComponent = this.valueOfComponent.map((component, index) =>
-      this.props[component].childrens ? (
-        <View
-          keys={index}
-          style={
-            this.props[component].childrens[0].type == 'view'
-              ? this.props[component].childrens[0].style
-              : {}
-          }>
-          {this.props[component].childrens.map((item, index) => {
-            if (item.type == 'icon') {
-              const styleOfIcon = theme
-                ? applyThemeOnIcon(item.properties, theme)
-                : item.properties;
-
-              return (
-                <Icon
-                  type="font-awesome"
-                  keys={index}
-                  type = {styleOfIcon.type}
-                  name={styleOfIcon.name}
-                  color={styleOfIcon.color}
-                  size={styleOfIcon.size}
-                  iconStyle={styleOfIcon.style}
-                />
-              );
-            } else if (item.type == 'text') {
-              const styleOfText = theme
-                ? applyThemeOnText(item.properties, theme)
-                : item.properties;
-              return (
-                <Text keys={index} style={styleOfText.style}>
-                  {styleOfText.title}
-                </Text>
-              );
-            } else if (item.type == 'input') {
-              const styleOfInput = theme
-                ? applyThemeOnInput(item.properties, theme)
-                : item.properties;
-              return (
-                <Input
-                  keys={index}
-                  containerStyle={styleOfInput.containerStyle}
-                  inputStyle={styleOfInput.inputStyle}
-                  placeholder={styleOfInput.placeholder}
-                  leftIcon={
-                    styleOfInput.leftIcon ? (
-                      <Icon
-                        type = {styleOfInput.leftIcon.type}
-                        name={styleOfInput.leftIcon.name}
-                        size={styleOfInput.leftIcon.size}
-                        color={styleOfInput.leftIcon.color}></Icon>
-                    ) : null
-                  }
-                  rightIcon={
-                    styleOfInput.rightIcon ? (
-                      <Icon
-                        type = {styleOfInput.rightIcon.type}
-                        name={styleOfInput.rightIcon.name}
-                        size={styleOfInput.rightIcon.size}
-                        color={styleOfInput.rightIcon.color}></Icon>
-                    ) : null
-                  }></Input>
-              );
-            } else {
-              return null;
+    //for creating customized header's (left , right and center component)
+    const valueOfComponent = this.state.ValueOfComponent.map(
+      (component, index) =>
+        this.props[component].childrens ? (
+          <View
+            key={index}
+            style={
+              this.props[component].childrens[0].type == "view"
+                ? this.props[component].childrens[0].properties.style
+                : {}
             }
-          })}
-        </View>
-      ) : null,
+          >
+            {this.props[component].childrens.map((item, i) => {
+              if (item.type == "icon") {
+                const styleOfIcon = item.properties;
+
+                return (
+                  <Icon
+                    color={styleOfIcon.color}
+                    key={i}
+                    name={styleOfIcon.name}
+                    type={styleOfIcon.type}
+                    size={styleOfIcon.size}
+                  />
+                );
+              } else if (item.type == "text") {
+                const styleOfText = item.properties;
+                return (
+                  <Text key={i} style={styleOfText.style}>
+                    {styleOfText.title}
+                  </Text>
+                );
+              } else if (item.type == "input") {
+                const styleOfInput = item.properties;
+                return (
+                  <Input
+                    containerStyle={styleOfInput.containerStyle}
+                    inputStyle={styleOfInput.inputStyle}
+                    key={i}
+                    leftIcon={
+                      styleOfInput.leftIcon ? (
+                        <Icon
+                          color={styleOfInput.leftIcon.color}
+                          name={styleOfInput.leftIcon.name}
+                          size={styleOfInput.leftIcon.size}
+                          type={styleOfInput.leftIcon.type}
+                        ></Icon>
+                      ) : null
+                    }
+                    placeholder={styleOfInput.placeholder}
+                    rightIcon={
+                      styleOfInput.rightIcon ? (
+                        <Icon
+                          color={styleOfInput.rightIcon.color}
+                          name={styleOfInput.rightIcon.name}
+                          size={styleOfInput.rightIcon.size}
+                          type={styleOfInput.rightIcon.type}
+                        ></Icon>
+                      ) : null
+                    }
+                  ></Input>
+                );
+              } else {
+                return null;
+              }
+            })}
+          </View>
+        ) : null
     );
-
-    const style = theme
-      ? applyThemeOnHeaderStyle(this.props, theme)
-      : this.props;
-
     return (
       <View>
         <Header
-          containerStyle={style.containerStyle}
-          placement={style.placement}
-          leftComponent={
-            this.valueOfComponent[0] ? this.valueOfComponent[0] : {}
-          }
-          centerComponent={
-            this.valueOfComponent[1] ? this.valueOfComponent[1] : {}
-          }
-          rightComponent={
-            this.valueOfComponent[2] ? this.valueOfComponent[2] : {}
-          }
-          leftContainerStyle={style.leftContainerStyle}
-          centerContainerStyle={style.centerContainerStyle}
-          rightContainerStyle={style.rightContainerStyle}
+          containerStyle={this.props.containerStyle}
+          centerComponent={valueOfComponent[1] ? valueOfComponent[1] : {}}
+          centerContainerStyle={this.props.centerContainerStyle}
+          leftComponent={valueOfComponent[0] ? valueOfComponent[0] : {}}
+          leftContainerStyle={this.props.leftContainerStyle}
+          placement={this.props.placement}
+          rightComponent={valueOfComponent[2] ? valueOfComponent[2] : {}}
+          rightContainerStyle={this.props.rightContainerStyle}
         />
       </View>
     );
@@ -115,87 +115,59 @@ export default class HeaderComponent extends React.Component {
 }
 
 HeaderComponent.propTypes = {
-  // leftComponent: PropTypes.shape({
-  //   childrens: PropTypes.arrayOf(
-  //     PropTypes.shape({
-  //       type: PropTypes.string,
-  //       properties: PropTypes.shape({
-  //         containerStyle: PropTypes.object,
-  //         inputStyle: PropTypes.object,
-  //         leftIcon: PropTypes.object,
-  //         rightIcon: PropTypes.object,
-  //         placeholder: PropTypes.string,
-  //         size: PropTypes.number,
-  //         color: PropTypes.string,
-  //         name: PropTypes.string,
-  //         title: PropTypes.string,
-  //         style: PropTypes.object,
-  //       }),
-  //     }),
-  //   ),
-  // }),
-  // rightComponent: PropTypes.shape({
-  //   childrens: PropTypes.arrayof(
-  //     PropTypes.shape({
-  //       type: PropTypes.string,
-  //       properties: PropTypes.shape({
-  //         containerStyle: PropTypes.object,
-  //         inputStyle: PropTypes.object,
-  //         leftIcon: PropTypes.object,
-  //         rightIcon: PropTypes.object,
-  //         placeholder: PropTypes.string,
-  //         size: PropTypes.number,
-  //         color: PropTypes.string,
-  //         name: PropTypes.string,
-  //         title: PropTypes.string,
-  //         style: PropTypes.object,
-  //       }),
-  //     }),
-  //   ),
-  // }),
-  // centerComponent: PropTypes.shape({
-  //   childrens: PropTypes.arrayof(
-  //     PropTypes.shape({
-  //       type: PropTypes.string,
-  //       properties: PropTypes.shape({
-  //         containerStyle: PropTypes.object,
-  //         inputStyle: PropTypes.object,
-  //         leftIcon: PropTypes.object,
-  //         rightIcon: PropTypes.object,
-  //         placeholder: PropTypes.string,
-  //         size: PropTypes.number,
-  //         color: PropTypes.string,
-  //         name: PropTypes.string,
-  //         title: PropTypes.string,
-  //         style: PropTypes.object,
-  //       }),
-  //     }),
-  //   ),
-  // }),
-  placement: PropTypes.string,
+  centerComponent: PropTypes.shape({
+    childrens: PropTypes.array,
+  }),
   containerStyle: PropTypes.shape({
-    color: PropTypes.string,
-    height: PropTypes.number,
-    width: PropTypes.number,
     backgroundColor: PropTypes.string,
     borderWidth: PropTypes.number,
     borderColor: PropTypes.string,
     borderBottomWidth: PropTypes.number,
     borderBottomColor: PropTypes.string,
+    color: PropTypes.string,
+    height: PropTypes.number,
+    width: PropTypes.number,
+  }),
+  leftComponent: PropTypes.shape({
+    childrens: PropTypes.array,
+  }),
+  placement: PropTypes.string,
+  rightComponent: PropTypes.shape({
+    childrens: PropTypes.array,
   }),
 };
 
 HeaderComponent.defaultProps = {
-  placement: 'center',
-
-  leftComponent: {style: {color: 'red'}},
-  centerComponent: {style: {color: 'red'}},
-  rightComponent: {style: {color: 'red'}},
+  centerComponent: {
+    childrens: [
+      {
+        type: "view",
+        properties: { style: { flexDirection: "row" } },
+      },
+    ],
+  },
   containerStyle: {
-    backgroundColor: 'blue',
-    justifyContent: 'space-around',
-    borderColor: 'black',
+    backgroundColor: "blue",
+    justifyContent: "space-around",
+    borderColor: "black",
     borderWidth: 0,
     height: 70,
+  },
+  leftComponent: {
+    childrens: [
+      {
+        type: "view",
+        properties: { style: { flexDirection: "row" } },
+      },
+    ],
+  },
+  placement: "center",
+  rightComponent: {
+    childrens: [
+      {
+        type: "view",
+        properties: { style: { flexDirection: "row" } },
+      },
+    ],
   },
 };
