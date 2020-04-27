@@ -9,45 +9,55 @@
 import Icon from 'react-native-vector-icons/FontAwesome';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Button } from 'react-native-elements';
-import { View } from 'react-native';
+import {Button} from 'react-native-elements';
+import {View} from 'react-native';
 
-import { applyTheme } from '../utility/utils';
-import { shapeStyles } from '../style/buttonStyle';
-import { theme } from '../../index';
+import {applyTheme} from '../utility/utils';
+import {shapeStyles} from '../style/buttonStyle';
+import {theme} from '../index';
 
 export default class ButtonComponent extends React.Component {
-
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
-      properties: {}
-    }
+      properties: {},
+    };
   }
 
   async componentDidMount() {
-
-    await this.setState({ properties: this.props })
+    await this.setState({properties: this.props});
 
     // Customizing button style
     const shapeStyle = this.props.showCircle
-      ? { ...shapeStyles.circleShapeView }
+      ? {...shapeStyles.circleShapeView}
       : this.props.showSquare
-        ? { ...shapeStyles.squareShapeView }
-        : this.props.showRectangle
-          ? { ...shapeStyles.rectangleShapeView }
-          : null;
+      ? {...shapeStyles.squareShapeView}
+      : this.props.showRectangle
+      ? {...shapeStyles.rectangleShapeView}
+      : null;
 
     if (shapeStyle) {
-      await this.setState({ properties: { ...this.state.properties, buttonStyle: { ...this.state.properties.buttonStyle, ...shapeStyle } } })
+      await this.setState({
+        properties: {
+          ...this.state.properties,
+          buttonStyle: {...this.state.properties.buttonStyle, ...shapeStyle},
+        },
+      });
     }
 
     // Applying theme on button style
     if (theme) {
-      await this.setState({ properties: applyTheme(this.state.properties, theme) })
+      await this.setState({
+        properties: applyTheme(this.state.properties, theme),
+      });
 
       if (this.props.icon) {
-        await this.setState({ properties: { ...this.state.properties, icon: applyTheme(this.state.properties.icon, theme) } })
+        await this.setState({
+          properties: {
+            ...this.state.properties,
+            icon: applyTheme(this.state.properties.icon, theme),
+          },
+        });
       }
     }
   }
