@@ -18,12 +18,6 @@ const lightTheme = {
 };
 
 export const CLOSE_MODAL = {
-  onBackdropPress: "onBackdropPress",
-  onBackButtonPress: "onBackButtonPress",
-  onSwipeComplete: "onSwipeComplete",
-};
-
-export const CLOSE_MODAL = {
   onBackdropPress: 'onBackdropPress',
   onBackButtonPress: 'onBackButtonPress',
   onSwipeComplete: 'onSwipeComplete'
