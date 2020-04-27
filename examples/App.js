@@ -9,10 +9,10 @@
 // TODO: will use Uibuilder from npm package later.
 //import UiBuilder from 'react-native-ui-builder';
 import React from 'react';
-import UiBuilder from './src/index';
+import UiBuilder from '../index';
 
 const source = {
-  theme: 'lightTheme',
+  theme: '',
   data: [
     {
       type: 'input',
