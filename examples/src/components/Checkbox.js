@@ -32,7 +32,7 @@ export default class CheckboxComponent extends Component {
         ? this.props.titleStyle.checkedColor
         : this.props.titleStyle.color;
     } else {
-      this.props.titleStyle.uncheckedColor
+      this.props.titleStyle.color = this.props.titleStyle.uncheckedColor
         ? this.props.titleStyle.uncheckedColor
         : this.props.titleStyle.color;
     }

@@ -21,7 +21,7 @@ const onIconClick = () => {
 // Global variable to get theme type in other files.
 export let theme;
 const source = {
-  theme: 'lightTheme',
+  theme: '',
 
   data: [
     {
@@ -184,6 +184,10 @@ const source = {
       properties: {
         title: 'JAVASCRIPT',
 
+        titleStyle: {
+          checkedColor: 'pink',
+          uncheckedColor: 'black',
+        },
         checkboxStyle: {
           color: 'red',
           size: 25,
