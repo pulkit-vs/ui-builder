@@ -1,12 +1,10 @@
 import PropTypes from 'prop-types';
 import React, {Component} from 'react';
-
 import {Icon} from 'react-native-elements';
 import {View} from 'react-native';
 
 import { theme } from '../../index';
 import {applyTheme} from '../utility/utils';
-import {theme} from '../../App';
 
 export default class IconComponent extends Component {
   render() {

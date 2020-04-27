@@ -9,12 +9,12 @@
 import Modal from 'react-native-modal';
 import PropTypes from 'prop-types';
 import React from 'react';
-
 import { Button, Icon } from 'react-native-elements';
+
 import { CLOSE_MODAL } from "../utility/utils";
 import { View, Text, TextInput } from 'react-native';
 import { applyTheme } from "../utility/utils";
-import { theme } from "../../App";
+import { theme } from '../../index';
 
 export default class ModalComponent extends React.Component {
 
@@ -28,7 +28,7 @@ export default class ModalComponent extends React.Component {
         if (theme) {
 
             // Applying theme on components.
-            props.properties = applyTheme(this.props.properties, theme)
+            props.properties = applyTheme(props.properties, theme)
 
             props.childrens.forEach(children => {
                 children.properties = applyTheme(children.properties, theme)

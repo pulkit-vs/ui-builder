@@ -8,29 +8,30 @@
 
 import PropTypes from 'prop-types';
 import React from 'react';
-import { View, Text } from 'react-native';
-import { applyThemeOnText } from "../theme/textTheme";
-import { theme } from "../../App";
+import { Text } from 'react-native';
+
+import { applyTheme } from "../utility/utils";
+import { theme } from '../../index';
 
 export default class TextComponent extends React.Component {
 
   componentWillMount() {
 
     // Applying theme on text
-    this.props = theme ? applyThemeOnText(theme, this.props) : this.props
+    this.props = theme ? applyTheme(this.props, theme) : this.props
   }
 
   render() {
 
     const props = this.props;
     return (
-      <View>
+      <>
         <Text
           style={props.style}
         >
           {props.title}
         </Text>
-      </View>
+      </>
     );
   }
 }
@@ -39,21 +40,21 @@ TextComponent.propTypes = {
 
   title: PropTypes.string,
   style: PropTypes.shape({
+    color: PropTypes.string,
     fontSize: PropTypes.number,
     fontWeight: PropTypes.string,
-    textAlign: PropTypes.string,
     marginTop: PropTypes.number,
-    color: PropTypes.string
+    textAlign: PropTypes.string
   })
 }
 
 TextComponent.defaultProps = {
   title: 'Text',
   style: {
+    color : 'black',
     fontSize: 20,
     fontWeight: 'bold',
-    textAlign: 'center',
-    marginTop: 0
+    marginTop: 0,
+    textAlign: 'center'
   }
-
 }
