@@ -6,17 +6,17 @@
  * @flow strict-local
  */
 
-import PropTypes from "prop-types";
-import React from "react";
-import { Text } from "react-native";
+import PropTypes from 'prop-types';
+import React from 'react';
 
-import { applyTheme } from "../utility/utils";
-import { theme } from "../../index";
+import {Text} from 'react-native';
+import {handleTheme} from '../utility/utils';
+import {theme} from '../../App';
 
 export default class TextComponent extends React.Component {
   componentWillMount() {
     // Applying theme on text
-    this.props = theme ? applyTheme(this.props, theme) : this.props;
+    this.props = theme ? handleTheme(theme, this.props) : this.props;
   }
 
   render() {
@@ -41,12 +41,11 @@ TextComponent.propTypes = {
 };
 
 TextComponent.defaultProps = {
-  title: "Text",
+  title: 'Text',
   style: {
-    color: "black",
     fontSize: 20,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     marginTop: 0,
-    textAlign: "center",
+    textAlign: 'center',
   },
 };

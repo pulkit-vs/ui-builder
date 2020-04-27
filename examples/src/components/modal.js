@@ -6,15 +6,15 @@
  * @flow strict-local
  */
 
-import Modal from "react-native-modal";
-import PropTypes from "prop-types";
-import React from "react";
-import { Button, Icon } from "react-native-elements";
+import Modal from 'react-native-modal';
+import PropTypes from 'prop-types';
+import React from 'react';
 
-import { CLOSE_MODAL } from "../utility/utils";
-import { View, Text, TextInput } from "react-native";
-import { applyTheme } from "../utility/utils";
-import { theme } from "../../index";
+import {Button, Icon} from 'react-native-elements';
+import {CLOSE_MODAL} from '../utility/utils';
+import {View, Text, TextInput} from 'react-native';
+import {applyTheme} from '../utility/utils';
+import {theme} from '../../App';
 
 export default class ModalComponent extends React.Component {
   constructor(props) {
@@ -22,11 +22,11 @@ export default class ModalComponent extends React.Component {
 
     this.state = {
       isModalVisible: true,
-      value: "",
+      value: '',
     };
     if (theme) {
       // Applying theme on components.
-      props.properties = applyTheme(props.properties, theme);
+      props.properties = applyTheme(this.props.properties, theme);
 
       props.childrens.forEach((children) => {
         children.properties = applyTheme(children.properties, theme);
@@ -35,18 +35,18 @@ export default class ModalComponent extends React.Component {
   }
 
   inVisibleModal() {
-    this.setState({ isModalVisible: !this.state.isModalVisible });
+    this.setState({isModalVisible: !this.state.isModalVisible});
   }
 
   onChangeText(event) {
-    this.setState({ value: event });
+    this.setState({value: event});
   }
 
   getChildrenData(children) {
     return (
       <View>
         {(() => {
-          if (children.type === "text") {
+          if (children.type === 'text') {
             return (
               <Text style={children.properties.style}>
                 {children.properties.title}
@@ -56,7 +56,7 @@ export default class ModalComponent extends React.Component {
         })()}
 
         {(() => {
-          if (children.type === "icon") {
+          if (children.type === 'icon') {
             return (
               <Icon
                 containerStyle={children.properties.containerStyle}
@@ -64,7 +64,7 @@ export default class ModalComponent extends React.Component {
                 color={children.properties.color}
                 size={children.properties.size}
                 onPress={
-                  children.properties.onPress === "closeModal"
+                  children.properties.onPress === 'closeModal'
                     ? () => this.inVisibleModal()
                     : properties.onPress
                 }
@@ -74,7 +74,7 @@ export default class ModalComponent extends React.Component {
         })()}
 
         {(() => {
-          if (children.type === "input") {
+          if (children.type === 'input') {
             return (
               <TextInput
                 onChangeText={() => this.onChangeText()}
@@ -89,7 +89,7 @@ export default class ModalComponent extends React.Component {
         })()}
 
         {(() => {
-          if (children.type === "button") {
+          if (children.type === 'button') {
             return (
               <Button
                 title={children.properties.title}
@@ -134,8 +134,7 @@ export default class ModalComponent extends React.Component {
           closeModal.includes(CLOSE_MODAL.onSwipeComplete)
             ? this.props.properties.swipeDirection
             : null
-        }
-      >
+        }>
         {this.props.childrens.map((children) => {
           return this.getChildrenData(children);
         })}
@@ -167,26 +166,26 @@ ModalComponent.defaultProps = {
   properties: {
     style: {
       margin: 0,
-      width: "100%",
+      width: '100%',
       marginBottom: 200,
       marginTop: 200,
-      backgroundColor: "yellow",
+      backgroundColor: 'yellow',
     },
-    closeModal: ["onBackdropPress", "onBackButtonPress", "onSwipeComplete"],
-    swipeDirection: "left",
+    closeModal: ['onBackdropPress', 'onBackButtonPress', 'onSwipeComplete'],
+    swipeDirection: 'left',
   },
   childrens: [
     {
-      type: "text",
+      type: 'text',
       properties: {
         style: {
           fontSize: 20,
-          fontWeight: "bold",
-          textAlign: "center",
+          fontWeight: 'bold',
+          textAlign: 'center',
           marginBottom: 10,
-          color: "black",
+          color: 'black',
         },
-        title: "Please add components in a modal",
+        title: 'Please add components in a modal',
       },
     },
   ],

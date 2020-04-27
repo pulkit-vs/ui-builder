@@ -6,11 +6,13 @@
  * @flow strict-local
  */
 
-import UiBuilder from 'react-native-ui-builder';
+// TODO: will use Uibuilder from npm package later.
+//import UiBuilder from 'react-native-ui-builder';
 import React from 'react';
+import UiBuilder from '../index';
 
 const source = {
-  theme: 'lightTheme',
+  theme: '',
   data: [
     {
       type: 'input',
