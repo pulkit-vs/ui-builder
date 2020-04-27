@@ -11,53 +11,31 @@ export default class CheckboxComponent extends Component {
     super(props);
     this.state = {
       checked: false,
-      color: '',
     };
     props = theme ? applyTheme(props, theme) : props;
   }
 
   componentDidMount() {
-    let updatedTextColor;
-    if (this.props.checked) {
-      updatedTextColor = this.props.titleStyle.checkedColor
-        ? this.props.titleStyle.checkedColor
-        : this.props.titleStyle.color;
-    } else {
-      updatedTextColor = this.props.titleStyle.uncheckedColor
-        ? this.props.titleStyle.uncheckedColor
-        : this.props.titleStyle.color;
-    }
     // to set the initial state of checkbox component given by user and color of text content
     this.setState({
       checked: this.props.checked,
-      color: updatedTextColor,
     });
   }
   handleCheckboxStatus = () => {
-    const checkedColor = this.props.titleStyle.checkedColor
-      ? this.props.titleStyle.checkedColor
-      : this.props.titleStyle.color;
-
-    const uncheckedColor = this.props.titleStyle.uncheckedColor
-      ? this.props.titleStyle.uncheckedColor
-      : this.props.titleStyle.color;
-
-    if (this.state.checked) {
-      this.setState({
-        checked: !this.state.checked,
-        color: uncheckedColor,
-      });
-    } else {
-      this.setState({
-        checked: !this.state.checked,
-        color: checkedColor,
-      });
-    }
+    this.setState({
+      checked: !this.state.checked,
+    });
   };
   render() {
-    this.props.titleStyle.color = this.state.color
-      ? this.state.color
-      : this.props.titleStyle.color;
+    if (this.state.checked) {
+      this.props.titleStyle.color = this.props.titleStyle.checkedColor
+        ? this.props.titleStyle.checkedColor
+        : this.props.titleStyle.color;
+    } else {
+      this.props.titleStyle.uncheckedColor
+        ? this.props.titleStyle.uncheckedColor
+        : this.props.titleStyle.color;
+    }
 
     return (
       <View>
