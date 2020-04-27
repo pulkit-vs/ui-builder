@@ -96,7 +96,7 @@ ButtonComponent.defaultProps = {
     borderColor: 'yellow',
   },
   titleStyle: {
-    color: 'blue',
+    // color: 'blue',
     fontFamily: 'arial',
     fontSize: 40,
   },
