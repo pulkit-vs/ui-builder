@@ -23,7 +23,7 @@ export default class CheckboxComponent extends Component {
       checked: this.props.checked,
     });
   }
-  // this method is used to change the state of checkbox from unchecked -> checked and vice versa.
+  // this method is used to change the state of checkbox from unchecked to checked and vice versa.
 
   handleCheckboxStatus = () => {
     this.setState({
