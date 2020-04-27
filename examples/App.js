@@ -12,7 +12,7 @@ import React from 'react';
 import UiBuilder from '../index';
 
 const source = {
-  theme: '',
+  theme: 'lightTheme',
   data: [
     {
       type: 'input',
