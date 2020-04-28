@@ -23,7 +23,7 @@ export default class ModalComponent extends React.Component {
 
         this.state = {
             isModalVisible: true,
-            value: ''
+            values: []
         };
         if (theme) {
 
@@ -40,13 +40,21 @@ export default class ModalComponent extends React.Component {
         this.setState({ isModalVisible: !this.state.isModalVisible });
     }
 
-    onChangeText(event) {
-        this.setState({ value: event });
+    onChangeText(event, index) {
+
+        let updateState = this.state.values;
+        if (this.state.values.length === 0 || this.state.values.findIndex(val => val.key === index) === -1) {
+            updateState.push({ key: index, value: event });
+        } else {
+            const activeIndex = this.state.values.findIndex(val => val.key === index);
+            updateState[activeIndex].value = event;
+        }
+        this.setState({ values: updateState })
     }
 
-    getChildrenData(children) {
+    getChildrenData(index, children) {
         return (
-            <View>
+            <View >
                 {(() => {
                     if (children.type === 'text') {
 
@@ -74,14 +82,12 @@ export default class ModalComponent extends React.Component {
 
                 {(() => {
                     if (children.type === 'input') {
-
                         return (<TextInput
-
-                            onChangeText={() => this.onChangeText()}
+                            onChangeText={(event) => this.onChangeText(event, index)}
                             placeholder={children.properties.label}
                             selectionColor={children.properties.style.selectionColor}
                             style={children.properties.style}
-                            value={this.state.value}
+                            value={this.state.values.find(val => val.key === index) ? (this.state.values.find(val => val.key === index).value) : ''}
                             placeholderTextColor={children.properties.placeholderTextColor}
                         />)
                     }
@@ -101,15 +107,14 @@ export default class ModalComponent extends React.Component {
                         />)
                     }
                 })()}
-            </View>
+            </View>   
         );
     }
 
     render() {
-
         const closeModal = this.props.properties.closeModal;
         return (
-            <Modal
+            <Modal 
                 isVisible={this.state.isModalVisible}
                 {...this.props.properties}
                 style={this.props.properties.style}
@@ -119,12 +124,11 @@ export default class ModalComponent extends React.Component {
                 onSwipeComplete={closeModal.includes(CLOSE_MODAL.onSwipeComplete) ? () => this.inVisibleModal() : null}
                 swipeDirection={closeModal.includes(CLOSE_MODAL.onSwipeComplete) ? this.props.properties.swipeDirection : null}
             >
-
-                {this.props.childrens.map(children => {
-                    return this.getChildrenData(children)
+                {this.props.childrens.map((children, index) => {
+                    return this.getChildrenData(index, children)
                 })}
             </Modal>
-        )
+           )
     }
 }
 
@@ -165,4 +169,3 @@ ModalComponent.defaultProps = {
         }
     ]
 }
-
