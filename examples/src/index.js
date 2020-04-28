@@ -62,14 +62,14 @@ export default class UiBuilder extends React.Component {
   }
 
   render() {
-    const {source} = this.props;
+    const {source, navigation} = this.props;
     theme = source.theme;
     return (
       <View>
-        {/* <Button
-          title="Go to Login Page"
-          onPress={() => navigation.navigate('Login Page')}
-        /> */}
+        <Button
+          title="Go to home Page"
+          onPress={() => navigation.navigate(this.props.name)}
+        />
         {source.data.map((component, index) => {
           return this.selectComponent(component, index);
         })}
