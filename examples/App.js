@@ -6,48 +6,200 @@
  * @flow strict-local
  */
 
-import UiBuilder from 'react-native-ui-builder';
+// import UiBuilder from 'react-native-ui-builder';
+import UiBuilder from "./src/index";
 import React from 'react';
 
 const source = {
-  theme: 'lightTheme',
+  // theme: 'lightTheme',
   data: [
     {
-      type: 'input',
+      type: 'modal',
       properties: {
-        label: 'Mobile Number (10 digits)',
-        placeholderTextColor: 'grey',
         style: {
+          margin: 0,
+          top: '15%',
+          maxHeight: 400,
           backgroundColor: 'white',
-          borderColor: 'grey',
-          borderWidth: 2,
-          width: '90%',
-          left: 20,
-          marginTop: 40,
+          borderRadius: 15
         },
+        backdropColor: 'grey',
+        closeModal: ['onBackButtonPress', 'onSwipeComplete'],
+        swipeDirection: 'left'
       },
-    },
-    {
-      type: 'button',
-      properties: {
-        title: 'FACEBOOK',
-        titleStyle: {color: 'blue', fontSize: 20},
-        buttonStyle: {
-          backgroundColor: 'white',
-          width: '90%',
-          left: 20,
-          borderWidth: 3,
-          marginTop: 20,
+      childrens: [
+        {
+          type: 'icon',
+          properties: {
+            containerStyle: {
+              alignSelf: 'flex-end',
+              right: 20,
+              //  marginBottom: 20,
+              position: 'absolute',
+            },
+            name: 'close',
+            color: 'grey',
+            size: 20,
+            onPress: 'closeModal',
+          },
         },
-        icon: {
-          name: 'facebook',
-          color: 'blue',
-          size: 20,
+        {
+          type: 'text',
+          properties: {
+            style: {
+              fontSize: 20,
+              fontWeight: 'bold',
+              textAlign: 'center',
+              color: 'black',
+              alignSelf: 'flex-start',
+              marginLeft: 10,
+            },
+            title: 'Add new address',
+          },
         },
-      },
-    },
-  ]
 
+        {
+          type: 'input',
+          properties: {
+            label: 'First Name',
+            style: {
+              backgroundColor: 'white',
+              borderColor: '#D3D3D3',
+              borderWidth: 2,
+              width: '47%',
+              left: 5,
+              position: 'absolute',
+              height: 40,
+              marginTop: 10,
+            },
+            placeholderTextColor: 'grey',
+          },
+        },
+        {
+          type: 'input',
+          properties: {
+            label: 'Last Name',
+            style: {
+              backgroundColor: 'white',
+              borderColor: '#D3D3D3',
+              borderWidth: 2,
+              width: '48%',
+              marginRight: 5,
+              left: 207,
+
+              height: 40,
+              marginTop: 10,
+            },
+            placeholderTextColor: 'grey',
+          },
+        },
+        {
+          type: 'input',
+          properties: {
+            label: 'Address',
+            style: {
+              backgroundColor: 'white',
+              borderColor: '#D3D3D3',
+              borderWidth: 2,
+              width: '97.5%',
+              height: 65,
+              marginLeft: 5,
+              marginTop: 4,
+            },
+            placeholderTextColor: 'grey',
+          },
+        },
+        {
+          type: 'input',
+          properties: {
+            label: 'City',
+            style: {
+              backgroundColor: 'white',
+              borderColor: '#D3D3D3',
+              borderWidth: 2,
+              width: '47%',
+              left: 5,
+              position: 'absolute',
+              height: 40,
+              marginTop: 4,
+            },
+            placeholderTextColor: 'grey',
+          },
+        },
+        {
+          type: 'input',
+          properties: {
+            label: 'Select State',
+            style: {
+              backgroundColor: 'white',
+              borderColor: '#D3D3D3',
+              borderWidth: 2,
+              width: '48%',
+              marginRight: 5,
+              left: 207,
+
+              height: 40,
+              marginTop: 4,
+            },
+            placeholderTextColor: 'grey',
+          },
+        },
+        {
+          type: 'input',
+          properties: {
+            label: 'Pin Code(6 digit)',
+            style: {
+              backgroundColor: 'white',
+              borderColor: '#D3D3D3',
+              borderWidth: 2,
+              width: '47%',
+              left: 5,
+              position: 'absolute',
+              height: 40,
+              marginTop: 4,
+            },
+            placeholderTextColor: 'grey',
+          },
+        },
+        {
+          type: 'input',
+          properties: {
+            label: 'Mobile Number',
+            style: {
+              backgroundColor: 'white',
+              borderColor: '#D3D3D3',
+              borderWidth: 2,
+              width: '48%',
+              marginRight: 5,
+              left: 207,
+
+              height: 40,
+              marginTop: 4,
+            },
+            placeholderTextColor: 'grey',
+          },
+        },
+        {
+          type: 'button',
+          properties: {
+            title: 'SAVE ADDRESS',
+            onPress: 'closeModal',
+            buttonStyle: {
+              backgroundColor: 'red',
+              borderColor: 'red',
+              width: '98%',
+              left: 70,
+              borderWidth: 3,
+              marginTop: 5,
+              alignSelf: 'center',
+              marginRight: 137,
+            },
+            titleStyle: { color: 'white' },
+          },
+        }
+      ]
+    }
+  ]
 }
 
 export default class App extends React.Component {

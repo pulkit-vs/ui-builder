@@ -9,12 +9,12 @@
 import Modal from 'react-native-modal';
 import PropTypes from 'prop-types';
 import React from 'react';
-import {Button, Icon} from 'react-native-elements';
+import { Button, Icon } from 'react-native-elements';
 
-import {CLOSE_MODAL} from '../utility/utils';
-import {View, Text, TextInput} from 'react-native';
-import {applyTheme} from '../utility/utils';
-import {theme} from '../../index';
+import { CLOSE_MODAL } from '../utility/utils';
+import { View, Text, TextInput, KeyboardAvoidingView} from 'react-native';
+import { applyTheme } from '../utility/utils';
+import { theme } from '../../index';
 
 export default class ModalComponent extends React.Component {
   constructor(props) {
@@ -35,7 +35,7 @@ export default class ModalComponent extends React.Component {
   }
 
   inVisibleModal() {
-    this.setState({isModalVisible: !this.state.isModalVisible});
+    this.setState({ isModalVisible: !this.state.isModalVisible });
   }
 
   onChangeText(event, index) {
@@ -44,87 +44,84 @@ export default class ModalComponent extends React.Component {
       this.state.values.length === 0 ||
       this.state.values.findIndex((val) => val.key === index) === -1
     ) {
-      updateState.push({key: index, value: event});
+      updateState.push({ key: index, value: event });
     } else {
       const activeIndex = this.state.values.findIndex(
         (val) => val.key === index,
       );
       updateState[activeIndex].value = event;
     }
-    this.setState({values: updateState});
+    this.setState({ values: updateState });
   }
 
   getChildrenData(index, children) {
     return (
-      <KeyboardAvoidingView>
-        <View>
-          {(() => {
-            if (children.type === 'text') {
-              return (
-                <Text style={children.properties.style}>
-                  {children.properties.title}
-                </Text>
-              );
-            }
-          })()}
+      <View>
+        {(() => {
+          if (children.type === 'text') {
+            return (
+              <Text style={children.properties.style}>
+                {children.properties.title}
+              </Text>
+            );
+          }
+        })()}
 
-          {(() => {
-            if (children.type === 'icon') {
-              return (
-                <Icon
-                  containerStyle={children.properties.containerStyle}
-                  name={children.properties.name}
-                  color={children.properties.color}
-                  size={children.properties.size}
-                  onPress={
-                    children.properties.onPress === 'closeModal'
-                      ? () => this.inVisibleModal()
-                      : properties.onPress
-                  }
-                />
-              );
-            }
-          })()}
+        {(() => {
+          if (children.type === 'icon') {
+            return (
+              <Icon
+                containerStyle={children.properties.containerStyle}
+                name={children.properties.name}
+                color={children.properties.color}
+                size={children.properties.size}
+                onPress={
+                  children.properties.onPress === 'closeModal'
+                    ? () => this.inVisibleModal()
+                    : properties.onPress
+                }
+              />
+            );
+          }
+        })()}
 
-          {(() => {
-            if (children.type === 'input') {
-              return (
-                <TextInput
-                  onChangeText={(event) => this.onChangeText(event, index)}
-                  placeholder={children.properties.label}
-                  selectionColor={children.properties.style.selectionColor}
-                  style={children.properties.style}
-                  value={
-                    this.state.values.find((val) => val.key === index)
-                      ? this.state.values.find((val) => val.key === index).value
-                      : ''
-                  }
-                  placeholderTextColor={
-                    children.properties.placeholderTextColor
-                  }
-                />
-              );
-            }
-          })()}
+        {(() => {
+          if (children.type === 'input') {
+            return (
+              <TextInput
+                onChangeText={(event) => this.onChangeText(event, index)}
+                placeholder={children.properties.label}
+                selectionColor={children.properties.style.selectionColor}
+                style={children.properties.style}
+                value={
+                  this.state.values.find((val) => val.key === index)
+                    ? this.state.values.find((val) => val.key === index).value
+                    : ''
+                }
+                placeholderTextColor={
+                  children.properties.placeholderTextColor
+                }
+              />
+            );
+          }
+        })()}
 
-          {(() => {
-            if (children.type === 'button') {
-              return (
-                <Button
-                  title={children.properties.title}
-                  onPress={() => this.inVisibleModal()}
-                  disabled={children.properties.disabled}
-                  buttonStyle={children.properties.buttonStyle}
-                  titleStyle={children.properties.titleStyle}
-                  type={children.properties.buttonType}
-                  loading={children.properties.loading}
-                />
-              );
-            }
-          })()}
-        </View>
-        <View style={{flex: 1}} />
-      </KeyboardAvoidingView>
+        {(() => {
+          if (children.type === 'button') {
+            return (
+              <Button
+                title={children.properties.title}
+                onPress={() => this.inVisibleModal()}
+                disabled={children.properties.disabled}
+                buttonStyle={children.properties.buttonStyle}
+                titleStyle={children.properties.titleStyle}
+                type={children.properties.buttonType}
+                loading={children.properties.loading}
+              />
+            );
+          }
+        })()}
+      </View>
     );
   }
 
@@ -156,9 +153,12 @@ export default class ModalComponent extends React.Component {
             ? this.props.properties.swipeDirection
             : null
         }>
+
+      <KeyboardAvoidingView  behavior="position" enabled >
         {this.props.childrens.map((children, index) => {
           return this.getChildrenData(index, children);
         })}
+      </KeyboardAvoidingView>
       </Modal>
     );
   }
