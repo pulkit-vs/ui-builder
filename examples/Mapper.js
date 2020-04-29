@@ -13,6 +13,7 @@ export const mapper = {
     'Hey there, how may I help you ?': ['hello', 'hi', 'hey', 'hay'],
     "I can hear you loud and clear": ['check check is this thing on', 'is this thing on', 'can you listen me', 'can you hear me'],
     "I don’t really have an age like humans, but I have a birthday": ['how old are you'],
-    "Its on April 29th": ['when is your birthday', "when is your birthday again I can't remember", "when's your birthday"]
+    "Its on April 29th": ['when is your birthday', "when is your birthday again I can't remember", "when's your birthday"],
+    "Thank you for the thank you, nice to be acknowledged": ['thank you', 'thanks']
 }
 
