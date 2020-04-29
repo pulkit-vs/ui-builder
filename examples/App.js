@@ -11,6 +11,7 @@ import React from 'react';
 import { Text, View } from 'react-native';
 import { Button } from "react-native-elements";
 import Voice from '@react-native-community/voice';
+import Tts from 'react-native-tts';
 // import { Permissions } from "expo";
 import * as Permissions from 'expo-permissions';
 
@@ -68,14 +69,19 @@ export default class App extends React.Component {
       if (key === this.state.results[0]) {
         this.setState({ result: this.responses[key] })
       } else {
-        this.setState({ result: 'Sorry, i dont know' })
+        this.setState({ result: 'Sorry, i dont know the answer'})
       }
     })
     console.log('response', this.state.result)
-
+    await this.onTexToSpeech(this.state.result);
     // call saksham's method 
     //textToVoice(textResponse)
   }
+
+  onTexToSpeech = (input) => {
+    Tts.speak(input)
+    // input.map((val) => Tts.speak(val));
+  };
 
   onStartButtonPress(e) {
     console.log('onStartButtonPress:e->', e);
