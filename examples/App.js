@@ -34,17 +34,10 @@ export default class App extends React.Component {
   responses = {
     'hello': 'hello',
     'hi': 'hi',
-    'how are you': 'i m good thank you'
-  }
-
-  returningResponseForAnInput = async () => {
-    console.log('returningResponseForAnInput:', Object.keys(this.responses))
-    await Object.keys(this.responses).map(key => {
-      if (key === this.state.results[0]) {
-        this.setState({ result: this.responses[key] })
-        return this.responses[key];
-      }
-    })
+    'how are you': 'i m good thank you',
+    'hi how are you': 'hi i m good thank you',
+    'hello how are you': 'hello i m good thank you',
+    "what's your name": 'i m a voice recognition service'
   }
 
   onSpeechStartHandler(e) {
@@ -107,19 +100,19 @@ export default class App extends React.Component {
     console.log('result:', this.state.results)
   }
 
-  // async componentDidMount() {
+  async componentDidMount() {
 
-  //   console.log('componentDidMount:', Permissions.AUDIO_RECORDING);
-  //   let { status, expires, permissions } = Permissions && await Permissions.askAsync(
-  //     Permissions.AUDIO_RECORDING
-  //   );
-  //   console.log('status:', status)
-  //   if (status !== "granted") {
-  //     console.log('Permissions');
-  //   } else {
-  //     console.log('no Permissions');
-  //   }
-  // }
+    console.log('componentDidMount:', Permissions.AUDIO_RECORDING);
+    let { status, expires, permissions } = Permissions && await Permissions.askAsync(
+      Permissions.AUDIO_RECORDING
+    );
+    console.log('status:', status)
+    if (status !== "granted") {
+      console.log('Permissions');
+    } else {
+      console.log('no Permissions');
+    }
+  }
 
   render() {
     console.log('Result:', this.state.results);
@@ -127,13 +120,9 @@ export default class App extends React.Component {
       <View>
         <Text> Voice Recognition Service </Text>
         <Button
-          title={"Speech"}
+          title={"Click me and say something"}
           onPress={(e) => this._startRecognition(e)}
         />
-        {/* <Button
-          title={"Speech end"}
-          onPress={(e) => this.onReleaseButton(e)}
-        /> */}
       </View>
     );
   }
