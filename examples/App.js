@@ -22,6 +22,7 @@ export default class App extends React.Component {
       recognized: '',
       started: '',
       results: [],
+      result: ''
     };
 
     Voice.onSpeechStart = this.onSpeechStartHandler.bind(this);
@@ -29,6 +30,21 @@ export default class App extends React.Component {
     Voice.onSpeechResults = this.onSpeechResultsHandler.bind(this);
   }
 
+  responses = {
+    'hello': 'hello',
+    'hi': 'hi',
+    'how are you': 'i m good thank you'
+  }
+
+  returningResponseForAnInput = async () => {
+    console.log('returningResponseForAnInput:', Object.keys(this.responses))
+    await Object.keys(this.responses).map(key => {
+      if (key === this.state.results[0]) {
+        this.setState({ result: this.responses[key] })
+        return this.responses[key];
+      }
+    })
+  }
 
   onSpeechStartHandler(e) {
     this.setState({
@@ -42,11 +58,23 @@ export default class App extends React.Component {
     });
   }
 
-  onSpeechResultsHandler(e) {
-    console.log('onSpeechResultsHandler:e->', e);
-    this.setState({
+  onSpeechResultsHandler = async (e) => {
+
+    await this.setState({
       results: e.value,
     });
+
+    await Object.keys(this.responses).map(key => {
+      if (key === this.state.results[0]) {
+        this.setState({ result: this.responses[key] })
+      } else {
+        this.setState({ result: 'Sorry, i dont know' })
+      }
+    })
+    console.log('response', this.state.result)
+
+    // call saksham's method 
+    //textToVoice(textResponse)
   }
 
   onStartButtonPress(e) {
@@ -96,10 +124,10 @@ export default class App extends React.Component {
           title={"Speech"}
           onPress={(e) => this._startRecognition(e)}
         />
-        <Button
+        {/* <Button
           title={"Speech end"}
           onPress={(e) => this.onReleaseButton(e)}
-        />
+        /> */}
       </View>
     );
   }
