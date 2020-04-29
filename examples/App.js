@@ -11,11 +11,12 @@ import React from 'react';
 import { Text, View } from 'react-native';
 import { Button } from "react-native-elements";
 import Voice from '@react-native-community/voice';
-import { Permissions } from "expo";
+// import { Permissions } from "expo";
+import * as Permissions from 'expo-permissions';
 
 export default class App extends React.Component {
 
-  constructor(props){
+  constructor(props) {
     super(props)
     this.state = {
       recognized: '',
@@ -28,9 +29,6 @@ export default class App extends React.Component {
     Voice.onSpeechResults = this.onSpeechResultsHandler.bind(this);
   }
 
-  voiceToText = () => {
-
-  }
 
   onSpeechStartHandler(e) {
     this.setState({
@@ -43,13 +41,15 @@ export default class App extends React.Component {
       recognized: '√',
     });
   }
+
   onSpeechResultsHandler(e) {
+    console.log('onSpeechResultsHandler:e->', e);
     this.setState({
       results: e.value,
     });
   }
 
-  onStartButtonPress(e){
+  onStartButtonPress(e) {
     console.log('onStartButtonPress:e->', e);
     Voice.start('en-US');
   }
@@ -67,37 +67,40 @@ export default class App extends React.Component {
     }
   }
 
-  onReleaseButton(e){
+  onReleaseButton(e) {
     console.log('onReleaseButton:e->', e);
     Voice.stop();
+    console.log('result:', this.state.results)
   }
 
-  async componentDidMount() {
+  // async componentDidMount() {
 
-    const { status, expires, permissions } = await Permissions.askAsync(
-      Permissions.AUDIO_RECORDING
-    );
-    if (status !== "granted") {
-      alert('Permissions');
-      //Permissions not granted. Don't show the start recording button because it will cause problems if it's pressed.
-     // this.setState({ showRecordButton: false });
-    } else {
-      alert('no Permissions');
-      //this.setState({ showRecordButton: true });
-    }
-  }
+  //   console.log('componentDidMount:', Permissions.AUDIO_RECORDING);
+  //   let { status, expires, permissions } = Permissions && await Permissions.askAsync(
+  //     Permissions.AUDIO_RECORDING
+  //   );
+  //   console.log('status:', status)
+  //   if (status !== "granted") {
+  //     console.log('Permissions');
+  //   } else {
+  //     console.log('no Permissions');
+  //   }
+  // }
 
   render() {
-
     console.log('Result:', this.state.results);
     return (
-     <View> 
-       <Text> Voice Recognition Service </Text>
-       <Button
+      <View>
+        <Text> Voice Recognition Service </Text>
+        <Button
           title={"Speech"}
-          onPress={this._startRecognition.bind(this)}          
+          onPress={(e) => this._startRecognition(e)}
         />
-     </View>
+        <Button
+          title={"Speech end"}
+          onPress={(e) => this.onReleaseButton(e)}
+        />
+      </View>
     );
   }
 }
