@@ -6,56 +6,98 @@
  * @flow strict-local
  */
 
-import UiBuilder from 'react-native-ui-builder';
+// import UiBuilder from 'react-native-ui-builder';
 import React from 'react';
-
-const source = {
-  theme: 'lightTheme',
-  data: [
-    {
-      type: 'input',
-      properties: {
-        label: 'Mobile Number (10 digits)',
-        placeholderTextColor: 'grey',
-        style: {
-          backgroundColor: 'white',
-          borderColor: 'grey',
-          borderWidth: 2,
-          width: '90%',
-          left: 20,
-          marginTop: 40,
-        },
-      },
-    },
-    {
-      type: 'button',
-      properties: {
-        title: 'FACEBOOK',
-        titleStyle: {color: 'blue', fontSize: 20},
-        buttonStyle: {
-          backgroundColor: 'white',
-          width: '90%',
-          left: 20,
-          borderWidth: 3,
-          marginTop: 20,
-        },
-        icon: {
-          name: 'facebook',
-          color: 'blue',
-          size: 20,
-        },
-      },
-    },
-  ]
-
-}
+import { Text, View } from 'react-native';
+import { Button } from "react-native-elements";
+import Voice from '@react-native-community/voice';
+import { Permissions } from "expo";
 
 export default class App extends React.Component {
+
+  constructor(props){
+    super(props)
+    this.state = {
+      recognized: '',
+      started: '',
+      results: [],
+    };
+
+    Voice.onSpeechStart = this.onSpeechStartHandler.bind(this);
+    Voice.onSpeechEnd = this.onSpeechEndHandler.bind(this);
+    Voice.onSpeechResults = this.onSpeechResultsHandler.bind(this);
+  }
+
+  voiceToText = () => {
+
+  }
+
+  onSpeechStartHandler(e) {
+    this.setState({
+      started: '√',
+    });
+  }
+
+  onSpeechEndHandler(e) {
+    this.setState({
+      recognized: '√',
+    });
+  }
+  onSpeechResultsHandler(e) {
+    this.setState({
+      results: e.value,
+    });
+  }
+
+  onStartButtonPress(e){
+    console.log('onStartButtonPress:e->', e);
+    Voice.start('en-US');
+  }
+
+  async _startRecognition(e) {
+    this.setState({
+      recognized: '',
+      started: '',
+      results: [],
+    });
+    try {
+      await Voice.start('en-US');
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
+  onReleaseButton(e){
+    console.log('onReleaseButton:e->', e);
+    Voice.stop();
+  }
+
+  async componentDidMount() {
+
+    const { status, expires, permissions } = await Permissions.askAsync(
+      Permissions.AUDIO_RECORDING
+    );
+    if (status !== "granted") {
+      alert('Permissions');
+      //Permissions not granted. Don't show the start recording button because it will cause problems if it's pressed.
+     // this.setState({ showRecordButton: false });
+    } else {
+      alert('no Permissions');
+      //this.setState({ showRecordButton: true });
+    }
+  }
+
   render() {
+
+    console.log('Result:', this.state.results);
     return (
-      <>
-        <UiBuilder source={source} />
-      </>
+     <View> 
+       <Text> Voice Recognition Service </Text>
+       <Button
+          title={"Speech"}
+          onPress={this._startRecognition.bind(this)}          
+        />
+     </View>
     );
   }
 }
