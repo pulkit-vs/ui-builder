@@ -65,18 +65,20 @@ export default class App extends React.Component {
       results: e.value,
     });
 
+    this.setState({ textResponse: '' })
     await Object.keys(this.responses).map(key => {
       if (key === this.state.results[0]) {
         this.setState({ textResponse: this.responses[key] })
       }
     })
-    if (this.state.textResponse === '') {
-      this.setState({ result: 'Sorry, i dont know the answer' })
+    if (this.state.textResponse.length === 0) {
+      this.setState({ textResponse: 'Sorry, i dont know the answer' })
     }
     await this.convertTextToSpeech(this.state.textResponse);
   }
 
   convertTextToSpeech = (input) => {
+    console.log('convertTextToSpeech:', input)
     Tts.speak(input)
     // input.map((val) => Tts.speak(val));
   };
