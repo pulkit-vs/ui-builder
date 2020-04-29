@@ -23,7 +23,7 @@ export default class App extends React.Component {
       recognized: '',
       started: '',
       results: [],
-      result: ''
+      textResponse: ''
     };
 
     Voice.onSpeechStart = this.onSpeechStartHandler.bind(this);
@@ -67,18 +67,16 @@ export default class App extends React.Component {
 
     await Object.keys(this.responses).map(key => {
       if (key === this.state.results[0]) {
-        this.setState({ result: this.responses[key] })
-      } else {
-        this.setState({ result: 'Sorry, i dont know the answer'})
+        this.setState({ textResponse: this.responses[key] })
       }
     })
-    console.log('response', this.state.result)
-    await this.onTexToSpeech(this.state.result);
-    // call saksham's method 
-    //textToVoice(textResponse)
+    if (this.state.textResponse === '') {
+      this.setState({ result: 'Sorry, i dont know the answer' })
+    }
+    await this.convertTextToSpeech(this.state.textResponse);
   }
 
-  onTexToSpeech = (input) => {
+  convertTextToSpeech = (input) => {
     Tts.speak(input)
     // input.map((val) => Tts.speak(val));
   };
