@@ -12,6 +12,7 @@ import { Button } from "react-native-elements";
 import Voice from '@react-native-community/voice';
 import Tts from 'react-native-tts';
 // import * as Permissions from 'expo-permissions';
+import { mapper } from "./Mapper";
 
 export default class App extends React.Component {
 
@@ -21,7 +22,8 @@ export default class App extends React.Component {
       recognized: '',
       started: '',
       results: [],
-      textResponse: ''
+      textResponse: '',
+      mapper: {}
     };
 
     Voice.onSpeechStart = this.onSpeechStartHandler.bind(this);
@@ -29,13 +31,8 @@ export default class App extends React.Component {
     Voice.onSpeechResults = this.onSpeechResultsHandler.bind(this);
   }
 
-  responses = {
-    'hello': 'hello',
-    'hi': 'hi',
-    'how are you': 'i m good thank you',
-    'hi how are you': 'hi i m good thank you',
-    'hello how are you': 'hello i m good thank you',
-    "what's your name": 'i m a voice recognition service'
+  async componentDidMount() {
+    this.setState({ mapper: mapper })
   }
 
   onSpeechStartHandler(e) {
@@ -56,11 +53,13 @@ export default class App extends React.Component {
       results: e.value,
     });
 
-    await Object.keys(this.responses).map(key => {
-      if (key === this.state.results[0]) {
-        this.setState({ textResponse: this.responses[key] })
+    console.log(this.state.results[0])
+    await Object.values(this.state.mapper).map((val, index) => {
+      if (val.includes(this.state.results[0])) {
+        this.setState({ textResponse: Object.keys(mapper)[index] })
       }
     })
+
     if (this.state.textResponse.length === 0) {
       this.setState({ textResponse: 'Sorry, i dont know the answer' })
     }
@@ -100,6 +99,8 @@ export default class App extends React.Component {
   //     console.log('no Permissions');
   //   }
   // }
+
+  // Voice recognition understand letters in small case only, either will convert all to small before sending or ensure that values in json object should be in small case.
 
   render() {
     return (
