@@ -19,6 +19,7 @@ import Input from './components/input';
 import ModalComponent from './components/modal';
 import TextComponent from './components/text';
 import {applyTheme} from './utility/utils';
+import {NavigationContext} from '@react-navigation/native';
 
 // Global variable to get theme type in other files.
 export let theme;
@@ -28,7 +29,10 @@ export default class UiBuilder extends React.Component {
     super();
     this.selectComponent = this.selectComponent.bind(this);
   }
-
+  static contextType = NavigationContext;
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   return nextProps != this.props;
+  // }
   selectComponent(component, index) {
     const type = get(component, 'type', '');
     switch (type) {
@@ -37,11 +41,23 @@ export default class UiBuilder extends React.Component {
       case 'icon':
         return <IconComponent {...component.properties} key={index} />;
       case 'button':
-        return <ButtonComponent {...component.properties} key={index} />;
+        return (
+          <ButtonComponent
+            {...component.properties}
+            createScreen={this.props.createScreen}
+            key={index}
+          />
+        );
       case 'header':
         return <HeaderComponent {...component.properties} key={index} />;
       case 'text':
-        return <TextComponent {...component.properties} key={index} />;
+        return (
+          <TextComponent
+            {...component.properties}
+            createScreen={this.props.createScreen}
+            key={index}
+          />
+        );
       case 'modal':
         return <ModalComponent {...component} key={index} />;
       case 'view': {
@@ -62,8 +78,9 @@ export default class UiBuilder extends React.Component {
   }
 
   render() {
-    const {source, navigation} = this.props;
+    const {source} = this.props;
     theme = source.theme;
+    const navigation = this.context;
     return (
       <View>
         <Button

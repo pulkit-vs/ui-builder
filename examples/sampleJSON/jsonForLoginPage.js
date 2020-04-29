@@ -1,4 +1,8 @@
+import {sourceData2} from './jsonForAddAddress';
 export const sourceData = {
+  // theme: 'darkTheme',
+  navigation: true,
+  screen_name: 'Home',
   data: [
     {
       type: 'view',
@@ -209,6 +213,39 @@ export const sourceData = {
               marginTop: 18,
               fontWeight: 'bold',
             },
+            onPress: {
+              navigation: true,
+              screenName: 'Add Add',
+              data: {...sourceData2},
+              // data: [
+              //   {
+              //     type: 'text',
+              //     properties: {
+              //       title: 'Your Adresses',
+              //       style: {
+              //         color: 'white',
+              //         fontSize: 23,
+              //         marginLeft: 7,
+              //       },
+              //     },
+              //   },
+              //   {
+              //     type: 'button',
+              //     properties: {
+              //       title: 'Sign Up',
+              //       titleStyle: {color: 'white', fontSize: 20},
+              //       buttonStyle: {
+              //         backgroundColor: 'lightcoral',
+              //         width: '90%',
+              //         left: 20,
+              //         borderColor: 'red',
+              //         marginTop: 30,
+              //         borderRadius: 30,
+              //       },
+              //     },
+              //   },
+              // ],
+            },
           },
         },
         {
@@ -223,6 +260,54 @@ export const sourceData = {
               borderColor: 'red',
               marginTop: 30,
               borderRadius: 30,
+            },
+            onPress: {
+              navigation: true,
+              screenName: 'Add Address',
+              data: {
+                data: [
+                  {
+                    type: 'text',
+                    properties: {
+                      title: 'Your Adresses',
+                      style: {
+                        color: 'white',
+                        fontSize: 23,
+                        marginLeft: 7,
+                      },
+                    },
+                  },
+                  {
+                    type: 'button',
+                    properties: {
+                      title: 'Sign Up',
+                      titleStyle: {color: 'white', fontSize: 20},
+                      buttonStyle: {
+                        backgroundColor: 'lightcoral',
+                        width: '90%',
+                        left: 20,
+                        borderColor: 'red',
+                        marginTop: 30,
+                        borderRadius: 30,
+                      },
+                      onPress: {
+                        navigation: true,
+                        screenName: 'page3',
+                        data: {
+                          data: [
+                            {
+                              type: 'text',
+                              properties: {
+                                title: 'You Are on Page3',
+                              },
+                            },
+                          ],
+                        },
+                      },
+                    },
+                  },
+                ],
+              },
             },
           },
         },
