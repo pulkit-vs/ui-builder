@@ -599,75 +599,209 @@ sourceData : {
     ],
 },
   
-// Task Json
+// Navigation Screens Json
 navigationData :  {
-    navigation: true,
-    screenName: 'Login Page',
-    data: [
-      {
-        type: 'button',
-        properties: {
-          title: 'Log In',
-          titleStyle: {color: 'white', fontSize: 20},
-          buttonStyle: {
-            backgroundColor: 'lightcoral',
-            width: '90%',
-            left: 20,
-            borderColor: 'red',
-            marginTop: 30,
-            borderRadius: 30,
+  screenName: 'Login Page',
+  data: [
+    {
+      type: 'text',
+      properties: {
+        title: 'Log In',
+        style: {
+          color: 'black',
+          textAlign: 'center',
+          marginTop: 20,
+          fontSize: 40,
+          fontWeight: 'bold',
+        },
+      },
+    },
+    {
+      type: 'view',
+      style: {
+        flexDirection: 'row',
+        paddingLeft: 80,
+      },
+      childrens: [
+        {
+          type: 'text',
+          properties: {
+            title: 'New to this site ?',
+            style: {
+              color: 'black',
+              marginTop: 20,
+              fontSize: 20,
+              fontWeight: 'bold',
+            },
           },
-          onPress: {
-            navigation: true,
-            screenName: 'Check Out',
-            source: {
-              data: [
-                {
-                  type: 'header',
-                  properties: {
-                    containerStyle: {
-                      backgroundColor: 'white',
-                      borderBottomWidth: 1,
-                      borderBottomColor: 'black',
+        },
+        {
+          type: 'text',
+          properties: {
+            title: ' Sign Up',
+            style: {
+              color: 'green',
+              marginTop: 20,
+              fontSize: 20,
+              fontWeight: 'bold',
+            },
+          },
+        },
+      ],
+    },
+
+    {
+      type: 'button',
+      properties: {
+        title: 'Log in with Facebook',
+        titleStyle: {color: 'blue', fontSize: 20},
+        buttonStyle: {
+          backgroundColor: 'white',
+          width: '90%',
+          left: 20,
+          borderWidth: 3,
+          marginTop: 30,
+        },
+        onPress: {
+          navigation: true,
+          screenName: 'Check Out',
+          source: {
+            data: [
+              {
+                type: 'header',
+                properties: {
+                  containerStyle: {
+                    backgroundColor: 'white',
+                    borderBottomWidth: 1,
+                    borderBottomColor: 'black',
+                  },
+                  placement: 'left',
+                  centerComponent: {
+                    childrens: [
+                      {
+                        type: 'view',
+                        properties: {style: {flexDirection: 'row'}},
+                      },
+                      {
+                        type: 'text',
+                        properties: {
+                          title: 'Log in With Facebook',
+                          style: {
+                            color: 'black',
+                            fontSize: 19,
+                            textAlign: 'left'
+                           // fontWeight: 'bold',
+                          },
+                        },
+                      },
+                    ],
+                  },
+                  rightComponent: {
+                    childrens: [
+                      {
+                        type: 'view',
+                        properties: {style: {flexDirection: 'row'}},
+                      },
+                      {
+                        type: 'icon',
+                        properties: {
+                          name: 'close',
+                          color: 'black',
+                          size: 30,
+                          onPress: {
+                            navigation: true,
+                            screenName: 'Login Page',
+                            source: {
+                              data: [],
+                            },
+                          },
+                        },
+                      },
+                    ],
+                  },
+                },
+              },
+              {
+                type: 'input',
+                properties: {
+                  label: 'Mobile Number (10 digits)',
+                  placeholderTextColor: 'grey',
+                  style: {
+                    backgroundColor: 'white',
+                    borderColor: 'grey',
+                    borderWidth: 2,
+                    width: '90%',
+                    left: 20,
+                    marginTop: 40,
+                  },
+                },
+                childrens: [
+                  {
+                    type: 'icon',
+                    properties: {
+                      name: 'search',
+                      color: 'red',
+                      size: 40,
                     },
-                    placement: 'left',
-                    centerComponent: {
-                      childrens: [
+                  },
+                  {
+                    type: 'icon',
+                    properties: {
+                      name: 'facebook',
+                      color: 'red',
+                      size: 40,
+                    },
+                  },
+                ],
+              },
+              {
+                type: 'button',
+                properties: {
+                  title: 'FACEBOOK',
+                  titleStyle: {color: 'blue', fontSize: 20},
+                  buttonStyle: {
+                    backgroundColor: 'white',
+                    width: '90%',
+                    left: 20,
+                    borderWidth: 3,
+                    marginTop: 20,
+                    icon : {
+                      properties: {
+                        name: 'facebook',
+                        color: 'red',
+                        size: 40
+                    }
+                    }
+                  },
+                  onPress: {
+                    navigation: true,
+                    screenName: 'faceBook HomePage',
+                    source: {
+                      data: [
                         {
-                          type: 'view',
-                          properties: {style: {flexDirection: 'row'}},
+                          type: 'text',
+                          properties: {
+                            title: 'Welcome to our Facebook Page!',
+                            style: {
+                              marginTop: 20,
+                              marginLeft: 110,
+                              fontSize: 20,
+                              fontWeight: 'bold',
+                            },
+                          },
                         },
                         {
                           type: 'text',
                           properties: {
-                            title: 'Log in With Facebook',
+                            title: 'Back to Login Page',
                             style: {
-                              color: 'black',
-                              fontSize: 19,
-                              textAlign: 'left'
+                              position: 'absolute',
+                              left: 50,
+                              top: 500,
+                              fontSize: 20,
                             },
-                          },
-                        },
-                      ],
-                    },
-                    rightComponent: {
-                      childrens: [
-                        {
-                          type: 'view',
-                          properties: {style: {flexDirection: 'row'}},
-                        },
-                        {
-                          type: 'icon',
-                          properties: {
-                            name: 'close',
-                            color: 'black',
-                            size: 30,
                             onPress: {
-                              navigation: true,
                               screenName: 'Login Page',
-                              source: {
-                                data: [],
-                              },
                             },
                           },
                         },
@@ -675,91 +809,31 @@ navigationData :  {
                     },
                   },
                 },
-                {
-                  type: 'input',
-                  properties: {
-                    label: 'Mobile Number (10 digits)',
-                    placeholderTextColor: 'grey',
-                    style: {
-                      backgroundColor: 'white',
-                      borderColor: 'grey',
-                      borderWidth: 2,
-                      width: '90%',
-                      left: 20,
-                      marginTop: 40,
-                    },
-                  },
-                  childrens: [
-                    {
-                      type: 'icon',
-                      properties: {
-                        name: 'search',
-                        color: 'red',
-                        size: 40,
-                      },
-                    },
-                    {
-                      type: 'icon',
-                      properties: {
-                        name: 'facebook',
-                        color: 'red',
-                        size: 40,
-                      },
-                    },
-                  ],
-                },
-                {
-                  type: 'button',
-                  properties: {
-                    title: 'FACEBOOK',
-                    titleStyle: {color: 'blue', fontSize: 20},
-                    buttonStyle: {
-                      backgroundColor: 'white',
-                      width: '90%',
-                      left: 20,
-                      borderWidth: 3,
-                      marginTop: 20,
-                    },
-                    onPress: {
-                      navigation: true,
-                      screenName: 'faceBook HomePage',
-                      source: {
-                        data: [
-                          {
-                            type: 'text',
-                            properties: {
-                              title: 'Welcome Back',
-                            },
-                          },
-                          {
-                            type: 'text',
-                            properties: {
-                              title: 'Back to Login Page',
-                              style: {
-                                marginTop: 20,
-                                marginLeft: 20,
-                                fontSize: 20,
-                              },
-                              onPress: {
-                                screenName: 'Login Page',
-                              },
-                            },
-                          },
-                        ],
-                      },
-                    },
-                  },
-                },
-              ],
-            },
+              },
+            ],
           },
         },
       },
-    ],
+    },
+    {
+      type: 'button',
+      properties: {
+        title: 'Log in with Google',
+        titleStyle: {color: 'blue', fontSize: 20},
+        buttonStyle: {
+          backgroundColor: 'white',
+          width: '90%',
+          left: 20,
+          borderWidth: 3,
+          marginTop: 30,
+        },
+      },
+    },
+  ],
 },
   
-  // test.js json
-  // Sample JSON Structure
+// test.js json
+// Sample JSON Structure
 data1 : {
     type: 'input',
     properties: {
