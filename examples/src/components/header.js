@@ -1,6 +1,7 @@
 import {Header, Icon, Input} from 'react-native-elements';
 import PropTypes from 'prop-types';
 import React from 'react';
+import {NavigationContext} from '@react-navigation/native';
 import {View, Text} from 'react-native';
 
 import {applyTheme} from '../utility/utils';
@@ -26,8 +27,16 @@ export default class HeaderComponent extends React.Component {
       });
     }
   }
-
+  static contextType = NavigationContext;
+  componentDidMount() {
+    if (this.props.onPress) {
+      this.props.onPress.navigation
+        ? this.props.createScreen(this.props.onPress)
+        : null;
+    }
+  }
   render() {
+    const navigation = this.context;
     //for creating customized header's (left , right and center component)
     const valueOfComponent = this.state.ValueOfComponent.map(
       (component, index) =>
@@ -49,6 +58,10 @@ export default class HeaderComponent extends React.Component {
                     key={i}
                     name={styleOfIcon.name}
                     type={styleOfIcon.type}
+                    // onPress={styleOfIcon.onPress}
+                    onPress={() =>
+                      navigation.navigate(this.props.onPress.screenName)
+                    }
                     size={styleOfIcon.size}
                   />
                 );

@@ -47,7 +47,13 @@ export default class UiBuilder extends React.Component {
           />
         );
       case 'header':
-        return <HeaderComponent {...component.properties} key={index} />;
+        return (
+          <HeaderComponent
+            {...component.properties}
+            createScreen={this.props.createScreen}
+            key={index}
+          />
+        );
       case 'text':
         return (
           <TextComponent
