@@ -8,8 +8,8 @@
 
 import React from 'react';
 import {View} from 'react-native';
-import {Button} from 'react-native-elements';
 import {get} from 'lodash';
+import {applyTheme} from './utility/utils';
 
 import ButtonComponent from './components/button';
 import HeaderComponent from './components/header';
@@ -18,18 +18,15 @@ import ImageComponent from './components/image';
 import Input from './components/input';
 import ModalComponent from './components/modal';
 import TextComponent from './components/text';
-import {applyTheme} from './utility/utils';
-import {NavigationContext} from '@react-navigation/native';
 
 // Global variable to get theme type in other files.
 export let theme;
 
-export default class UiBuilder extends React.Component {
+export default class Components extends React.Component {
   constructor() {
     super();
     this.selectComponent = this.selectComponent.bind(this);
   }
-  static contextType = NavigationContext;
 
   selectComponent(component, index) {
     const type = get(component, 'type', '');
@@ -84,13 +81,8 @@ export default class UiBuilder extends React.Component {
   render() {
     const {source} = this.props;
     theme = source.theme;
-    const navigation = this.context;
     return (
       <View>
-        {/* <Button
-          title="Go to home Page"
-          onPress={() => navigation.navigate('Home')}
-        /> */}
         {source.data.map((component, index) => {
           return this.selectComponent(component, index);
         })}

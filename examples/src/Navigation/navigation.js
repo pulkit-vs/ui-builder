@@ -1,16 +1,17 @@
 // import 'react-native-gesture-handler';
 // import UiBuilder from 'react-native-ui-builder';
-import UiBuilder from '../index';
+
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
+import Components from '../index';
 
 const Stack = createStackNavigator();
 
 // variable for containing screenNames
 var screenNames = [];
 
-export default class MultiScreenUiBuilder extends React.Component {
+export default class UiBuilder extends React.Component {
   constructor() {
     super();
     this.createScreen = this.createScreen.bind(this);
@@ -28,7 +29,7 @@ export default class MultiScreenUiBuilder extends React.Component {
       screenJson.push(
         <Stack.Screen name={screenName}>
           {(props) => (
-            <UiBuilder createScreen={this.createScreen} source={source} />
+            <Components createScreen={this.createScreen} source={source} />
           )}
         </Stack.Screen>,
       );
@@ -42,7 +43,7 @@ export default class MultiScreenUiBuilder extends React.Component {
         <Stack.Navigator>
           <Stack.Screen name={this.props.source.screenName}>
             {(props) => (
-              <UiBuilder
+              <Components
                 createScreen={this.createScreen}
                 source={this.props.source}
               />
