@@ -27,7 +27,7 @@ export default class UiBuilder extends React.Component {
       screenNames.push(screenName);
       let screenJson = this.state.stackScreens;
       screenJson.push(
-        <Stack.Screen name={screenName}>
+        <Stack.Screen key={screenName} name={screenName}>
           {(props) => (
             <Components createScreen={this.createScreen} source={source} />
           )}

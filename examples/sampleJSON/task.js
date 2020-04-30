@@ -1,19 +1,66 @@
+import {sourceData2} from '../sampleJSON/jsonForAddAddress';
 export const source = {
   navigation: true,
   screenName: 'Login Page',
   data: [
     {
-      type: 'button',
+      type: 'text',
       properties: {
         title: 'Log In',
-        titleStyle: {color: 'white', fontSize: 20},
+        style: {
+          color: 'black',
+          textAlign: 'center',
+          marginTop: 20,
+          fontSize: 40,
+          fontWeight: 'bold',
+        },
+      },
+    },
+    {
+      type: 'view',
+      style: {
+        flexDirection: 'row',
+        paddingLeft: 80,
+      },
+      childrens: [
+        {
+          type: 'text',
+          properties: {
+            title: 'New to this site ?',
+            style: {
+              color: 'black',
+              marginTop: 20,
+              fontSize: 15,
+              fontWeight: 'bold',
+            },
+          },
+        },
+        {
+          type: 'text',
+          properties: {
+            title: ' Sign Up',
+            style: {
+              color: 'green',
+              marginTop: 20,
+              fontSize: 15,
+              fontWeight: 'bold',
+            },
+          },
+        },
+      ],
+    },
+
+    {
+      type: 'button',
+      properties: {
+        title: 'Log in with Facebook',
+        titleStyle: {color: 'blue', fontSize: 20},
         buttonStyle: {
-          backgroundColor: 'lightcoral',
+          backgroundColor: 'white',
           width: '90%',
           left: 20,
-          borderColor: 'red',
-          marginTop: 30,
-          borderRadius: 30,
+          borderWidth: 3,
+          marginTop: 20,
         },
         onPress: {
           navigation: true,
@@ -127,6 +174,12 @@ export const source = {
                           type: 'text',
                           properties: {
                             title: 'Welcome Back',
+                            style: {
+                              marginTop: 20,
+                              marginLeft: 110,
+                              fontSize: 20,
+                              fontWeight: 'bold',
+                            },
                           },
                         },
                         {
@@ -134,8 +187,9 @@ export const source = {
                           properties: {
                             title: 'Back to Login Page',
                             style: {
-                              marginTop: 20,
-                              marginLeft: 20,
+                              position: 'absolute',
+                              left: 50,
+                              top: 500,
                               fontSize: 20,
                             },
                             onPress: {
@@ -150,6 +204,20 @@ export const source = {
               },
             ],
           },
+        },
+      },
+    },
+    {
+      type: 'button',
+      properties: {
+        title: 'Log in with Google',
+        titleStyle: {color: 'blue', fontSize: 20},
+        buttonStyle: {
+          backgroundColor: 'white',
+          width: '90%',
+          left: 20,
+          borderWidth: 3,
+          marginTop: 20,
         },
       },
     },

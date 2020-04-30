@@ -34,7 +34,11 @@ export default class TextComponent extends React.Component {
       <>
         <Text
           style={props.style}
-          onPress={() => navigation.navigate(this.props.onPress.screenName)}>
+          onPress={
+            this.props.onPress
+              ? () => navigation.navigate(this.props.onPress.screenName)
+              : () => console.log('Attach a Method')
+          }>
           {props.title}
         </Text>
       </>
