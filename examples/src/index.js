@@ -7,9 +7,9 @@
  */
 
 import React from 'react';
-import { View } from 'react-native';
-import { get } from 'lodash';
-import { applyTheme } from './utility/utils';
+import {View} from 'react-native';
+import {get} from 'lodash';
+import {applyTheme} from './utility/utils';
 
 import ButtonComponent from './components/button';
 import HeaderComponent from './components/header';
@@ -44,7 +44,13 @@ export default class Components extends React.Component {
           />
         );
       case 'header':
-        return <HeaderComponent {...component.properties} key={index} />;
+        return (
+          <HeaderComponent
+            {...component.properties}
+            createScreen={this.props.createScreen}
+            key={index}
+          />
+        );
       case 'text':
         return (
           <TextComponent
@@ -73,7 +79,7 @@ export default class Components extends React.Component {
   }
 
   render() {
-    const { source } = this.props;
+    const {source} = this.props;
     theme = source.theme;
     return (
       <View>

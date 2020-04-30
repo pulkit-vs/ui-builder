@@ -1,4 +1,3 @@
-
 // import 'react-native-gesture-handler';
 // import UiBuilder from 'react-native-ui-builder';
 
@@ -21,22 +20,21 @@ export default class UiBuilder extends React.Component {
       stackScreens: [],
     };
   }
-
   // Method for creating a given screen from given source onPress to a component
-  createScreen({ screenName, source }) {
+  createScreen({screenName, source}) {
     // console.log('screendata', data);
     if (!screenNames.includes(screenName)) {
       //   console.log('validation');
       screenNames.push(screenName);
       let screenJson = this.state.stackScreens;
       screenJson.push(
-        <Stack.Screen name={screenName}>
+        <Stack.Screen key={screenName} name={screenName}>
           {(props) => (
             <Components createScreen={this.createScreen} source={source} />
           )}
         </Stack.Screen>,
       );
-      this.setState({ stackScreens: screenJson });
+      this.setState({stackScreens: screenJson});
     }
   }
 
