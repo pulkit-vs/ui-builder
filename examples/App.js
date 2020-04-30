@@ -5,21 +5,16 @@
  * @format
  * @flow strict-local
  */
-// import 'react-native-gesture-handler';
-// import UiBuilder from 'react-native-ui-builder';
-// import UiBuilder from './src/index';
 
+// import UiBuilder from 'react-native-ui-builder';
 import React from 'react';
-import {sourceData} from './sampleJSON/jsonForLoginPage';
-import MultiScreenUiBuilder from './src/navigation/navigation';
+import UiBuilder from './src/navigation/navigation';
+
+const source = {};
 
 export default class App extends React.Component {
-  constructor() {
-    super();
-  }
 
   render() {
-    
-    return <MultiScreenUiBuilder source={sourceData} />;
+    return <UiBuilder source={source} />;
   }
 }
