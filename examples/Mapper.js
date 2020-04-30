@@ -1,3 +1,4 @@
+// Mapping of intent and actions
 export const mapper = {
 
     'My good name Voice Recognition, my good game, helping you': ['what is your name', "what's your name", "can I ask you what is your name"],
