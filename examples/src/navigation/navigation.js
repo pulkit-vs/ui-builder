@@ -5,6 +5,7 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+
 import Components from '../index';
 
 const Stack = createStackNavigator();
@@ -42,7 +43,10 @@ export default class UiBuilder extends React.Component {
   render() {
     return (
       <NavigationContainer>
-        <Stack.Navigator>
+        <Stack.Navigator
+          screenOptions={{
+            headerShown: false
+          }}>
           <Stack.Screen name={this.props.source.screenName}>
             {(props) => (
               <Components

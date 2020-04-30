@@ -1,10 +1,10 @@
-import {Header, Icon, Input} from 'react-native-elements';
+import { Header, Icon, Input } from 'react-native-elements';
 import PropTypes from 'prop-types';
 import React from 'react';
-import {View, Text} from 'react-native';
+import { View, Text } from 'react-native';
 
-import {applyTheme} from '../utility/utils';
-import {theme} from '../index';
+import { applyTheme } from '../utility/utils';
+import { theme } from '../index';
 
 export default class HeaderComponent extends React.Component {
   constructor(props) {
@@ -45,6 +45,7 @@ export default class HeaderComponent extends React.Component {
 
                 return (
                   <Icon
+                    iconStyle={styleOfIcon.iconStyle}
                     color={styleOfIcon.color}
                     key={i}
                     name={styleOfIcon.name}
@@ -69,6 +70,7 @@ export default class HeaderComponent extends React.Component {
                     leftIcon={
                       styleOfInput.leftIcon ? (
                         <Icon
+                          iconStyle={styleOfInput.leftIcon.iconStyle}
                           color={styleOfInput.leftIcon.color}
                           name={styleOfInput.leftIcon.name}
                           size={styleOfInput.leftIcon.size}
@@ -79,6 +81,7 @@ export default class HeaderComponent extends React.Component {
                     rightIcon={
                       styleOfInput.rightIcon ? (
                         <Icon
+                          iconStyle={styleOfInput.rightIcon.iconStyle}
                           color={styleOfInput.rightIcon.color}
                           name={styleOfInput.rightIcon.name}
                           size={styleOfInput.rightIcon.size}
@@ -138,7 +141,7 @@ HeaderComponent.defaultProps = {
     childrens: [
       {
         type: 'view',
-        properties: {style: {flexDirection: 'row'}},
+        properties: { style: { flexDirection: 'row' } },
       },
     ],
   },
@@ -153,7 +156,7 @@ HeaderComponent.defaultProps = {
     childrens: [
       {
         type: 'view',
-        properties: {style: {flexDirection: 'row'}},
+        properties: { style: { flexDirection: 'row' } },
       },
     ],
   },
@@ -162,7 +165,7 @@ HeaderComponent.defaultProps = {
     childrens: [
       {
         type: 'view',
-        properties: {style: {flexDirection: 'row'}},
+        properties: { style: { flexDirection: 'row' } },
       },
     ],
   },
