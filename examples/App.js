@@ -19,6 +19,6 @@ export default class App extends React.Component {
   }
 
   render() {
-    return <UiBuilderMultipleScreen sourceData={sourceData} />;
+    return <UiBuilderMultipleScreen source={sourceData} />;
   }
 }

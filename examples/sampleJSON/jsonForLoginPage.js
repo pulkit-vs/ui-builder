@@ -2,7 +2,7 @@ import {sourceData2} from './jsonForAddAddress';
 export const sourceData = {
   // theme: 'darkTheme',
   navigation: true,
-  screen_name: 'Home',
+  screenName: 'Home',
   data: [
     {
       type: 'view',
@@ -216,7 +216,7 @@ export const sourceData = {
             onPress: {
               navigation: true,
               screenName: 'Add Add',
-              data: {...sourceData2},
+              source: {...sourceData2},
               // data: [
               //   {
               //     type: 'text',
@@ -264,7 +264,7 @@ export const sourceData = {
             onPress: {
               navigation: true,
               screenName: 'Add Address',
-              data: {
+              source: {
                 data: [
                   {
                     type: 'text',
@@ -293,7 +293,7 @@ export const sourceData = {
                       onPress: {
                         navigation: true,
                         screenName: 'page3',
-                        data: {
+                        source: {
                           data: [
                             {
                               type: 'text',

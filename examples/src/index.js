@@ -30,9 +30,7 @@ export default class UiBuilder extends React.Component {
     this.selectComponent = this.selectComponent.bind(this);
   }
   static contextType = NavigationContext;
-  // shouldComponentUpdate(nextProps, nextState) {
-  //   return nextProps != this.props;
-  // }
+
   selectComponent(component, index) {
     const type = get(component, 'type', '');
     switch (type) {
@@ -83,10 +81,10 @@ export default class UiBuilder extends React.Component {
     const navigation = this.context;
     return (
       <View>
-        <Button
+        {/* <Button
           title="Go to home Page"
-          onPress={() => navigation.navigate(this.props.name)}
-        />
+          onPress={() => navigation.navigate('Home')}
+        /> */}
         {source.data.map((component, index) => {
           return this.selectComponent(component, index);
         })}

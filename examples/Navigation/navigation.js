@@ -14,79 +14,48 @@ import {createStackNavigator} from '@react-navigation/stack';
 
 const Stack = createStackNavigator();
 
-// variable for maintain ScreenName
-var path = [];
+// variable for maintaining ScreenName
+var screenNames = [];
 
 export default class UiBuilderMultipleScreen extends React.Component {
   constructor() {
     super();
     this.createScreen = this.createScreen.bind(this);
     this.state = {
-      val: [],
+      stackScreens: [],
     };
   }
   // for Creating Screen on onPress from Any Component
-  createScreen({screenName, data}) {
+  createScreen({screenName, source}) {
     // console.log('screendata', data);
-    if (!path.includes(screenName)) {
+    if (!screenNames.includes(screenName)) {
       //   console.log('validation');
-      path.push(screenName);
-      let temp = this.state.val;
+      screenNames.push(screenName);
+      let temp = this.state.stackScreens;
       temp.push(
-        <Stack.Screen
-          name={screenName}
-          //   options={{
-          //     title: 'My home',
-          //     headerStyle: {
-          //       backgroundColor: '#f4511e',
-          //     },
-          //     headerTintColor: '#fff',
-          //     headerTitleStyle: {
-          //       fontWeight: 'bold',
-          //     },
-          //   }}
-        >
+        <Stack.Screen name={screenName}>
           {(props) => (
-            <UiBuilder
-              createScreen={this.createScreen}
-              name="Login Page"
-              source={data}
-            />
+            <UiBuilder createScreen={this.createScreen} source={source} />
           )}
         </Stack.Screen>,
       );
-      this.setState({val: temp});
+      this.setState({stackScreens: temp});
     }
   }
 
   render() {
-    // initialRouteName="Home"
     return (
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen
-            name="Login Page"
-            // options={{title: 'My home', style: {backgrounColor: 'red'}}}
-            options={{
-              title: 'My home',
-              headerStyle: {
-                backgroundColor: '#f4511e',
-              },
-              headerTintColor: '#fff',
-              headerTitleStyle: {
-                fontWeight: 'bold',
-              },
-            }}>
+          <Stack.Screen name={this.props.source.screenName}>
             {(props) => (
               <UiBuilder
                 createScreen={this.createScreen}
-                navigation={props.navigation}
-                // name="Home"
-                source={this.props.sourceData}
+                source={this.props.source}
               />
             )}
           </Stack.Screen>
-          {this.state.val}
+          {this.state.stackScreens}
         </Stack.Navigator>
       </NavigationContainer>
     );
