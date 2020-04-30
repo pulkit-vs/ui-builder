@@ -56,7 +56,7 @@ export default class App extends React.Component {
     console.log(this.state.results[0])
     await Object.values(this.state.mapper).map((val, index) => {
       if (val.includes(this.state.results[0])) {
-        this.setState({ textResponse: Object.keys(mapper)[index] })
+        this.setState({ textResponse: `I heard your question, your answer is ${Object.keys(mapper)[index]}` })
       }
     })
 
@@ -105,10 +105,12 @@ export default class App extends React.Component {
   render() {
     return (
       <View>
-        <Text> Voice Recognition Service </Text>
+        <Text style={{ color: 'red', textAlign: 'center', fontSize: 20, fontWeight: 'bold' }}> Voice Recognition Service </Text>
+        <Text style={{ marginTop: 20, textAlign: 'center', fontSize: 20, fontWeight: 'bold' }}> {this.state.results[0]} </Text>
         <Button
           title={"Click me and say something"}
           onPress={(e) => this._startRecognition(e)}
+          buttonStyle={{ width: "60%", left: 70, borderWidth: 3, marginTop: 60 }}
         />
       </View>
     );
