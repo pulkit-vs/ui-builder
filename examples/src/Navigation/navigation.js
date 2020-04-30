@@ -1,10 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
 // import 'react-native-gesture-handler';
 // import UiBuilder from 'react-native-ui-builder';
 import UiBuilder from '../index';

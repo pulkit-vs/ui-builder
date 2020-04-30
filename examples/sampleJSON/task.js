@@ -5,7 +5,7 @@ export const source = {
     {
       type: 'button',
       properties: {
-        title: 'Sign Up',
+        title: 'Log In',
         titleStyle: {color: 'white', fontSize: 20},
         buttonStyle: {
           backgroundColor: 'lightcoral',
@@ -17,7 +17,7 @@ export const source = {
         },
         onPress: {
           navigation: true,
-          screenName: 'CheckOut',
+          screenName: 'Check Out',
           source: {
             data: [
               {
@@ -127,6 +127,20 @@ export const source = {
                           type: 'text',
                           properties: {
                             title: 'Welcome Back',
+                          },
+                        },
+                        {
+                          type: 'text',
+                          properties: {
+                            title: 'Back to Login Page',
+                            style: {
+                              marginTop: 20,
+                              marginLeft: 20,
+                              fontSize: 20,
+                            },
+                            onPress: {
+                              screenName: 'Login Page',
+                            },
                           },
                         },
                       ],
