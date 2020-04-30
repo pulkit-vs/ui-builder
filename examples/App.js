@@ -11,7 +11,7 @@
 
 import React from 'react';
 import {sourceData} from './sampleJSON/jsonForLoginPage';
-import UiBuilderMultipleScreen from './Navigation/navigation';
+import MultiScreenUiBuilder from './src/navigation/navigation';
 
 export default class App extends React.Component {
   constructor() {
@@ -19,6 +19,7 @@ export default class App extends React.Component {
   }
 
   render() {
-    return <UiBuilderMultipleScreen source={sourceData} />;
+    
+    return <MultiScreenUiBuilder source={sourceData} />;
   }
 }

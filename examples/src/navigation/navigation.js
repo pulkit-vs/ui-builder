@@ -1,23 +1,18 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
+
 // import 'react-native-gesture-handler';
 // import UiBuilder from 'react-native-ui-builder';
-import UiBuilder from '../src/index';
+
 import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import UiBuilder from '../index';
 
 const Stack = createStackNavigator();
 
-// variable for maintaining ScreenName
+// variable for containing screenNames
 var screenNames = [];
 
-export default class UiBuilderMultipleScreen extends React.Component {
+export default class MultiScreenUiBuilder extends React.Component {
   constructor() {
     super();
     this.createScreen = this.createScreen.bind(this);
@@ -25,21 +20,22 @@ export default class UiBuilderMultipleScreen extends React.Component {
       stackScreens: [],
     };
   }
-  // for Creating Screen on onPress from Any Component
-  createScreen({screenName, source}) {
+
+  // Method for creating a given screen from given source onPress to a component
+  createScreen({ screenName, source }) {
     // console.log('screendata', data);
     if (!screenNames.includes(screenName)) {
       //   console.log('validation');
       screenNames.push(screenName);
-      let temp = this.state.stackScreens;
-      temp.push(
+      let screenJson = this.state.stackScreens;
+      screenJson.push(
         <Stack.Screen name={screenName}>
           {(props) => (
             <UiBuilder createScreen={this.createScreen} source={source} />
           )}
         </Stack.Screen>,
       );
-      this.setState({stackScreens: temp});
+      this.setState({ stackScreens: temp });
     }
   }
 

@@ -8,7 +8,6 @@
 
 import React from 'react';
 import {View} from 'react-native';
-import {Button} from 'react-native-elements';
 import {get} from 'lodash';
 
 import ButtonComponent from './components/button';
