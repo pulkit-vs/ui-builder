@@ -150,7 +150,7 @@ ModalComponent.propTypes = {
       backgroundColor: PropTypes.string,
       margin: PropTypes.number,
       marginBottom: PropTypes.number,
-      marginTop: PropTypes.number,
+      marginTop: PropTypes.string,
       width: PropTypes.string,
     }),
     backdropColor: PropTypes.string,

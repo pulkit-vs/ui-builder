@@ -49,6 +49,7 @@ export default class UiBuilder extends React.Component {
   }
 
   render() {
+    alert(JSON.stringify(this.state.stackScreens))
     return (
       <NavigationContainer>
         <Stack.Navigator

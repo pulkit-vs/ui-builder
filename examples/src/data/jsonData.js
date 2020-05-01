@@ -1,313 +1,313 @@
 const data = {
 
-// Json for addAddress Screen
-addAdressScreen :  {
-  theme: '',
-  screenName: 'Add Address',
-  data: [
-    {
-      type: 'view',
-      style: {},
-      childrens: [
-        {
-          type: 'view',
-          style: {borderBottomWidth: 25, borderBottomColor: 'red'},
-          childrens: [
-            {
-              type: 'header',
-              properties: {
-                containerStyle: {
-                  backgroundColor: 'red',
-                  borderBottomWidth: 0,
-                  height: 65,
-                  textAlign: 'center',
-                },
-                centerComponent: {
-                  childrens: [
-                    {
-                      type: 'view',
-                      properties: {style: {flexDirection: 'row'}},
-                    },
-                    {
-                      type: 'icon',
-                      properties: {
-                        name: 'long-arrow-left',
-                        type: 'font-awesome',
-                        color: 'white',
-                        size: 30,
+  // Add Address Screen Json
+  addAdressData: {
+    theme: '',
+    screenName: 'Add Address',
+    data: [
+      {
+        type: 'view',
+        style: {},
+        childrens: [
+          {
+            type: 'view',
+            style: { borderBottomWidth: 25, borderBottomColor: 'red' },
+            childrens: [
+              {
+                type: 'header',
+                properties: {
+                  containerStyle: {
+                    backgroundColor: 'red',
+                    borderBottomWidth: 0,
+                    height: 65,
+                    textAlign: 'center',
+                  },
+                  centerComponent: {
+                    childrens: [
+                      {
+                        type: 'view',
+                        properties: { style: { flexDirection: 'row' } },
                       },
-                    },
-                    {
-                      type: 'text',
-                      properties: {
-                        title: 'Your Adresses',
-                        style: {
+                      {
+                        type: 'icon',
+                        properties: {
+                          name: 'long-arrow-left',
+                          type: 'font-awesome',
                           color: 'white',
-                          fontSize: 23,
-                          marginLeft: 7,
+                          size: 30,
                         },
                       },
-                    },
-                  ],
+                      {
+                        type: 'text',
+                        properties: {
+                          title: 'Your Adresses',
+                          style: {
+                            color: 'white',
+                            fontSize: 23,
+                            marginLeft: 7,
+                          },
+                        },
+                      },
+                    ],
+                  },
                 },
               },
-            },
-          ],
-        },
-        {
-          type: 'header',
-          properties: {
-            containerStyle: {
-              backgroundColor: 'white',
-              borderBottomWidth: 0,
+            ],
+          },
+          {
+            type: 'header',
+            properties: {
+              containerStyle: {
+                backgroundColor: 'white',
+                borderBottomWidth: 0,
 
-              height: 40,
-            },
-            leftComponent: {
-              childrens: [
-                {
-                  type: 'view',
-                  properties: {
-                    style: {
-                      width: 500,
-                      marginLeft: -10,
-                      flexDirection: 'row',
-                      borderBottomWidth: 2,
-                      borderBottomColor: 'grey',
-                      backgroundColor: 'white',
+                height: 40,
+              },
+              leftComponent: {
+                childrens: [
+                  {
+                    type: 'view',
+                    properties: {
+                      style: {
+                        width: 500,
+                        marginLeft: -10,
+                        flexDirection: 'row',
+                        borderBottomWidth: 2,
+                        borderBottomColor: 'grey',
+                        backgroundColor: 'white',
+                      },
                     },
                   },
-                },
-                {
-                  type: 'icon',
-                  properties: {
-                    name: 'plus-circle',
-                    type: 'font-awesome',
-                    color: 'red',
-                    iconStyle: {
-                      marginLeft: 4,
-                    },
-                  },
-                },
-                {
-                  type: 'text',
-                  properties: {
-                    title: 'Add Your Addresses',
-                    style: {
+                  {
+                    type: 'icon',
+                    properties: {
+                      name: 'plus-circle',
+                      type: 'font-awesome',
                       color: 'red',
-                      fontSize: 18,
-                      width: 200,
-                      marginBottom: 10,
-                      marginLeft: 7,
+                      iconStyle: {
+                        marginLeft: 4,
+                      },
                     },
                   },
-                },
-              ],
+                  {
+                    type: 'text',
+                    properties: {
+                      title: 'Add Your Addresses',
+                      style: {
+                        color: 'red',
+                        fontSize: 18,
+                        width: 200,
+                        marginBottom: 10,
+                        marginLeft: 7,
+                      },
+                    },
+                  },
+                ],
+              },
             },
           },
-        },
-      ],
-    },
-    {
-      type: 'modal',
-      properties: {
-        style: {
-          margin: 0,
-          width: '100%',
-          marginTop: "110%",
-          backgroundColor: 'white',
-          borderRadius: 0,
-          //height: "20%",
-          borderTopLeftRadius: 10,
-          borderTopRightRadius: 10,
-        },
-        backdropColor: 'grey',
-        closeModal: ['onBackButtonPress', 'onSwipeComplete'],
-        swipeDirection: 'left',
+        ],
       },
-      childrens: [
-        {
-          type: 'icon',
-          properties: {
-            containerStyle: {
-              alignSelf: 'flex-end',
-              right: 20,
-              position: 'absolute',
-            },
-            name: 'close',
-            color: 'grey',
-            size: 20,
-            onPress: 'closeModal',
+      {
+        type: 'modal',
+        properties: {
+          style: {
+            margin: 0,
+            width: '100%',
+            marginTop: "110%",
+            backgroundColor: 'white',
+            borderRadius: 0,
+            //height: "20%",
+            borderTopLeftRadius: 10,
+            borderTopRightRadius: 10,
           },
+          backdropColor: 'grey',
+          closeModal: ['onBackButtonPress', 'onSwipeComplete'],
+          swipeDirection: 'left',
         },
-        {
-          type: 'text',
-          properties: {
-            style: {
-              fontSize: 20,
-              fontWeight: 'bold',
-              textAlign: 'center',
-              color: 'black',
-              alignSelf: 'flex-start',
-              marginLeft: 10,
+        childrens: [
+          {
+            type: 'icon',
+            properties: {
+              containerStyle: {
+                alignSelf: 'flex-end',
+                right: 20,
+                position: 'absolute',
+              },
+              name: 'close',
+              color: 'grey',
+              size: 20,
+              onPress: 'closeModal',
             },
-            title: 'Add new address',
           },
-        },
+          {
+            type: 'text',
+            properties: {
+              style: {
+                fontSize: 20,
+                fontWeight: 'bold',
+                textAlign: 'center',
+                color: 'black',
+                alignSelf: 'flex-start',
+                marginLeft: 10,
+              },
+              title: 'Add new address',
+            },
+          },
 
-        {
-          type: 'input',
-          properties: {
-            label: 'First Name',
-            style: {
-              backgroundColor: 'white',
-              borderColor: '#D3D3D3',
-              borderWidth: 2,
-              width: '47%',
-              left: 5,
-              position: 'absolute',
-              height: 40,
-              marginTop: 10,
+          {
+            type: 'input',
+            properties: {
+              label: 'First Name',
+              style: {
+                backgroundColor: 'white',
+                borderColor: '#D3D3D3',
+                borderWidth: 2,
+                width: '47%',
+                left: 5,
+                position: 'absolute',
+                height: 40,
+                marginTop: 10,
+              },
+              placeholderTextColor: 'grey',
             },
-            placeholderTextColor: 'grey',
           },
-        },
-        {
-          type: 'input',
-          properties: {
-            label: 'Last Name',
-            style: {
-              backgroundColor: 'white',
-              borderColor: '#D3D3D3',
-              borderWidth: 2,
-              width: '48%',
-              marginRight: 5,
-              left: 207,
+          {
+            type: 'input',
+            properties: {
+              label: 'Last Name',
+              style: {
+                backgroundColor: 'white',
+                borderColor: '#D3D3D3',
+                borderWidth: 2,
+                width: '48%',
+                marginRight: 5,
+                left: 207,
 
-              height: 40,
-              marginTop: 10,
+                height: 40,
+                marginTop: 10,
+              },
+              placeholderTextColor: 'grey',
             },
-            placeholderTextColor: 'grey',
           },
-        },
-        {
-          type: 'input',
-          properties: {
-            label: 'Address',
-            style: {
-              backgroundColor: 'white',
-              borderColor: '#D3D3D3',
-              borderWidth: 2,
-              width: '97.5%',
-              height: 65,
-              marginLeft: 5,
-              marginTop: 4,
+          {
+            type: 'input',
+            properties: {
+              label: 'Address',
+              style: {
+                backgroundColor: 'white',
+                borderColor: '#D3D3D3',
+                borderWidth: 2,
+                width: '97.5%',
+                height: 65,
+                marginLeft: 5,
+                marginTop: 4,
+              },
+              placeholderTextColor: 'grey',
             },
-            placeholderTextColor: 'grey',
           },
-        },
-        {
-          type: 'input',
-          properties: {
-            label: 'City',
-            style: {
-              backgroundColor: 'white',
-              borderColor: '#D3D3D3',
-              borderWidth: 2,
-              width: '47%',
-              left: 5,
-              position: 'absolute',
-              height: 40,
-              marginTop: 4,
+          {
+            type: 'input',
+            properties: {
+              label: 'City',
+              style: {
+                backgroundColor: 'white',
+                borderColor: '#D3D3D3',
+                borderWidth: 2,
+                width: '47%',
+                left: 5,
+                position: 'absolute',
+                height: 40,
+                marginTop: 4,
+              },
+              placeholderTextColor: 'grey',
             },
-            placeholderTextColor: 'grey',
           },
-        },
-        {
-          type: 'input',
-          properties: {
-            label: 'Select State',
-            style: {
-              backgroundColor: 'white',
-              borderColor: '#D3D3D3',
-              borderWidth: 2,
-              width: '48%',
-              marginRight: 5,
-              left: 207,
+          {
+            type: 'input',
+            properties: {
+              label: 'Select State',
+              style: {
+                backgroundColor: 'white',
+                borderColor: '#D3D3D3',
+                borderWidth: 2,
+                width: '48%',
+                marginRight: 5,
+                left: 207,
 
-              height: 40,
-              marginTop: 4,
+                height: 40,
+                marginTop: 4,
+              },
+              placeholderTextColor: 'grey',
             },
-            placeholderTextColor: 'grey',
           },
-        },
-        {
-          type: 'input',
-          properties: {
-            label: 'Pin Code(6 digit)',
-            style: {
-              backgroundColor: 'white',
-              borderColor: '#D3D3D3',
-              borderWidth: 2,
-              width: '47%',
-              left: 5,
-              position: 'absolute',
-              height: 40,
-              marginTop: 4,
+          {
+            type: 'input',
+            properties: {
+              label: 'Pin Code(6 digit)',
+              style: {
+                backgroundColor: 'white',
+                borderColor: '#D3D3D3',
+                borderWidth: 2,
+                width: '47%',
+                left: 5,
+                position: 'absolute',
+                height: 40,
+                marginTop: 4,
+              },
+              placeholderTextColor: 'grey',
             },
-            placeholderTextColor: 'grey',
           },
-        },
-        {
-          type: 'input',
-          properties: {
-            label: 'Mobile Number',
-            style: {
-              backgroundColor: 'white',
-              borderColor: '#D3D3D3',
-              borderWidth: 2,
-              width: '48%',
-              marginRight: 5,
-              left: 207,
+          {
+            type: 'input',
+            properties: {
+              label: 'Mobile Number',
+              style: {
+                backgroundColor: 'white',
+                borderColor: '#D3D3D3',
+                borderWidth: 2,
+                width: '48%',
+                marginRight: 5,
+                left: 207,
 
-              height: 40,
-              marginTop: 4,
+                height: 40,
+                marginTop: 4,
+              },
+              placeholderTextColor: 'grey',
             },
-            placeholderTextColor: 'grey',
           },
-        },
-        {
-          type: 'button',
-          properties: {
-            title: 'SAVE ADDRESS',
-            onPress: 'closeModal',
-            buttonStyle: {
-              backgroundColor: 'red',
-              borderColor: 'red',
-              width: '98%',
-              left: 70,
-              borderWidth: 3,
-              marginTop: 5,
-              alignSelf: 'center',
-              marginRight: 140,
+          {
+            type: 'button',
+            properties: {
+              title: 'SAVE ADDRESS',
+              onPress: 'closeModal',
+              buttonStyle: {
+                backgroundColor: 'red',
+                borderColor: 'red',
+                width: '98%',
+                left: 70,
+                borderWidth: 3,
+                marginTop: 5,
+                alignSelf: 'center',
+                marginRight: 140,
+              },
+              titleStyle: { color: 'white' },
             },
-            titleStyle: {color: 'white'},
           },
-        },
-      ],
-    },
-  ],
-},
-  
-// Json for Login Page Screen
-sourceData : {
+        ],
+      },
+    ],
+  },
+
+  // Login Page Json
+  loginPageData: {
     // theme: 'darkTheme',
     navigation: true,
     screenName: 'Home',
     data: [
       {
         type: 'view',
-        style: {backgroundColor: 'red', width: '100%', height: '100%'},
+        style: { backgroundColor: 'red', width: '100%', height: '100%' },
         childrens: [
           {
             type: 'header',
@@ -320,13 +320,13 @@ sourceData : {
                 childrens: [
                   {
                     type: 'view',
-                    properties: {style: {flexDirection: 'row'}},
+                    properties: { style: { flexDirection: 'row' } },
                   },
                   {
                     type: 'text',
                     properties: {
                       title: 'Account',
-                      style: {color: 'white', fontSize: 23, fontWeight: 'bold'},
+                      style: { color: 'white', fontSize: 23, fontWeight: 'bold' },
                     },
                   },
                 ],
@@ -335,7 +335,7 @@ sourceData : {
           },
           {
             type: 'view',
-            style: {marginLeft: 30},
+            style: { marginLeft: 30 },
             childrens: [
               {
                 type: 'header',
@@ -350,7 +350,7 @@ sourceData : {
                     childrens: [
                       {
                         type: 'view',
-                        properties: {style: {flexDirection: 'row'}},
+                        properties: { style: { flexDirection: 'row' } },
                       },
                       {
                         type: 'icon',
@@ -385,10 +385,10 @@ sourceData : {
               },
             ],
           },
-  
+
           {
             type: 'view',
-            style: {flexDirection: 'row', marginTop: 30, marginLeft: 20},
+            style: { flexDirection: 'row', marginTop: 30, marginLeft: 20 },
             childrens: [
               {
                 type: 'text',
@@ -520,7 +520,7 @@ sourceData : {
             type: 'button',
             properties: {
               title: 'Login',
-              titleStyle: {color: 'white', fontSize: 20},
+              titleStyle: { color: 'white', fontSize: 20 },
               buttonStyle: {
                 backgroundColor: 'firebrick',
                 width: '90%',
@@ -549,7 +549,7 @@ sourceData : {
                       type: 'button',
                       properties: {
                         title: 'Sign Up',
-                        titleStyle: {color: 'white', fontSize: 20},
+                        titleStyle: { color: 'white', fontSize: 20 },
                         buttonStyle: {
                           backgroundColor: 'lightcoral',
                           width: '90%',
@@ -583,7 +583,7 @@ sourceData : {
             type: 'button',
             properties: {
               title: 'Sign Up',
-              titleStyle: {color: 'white', fontSize: 20},
+              titleStyle: { color: 'white', fontSize: 20 },
               buttonStyle: {
                 backgroundColor: 'lightcoral',
                 width: '90%',
@@ -597,244 +597,237 @@ sourceData : {
         ],
       },
     ],
-},
-  
-// Navigation Screens Json
-navigationData :  {
-  screenName: 'Login Page',
-  data: [
-    {
-      type: 'text',
-      properties: {
-        title: 'Log In',
-        style: {
-          color: 'black',
-          textAlign: 'center',
-          marginTop: 20,
-          fontSize: 40,
-          fontWeight: 'bold',
-        },
-      },
-    },
-    {
-      type: 'view',
-      style: {
-        flexDirection: 'row',
-        paddingLeft: 80,
-      },
-      childrens: [
-        {
-          type: 'text',
-          properties: {
-            title: 'New to this site ?',
-            style: {
-              color: 'black',
-              marginTop: 20,
-              fontSize: 20,
-              fontWeight: 'bold',
-            },
-          },
-        },
-        {
-          type: 'text',
-          properties: {
-            title: ' Sign Up',
-            style: {
-              color: 'green',
-              marginTop: 20,
-              fontSize: 20,
-              fontWeight: 'bold',
-            },
-          },
-        },
-      ],
-    },
+  },
 
-    {
-      type: 'button',
-      properties: {
-        title: 'Log in with Facebook',
-        titleStyle: {color: 'blue', fontSize: 20},
-        buttonStyle: {
-          backgroundColor: 'white',
-          width: '90%',
-          left: 20,
-          borderWidth: 3,
-          marginTop: 30,
+  // Navigation Screens Json
+  navigationData: {
+    screenName: 'Login Page',
+    data: [
+      {
+        type: 'text',
+        properties: {
+          title: 'Log In',
+          style: {
+            color: 'black',
+            textAlign: 'center',
+            marginTop: 20,
+            fontSize: 40,
+            fontWeight: 'bold',
+          },
         },
-        onPress: {
-          navigation: true,
-          screenName: 'Check Out',
-          source: {
-            data: [
-              {
-                type: 'header',
-                properties: {
-                  containerStyle: {
-                    backgroundColor: 'white',
-                    borderBottomWidth: 1,
-                    borderBottomColor: 'black',
-                  },
-                  placement: 'left',
-                  centerComponent: {
-                    childrens: [
-                      {
-                        type: 'view',
-                        properties: {style: {flexDirection: 'row'}},
-                      },
-                      {
-                        type: 'text',
-                        properties: {
-                          title: 'Log in With Facebook',
-                          style: {
+      },
+      {
+        type: 'view',
+        style: {
+          flexDirection: 'row',
+          paddingLeft: 80,
+        },
+        childrens: [
+          {
+            type: 'text',
+            properties: {
+              title: 'New to this site ?',
+              style: {
+                color: 'black',
+                marginTop: 20,
+                fontSize: 20,
+                fontWeight: 'bold',
+              },
+            },
+          },
+          {
+            type: 'text',
+            properties: {
+              title: ' Sign Up',
+              style: {
+                color: 'green',
+                marginTop: 20,
+                fontSize: 20,
+                fontWeight: 'bold',
+              },
+            },
+          },
+        ],
+      },
+
+      {
+        type: 'button',
+        properties: {
+          title: 'Log in with Facebook',
+          titleStyle: { color: 'blue', fontSize: 20 },
+          buttonStyle: {
+            backgroundColor: 'white',
+            width: '90%',
+            left: 20,
+            borderWidth: 3,
+            marginTop: 30,
+          },
+          onPress: {
+            navigation: true,
+            screenName: 'Checkout',
+            source: {
+              data: [
+                {
+                  type: 'header',
+                  properties: {
+                    containerStyle: {
+                      backgroundColor: 'white',
+                      borderBottomWidth: 1,
+                      borderBottomColor: 'black',
+                    },
+                    placement: 'left',
+                    centerComponent: {
+                      childrens: [
+                        {
+                          type: 'view',
+                          properties: { style: { flexDirection: 'row' } },
+                        },
+                        {
+                          type: 'text',
+                          properties: {
+                            title: 'Log in With Facebook',
+                            style: {
+                              color: 'black',
+                              fontSize: 19,
+                              textAlign: 'left'
+                              // fontWeight: 'bold',
+                            },
+                          },
+                        },
+                      ],
+                    },
+                    rightComponent: {
+                      childrens: [
+                        {
+                          type: 'view',
+                          properties: { style: { flexDirection: 'row' } },
+                        },
+                        {
+                          type: 'icon',
+                          properties: {
+                            name: 'close',
                             color: 'black',
-                            fontSize: 19,
-                            textAlign: 'left'
-                           // fontWeight: 'bold',
-                          },
-                        },
-                      },
-                    ],
-                  },
-                  rightComponent: {
-                    childrens: [
-                      {
-                        type: 'view',
-                        properties: {style: {flexDirection: 'row'}},
-                      },
-                      {
-                        type: 'icon',
-                        properties: {
-                          name: 'close',
-                          color: 'black',
-                          size: 30,
-                          onPress: {
-                            navigation: true,
-                            screenName: 'Login Page',
-                            source: {
-                              data: [],
-                            },
-                          },
-                        },
-                      },
-                    ],
-                  },
-                },
-              },
-              {
-                type: 'input',
-                properties: {
-                  label: 'Mobile Number (10 digits)',
-                  placeholderTextColor: 'grey',
-                  style: {
-                    backgroundColor: 'white',
-                    borderColor: 'grey',
-                    borderWidth: 2,
-                    width: '90%',
-                    left: 20,
-                    marginTop: 40,
-                  },
-                },
-                childrens: [
-                  {
-                    type: 'icon',
-                    properties: {
-                      name: 'search',
-                      color: 'red',
-                      size: 40,
-                    },
-                  },
-                  {
-                    type: 'icon',
-                    properties: {
-                      name: 'facebook',
-                      color: 'red',
-                      size: 40,
-                    },
-                  },
-                ],
-              },
-              {
-                type: 'button',
-                properties: {
-                  title: 'FACEBOOK',
-                  titleStyle: {color: 'blue', fontSize: 20},
-                  buttonStyle: {
-                    backgroundColor: 'white',
-                    width: '90%',
-                    left: 20,
-                    borderWidth: 3,
-                    marginTop: 20,
-                    icon : {
-                      properties: {
-                        name: 'facebook',
-                        color: 'red',
-                        size: 40
-                    }
-                    }
-                  },
-                  onPress: {
-                    navigation: true,
-                    screenName: 'faceBook HomePage',
-                    source: {
-                      data: [
-                        {
-                          type: 'text',
-                          properties: {
-                            title: 'Welcome to our Facebook Page!',
-                            style: {
-                              marginTop: 20,
-                              marginLeft: 110,
-                              fontSize: 20,
-                              fontWeight: 'bold',
-                            },
-                          },
-                        },
-                        {
-                          type: 'text',
-                          properties: {
-                            title: 'Back to Login Page',
-                            style: {
-                              position: 'absolute',
-                              left: 50,
-                              top: 500,
-                              fontSize: 20,
-                            },
-                            onPress: {
-                              screenName: 'Login Page',
-                            },
+                            size: 30,
+                            // onPress: {
+                            //   navigation: true,
+                            //   screenName: 'Login Page',
+                            //   source: {
+                            //     data: [],
+                            //   },
+                            // },
                           },
                         },
                       ],
                     },
                   },
                 },
-              },
-            ],
+                {
+                  type: 'input',
+                  properties: {
+                    label: 'Mobile Number (10 digits)',
+                    placeholderTextColor: 'grey',
+                    style: {
+                      backgroundColor: 'white',
+                      borderColor: 'grey',
+                      borderWidth: 2,
+                      width: '90%',
+                      left: 20,
+                      marginTop: 40,
+                    },
+                  },
+                  childrens: [
+                    {
+                      type: 'icon',
+                      properties: {
+                        name: 'search',
+                        color: 'red',
+                        size: 40,
+                      },
+                    },
+                    {
+                      type: 'icon',
+                      properties: {
+                        name: 'facebook',
+                        color: 'red',
+                        size: 40,
+                      },
+                    },
+                  ],
+                },
+                {
+                  type: 'button',
+                  properties: {
+                    title: 'FACEBOOK',
+                    titleStyle: { color: 'blue', fontSize: 20 },
+                    buttonStyle: {
+                      backgroundColor: 'white',
+                      width: '90%',
+                      left: 20,
+                      borderWidth: 3,
+                      marginTop: 20
+                    },
+                    onPress: {
+                      navigation: true,
+                      screenName: 'faceBook HomePage',
+                      source: {
+                        data: [
+                          {
+                            type: 'text',
+                            properties: {
+                              title: 'Welcome to our Facebook Page!',
+                              style: {
+                                marginTop: 20,
+                                fontSize: 20,
+                                fontWeight: 'bold',
+                                textAlign: 'center'
+                              },
+                            },
+                          },
+                          {
+                            type: 'text',
+                            properties: {
+                              title: 'Back to Login Page',
+                              style: {
+                                // position: 'absolute',
+                                left: 50,
+                                top: 500,
+                                fontSize: 20,
+                              },
+                              onPress: {
+                                screenName: 'Login Page',
+                              },
+                            },
+                          },
+                        ],
+                      },
+                    },
+                  },
+                },
+              ],
+            },
           },
         },
       },
-    },
-    {
-      type: 'button',
-      properties: {
-        title: 'Log in with Google',
-        titleStyle: {color: 'blue', fontSize: 20},
-        buttonStyle: {
-          backgroundColor: 'white',
-          width: '90%',
-          left: 20,
-          borderWidth: 3,
-          marginTop: 30,
+      {
+        type: 'button',
+        properties: {
+          title: 'Log in with Google',
+          titleStyle: { color: 'blue', fontSize: 20 },
+          buttonStyle: {
+            backgroundColor: 'white',
+            width: '90%',
+            left: 20,
+            borderWidth: 3,
+            marginTop: 30,
+          },
         },
       },
-    },
-  ],
-},
-  
-// test.js json
-// Sample JSON Structure
-data1 : {
+    ],
+  },
+
+  // test.js json
+  // Sample JSON Structure
+  data1: {
     type: 'input',
     properties: {
       label: 'Email',
@@ -867,8 +860,8 @@ data1 : {
       ],
     },
   },
-  
-data2 : {
+
+  data2: {
     childrens: [
       {
         type: 'view',
@@ -913,7 +906,7 @@ data2 : {
         type: 'button',
         properties: {
           title: 'FACEBOOK',
-          titleStyle: {color: 'blue', fontSize: 20},
+          titleStyle: { color: 'blue', fontSize: 20 },
           buttonStyle: {
             backgroundColor: 'white',
             width: '90%',
@@ -924,10 +917,10 @@ data2 : {
         },
       },
     ],
-},
-  
+  },
+
   // Sample json
-source :  {
+  source: {
     theme: 'lightTheme',
     data: [
       {
@@ -1000,7 +993,7 @@ source :  {
                 borderWidth: 3,
                 marginTop: 60,
               },
-              titleStyle: {color: 'black'},
+              titleStyle: { color: 'black' },
             },
           },
         ],
@@ -1043,10 +1036,10 @@ source :  {
           },
         },
       },
-  
+
       {
         type: 'view',
-        style: {flexDirection: 'row'},
+        style: { flexDirection: 'row' },
         childrens: [
           {
             type: 'image',
@@ -1104,7 +1097,7 @@ source :  {
                     type: 'text',
                     properties: {
                       title: 'Welcome',
-                      style: {color: 'black', fontSize: 15},
+                      style: { color: 'black', fontSize: 15 },
                     },
                   },
                 ],
@@ -1169,7 +1162,7 @@ source :  {
             type: 'button',
             properties: {
               title: 'FACEBOOK',
-              titleStyle: {color: 'blue', fontSize: 20},
+              titleStyle: { color: 'blue', fontSize: 20 },
               buttonStyle: {
                 backgroundColor: 'white',
                 width: '90%',
