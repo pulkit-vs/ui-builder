@@ -4,14 +4,46 @@ const data = {
   source: {
     screenName: 'First Screen',
     data: [
-      // {
-      //   type: 'button',
-      //   properties: {
-      //     title: 'Click Me',
-      //     titleStyle: { color: 'white', fontSize: 20 },
-      //     buttonStyle: { backgroundColor: 'blue', width: "90%", left: 20, marginTop: 20 }
-      //   }
-      // },
+      {
+        type: 'button',
+        properties: {
+          title: 'Click Me',
+          titleStyle: { color: 'white', fontSize: 20 },
+          buttonStyle: { backgroundColor: 'blue', width: "90%", left: 20, marginTop: 20 }
+        }
+      },
+      {
+        type: 'input',
+        properties: {
+          label: 'Mobile Number (10 digits)',
+          selectionColor: 'grey',
+          containerStyle: {
+            backgroundColor: 'white',
+            borderColor: 'grey',
+            borderWidth: 1,
+            width: '90%',
+            left: 20,
+            marginTop: 40,
+          },
+          inputContainerStyle : {
+            borderBottomWidth: 0
+          },
+          rightIcon: {
+            properties: {
+              name: 'arrow-right',
+              color: 'white',
+              size: 20,
+              type: 'font-awesome',
+              rightIconContainerStyle : {
+                backgroundColor: 'grey',
+                borderWidth: 24,
+                borderColor: 'lightgrey',
+                left: 10
+              }
+          }
+        }
+        },
+      },
       {
         type: 'divider',
         properties: {
@@ -150,7 +182,6 @@ const data = {
             marginTop: '110%',
             backgroundColor: 'white',
             borderRadius: 0,
-            //height: "20%",
             borderTopLeftRadius: 10,
             borderTopRightRadius: 10,
           },
