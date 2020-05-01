@@ -6,7 +6,7 @@
  * @flow strict-local
  */
 
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import React from 'react';
 import { Divider } from 'react-native-elements';
 
@@ -24,7 +24,6 @@ export default class DividerComponent extends React.Component {
   async componentDidMount() {
 
     await this.setState({ properties: this.props });
-
     // Applying theme on divider style
     if (theme) {
       await this.setState({
@@ -40,4 +39,18 @@ export default class DividerComponent extends React.Component {
   }
 }
 
-// TODO: will add propTypes and defaultProps.
+DividerComponent.propTypes = {
+  style: {
+    borderWidth: PropTypes.number,
+    marginTop: PropTypes.number,
+    borderColor: PropTypes.string
+  }
+};
+
+DividerComponent.defaultProps = {
+  style: {
+    borderWidth: 1,
+    marginTop: 50,
+    borderColor: 'green'
+  }
+};
