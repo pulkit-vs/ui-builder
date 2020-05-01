@@ -15,7 +15,7 @@ const data = {
       {
         type: 'divider',
         properties: {
-          style: { borderWidth: 1, marginTop: 50 }
+          style: { borderWidth: 1, marginTop: 50, borderColor: 'green' }
         }
       },
       {
