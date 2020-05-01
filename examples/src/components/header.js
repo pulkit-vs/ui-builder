@@ -1,11 +1,11 @@
-import { Header, Icon, Input } from 'react-native-elements';
+import {Header, Icon, Input} from 'react-native-elements';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { View, Text } from 'react-native';
+import {View, Text} from 'react-native';
 import {NavigationContext} from '@react-navigation/native';
 
-import { applyTheme } from '../utility/utils';
-import { theme } from '../index';
+import {applyTheme} from '../utility/utils';
+import {theme} from '../index';
 
 export default class HeaderComponent extends React.Component {
   constructor(props) {
@@ -51,6 +51,11 @@ export default class HeaderComponent extends React.Component {
             {this.props[component].childrens.map((item, i) => {
               if (item.type == 'icon') {
                 const styleOfIcon = item.properties;
+                if (item.properties.onPress) {
+                  item.properties.onPress.navigation
+                    ? this.props.createScreen(item.properties.onPress)
+                    : null;
+                }
 
                 return (
                   <Icon
@@ -59,10 +64,14 @@ export default class HeaderComponent extends React.Component {
                     key={i}
                     name={styleOfIcon.name}
                     type={styleOfIcon.type}
-                    // onPress={styleOfIcon.onPress}
-                    // onPress={() =>
-                    //   navigation.navigate(this.props.onPress.screenName)
-                    // }
+                    onPress={
+                      item.properties.onPress.navigation
+                        ? () =>
+                            navigation.navigate(
+                              item.properties.onPress.screenName,
+                            )
+                        : null
+                    }
                     size={styleOfIcon.size}
                   />
                 );
@@ -154,7 +163,7 @@ HeaderComponent.defaultProps = {
     childrens: [
       {
         type: 'view',
-        properties: { style: { flexDirection: 'row' } },
+        properties: {style: {flexDirection: 'row'}},
       },
     ],
   },
@@ -169,7 +178,7 @@ HeaderComponent.defaultProps = {
     childrens: [
       {
         type: 'view',
-        properties: { style: { flexDirection: 'row' } },
+        properties: {style: {flexDirection: 'row'}},
       },
     ],
   },
@@ -178,7 +187,7 @@ HeaderComponent.defaultProps = {
     childrens: [
       {
         type: 'view',
-        properties: { style: { flexDirection: 'row' } },
+        properties: {style: {flexDirection: 'row'}},
       },
     ],
   },

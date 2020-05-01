@@ -21,6 +21,7 @@ export const source = {
       style: {
         flexDirection: 'row',
         paddingLeft: 80,
+        marginTop: 20,
       },
       childrens: [
         {
@@ -29,7 +30,6 @@ export const source = {
             title: 'New to this site ?',
             style: {
               color: 'black',
-              marginTop: 20,
               fontSize: 15,
               fontWeight: 'bold',
             },
@@ -41,7 +41,6 @@ export const source = {
             title: ' Sign Up',
             style: {
               color: 'green',
-              marginTop: 20,
               fontSize: 15,
               fontWeight: 'bold',
             },
@@ -110,9 +109,6 @@ export const source = {
                           onPress: {
                             navigation: true,
                             screenName: 'Login Page',
-                            source: {
-                              data: [],
-                            },
                           },
                         },
                       },
