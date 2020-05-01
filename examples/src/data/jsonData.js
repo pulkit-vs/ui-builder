@@ -4,12 +4,18 @@ const data = {
   source: {
     screenName: 'First Screen',
     data: [
+      // {
+      //   type: 'button',
+      //   properties: {
+      //     title: 'Click Me',
+      //     titleStyle: { color: 'white', fontSize: 20 },
+      //     buttonStyle: { backgroundColor: 'blue', width: "90%", left: 20, marginTop: 20 }
+      //   }
+      // },
       {
-        type: 'button',
+        type: 'divider',
         properties: {
-          title: 'Click Me',
-          titleStyle: { color: 'white', fontSize: 20 },
-          buttonStyle: { backgroundColor: 'blue', width: "90%", left: 20, marginTop: 20 }
+          style: { borderWidth: 1, marginTop: 50 }
         }
       },
       {

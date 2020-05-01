@@ -18,6 +18,7 @@ import ImageComponent from './components/image';
 import Input from './components/input';
 import ModalComponent from './components/modal';
 import TextComponent from './components/text';
+import DividerComponent from './components/divider';
 
 // Global variable to get theme type in other files.
 export let theme;
@@ -75,6 +76,8 @@ export default class Components extends React.Component {
       }
       case 'image':
         return <ImageComponent {...component.properties} key={index} />;
+      case 'divider':
+        return <DividerComponent {...component.properties} key = {index} />;
     }
   }
 
