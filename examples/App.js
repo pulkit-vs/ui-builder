@@ -13,6 +13,6 @@ import data from "./src/data/jsonData";
 
 export default class App extends React.Component {
   render() {
-    return <UiBuilder source={data.loginPageData} />;
+    return <UiBuilder source={data.navigationData} />;
   }
 }

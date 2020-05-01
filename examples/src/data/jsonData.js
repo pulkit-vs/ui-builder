@@ -1,5 +1,32 @@
 const data = {
 
+  // Low Level Component
+  source: {
+    screenName: 'First Screen',
+    data: [
+      {
+        type: 'button',
+        properties: {
+          title: 'Click Me',
+          titleStyle: { color: 'white', fontSize: 20 },
+          buttonStyle: { backgroundColor: 'blue', width: "90%", left: 20, marginTop: 20 }
+        }
+      },
+      {
+        type: 'text',
+        properties: {
+          title: 'Text',
+          style : {
+            marginTop: 40,
+            fontSize: 20,
+            textAlign: 'center',
+            color: 'green'
+          }
+        }
+      }
+    ]
+  },
+
   // Add Address Screen Json
   addAdressData: {
     theme: '',
@@ -92,7 +119,7 @@ const data = {
                   {
                     type: 'text',
                     properties: {
-                      title: 'Add Your Addresses',
+                      title: 'Edit Your Addresses',
                       style: {
                         color: 'red',
                         fontSize: 18,
@@ -822,7 +849,6 @@ const data = {
     ],
   },
 
-  // test.js json
   // Sample JSON Structure
   data1: {
     type: 'input',
@@ -917,7 +943,7 @@ const data = {
   },
 
   // Sample json
-  source: {
+  sample: {
     theme: 'lightTheme',
     data: [
       {
