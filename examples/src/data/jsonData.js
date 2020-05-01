@@ -1,5 +1,4 @@
 const data = {
-
   // Add Address Screen Json
   addAdressData: {
     theme: '',
@@ -11,7 +10,7 @@ const data = {
         childrens: [
           {
             type: 'view',
-            style: { borderBottomWidth: 25, borderBottomColor: 'red' },
+            style: {borderBottomWidth: 25, borderBottomColor: 'red'},
             childrens: [
               {
                 type: 'header',
@@ -26,7 +25,7 @@ const data = {
                     childrens: [
                       {
                         type: 'view',
-                        properties: { style: { flexDirection: 'row' } },
+                        properties: {style: {flexDirection: 'row'}},
                       },
                       {
                         type: 'icon',
@@ -114,7 +113,7 @@ const data = {
           style: {
             margin: 0,
             width: '100%',
-            marginTop: "110%",
+            marginTop: '110%',
             backgroundColor: 'white',
             borderRadius: 0,
             //height: "20%",
@@ -291,7 +290,7 @@ const data = {
                 alignSelf: 'center',
                 marginRight: 140,
               },
-              titleStyle: { color: 'white' },
+              titleStyle: {color: 'white'},
             },
           },
         ],
@@ -307,7 +306,7 @@ const data = {
     data: [
       {
         type: 'view',
-        style: { backgroundColor: 'red', width: '100%', height: '100%' },
+        style: {backgroundColor: 'red', width: '100%', height: '100%'},
         childrens: [
           {
             type: 'header',
@@ -320,13 +319,13 @@ const data = {
                 childrens: [
                   {
                     type: 'view',
-                    properties: { style: { flexDirection: 'row' } },
+                    properties: {style: {flexDirection: 'row'}},
                   },
                   {
                     type: 'text',
                     properties: {
                       title: 'Account',
-                      style: { color: 'white', fontSize: 30, fontWeight: 'bold' },
+                      style: {color: 'white', fontSize: 30, fontWeight: 'bold'},
                     },
                   },
                 ],
@@ -335,7 +334,7 @@ const data = {
           },
           {
             type: 'view',
-            style: { marginLeft: 30 },
+            style: {marginLeft: 30},
             childrens: [
               {
                 type: 'header',
@@ -350,7 +349,7 @@ const data = {
                     childrens: [
                       {
                         type: 'view',
-                        properties: { style: { flexDirection: 'row' } },
+                        properties: {style: {flexDirection: 'row'}},
                       },
                       {
                         type: 'icon',
@@ -388,7 +387,7 @@ const data = {
 
           {
             type: 'view',
-            style: { flexDirection: 'row', marginTop: 30, marginLeft: 20 },
+            style: {flexDirection: 'row', marginTop: 30, marginLeft: 20},
             childrens: [
               {
                 type: 'text',
@@ -510,7 +509,7 @@ const data = {
               style: {
                 color: 'white',
                 fontSize: 20,
-                marginLeft: 180,
+                marginLeft: 150,
                 marginTop: 18,
                 fontWeight: 'bold',
               },
@@ -520,7 +519,7 @@ const data = {
             type: 'button',
             properties: {
               title: 'Login',
-              titleStyle: { color: 'white', fontSize: 20 },
+              titleStyle: {color: 'white', fontSize: 20},
               buttonStyle: {
                 backgroundColor: 'firebrick',
                 width: '90%',
@@ -535,21 +534,10 @@ const data = {
                 source: {
                   data: [
                     {
-                      type: 'text',
-                      properties: {
-                        title: 'Your Adresses',
-                        style: {
-                          color: 'white',
-                          fontSize: 23,
-                          marginLeft: 7,
-                        },
-                      },
-                    },
-                    {
                       type: 'button',
                       properties: {
                         title: 'Sign Up',
-                        titleStyle: { color: 'white', fontSize: 20 },
+                        titleStyle: {color: 'white', fontSize: 20},
                         buttonStyle: {
                           backgroundColor: 'lightcoral',
                           width: '90%',
@@ -583,7 +571,7 @@ const data = {
             type: 'button',
             properties: {
               title: 'Sign Up',
-              titleStyle: { color: 'white', fontSize: 20 },
+              titleStyle: {color: 'white', fontSize: 20},
               buttonStyle: {
                 backgroundColor: 'lightcoral',
                 width: '90%',
@@ -654,7 +642,7 @@ const data = {
         type: 'button',
         properties: {
           title: 'Log in with Facebook',
-          titleStyle: { color: 'blue', fontSize: 20 },
+          titleStyle: {color: 'blue', fontSize: 20},
           buttonStyle: {
             backgroundColor: 'white',
             width: '90%',
@@ -680,7 +668,7 @@ const data = {
                       childrens: [
                         {
                           type: 'view',
-                          properties: { style: { flexDirection: 'row' } },
+                          properties: {style: {flexDirection: 'row'}},
                         },
                         {
                           type: 'text',
@@ -689,7 +677,7 @@ const data = {
                             style: {
                               color: 'black',
                               fontSize: 19,
-                              textAlign: 'left'
+                              textAlign: 'left',
                               // fontWeight: 'bold',
                             },
                           },
@@ -700,7 +688,7 @@ const data = {
                       childrens: [
                         {
                           type: 'view',
-                          properties: { style: { flexDirection: 'row' } },
+                          properties: {style: {flexDirection: 'row'}},
                         },
                         {
                           type: 'icon',
@@ -755,13 +743,13 @@ const data = {
                   type: 'button',
                   properties: {
                     title: 'FACEBOOK',
-                    titleStyle: { color: 'blue', fontSize: 20 },
+                    titleStyle: {color: 'blue', fontSize: 20},
                     buttonStyle: {
                       backgroundColor: 'white',
                       width: '90%',
                       left: 20,
                       borderWidth: 3,
-                      marginTop: 20
+                      marginTop: 20,
                     },
                     onPress: {
                       navigation: true,
@@ -776,7 +764,7 @@ const data = {
                                 marginTop: 20,
                                 fontSize: 20,
                                 fontWeight: 'bold',
-                                textAlign: 'center'
+                                textAlign: 'center',
                               },
                             },
                           },
@@ -809,7 +797,7 @@ const data = {
         type: 'button',
         properties: {
           title: 'Log in with Google',
-          titleStyle: { color: 'blue', fontSize: 20 },
+          titleStyle: {color: 'blue', fontSize: 20},
           buttonStyle: {
             backgroundColor: 'white',
             width: '90%',
@@ -903,7 +891,7 @@ const data = {
         type: 'button',
         properties: {
           title: 'FACEBOOK',
-          titleStyle: { color: 'blue', fontSize: 20 },
+          titleStyle: {color: 'blue', fontSize: 20},
           buttonStyle: {
             backgroundColor: 'white',
             width: '90%',
@@ -931,7 +919,11 @@ const data = {
             backgroundColor: 'white',
           },
           backdropColor: 'grey',
-          closeModal: ['onBackdropPress', 'onBackButtonPress', 'onSwipeComplete'],
+          closeModal: [
+            'onBackdropPress',
+            'onBackButtonPress',
+            'onSwipeComplete',
+          ],
           swipeDirection: 'left',
         },
         childrens: [
@@ -990,7 +982,7 @@ const data = {
                 borderWidth: 3,
                 marginTop: 60,
               },
-              titleStyle: { color: 'black' },
+              titleStyle: {color: 'black'},
             },
           },
         ],
@@ -1036,7 +1028,7 @@ const data = {
 
       {
         type: 'view',
-        style: { flexDirection: 'row' },
+        style: {flexDirection: 'row'},
         childrens: [
           {
             type: 'image',
@@ -1094,7 +1086,7 @@ const data = {
                     type: 'text',
                     properties: {
                       title: 'Welcome',
-                      style: { color: 'black', fontSize: 15 },
+                      style: {color: 'black', fontSize: 15},
                     },
                   },
                 ],
@@ -1159,7 +1151,7 @@ const data = {
             type: 'button',
             properties: {
               title: 'FACEBOOK',
-              titleStyle: { color: 'blue', fontSize: 20 },
+              titleStyle: {color: 'blue', fontSize: 20},
               buttonStyle: {
                 backgroundColor: 'white',
                 width: '90%',
@@ -1172,7 +1164,7 @@ const data = {
         ],
       },
     ],
-  }
-}
+  },
+};
 
 export default data;
