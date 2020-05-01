@@ -8,14 +8,12 @@
 
 // import UiBuilder from 'react-native-ui-builder';
 import React from 'react';
-import {source} from './sampleJSON/task';
-import UiBuilder from './src/Navigation/navigation';
-
-// const source = {};
+import UiBuilder from './src/navigation/navigation';
+import data from "./src/data/jsonData";
 
 export default class App extends React.Component {
   
   render() {
-    return <UiBuilder source={source} />;
+    return <UiBuilder source={data.loginPageData} />;
   }
 }

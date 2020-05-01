@@ -326,7 +326,7 @@ const data = {
                     type: 'text',
                     properties: {
                       title: 'Account',
-                      style: { color: 'white', fontSize: 23, fontWeight: 'bold' },
+                      style: { color: 'white', fontSize: 30, fontWeight: 'bold' },
                     },
                   },
                 ],
@@ -367,7 +367,7 @@ const data = {
                           title: 'Medipick',
                           style: {
                             color: 'white',
-                            fontSize: 46,
+                            fontSize: 50,
                             fontFamily: 'arial',
                             marginBottom: 5,
                             paddingLeft: 5,
@@ -396,7 +396,7 @@ const data = {
                   title: 'Welcome',
                   style: {
                     color: 'white',
-                    fontSize: 20,
+                    fontSize: 24,
                     fontWeight: 'bold',
                   },
                 },
@@ -407,7 +407,7 @@ const data = {
                   title: 'Please login here',
                   style: {
                     color: 'white',
-                    fontSize: 18,
+                    fontSize: 21,
                     marginLeft: 5,
                     marginTop: 3,
                     fontWeight: 'bold',
@@ -509,7 +509,7 @@ const data = {
               title: 'Forgot Password ?',
               style: {
                 color: 'white',
-                fontSize: 16,
+                fontSize: 20,
                 marginLeft: 180,
                 marginTop: 18,
                 fontWeight: 'bold',
@@ -555,7 +555,7 @@ const data = {
                           width: '90%',
                           left: 20,
                           borderColor: 'red',
-                          marginTop: 30,
+                          marginTop: 40,
                           borderRadius: 30,
                         },
                         onPress: {
@@ -708,13 +708,10 @@ const data = {
                             name: 'close',
                             color: 'black',
                             size: 30,
-                            // onPress: {
-                            //   navigation: true,
-                            //   screenName: 'Login Page',
-                            //   source: {
-                            //     data: [],
-                            //   },
-                            // },
+                            onPress: {
+                              navigation: true,
+                              screenName: 'Login Page',
+                            },
                           },
                         },
                       ],
