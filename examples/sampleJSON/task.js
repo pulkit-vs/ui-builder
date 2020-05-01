@@ -10,7 +10,7 @@ export const source = {
         style: {
           color: 'black',
           textAlign: 'center',
-          marginTop: 20,
+          marginTop: '10%',
           fontSize: 40,
           fontWeight: 'bold',
         },
