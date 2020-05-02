@@ -1,6 +1,6 @@
-import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
+import React from './node_modules/react';
+import {NavigationContainer} from './node_modules/@react-navigation/native';
+import {createStackNavigator} from './node_modules/@react-navigation/stack';
 
 import Components from '../index';
 
