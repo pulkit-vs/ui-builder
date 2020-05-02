@@ -9,12 +9,12 @@
 import Modal from 'react-native-modal';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { View, Text, TextInput, KeyboardAvoidingView } from 'react-native';
-import { Button, Icon } from 'react-native-elements';
+import {View, Text, TextInput, KeyboardAvoidingView} from 'react-native';
+import {Button, Icon} from 'react-native-elements';
 
-import { applyTheme } from '../utility/utils';
-import { CLOSE_MODAL } from '../utility/utils';
-import { theme } from '../index';
+import {applyTheme} from '../utility/utils';
+import {CLOSE_MODAL} from '../utility/utils';
+import {theme} from '../index';
 
 export default class ModalComponent extends React.Component {
   constructor(props) {
@@ -35,7 +35,7 @@ export default class ModalComponent extends React.Component {
   }
 
   inVisibleModal() {
-    this.setState({ isModalVisible: !this.state.isModalVisible });
+    this.setState({isModalVisible: !this.state.isModalVisible});
   }
 
   onChangeText(event, index) {
@@ -44,14 +44,14 @@ export default class ModalComponent extends React.Component {
       this.state.values.length === 0 ||
       this.state.values.findIndex((val) => val.key === index) === -1
     ) {
-      updateState.push({ key: index, value: event });
+      updateState.push({key: index, value: event});
     } else {
       const activeIndex = this.state.values.findIndex(
         (val) => val.key === index,
       );
       updateState[activeIndex].value = event;
     }
-    this.setState({ values: updateState });
+    this.setState({values: updateState});
   }
 
   getChildrenData(index, children) {
@@ -98,9 +98,7 @@ export default class ModalComponent extends React.Component {
                     ? this.state.values.find((val) => val.key === index).value
                     : ''
                 }
-                placeholderTextColor={
-                  children.properties.placeholderTextColor
-                }
+                placeholderTextColor={children.properties.placeholderTextColor}
               />
             );
           }
@@ -153,8 +151,7 @@ export default class ModalComponent extends React.Component {
             ? this.props.properties.swipeDirection
             : null
         }>
-
-        <KeyboardAvoidingView behavior="position" enabled >
+        <KeyboardAvoidingView behavior="position" enabled>
           {this.props.childrens.map((children, index) => {
             return this.getChildrenData(index, children);
           })}

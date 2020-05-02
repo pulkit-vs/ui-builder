@@ -8,11 +8,11 @@
 
 import PropTypes from 'prop-types';
 import React from 'react';
-import { View } from 'react-native';
-import { Input } from 'react-native-elements';
+import {View} from 'react-native';
+import {Input} from 'react-native-elements';
 
-import { applyTheme } from '../utility/utils';
-import { theme } from '../index';
+import {applyTheme} from '../utility/utils';
+import {theme} from '../index';
 
 export default class TextInput extends React.Component {
   constructor() {
@@ -27,12 +27,12 @@ export default class TextInput extends React.Component {
   }
 
   onChangeText(event) {
-    this.setState({ value: event });
+    this.setState({value: event});
   }
 
   componentDidMount() {
     // Customize button style
-    this.setState({ props: this.props });
+    this.setState({props: this.props});
 
     // Applying theme on text input
     this.state.props = theme
@@ -53,18 +53,28 @@ export default class TextInput extends React.Component {
           value={this.state.value}
           selectionColor={props.selectionColor}
           inputContainerStyle={props.inputContainerStyle}
-          rightIcon={props.rightIcon && {
-            ...props.rightIcon.properties
-          }}
-          leftIcon={props.leftIcon && {
-            ...props.leftIcon.properties
-          }}
-          leftIconContainerStyle={props.leftIcon && props.leftIcon.properties.leftIconContainerStyle && {
-            ...props.leftIcon.properties.leftIconContainerStyle
-          }}
-          rightIconContainerStyle={props.rightIcon && props.rightIcon.properties.rightIconContainerStyle && {
-            ...props.rightIcon.properties.rightIconContainerStyle
-          }}
+          rightIcon={
+            props.rightIcon && {
+              ...props.rightIcon.properties,
+            }
+          }
+          leftIcon={
+            props.leftIcon && {
+              ...props.leftIcon.properties,
+            }
+          }
+          leftIconContainerStyle={
+            props.leftIcon &&
+            props.leftIcon.properties.leftIconContainerStyle && {
+              ...props.leftIcon.properties.leftIconContainerStyle,
+            }
+          }
+          rightIconContainerStyle={
+            props.rightIcon &&
+            props.rightIcon.properties.rightIconContainerStyle && {
+              ...props.rightIcon.properties.rightIconContainerStyle,
+            }
+          }
         />
       </View>
     );
@@ -86,9 +96,8 @@ TextInput.propTypes = {
     marginTop: PropTypes.number,
   }),
   rightIcon: PropTypes.object,
-  leftIcon: PropTypes.object
+  leftIcon: PropTypes.object,
 };
-
 
 TextInput.defaultProps = {
   label: 'Enter input here',
@@ -96,5 +105,5 @@ TextInput.defaultProps = {
   containerStyle: {
     backgroundColor: 'white',
     marginTop: 40,
-  }
+  },
 };
