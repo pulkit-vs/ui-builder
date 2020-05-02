@@ -52,7 +52,7 @@ TextComponent.propTypes = {
     color: PropTypes.string,
     fontSize: PropTypes.number,
     fontWeight: PropTypes.string,
-    marginTop: PropTypes.number,
+    marginTop: PropTypes.oneOfType(PropTypes.string, PropTypes.number),
     textAlign: PropTypes.string,
   }),
 };
