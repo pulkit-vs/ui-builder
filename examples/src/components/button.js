@@ -6,6 +6,7 @@
  * @flow strict-local
  */
 
+<<<<<<< HEAD
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -35,6 +36,51 @@ export default class ButtonComponent extends React.Component {
     // Applying theme on button style
     if (theme) {
       this.props = applyTheme(this.props, theme);
+=======
+import Icon from 'react-native-vector-icons/FontAwesome';
+import PropTypes from 'prop-types';
+import React from 'react';
+import { Button } from 'react-native-elements';
+import { View } from 'react-native';
+
+import { applyTheme } from '../utility/utils';
+import { shapeStyles } from '../style/buttonStyle';
+import { theme } from '../../index';
+
+export default class ButtonComponent extends React.Component {
+
+  constructor(props) {
+    super(props)
+    this.state = {
+      properties: {}
+    }
+  }
+
+  async componentDidMount() {
+
+    await this.setState({ properties: this.props })
+
+    // Customizing button style
+    const shapeStyle = this.props.showCircle
+      ? { ...shapeStyles.circleShapeView }
+      : this.props.showSquare
+        ? { ...shapeStyles.squareShapeView }
+        : this.props.showRectangle
+          ? { ...shapeStyles.rectangleShapeView }
+          : null;
+
+    if (shapeStyle) {
+      await this.setState({ properties: { ...this.state.properties, buttonStyle: { ...this.state.properties.buttonStyle, ...shapeStyle } } })
+    }
+
+    // Applying theme on button style
+    if (theme) {
+      await this.setState({ properties: applyTheme(this.state.properties, theme) })
+
+      if (this.props.icon) {
+        await this.setState({ properties: { ...this.state.properties, icon: applyTheme(this.state.properties.icon, theme) } })
+      }
+>>>>>>> master
     }
   }
 
@@ -42,6 +88,7 @@ export default class ButtonComponent extends React.Component {
     return (
       <View>
         <Button
+<<<<<<< HEAD
           title={this.props.title}
           onPress={this.props.onPress()}
           disabled={this.props.disabled}
@@ -50,6 +97,16 @@ export default class ButtonComponent extends React.Component {
           type={this.props.buttonType}
           loading={this.props.loading}
           icon={<Icon {...this.props.icon} />}
+=======
+          title={this.state.properties.title}
+          onPress={() => this.state.properties.onPress()}
+          disabled={this.state.properties.disabled}
+          buttonStyle={this.state.properties.buttonStyle}
+          titleStyle={this.state.properties.titleStyle}
+          type={this.state.properties.buttonType}
+          loading={this.state.properties.loading}
+          icon={<Icon {...this.state.properties.icon} />}
+>>>>>>> master
         />
       </View>
     );
