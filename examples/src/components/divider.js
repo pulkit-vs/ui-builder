@@ -40,11 +40,11 @@ export default class DividerComponent extends React.Component {
 }
 
 DividerComponent.propTypes = {
-  style: {
+  style: PropTypes.shape({
     borderWidth: PropTypes.number,
     marginTop: PropTypes.number,
     borderColor: PropTypes.string
-  }
+  })
 };
 
 DividerComponent.defaultProps = {
