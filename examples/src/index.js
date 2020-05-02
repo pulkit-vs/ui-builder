@@ -7,18 +7,18 @@
  */
 
 import React from 'react';
-import {View} from 'react-native';
+import { View, KeyboardAvoidingView, ScrollView } from "react-native";
 import {get} from 'lodash';
-import {applyTheme} from './utility/utils';
 
 import ButtonComponent from './components/button';
+import DividerComponent from './components/divider';
 import HeaderComponent from './components/header';
 import IconComponent from './components/icon';
 import ImageComponent from './components/image';
-import TextInput from './components/input';
 import ModalComponent from './components/modal';
 import TextComponent from './components/text';
-import DividerComponent from './components/divider';
+import TextInput from './components/input';
+import {applyTheme} from './utility/utils';
 
 // Global variable to get theme type in other files.
 export let theme;
@@ -85,11 +85,15 @@ export default class Components extends React.Component {
     const {source} = this.props;
     theme = source.theme;
     return (
-      <View>
-        {source.data.map((component, index) => {
-          return this.selectComponent(component, index);
-        })}
-      </View>
+      <KeyboardAvoidingView enabled behavior={"position"} keyboardVerticalOffset={-200}>
+        <ScrollView>
+          <View>
+            {source.data.map((component, index) => {
+              return this.selectComponent(component, index);
+            })}
+          </View>
+        </ScrollView>
+      </KeyboardAvoidingView>
     );
   }
 }
