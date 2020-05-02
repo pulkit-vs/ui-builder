@@ -13,9 +13,9 @@ import { Button, Icon } from 'react-native-elements';
 import { NavigationContext } from '@react-navigation/native';
 import { View, Text, TextInput, KeyboardAvoidingView } from 'react-native';
 
-import {CLOSE_MODAL} from '../utility/utils';
-import {applyTheme} from '../utility/utils';
-import {theme} from '../index';
+import { CLOSE_MODAL } from '../utility/utils';
+import { applyTheme } from '../utility/utils';
+import { theme } from '../index';
 
 export default class ModalComponent extends React.Component {
   constructor(props) {
@@ -38,7 +38,7 @@ export default class ModalComponent extends React.Component {
   static contextType = NavigationContext;
 
   inVisibleModal() {
-    this.setState({isModalVisible: !this.state.isModalVisible});
+    this.setState({ isModalVisible: !this.state.isModalVisible });
   }
 
   onChangeText(event, index) {
@@ -47,14 +47,14 @@ export default class ModalComponent extends React.Component {
       this.state.values.length === 0 ||
       this.state.values.findIndex((val) => val.key === index) === -1
     ) {
-      updateState.push({key: index, value: event});
+      updateState.push({ key: index, value: event });
     } else {
       const activeIndex = this.state.values.findIndex(
         (val) => val.key === index,
       );
       updateState[activeIndex].value = event;
     }
-    this.setState({values: updateState});
+    this.setState({ values: updateState });
   }
 
   getChildrenData(index, children) {
@@ -153,6 +153,7 @@ export default class ModalComponent extends React.Component {
   }
 
   render() {
+    const navigation = this.context;
     const closeModal = this.props.properties.closeModal;
     return (
       <Modal
@@ -168,7 +169,11 @@ export default class ModalComponent extends React.Component {
         onBackButtonPress={
           closeModal.includes(CLOSE_MODAL.onBackButtonPress)
             ? () => this.inVisibleModal()
-            : null
+            : this.props.properties.onBackButtonPress && this.props.properties.onBackButtonPress.navigation ?
+              () => {
+                this.setState({ isModalVisible: !this.state.isModalVisible })
+                navigation.navigate(this.props.properties.onBackButtonPress.screenName)
+              } : null
         }
         onSwipeComplete={
           closeModal.includes(CLOSE_MODAL.onSwipeComplete)

@@ -2209,8 +2209,12 @@ const data = {
                           borderTopRightRadius: 10,
                         },
                         backdropColor: 'grey',
-                        closeModal: ['onBackButtonPress', 'onSwipeComplete'],
+                        closeModal: ['onSwipeComplete'],
                         swipeDirection: 'left',
+                        onBackButtonPress :{
+                          navigation: true,
+                          screenName: 'Debug Navigator'
+                        }
                       },
                       childrens: [
                         {
