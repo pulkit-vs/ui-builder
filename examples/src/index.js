@@ -61,7 +61,8 @@ export default class Components extends React.Component {
           />
         );
       case 'modal':
-        return <ModalComponent {...component} key={index} />;
+        return <ModalComponent {...component} createScreen={this.props.createScreen}
+        key={index} />;
       case 'view': {
         if (theme) {
           component.style = applyTheme(component.style, theme);

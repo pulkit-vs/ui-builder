@@ -2084,34 +2084,33 @@ const data = {
                                 type: 'input',
                                 properties: {
                                   label: 'Mobile Number (10 digits)',
-                                  placeholderTextColor: 'grey',
-                                  style: {
+                                  selectionColor: 'grey',
+                                  containerStyle: {
                                     backgroundColor: 'white',
                                     borderColor: 'grey',
-                                    borderWidth: 2,
+                                    borderWidth: 1,
                                     width: '90%',
                                     left: 20,
                                     marginTop: 40,
                                   },
+                                  inputContainerStyle: {
+                                    borderBottomWidth: 0,
+                                  },
+                                  rightIcon: {
+                                    properties: {
+                                      name: 'arrow-right',
+                                      color: 'white',
+                                      size: 20,
+                                      type: 'font-awesome',
+                                      rightIconContainerStyle: {
+                                        backgroundColor: 'grey',
+                                        borderWidth: 24,
+                                        borderColor: 'lightgrey',
+                                        left: 10,
+                                      },
+                                    },
+                                  },
                                 },
-                                childrens: [
-                                  {
-                                    type: 'icon',
-                                    properties: {
-                                      name: 'search',
-                                      color: 'red',
-                                      size: 40,
-                                    },
-                                  },
-                                  {
-                                    type: 'icon',
-                                    properties: {
-                                      name: 'facebook',
-                                      color: 'red',
-                                      size: 40,
-                                    },
-                                  },
-                                ],
                               },
                               {
                                 type: 'button',
@@ -2229,7 +2228,8 @@ const data = {
                         style: {
                           margin: 0,
                           width: '100%',
-                          marginTop: '160%',
+                          marginTop: '140%',
+                          maxHeight: 200,
                           backgroundColor: 'white',
                           borderRadius: 0,
                           borderTopLeftRadius: 10,
@@ -2720,40 +2720,40 @@ const data = {
                                                 },
                                               },
                                             },
-                                            {
-                                              type: 'input',
-                                              properties: {
-                                                label:
-                                                  'Mobile Number (10 digits)',
-                                                placeholderTextColor: 'grey',
-                                                style: {
-                                                  backgroundColor: 'white',
-                                                  borderColor: 'grey',
-                                                  borderWidth: 2,
-                                                  width: '90%',
-                                                  left: 20,
-                                                  marginTop: 40,
-                                                },
-                                              },
-                                              childrens: [
-                                                {
-                                                  type: 'icon',
-                                                  properties: {
-                                                    name: 'search',
-                                                    color: 'red',
-                                                    size: 40,
-                                                  },
-                                                },
-                                                {
-                                                  type: 'icon',
-                                                  properties: {
-                                                    name: 'facebook',
-                                                    color: 'red',
-                                                    size: 40,
-                                                  },
-                                                },
-                                              ],
-                                            },
+                                            // {
+                                            //   type: 'input',
+                                            //   properties: {
+                                            //     label:
+                                            //       'Mobile Number (10 digits)',
+                                            //     placeholderTextColor: 'grey',
+                                            //     style: {
+                                            //       backgroundColor: 'white',
+                                            //       borderColor: 'grey',
+                                            //       borderWidth: 2,
+                                            //       width: '90%',
+                                            //       left: 20,
+                                            //       marginTop: 40,
+                                            //     },
+                                            //   },
+                                            //   childrens: [
+                                            //     {
+                                            //       type: 'icon',
+                                            //       properties: {
+                                            //         name: 'search',
+                                            //         color: 'red',
+                                            //         size: 40,
+                                            //       },
+                                            //     },
+                                            //     {
+                                            //       type: 'icon',
+                                            //       properties: {
+                                            //         name: 'facebook',
+                                            //         color: 'red',
+                                            //         size: 40,
+                                            //       },
+                                            //     },
+                                            //   ],
+                                            // },
                                             {
                                               type: 'button',
                                               properties: {

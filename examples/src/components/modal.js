@@ -11,6 +11,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { View, Text, TextInput, KeyboardAvoidingView } from 'react-native';
 import { Button, Icon } from 'react-native-elements';
+// import {NavigationContext} from '@react-navigation/native';
 
 import { applyTheme } from '../utility/utils';
 import { CLOSE_MODAL } from '../utility/utils';
@@ -34,6 +35,7 @@ export default class ModalComponent extends React.Component {
     }
   }
 
+  // static contextType = NavigationContext;
   inVisibleModal() {
     this.setState({ isModalVisible: !this.state.isModalVisible });
   }
@@ -55,12 +57,15 @@ export default class ModalComponent extends React.Component {
   }
 
   getChildrenData(index, children) {
+
+    // const navigation = this.context;
+    // console.log('modal-navigation:', JSON.stringify(navigation))
     return (
       <View>
         {(() => {
           if (children.type === 'text') {
             return (
-              <Text style={children.properties.style}>
+              <Text style={children.properties.style}  key={index}>
                 {children.properties.title}
               </Text>
             );
@@ -80,6 +85,8 @@ export default class ModalComponent extends React.Component {
                     ? () => this.inVisibleModal()
                     : properties.onPress
                 }
+                key={index}
+
               />
             );
           }
@@ -101,6 +108,8 @@ export default class ModalComponent extends React.Component {
                 placeholderTextColor={
                   children.properties.placeholderTextColor
                 }
+                key={index}
+
               />
             );
           }
@@ -108,15 +117,23 @@ export default class ModalComponent extends React.Component {
 
         {(() => {
           if (children.type === 'button') {
+
+            console.log('Modal:', JSON.stringify(children.properties.onPress.screenName))
             return (
               <Button
                 title={children.properties.title}
-                onPress={() => this.inVisibleModal()}
+                // onPress={() => {
+                //   children.properties.onPress.navigation
+                //     ? navigation.navigate(children.properties.onPress.screenName)
+                //     : children.properties.onPress === 'closeModal' ? () => this.inVisibleModal() : children.properties.onPress();
+                // }}
                 disabled={children.properties.disabled}
                 buttonStyle={children.properties.buttonStyle}
                 titleStyle={children.properties.titleStyle}
                 type={children.properties.buttonType}
                 loading={children.properties.loading}
+
+                key={index}
               />
             );
           }
