@@ -1751,43 +1751,29 @@ const data = {
                         {
                           type: 'view',
                           style: {
-                            width: '100%',
                             height: 50,
-                            flexDirection: 'row',
-                            backgroundColor: 'red',
-                            marginLeft: 20,
+                            marginLeft: 10,
                             marginTop: 15,
                           },
                           childrens: [
                             {
-                              type: 'icon',
-                              properties: {
-                                name: 'user',
-                                size: 30,
-                                iconType: 'font-awesome',
-                                disabled: false,
-                                raised: false,
-                                iconStyle: {
-                                  color: 'maroon',
-                                },
-                                containerStyle: {
-                                  alignSelf: 'flex-end',
-                                  marginTop: 12,
-                                },
-                              },
-                            },
-                            {
                               type: 'input',
                               properties: {
-                                label: 'User Name / Email',
-                                placeholderTextColor: 'maroon',
-                                style: {
+                                leftIcon: {
+                                  properties: {
+                                    type: 'font-awesome',
+                                    name: 'user',
+                                    color: 'maroon',
+                                  },
+                                },
+                                label: '  User Name / Email',
+                                inputContainerStyle: {
                                   borderBottomWidth: 2,
                                   borderBottomColor: 'maroon',
-                                  width: 270,
-                                  left: 20,
-                                  fontSize: 16,
+                                  width: 300,
+                                  fontSize: 20,
                                 },
+                                containerStyle: {},
                               },
                             },
                           ],
@@ -1796,41 +1782,28 @@ const data = {
                           type: 'view',
                           style: {
                             height: 50,
-                            flexDirection: 'row',
-                            backgroundColor: 'red',
-                            marginLeft: 20,
+                            marginLeft: 10,
                             marginTop: 15,
                           },
                           childrens: [
                             {
-                              type: 'icon',
-                              properties: {
-                                name: 'lock',
-                                size: 30,
-                                iconType: 'font-awesome',
-                                disabled: false,
-                                raised: false,
-                                iconStyle: {
-                                  color: 'maroon',
-                                },
-                                containerStyle: {
-                                  alignSelf: 'flex-end',
-                                  marginTop: 12,
-                                },
-                              },
-                            },
-                            {
                               type: 'input',
                               properties: {
-                                label: 'Password',
-                                placeholderTextColor: 'maroon',
-                                style: {
+                                leftIcon: {
+                                  properties: {
+                                    type: 'font-awesome',
+                                    name: 'lock',
+                                    color: 'maroon',
+                                  },
+                                },
+                                label: '  Password',
+                                inputContainerStyle: {
                                   borderBottomWidth: 2,
                                   borderBottomColor: 'maroon',
-                                  width: 270,
-                                  left: 20,
-                                  fontSize: 16,
+                                  width: 300,
+                                  fontSize: 20,
                                 },
+                                containerStyle: {},
                               },
                             },
                           ],
@@ -3186,7 +3159,7 @@ const data = {
         properties: {
           style: {borderWidth: 1, borderColor: 'lightgrey', left: 30},
         },
-      }
+      },
     ],
   },
 
@@ -4109,6 +4082,3 @@ const data = {
 };
 
 export default data;
-
-
-
