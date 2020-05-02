@@ -15,7 +15,7 @@ import ButtonComponent from './components/button';
 import HeaderComponent from './components/header';
 import IconComponent from './components/icon';
 import ImageComponent from './components/image';
-import Input from './components/input';
+import TextInput from './components/input';
 import ModalComponent from './components/modal';
 import TextComponent from './components/text';
 import DividerComponent from './components/divider';
@@ -33,7 +33,7 @@ export default class Components extends React.Component {
     const type = get(component, 'type', '');
     switch (type) {
       case 'input':
-        return <Input {...component.properties} key={index} />;
+        return <TextInput {...component.properties} key={index} />;
       case 'icon':
         return <IconComponent {...component.properties} key={index} />;
       case 'button':
