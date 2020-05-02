@@ -1,4 +1,3 @@
-//const data1;
 const data = {
   // Low Level Component
   source: {
@@ -1234,14 +1233,11 @@ const data = {
       },
     ],
   },
+
   debugNavigator: {
     theme: '',
     screenName: 'Debug Navigator',
     data: [
-      // {
-      //   type: 'view',
-      //   style: {backgroundColor: 'white'},
-      //   childrens: [
       {
         type: 'text',
         properties: {
@@ -1267,103 +1263,6 @@ const data = {
             left: 30,
             marginTop: '5%',
           },
-        },
-      },
-
-      {
-        type: 'view',
-        style: {flexDirection: 'row', marginTop: '10%', left: 50},
-        childrens: [
-          {
-            type: 'text',
-            properties: {
-              title: 'Home',
-              style: {
-                color: 'black',
-                fontSize: 25,
-              },
-            },
-          },
-          {
-            type: 'icon',
-            properties: {
-              name: 'chevron-right',
-              type: 'font-awesome',
-              color: 'black',
-              size: 35,
-              iconStyle: {marginLeft: '62%', marginTop: '3%'},
-            },
-          },
-        ],
-      },
-      {
-        type: 'divider',
-        properties: {
-          style: {borderWidth: 1, borderColor: 'lightgrey', left: 30},
-        },
-      },
-      {
-        type: 'view',
-        style: {flexDirection: 'row', marginTop: '10%', left: 50},
-        childrens: [
-          {
-            type: 'text',
-            properties: {
-              title: 'Help & Support',
-              style: {
-                color: 'black',
-                fontSize: 25,
-              },
-            },
-          },
-          {
-            type: 'icon',
-            properties: {
-              name: 'chevron-right',
-              type: 'font-awesome',
-              color: 'black',
-              size: 35,
-              iconStyle: {marginLeft: '38%', marginTop: '3%'},
-            },
-          },
-        ],
-      },
-      {
-        type: 'divider',
-        properties: {
-          style: {borderWidth: 1, borderColor: 'lightgrey', left: 30},
-        },
-      },
-      {
-        type: 'view',
-        style: {flexDirection: 'row', marginTop: '10%', left: 50},
-        childrens: [
-          {
-            type: 'text',
-            properties: {
-              title: 'Settings & Privacy',
-              style: {
-                color: 'black',
-                fontSize: 25,
-              },
-            },
-          },
-          {
-            type: 'icon',
-            properties: {
-              name: 'chevron-right',
-              type: 'font-awesome',
-              color: 'black',
-              size: 35,
-              iconStyle: {marginLeft: '29%', marginTop: '3%'},
-            },
-          },
-        ],
-      },
-      {
-        type: 'divider',
-        properties: {
-          style: {borderWidth: 1, borderColor: 'lightgrey', left: 30},
         },
       },
       {
@@ -3287,45 +3186,10 @@ const data = {
         properties: {
           style: {borderWidth: 1, borderColor: 'lightgrey', left: 30},
         },
-      },
-      {
-        type: 'view',
-        style: {
-          flexDirection: 'row',
-          marginTop: '10%',
-          left: 50,
-        },
-        childrens: [
-          {
-            type: 'text',
-            properties: {
-              title: 'Logout',
-              style: {
-                color: 'black',
-                fontSize: 25,
-              },
-            },
-          },
-          {
-            type: 'icon',
-            properties: {
-              name: 'chevron-right',
-              type: 'font-awesome',
-              color: 'black',
-              size: 35,
-              iconStyle: {marginLeft: '60%', marginTop: '3%'},
-            },
-          },
-        ],
-      },
-      {
-        type: 'divider',
-        properties: {
-          style: {borderWidth: 1, borderColor: 'lightgrey', left: 30},
-        },
-      },
+      }
     ],
   },
+
   modalData: {
     screenName: 'Modal Screen',
     data: [
@@ -4245,3 +4109,6 @@ const data = {
 };
 
 export default data;
+
+
+

@@ -11,11 +11,11 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import {Button} from 'react-native-elements';
 import {View} from 'react-native';
+import {NavigationContext} from '@react-navigation/native';
 
 import {applyTheme} from '../utility/utils';
 import {shapeStyles} from '../style/buttonStyle';
 import {theme} from '../index';
-import {NavigationContext} from '@react-navigation/native';
 
 export default class ButtonComponent extends React.Component {
   constructor(props) {
