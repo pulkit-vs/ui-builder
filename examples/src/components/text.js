@@ -37,7 +37,7 @@ export default class TextComponent extends React.Component {
           onPress={
             this.props.onPress
               ? () => navigation.navigate(this.props.onPress.screenName)
-              : () => console.log('Attach a Method')
+              : () => this.props.onPress
           }>
           {props.title}
         </Text>
@@ -52,7 +52,7 @@ TextComponent.propTypes = {
     color: PropTypes.string,
     fontSize: PropTypes.number,
     fontWeight: PropTypes.string,
-    marginTop: PropTypes.oneOfType(PropTypes.string, PropTypes.number),
+    marginTop: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     textAlign: PropTypes.string,
   }),
 };
@@ -66,4 +66,7 @@ TextComponent.defaultProps = {
     marginTop: 0,
     textAlign: 'center',
   },
+  onPress() {
+    alert('Please attach a method')
+  }
 };

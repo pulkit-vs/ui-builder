@@ -7,7 +7,7 @@
  */
 
 import React from 'react';
-import {View} from 'react-native';
+import { View, KeyboardAvoidingView, ScrollView } from "react-native";
 import {get} from 'lodash';
 import {applyTheme} from './utility/utils';
 
@@ -63,6 +63,7 @@ export default class Components extends React.Component {
       case 'modal':
         return <ModalComponent {...component} createScreen={this.props.createScreen}
         key={index} />;
+
       case 'view': {
         if (theme) {
           component.style = applyTheme(component.style, theme);
@@ -86,11 +87,15 @@ export default class Components extends React.Component {
     const {source} = this.props;
     theme = source.theme;
     return (
-      <View>
-        {source.data.map((component, index) => {
-          return this.selectComponent(component, index);
-        })}
-      </View>
+       <KeyboardAvoidingView enabled behavior={"position"} keyboardVerticalOffset={-200}>
+        <ScrollView>
+          <View>
+            {source.data.map((component, index) => {
+              return this.selectComponent(component, index);
+            })}
+          </View>
+        </ScrollView>
+      </KeyboardAvoidingView>
     );
   }
 }

@@ -11,7 +11,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { View, Text, TextInput, KeyboardAvoidingView } from 'react-native';
 import { Button, Icon } from 'react-native-elements';
-// import {NavigationContext} from '@react-navigation/native';
+import { NavigationContext } from '@react-navigation/native';
 
 import { applyTheme } from '../utility/utils';
 import { CLOSE_MODAL } from '../utility/utils';
@@ -35,7 +35,8 @@ export default class ModalComponent extends React.Component {
     }
   }
 
-  // static contextType = NavigationContext;
+  static contextType = NavigationContext;
+
   inVisibleModal() {
     this.setState({ isModalVisible: !this.state.isModalVisible });
   }
@@ -57,20 +58,29 @@ export default class ModalComponent extends React.Component {
   }
 
   getChildrenData(index, children) {
-
-    // const navigation = this.context;
-    // console.log('modal-navigation:', JSON.stringify(navigation))
+    const navigation = this.context;
     return (
       <View>
         {(() => {
           if (children.type === 'text') {
             return (
-              <Text style={children.properties.style}  key={index}>
+              <Text style={children.properties.style}
+                onPress={
+                  this.props.onPress && this.props.onPress.navigation
+                    ? () => {
+                      this.setState({ isModalVisible: !this.state.isModalVisible })
+                      navigation.navigate(this.props.onPress.screenName)
+                    }
+                    : () => this.props.onPress
+                }
+                key={index}>
                 {children.properties.title}
               </Text>
             );
           }
         })()}
+
+        {/* TODO: We will make a common method to handle onPress for Modal. */}
 
         {(() => {
           if (children.type === 'icon') {
@@ -83,10 +93,15 @@ export default class ModalComponent extends React.Component {
                 onPress={
                   children.properties.onPress === 'closeModal'
                     ? () => this.inVisibleModal()
-                    : properties.onPress
+                    : children.properties.onPress && children.properties.onPress.navigation ? () => {
+                      this.setState({ isModalVisible: !this.state.isModalVisible })
+                      navigation.navigate(
+                        children.properties.onPress.screenName,
+                      )
+                    }
+                      : children.properties.onPress
                 }
                 key={index}
-
               />
             );
           }
@@ -117,16 +132,15 @@ export default class ModalComponent extends React.Component {
 
         {(() => {
           if (children.type === 'button') {
-
-            console.log('Modal:', JSON.stringify(children.properties.onPress.screenName))
             return (
               <Button
                 title={children.properties.title}
-                // onPress={() => {
-                //   children.properties.onPress.navigation
-                //     ? navigation.navigate(children.properties.onPress.screenName)
-                //     : children.properties.onPress === 'closeModal' ? () => this.inVisibleModal() : children.properties.onPress();
-                // }}
+                onPress={
+                  children.properties.onPress && children.properties.onPress.navigation ? () => {
+                    this.setState({ isModalVisible: !this.state.isModalVisible })
+                    navigation.navigate(children.properties.onPress.screenName)
+                  } : children.properties.onPress === 'closeModal' ? () => this.inVisibleModal() : children.properties.onPress()
+                }
                 disabled={children.properties.disabled}
                 buttonStyle={children.properties.buttonStyle}
                 titleStyle={children.properties.titleStyle}
@@ -188,7 +202,7 @@ ModalComponent.propTypes = {
       backgroundColor: PropTypes.string,
       margin: PropTypes.number,
       marginBottom: PropTypes.number,
-      marginTop: PropTypes.oneOfType(PropTypes.string, PropTypes.number),
+      marginTop: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
       width: PropTypes.string,
     }),
     backdropColor: PropTypes.string,
