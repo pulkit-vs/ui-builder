@@ -119,7 +119,6 @@ export default class ModalComponent extends React.Component {
                 onSwipeComplete={closeModal.includes(CLOSE_MODAL.onSwipeComplete) ? () => this.inVisibleModal() : null}
                 swipeDirection={closeModal.includes(CLOSE_MODAL.onSwipeComplete) ? this.props.properties.swipeDirection : null}
             >
-
                 {this.props.childrens.map(children => {
                     return this.getChildrenData(children)
                 })}
