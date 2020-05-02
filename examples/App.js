@@ -10,22 +10,129 @@
 import UiBuilder from "./src/index";
 import React from 'react';
 
-const source = {
-  // theme: 'lightTheme',
+// Add Address Screen Json
+const addAdressData = {
+  theme: '',
+  screenName: 'Add Address',
   data: [
+    {
+      type: 'view',
+      style: {},
+      childrens: [
+        {
+          type: 'view',
+          style: {borderBottomWidth: 25, borderBottomColor: 'red'},
+          childrens: [
+            {
+              type: 'header',
+              properties: {
+                containerStyle: {
+                  backgroundColor: 'red',
+                  borderBottomWidth: 0,
+                  height: 65,
+                  textAlign: 'center',
+                },
+                centerComponent: {
+                  childrens: [
+                    {
+                      type: 'view',
+                      properties: {style: {flexDirection: 'row'}},
+                    },
+                    {
+                      type: 'icon',
+                      properties: {
+                        name: 'long-arrow-left',
+                        type: 'font-awesome',
+                        color: 'white',
+                        size: 30,
+                      },
+                    },
+                    {
+                      type: 'text',
+                      properties: {
+                        title: 'Your Adresses',
+                        style: {
+                          color: 'white',
+                          fontSize: 23,
+                          marginLeft: 7,
+                        },
+                      },
+                    },
+                  ],
+                },
+              },
+            },
+          ],
+        },
+        {
+          type: 'header',
+          properties: {
+            containerStyle: {
+              backgroundColor: 'white',
+              borderBottomWidth: 0,
+
+              height: 40,
+            },
+            leftComponent: {
+              childrens: [
+                {
+                  type: 'view',
+                  properties: {
+                    style: {
+                      width: 500,
+                      marginLeft: -10,
+                      flexDirection: 'row',
+                      borderBottomWidth: 2,
+                      borderBottomColor: 'grey',
+                      backgroundColor: 'white',
+                    },
+                  },
+                },
+                {
+                  type: 'icon',
+                  properties: {
+                    name: 'plus-circle',
+                    type: 'font-awesome',
+                    color: 'red',
+                    iconStyle: {
+                      marginLeft: 4,
+                    },
+                  },
+                },
+                {
+                  type: 'text',
+                  properties: {
+                    title: 'Edit Your Addresses',
+                    style: {
+                      color: 'red',
+                      fontSize: 18,
+                      width: 200,
+                      marginBottom: 10,
+                      marginLeft: 7,
+                    },
+                  },
+                },
+              ],
+            },
+          },
+        },
+      ],
+    },
     {
       type: 'modal',
       properties: {
         style: {
           margin: 0,
-          top: '15%',
-          maxHeight: 400,
+          width: '100%',
+          marginTop: '110%',
           backgroundColor: 'white',
-          borderRadius: 15
+          borderRadius: 0,
+          borderTopLeftRadius: 10,
+          borderTopRightRadius: 10,
         },
         backdropColor: 'grey',
         closeModal: ['onBackButtonPress', 'onSwipeComplete'],
-        swipeDirection: 'left'
+        swipeDirection: 'left',
       },
       childrens: [
         {
@@ -34,7 +141,6 @@ const source = {
             containerStyle: {
               alignSelf: 'flex-end',
               right: 20,
-              //  marginBottom: 20,
               position: 'absolute',
             },
             name: 'close',
@@ -192,21 +298,21 @@ const source = {
               borderWidth: 3,
               marginTop: 5,
               alignSelf: 'center',
-              marginRight: 137,
+              marginRight: 140,
             },
-            titleStyle: { color: 'white' },
+            titleStyle: {color: 'white'},
           },
-        }
-      ]
-    }
-  ]
-}
+        },
+      ],
+    },
+  ],
+};
 
 export default class App extends React.Component {
   render() {
     return (
       <>
-        <UiBuilder source={source} />
+        <UiBuilder source={addAdressData} />
       </>
     );
   }
