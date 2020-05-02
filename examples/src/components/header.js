@@ -1,7 +1,7 @@
 import {Header, Icon, Input} from 'react-native-elements';
 import PropTypes from 'prop-types';
 import React from 'react';
-import {View, Text} from 'react-native';
+import {Text, View} from 'react-native';
 import {NavigationContext} from '@react-navigation/native';
 
 import {applyTheme} from '../utility/utils';
@@ -65,7 +65,8 @@ export default class HeaderComponent extends React.Component {
                     name={styleOfIcon.name}
                     type={styleOfIcon.type}
                     onPress={
-                      item.properties.onPress &&  item.properties.onPress.navigation
+                      item.properties.onPress &&
+                      item.properties.onPress.navigation
                         ? () =>
                             navigation.navigate(
                               item.properties.onPress.screenName,

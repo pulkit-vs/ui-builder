@@ -9,10 +9,10 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import {Text} from 'react-native';
+import {NavigationContext} from '@react-navigation/native';
 
 import {applyTheme} from '../utility/utils';
 import {theme} from '../index';
-import {NavigationContext} from '@react-navigation/native';
 
 export default class TextComponent extends React.Component {
   componentWillMount() {

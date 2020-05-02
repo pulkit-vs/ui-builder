@@ -12,6 +12,7 @@ import {get} from 'lodash';
 import {applyTheme} from './utility/utils';
 
 import ButtonComponent from './components/button';
+import MyCarousel from './components/carousel';
 import HeaderComponent from './components/header';
 import IconComponent from './components/icon';
 import ImageComponent from './components/image';
@@ -44,6 +45,9 @@ export default class Components extends React.Component {
             key={index}
           />
         );
+      case 'carousel':
+        return <MyCarousel {...component.properties} key={index} />;
+
       case 'header':
         return (
           <HeaderComponent
@@ -77,7 +81,7 @@ export default class Components extends React.Component {
       case 'image':
         return <ImageComponent {...component.properties} key={index} />;
       case 'divider':
-        return <DividerComponent {...component.properties} key = {index} />;
+        return <DividerComponent {...component.properties} key={index} />;
     }
   }
 
