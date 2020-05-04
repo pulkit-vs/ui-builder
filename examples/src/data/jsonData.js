@@ -1,7 +1,6 @@
 //const data1;
 const data = {
   // Low Level Component
-  theme: 'lightTheme',
   source: {
     screenName: 'First Screen',
     data: [
@@ -3483,8 +3482,22 @@ const data = {
           containerStyle: {
             borderColor: 'blue',
           },
+          titleNumberOfLines: 6,
+          dividerStyle: {
+            color: 'black',
+            borderBottomWidth: 2,
+            borderBottomColor: 'red',
+          },
         },
         childrens: [
+          {
+            type: 'image',
+            properties: {
+              uri:
+                'https://images.pexels.com/photos/3586966/pexels-photo-3586966.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260%27',
+              style: {height: 100, width: 150, marginLeft: '26%'},
+            },
+          },
           {
             type: 'text',
             properties: {

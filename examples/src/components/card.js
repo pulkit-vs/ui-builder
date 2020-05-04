@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import {View} from 'react-native';
-import TextComponent from './text';
 import {Card, ListItem, Button, Icon} from 'react-native-elements';
+
+import TextComponent from './text';
 import ButtonComponent from './button';
 import CheckboxComponent from './Checkbox';
 import IconComponent from './icon';
@@ -22,6 +23,18 @@ export default class CardComponent extends Component {
 
       case 'image':
         return <ImageComponent {...component.properties} key={index} />;
+      case 'view': {
+        if (theme) {
+          component.style = applyTheme(component.style, theme);
+        }
+        return (
+          <View style={component.style} key={index}>
+            {component.childrens.map((componentData, i) => {
+              return this.selectComponent(componentData, i);
+            })}
+          </View>
+        );
+      }
     }
   }
 
@@ -30,7 +43,14 @@ export default class CardComponent extends Component {
     return (
       <Card
         title={this.props.properties.title}
-        containerStyle={this.props.properties.containerStyle}>
+        //  titleNumberOfLines={this.props.properties.titleNumberOfLines}
+        titleNumberOfLines={20}
+        //  titleStyle={}
+        //  wrapperStyle={}
+        containerStyle={this.props.properties.containerStyle}
+        dividerStyle={this.props.properties.dividerStyle}
+        //  featuredTitle={}
+      >
         {this.props.childrens.map((component, index) => {
           return this.selectComponent(component, index);
         })}
