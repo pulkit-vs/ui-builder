@@ -1,117 +1,60 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
+import {createStackNavigator} from '@react-navigation/stack';
 import React from 'react';
-import {View, KeyboardAvoidingView, ScrollView} from 'react-native';
-import {get} from 'lodash';
-import {applyTheme} from './utility/utils';
+import {NavigationContainer} from '@react-navigation/native';
 
-import ButtonComponent from './components/button';
-import HeaderComponent from './components/header';
-import IconComponent from './components/icon';
-import ImageComponent from './components/image';
-import TextInput from './components/input';
-import ModalComponent from './components/modal';
-import TextComponent from './components/text';
-import DividerComponent from './components/divider';
+import Components from '../index';
 
-// Global variable to get theme type in other files.
-export let theme;
+const Stack = createStackNavigator();
 
-export default class Components extends React.Component {
-  constructor() {
-    super();
-    this.selectComponent = this.selectComponent.bind(this);
+export default class UiBuilder extends React.Component {
+  constructor(props) {
+    super(props);
+    this.createScreen = this.createScreen.bind(this);
+    this.state = {
+      stackScreens: [
+        <Stack.Screen
+          name={this.props.source.screenName}
+          key={this.props.source.screenName}>
+          {(props) => (
+            <Components
+              createScreen={this.createScreen}
+              source={this.props.source}
+            />
+          )}
+        </Stack.Screen>,
+      ],
+      screenNames: [this.props.source.screenName],
+    };
   }
 
-  selectComponent(component, index) {
-    const type = get(component, 'type', '');
-    switch (type) {
-      case 'input':
-        return <TextInput {...component.properties} key={index} />;
-      case 'icon':
-        return (
-          <IconComponent
-            {...component.properties}
-            key={index}
-            createScreen={this.props.createScreen}
-          />
-        );
-      case 'button':
-        return (
-          <ButtonComponent
-            {...component.properties}
-            createScreen={this.props.createScreen}
-            key={index}
-          />
-        );
-      case 'header':
-        return (
-          <HeaderComponent
-            {...component.properties}
-            createScreen={this.props.createScreen}
-            key={index}
-          />
-        );
-      case 'text':
-        return (
-          <TextComponent
-            {...component.properties}
-            createScreen={this.props.createScreen}
-            key={index}
-          />
-        );
-      case 'modal':
-        return (
-          <ModalComponent
-            {...component}
-            createScreen={this.props.createScreen}
-            key={index}
-          />
-        );
+  // Method for creating a given screen from given source onPress to a component
+  createScreen({screenName, source}) {
+    if (!this.state.screenNames.includes(screenName)) {
+      let tempScreenNames = this.state.screenNames;
+      let screenJson = this.state.stackScreens;
+      tempScreenNames.push(screenName);
 
-      case 'view': {
-        if (theme) {
-          component.style = applyTheme(component.style, theme);
-        }
-        return (
-          <View style={component.style} key={index}>
-            {component.childrens.map((componentData, i) => {
-              return this.selectComponent(componentData, i);
-            })}
-          </View>
-        );
-      }
-      case 'image':
-        return (
-          <ImageComponent key={index} createScreen={this.props.createScreen} />
-        );
-      case 'divider':
-        return <DividerComponent {...component.properties} key={index} />;
+      screenJson.push(
+        <Stack.Screen key={screenName} name={screenName}>
+          {(props) => (
+            <Components createScreen={this.createScreen} source={source} />
+          )}
+        </Stack.Screen>,
+      );
+      this.setState({stackScreens: screenJson, screenNames: tempScreenNames});
     }
   }
 
   render() {
-    const {source} = this.props;
-    theme = source.theme;
     return (
-      <KeyboardAvoidingView
-        enabled
-        behavior={'position'}
-        keyboardVerticalOffset={-200}>
-        <ScrollView>
-          <View>
-            {source.data.map((component, index) => {
-              return this.selectComponent(component, index);
-            })}
-          </View>
-        </ScrollView>
-      </KeyboardAvoidingView>
+      <NavigationContainer>
+        <Stack.Navigator
+          screenOptions={{
+            headerShown: false,
+          }}>
+          {this.state.stackScreens}
+        </Stack.Navigator>
+      </NavigationContainer>
     );
   }
 }

@@ -76,7 +76,6 @@ export default class ButtonComponent extends React.Component {
       <View>
         <Button
           title={this.state.properties.title}
-          // onPress={() => this.state.properties.onPress()}
           onPress={() => {
             this.props.onPress.navigation
               ? navigation.navigate(this.props.onPress.screenName)

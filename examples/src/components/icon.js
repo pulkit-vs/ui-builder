@@ -9,7 +9,7 @@ import {NavigationContext} from '@react-navigation/native';
 
 export default class IconComponent extends Component {
   componentDidMount() {
-    // Creating Screen for Button onPress
+    // Creating Screen for icon onPress
 
     if (this.props.onPress) {
       this.props.onPress.navigation
