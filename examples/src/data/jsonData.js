@@ -1,6 +1,7 @@
 //const data1;
 const data = {
   // Low Level Component
+  theme: 'lightTheme',
   source: {
     screenName: 'First Screen',
     data: [
@@ -8,9 +9,14 @@ const data = {
         type: 'button',
         properties: {
           title: 'Click Me',
-          titleStyle: { color: 'white', fontSize: 20 },
-          buttonStyle: { backgroundColor: 'blue', width: "90%", left: 20, marginTop: 20 }
-        }
+          titleStyle: {color: 'white', fontSize: 20},
+          buttonStyle: {
+            backgroundColor: 'blue',
+            width: '90%',
+            left: 20,
+            marginTop: 20,
+          },
+        },
       },
       {
         type: 'input',
@@ -25,8 +31,8 @@ const data = {
             left: 20,
             marginTop: 40,
           },
-          inputContainerStyle : {
-            borderBottomWidth: 0
+          inputContainerStyle: {
+            borderBottomWidth: 0,
           },
           rightIcon: {
             properties: {
@@ -34,14 +40,14 @@ const data = {
               color: 'white',
               size: 20,
               type: 'font-awesome',
-              rightIconContainerStyle : {
+              rightIconContainerStyle: {
                 backgroundColor: 'grey',
                 borderWidth: 24,
                 borderColor: 'lightgrey',
-                left: 10
-              }
-          }
-        }
+                left: 10,
+              },
+            },
+          },
         },
       },
       {
@@ -2302,6 +2308,27 @@ const data = {
               color: 'black',
               size: 35,
               iconStyle: {marginLeft: '10%', marginTop: '3%'},
+              onPress: {
+                navigation: true,
+                screenName: 'Page 3',
+                source: {
+                  data: [
+                    {
+                      type: 'text',
+                      properties: {
+                        title: 'Log In',
+                        style: {
+                          color: 'black',
+                          textAlign: 'center',
+                          marginTop: 20,
+                          fontSize: 40,
+                          fontWeight: 'bold',
+                        },
+                      },
+                    },
+                  ],
+                },
+              },
             },
           },
         ],
@@ -3439,6 +3466,61 @@ const data = {
                 },
               },
               titleStyle: {color: 'white'},
+            },
+          },
+        ],
+      },
+    ],
+  },
+
+  cardData: {
+    screenName: 'Card Screen',
+    data: [
+      {
+        type: 'card',
+        properties: {
+          title: 'Hello World ',
+          containerStyle: {
+            borderColor: 'blue',
+          },
+        },
+        childrens: [
+          {
+            type: 'text',
+            properties: {
+              title:
+                'The idea with React Native Elements is more about component structure than actual design.',
+              style: {
+                color: 'blue',
+              },
+            },
+          },
+          {
+            type: 'button',
+            properties: {
+              title: 'Log in with Facebook',
+              titleStyle: {color: 'blue', fontSize: 20},
+              buttonStyle: {
+                backgroundColor: 'white',
+                width: '90%',
+                left: 20,
+                borderWidth: 3,
+                marginTop: 30,
+              },
+            },
+          },
+          {
+            type: 'button',
+            properties: {
+              title: 'Log in with Google',
+              titleStyle: {color: 'blue', fontSize: 20},
+              buttonStyle: {
+                backgroundColor: 'white',
+                width: '90%',
+                left: 20,
+                borderWidth: 3,
+                marginTop: 30,
+              },
             },
           },
         ],

@@ -19,6 +19,7 @@ import TextInput from './components/input';
 import ModalComponent from './components/modal';
 import TextComponent from './components/text';
 import DividerComponent from './components/divider';
+import CardComponent from './components/card';
 
 // Global variable to get theme type in other files.
 export let theme;
@@ -35,7 +36,13 @@ export default class Components extends React.Component {
       case 'input':
         return <TextInput {...component.properties} key={index} />;
       case 'icon':
-        return <IconComponent {...component.properties} key={index} />;
+        return (
+          <IconComponent
+            {...component.properties}
+            key={index}
+            createScreen={this.props.createScreen}
+          />
+        );
       case 'button':
         return (
           <ButtonComponent
@@ -75,9 +82,23 @@ export default class Components extends React.Component {
         );
       }
       case 'image':
-        return <ImageComponent {...component.properties} key={index} />;
+        return (
+          <ImageComponent
+            {...component.properties}
+            key={index}
+            createScreen={this.props.createScreen}
+          />
+        );
       case 'divider':
-        return <DividerComponent {...component.properties} key = {index} />;
+        return <DividerComponent {...component.properties} key={index} />;
+      case 'card':
+        return (
+          <CardComponent
+            {...component}
+            key={index}
+            createScreen={this.props.createScreen}
+          />
+        );
     }
   }
 
