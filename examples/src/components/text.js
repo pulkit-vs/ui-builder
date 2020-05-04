@@ -35,9 +35,9 @@ export default class TextComponent extends React.Component {
         <Text
           style={props.style}
           onPress={
-            this.props.onPress
+            this.props.onPress.navigation
               ? () => navigation.navigate(this.props.onPress.screenName)
-              : () => this.props.onPress
+              : () => this.props.onPress()
           }>
           {props.title}
         </Text>
@@ -67,6 +67,6 @@ TextComponent.defaultProps = {
     textAlign: 'center',
   },
   onPress() {
-    alert('Please attach a method')
-  }
+    alert('Please attach a method');
+  },
 };

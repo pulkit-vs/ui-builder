@@ -50,7 +50,7 @@ export default class HeaderComponent extends React.Component {
             }>
             {this.props[component].childrens.map((item, i) => {
               if (item.type == 'icon') {
-                const styleOfIcon = item.properties;
+                // creating screen for header'icon onPress
                 if (item.properties.onPress) {
                   item.properties.onPress.navigation
                     ? this.props.createScreen(item.properties.onPress)
@@ -59,11 +59,11 @@ export default class HeaderComponent extends React.Component {
 
                 return (
                   <Icon
-                    iconStyle={styleOfIcon.iconStyle}
-                    color={styleOfIcon.color}
+                    iconStyle={item.properties.iconStyle}
+                    color={item.properties.color}
                     key={i}
-                    name={styleOfIcon.name}
-                    type={styleOfIcon.type}
+                    name={item.properties.name}
+                    type={item.properties.type}
                     onPress={
                       item.properties.onPress &&
                       item.properties.onPress.navigation
@@ -73,42 +73,40 @@ export default class HeaderComponent extends React.Component {
                             )
                         : item.properties.onPress
                     }
-                    size={styleOfIcon.size}
+                    size={item.properties.size}
                   />
                 );
               } else if (item.type == 'text') {
-                const styleOfText = item.properties;
                 return (
-                  <Text key={i} style={styleOfText.style}>
-                    {styleOfText.title}
+                  <Text key={i} style={item.properties.style}>
+                    {item.properties.title}
                   </Text>
                 );
               } else if (item.type == 'input') {
-                const styleOfInput = item.properties;
                 return (
                   <Input
-                    containerStyle={styleOfInput.containerStyle}
-                    inputStyle={styleOfInput.inputStyle}
+                    containerStyle={item.properties.containerStyle}
+                    inputStyle={item.properties.inputStyle}
                     key={i}
                     leftIcon={
-                      styleOfInput.leftIcon ? (
+                      item.properties.leftIcon ? (
                         <Icon
-                          iconStyle={styleOfInput.leftIcon.iconStyle}
-                          color={styleOfInput.leftIcon.color}
-                          name={styleOfInput.leftIcon.name}
-                          size={styleOfInput.leftIcon.size}
-                          type={styleOfInput.leftIcon.type}></Icon>
+                          iconStyle={item.properties.leftIcon.iconStyle}
+                          color={item.properties.leftIcon.color}
+                          name={item.properties.leftIcon.name}
+                          size={item.properties.leftIcon.size}
+                          type={item.properties.leftIcon.type}></Icon>
                       ) : null
                     }
-                    placeholder={styleOfInput.placeholder}
+                    placeholder={item.properties.placeholder}
                     rightIcon={
-                      styleOfInput.rightIcon ? (
+                      item.properties.rightIcon ? (
                         <Icon
-                          iconStyle={styleOfInput.rightIcon.iconStyle}
-                          color={styleOfInput.rightIcon.color}
-                          name={styleOfInput.rightIcon.name}
-                          size={styleOfInput.rightIcon.size}
-                          type={styleOfInput.rightIcon.type}></Icon>
+                          iconStyle={item.properties.rightIcon.iconStyle}
+                          color={item.properties.rightIcon.color}
+                          name={item.properties.rightIcon.name}
+                          size={item.properties.rightIcon.size}
+                          type={item.properties.rightIcon.type}></Icon>
                       ) : null
                     }></Input>
                 );

@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
 import React, {Component} from 'react';
 import {Icon} from 'react-native-elements';
+import {NavigationContext} from '@react-navigation/native';
 import {View} from 'react-native';
 
 import {applyTheme} from '../utility/utils';
 import {theme} from '../index';
-import {NavigationContext} from '@react-navigation/native';
 
 export default class IconComponent extends Component {
   componentDidMount() {
