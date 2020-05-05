@@ -6,10 +6,8 @@
  * @flow strict-local
  */
 
-// import UiBuilder from 'react-native-ui-builder';
-import UiBuilder from './src/index';
 import React from 'react';
-import UiBuilder from '../index';
+import UiBuilder from './src/index';
 
 // Add Address Screen Json
 const addAdressData = {
