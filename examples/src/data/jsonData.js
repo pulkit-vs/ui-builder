@@ -3478,15 +3478,23 @@ const data = {
       {
         type: 'card',
         properties: {
-          title: 'Hello World ',
           containerStyle: {
-            borderColor: 'blue',
+            height: 320,
+            width: 250,
+            borderRadius: 20,
+            borderWidth: 0,
+            borderColor: 'red',
+            padding: 0,
+            alignSelf: 'center',
+            marginTop: '40%',
           },
-          titleNumberOfLines: 6,
-          dividerStyle: {
-            color: 'black',
-            borderBottomWidth: 2,
-            borderBottomColor: 'red',
+          // wrapperStyle: {
+          //   borderRadius: 20,
+          //   borderWidth: 3,
+          // },
+          titleStyle: {
+            fontWeight: 'bold',
+            color: 'red',
           },
         },
         childrens: [
@@ -3495,44 +3503,55 @@ const data = {
             properties: {
               uri:
                 'https://images.pexels.com/photos/3586966/pexels-photo-3586966.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260%27',
-              style: {height: 100, width: 150, marginLeft: '26%'},
+              // 'https://www.pexels.com/photo/autumn-autumn-colours-brown-countryside-358238/',
+              style: {
+                width: '100%',
+                height: 260,
+                borderRadius: 20,
+                position: 'relative',
+              },
             },
+          },
+          {
+            type: 'view',
+            style: {
+              height: 30,
+              width: 80,
+              backgroundColor: 'white',
+              borderRadius: 40,
+              position: 'absolute',
+              right: 5,
+              bottom: 55,
+              flexDirection: 'row',
+            },
+            childrens: [
+              {
+                type: 'icon',
+                properties: {
+                  name: 'euro-symbol',
+                  type: 'material',
+                  color: 'black',
+                  size: 25,
+                  iconStyle: {color: 'black', marginTop: 1},
+                },
+              },
+              {
+                type: 'text',
+                properties: {
+                  title: '899',
+                },
+              },
+            ],
           },
           {
             type: 'text',
             properties: {
-              title:
-                'The idea with React Native Elements is more about component structure than actual design.',
+              title: 'Title of image \nSubtitle',
               style: {
-                color: 'blue',
-              },
-            },
-          },
-          {
-            type: 'button',
-            properties: {
-              title: 'Log in with Facebook',
-              titleStyle: {color: 'blue', fontSize: 20},
-              buttonStyle: {
-                backgroundColor: 'white',
-                width: '90%',
-                left: 20,
-                borderWidth: 3,
-                marginTop: 30,
-              },
-            },
-          },
-          {
-            type: 'button',
-            properties: {
-              title: 'Log in with Google',
-              titleStyle: {color: 'blue', fontSize: 20},
-              buttonStyle: {
-                backgroundColor: 'white',
-                width: '90%',
-                left: 20,
-                borderWidth: 3,
-                marginTop: 30,
+                alignSelf: 'flex-start',
+                marginLeft: 10,
+                fontWeight: 'bold',
+                fontSize: 20,
               },
             },
           },

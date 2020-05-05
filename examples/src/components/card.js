@@ -24,9 +24,6 @@ export default class CardComponent extends Component {
       case 'image':
         return <ImageComponent {...component.properties} key={index} />;
       case 'view': {
-        if (theme) {
-          component.style = applyTheme(component.style, theme);
-        }
         return (
           <View style={component.style} key={index}>
             {component.childrens.map((componentData, i) => {
@@ -43,10 +40,9 @@ export default class CardComponent extends Component {
     return (
       <Card
         title={this.props.properties.title}
-        //  titleNumberOfLines={this.props.properties.titleNumberOfLines}
-        titleNumberOfLines={20}
-        //  titleStyle={}
-        //  wrapperStyle={}
+        titleNumberOfLines={this.props.properties.titleNumberOfLines}
+        titleStyle={this.props.properties.titleStyle}
+        wrapperStyle={this.props.properties.wrapperStyle}
         containerStyle={this.props.properties.containerStyle}
         dividerStyle={this.props.properties.dividerStyle}
         //  featuredTitle={}
