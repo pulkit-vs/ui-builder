@@ -28,7 +28,7 @@ export default class IconComponent extends Component {
         <Icon
           name={this.props.name}
           onPress={
-            this.props.onPress && this.props.onPress.navigation
+            this.props.onPress.navigation
               ? () => navigation.navigate(this.props.onPress.screenName)
               : this.props.onPress
           }

@@ -14,27 +14,39 @@ export default class HeaderComponent extends React.Component {
       ValueOfComponent: ['leftComponent', 'centerComponent', 'rightComponent'],
     };
     // apply theme
-    if (theme) {
-      props = applyTheme(this.props, theme);
-      props.leftComponent.childrens.forEach((children) => {
-        children.properties = applyTheme(children.properties, theme);
-      });
-      props.rightComponent.childrens.forEach((children) => {
-        children.properties = applyTheme(children.properties, theme);
-      });
-      props.centerComponent.childrens.forEach((children) => {
-        children.properties = applyTheme(children.properties, theme);
-      });
-    }
+    props = theme ? applyTheme(this.props, theme) : this.props;
+    props.leftComponent.childrens.forEach((children) => {
+      children.properties = theme
+        ? applyTheme(children.properties, theme)
+        : children.properties;
+      if (children.properties.onPress) {
+        children.properties.onPress.navigation
+          ? this.props.createScreen(children.properties.onPress)
+          : null;
+      }
+    });
+    props.rightComponent.childrens.forEach((children) => {
+      children.properties = theme
+        ? applyTheme(children.properties, theme)
+        : children.properties;
+      if (children.properties.onPress) {
+        children.properties.onPress.navigation
+          ? this.props.createScreen(children.properties.onPress)
+          : null;
+      }
+    });
+    props.centerComponent.childrens.forEach((children) => {
+      children.properties = theme
+        ? applyTheme(children.properties, theme)
+        : children.properties;
+      if (children.properties.onPress) {
+        children.properties.onPress.navigation
+          ? this.props.createScreen(children.properties.onPress)
+          : null;
+      }
+    });
   }
   static contextType = NavigationContext;
-  componentDidMount() {
-    if (this.props.onPress) {
-      this.props.onPress.navigation
-        ? this.props.createScreen(this.props.onPress)
-        : null;
-    }
-  }
   render() {
     const navigation = this.context;
     //for creating customized header's (left , right and center component)
