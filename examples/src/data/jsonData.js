@@ -3488,10 +3488,6 @@ const data = {
             alignSelf: 'center',
             marginTop: '40%',
           },
-          // wrapperStyle: {
-          //   borderRadius: 20,
-          //   borderWidth: 3,
-          // },
           titleStyle: {
             fontWeight: 'bold',
             color: 'red',
@@ -3502,8 +3498,7 @@ const data = {
             type: 'image',
             properties: {
               uri:
-                'https://images.pexels.com/photos/3586966/pexels-photo-3586966.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260%27',
-              // 'https://www.pexels.com/photo/autumn-autumn-colours-brown-countryside-358238/',
+                'https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
               style: {
                 width: '100%',
                 height: 260,
