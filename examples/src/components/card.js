@@ -11,7 +11,6 @@ import ImageComponent from './image';
 
 export default class CardComponent extends Component {
   selectComponent(component, index) {
-    console.log('entering inside function');
     switch (component.type) {
       case 'text':
         return <TextComponent {...component.properties} key={index} />;
