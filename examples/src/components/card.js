@@ -1,5 +1,6 @@
+import PropTypes from 'prop-types';
 import React, {Component} from 'react';
-import {View} from 'react-native';
+import {View, ScrollView} from 'react-native';
 import {Card, ListItem, Button, Icon} from 'react-native-elements';
 
 import TextComponent from './text';
@@ -36,21 +37,55 @@ export default class CardComponent extends Component {
   }
 
   render() {
-    console.log('CARD', this.props);
     return (
       <Card
         title={this.props.properties.title}
-        titleNumberOfLines={this.props.properties.titleNumberOfLines}
         titleStyle={this.props.properties.titleStyle}
         wrapperStyle={this.props.properties.wrapperStyle}
         containerStyle={this.props.properties.containerStyle}
-        dividerStyle={this.props.properties.dividerStyle}
-        //  featuredTitle={}
-      >
-        {this.props.childrens.map((component, index) => {
-          return this.selectComponent(component, index);
-        })}
+        dividerStyle={this.props.properties.dividerStyle}>
+        <ScrollView>
+          {this.props.childrens.map((component, index) => {
+            return this.selectComponent(component, index);
+          })}
+        </ScrollView>
       </Card>
     );
   }
 }
+
+CardComponent.propTypes = {
+  title: PropTypes.string,
+  containerStyle: PropTypes.shape({
+    color: PropTypes.string,
+    fontSize: PropTypes.number,
+    marginTop: PropTypes.number,
+    textAlign: PropTypes.string,
+    padding: PropTypes.number,
+  }),
+  wrapperStyle: PropTypes.shape({
+    color: PropTypes.string,
+    fontSize: PropTypes.number,
+    marginTop: PropTypes.number,
+    textAlign: PropTypes.string,
+    padding: PropTypes.number,
+  }),
+  dividerStyle: PropTypes.shape({
+    borderColor: PropTypes.string,
+    padding: PropTypes.number,
+    borderWidth: PropTypes.number,
+  }),
+};
+
+CardComponent.defaultProps = {
+  title: 'Heading',
+  containerStyle: {
+    backgroundColor: 'blue',
+    padding: 0,
+    height: 200,
+    width: 100,
+  },
+  titleStyle: {
+    fontSize: 20,
+  },
+};

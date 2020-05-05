@@ -3516,7 +3516,7 @@ const data = {
               borderRadius: 40,
               position: 'absolute',
               right: 5,
-              bottom: 55,
+              top: 219,
               flexDirection: 'row',
             },
             childrens: [
@@ -3537,6 +3537,32 @@ const data = {
                 },
               },
             ],
+          },
+          {
+            type: 'text',
+            properties: {
+              title: 'Title of image \nSubtitle',
+              style: {
+                alignSelf: 'flex-start',
+                marginLeft: 10,
+                fontWeight: 'bold',
+                fontSize: 20,
+              },
+            },
+          },
+
+          {
+            type: 'image',
+            properties: {
+              uri:
+                'https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+              style: {
+                width: '100%',
+                height: 260,
+                borderRadius: 20,
+                position: 'relative',
+              },
+            },
           },
           {
             type: 'text',
