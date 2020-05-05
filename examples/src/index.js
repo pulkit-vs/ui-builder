@@ -16,6 +16,7 @@ import IconComponent from "./components/icon";
 import ImageComponent from "./components/image";
 import Input from "./components/input";
 import ModalComponent from "./components/modal";
+import SliderComponent from "./components/slider";
 import TextComponent from "./components/text";
 import { applyTheme } from "./utility/utils";
 
@@ -57,6 +58,8 @@ export default class UiBuilder extends React.Component {
       }
       case "image":
         return <ImageComponent {...component.properties} key={index} />;
+      case "slider":
+        return <SliderComponent {...component.properties} key = {index} />;
     }
   }
 

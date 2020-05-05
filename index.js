@@ -7,7 +7,7 @@
  */
 
 import React from "react";
-import { View } from "react-native";
+import { View, KeyboardAvoidingView, ScrollView } from "react-native";
 import { get } from "lodash";
 
 import ButtonComponent from "./src/components/button";
@@ -16,6 +16,7 @@ import IconComponent from "./src/components/icon";
 import ImageComponent from "./src/components/image";
 import Input from "./src/components/input";
 import ModalComponent from "./src/components/modal";
+import SliderComponent from "./src/components/slider";
 import TextComponent from "./src/components/text";
 import { applyTheme } from "./src/utility/utils";
 
@@ -57,6 +58,8 @@ export default class UiBuilder extends React.Component {
       }
       case "image":
         return <ImageComponent {...component.properties} key={index} />;
+      case "slider":
+        return <SliderComponent {...component.properties} key = {index} />;
     }
   }
 
@@ -64,11 +67,15 @@ export default class UiBuilder extends React.Component {
     const { source } = this.props;
     theme = source.theme;
     return (
-      <View>
-        {source.data.map((component, index) => {
-          return this.selectComponent(component, index);
-        })}
-      </View>
+      <KeyboardAvoidingView enabled behavior={"position"} keyboardVerticalOffset={-200}>
+        <ScrollView>
+          <View>
+            {source.data.map((component, index) => {
+              return this.selectComponent(component, index);
+            })}
+          </View>
+        </ScrollView>
+      </KeyboardAvoidingView>
     );
   }
 }
