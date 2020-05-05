@@ -46,6 +46,7 @@ export default class IconComponent extends Component {
 IconComponent.propTypes = {
   size: PropTypes.number,
   name: PropTypes.string,
+  onPress: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
   color: PropTypes.string,
   disabled: PropTypes.bool,
   containerStyle: PropTypes.shape({

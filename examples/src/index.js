@@ -7,11 +7,12 @@
  */
 
 import React from 'react';
-import { View, KeyboardAvoidingView, ScrollView } from "react-native";
+import {View, KeyboardAvoidingView, ScrollView} from 'react-native';
 import {get} from 'lodash';
-import {applyTheme} from './utility/utils';
 
+import {applyTheme} from './utility/utils';
 import ButtonComponent from './components/button';
+import {ComponentName} from './utility/constant';
 import HeaderComponent from './components/header';
 import IconComponent from './components/icon';
 import ImageComponent from './components/image';
@@ -32,11 +33,11 @@ export default class Components extends React.Component {
   selectComponent(component, index) {
     const type = get(component, 'type', '');
     switch (type) {
-      case 'input':
+      case ComponentName.input:
         return <TextInput {...component.properties} key={index} />;
-      case 'icon':
+      case ComponentName.icon:
         return <IconComponent {...component.properties} key={index} />;
-      case 'button':
+      case ComponentName.button:
         return (
           <ButtonComponent
             {...component.properties}
@@ -44,7 +45,7 @@ export default class Components extends React.Component {
             key={index}
           />
         );
-      case 'header':
+      case ComponentName.header:
         return (
           <HeaderComponent
             {...component.properties}
@@ -52,7 +53,7 @@ export default class Components extends React.Component {
             key={index}
           />
         );
-      case 'text':
+      case ComponentName.text:
         return (
           <TextComponent
             {...component.properties}
@@ -60,11 +61,16 @@ export default class Components extends React.Component {
             key={index}
           />
         );
-      case 'modal':
-        return <ModalComponent {...component} createScreen={this.props.createScreen}
-        key={index} />;
+      case ComponentName.modal:
+        return (
+          <ModalComponent
+            {...component}
+            createScreen={this.props.createScreen}
+            key={index}
+          />
+        );
 
-      case 'view': {
+      case ComponentName.view: {
         if (theme) {
           component.style = applyTheme(component.style, theme);
         }
@@ -76,10 +82,10 @@ export default class Components extends React.Component {
           </View>
         );
       }
-      case 'image':
+      case ComponentName.image:
         return <ImageComponent {...component.properties} key={index} />;
-      case 'divider':
-        return <DividerComponent {...component.properties} key = {index} />;
+      case ComponentName.divider:
+        return <DividerComponent {...component.properties} key={index} />;
     }
   }
 
@@ -87,7 +93,10 @@ export default class Components extends React.Component {
     const {source} = this.props;
     theme = source.theme;
     return (
-       <KeyboardAvoidingView enabled behavior={"position"} keyboardVerticalOffset={-200}>
+      <KeyboardAvoidingView
+        enabled
+        behavior={'position'}
+        keyboardVerticalOffset={-200}>
         <ScrollView>
           <View>
             {source.data.map((component, index) => {

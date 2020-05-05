@@ -96,7 +96,7 @@ export default class ButtonComponent extends React.Component {
 // To run typechecking on the props for a component, for validating a props
 ButtonComponent.propTypes = {
   title: PropTypes.string,
-  // onPress: PropTypes.func,
+  onPress: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
   disabled: PropTypes.bool,
   buttonStyle: PropTypes.shape({
     backgroundColor: PropTypes.string,
