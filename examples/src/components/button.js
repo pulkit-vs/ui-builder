@@ -14,7 +14,7 @@ import { View } from 'react-native';
 
 import { applyTheme } from '../utility/utils';
 import { shapeStyles } from '../style/buttonStyle';
-import { theme } from '../../index';
+import { theme } from '../index';
 
 export default class ButtonComponent extends React.Component {
 
