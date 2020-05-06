@@ -1,6 +1,7 @@
 //const data1;
 const data = {
   // Low Level Component
+  //theme: 'lightTheme',
   source: {
     screenName: 'First Screen',
     data: [
@@ -3478,11 +3479,12 @@ const data = {
       {
         type: 'card',
         properties: {
+          title: 'Hello',
           containerStyle: {
             height: 320,
             width: 250,
             borderRadius: 20,
-            borderWidth: 0,
+            borderWidth: 2,
             borderColor: 'red',
             padding: 0,
             alignSelf: 'center',
@@ -3493,6 +3495,7 @@ const data = {
             color: 'red',
           },
         },
+
         childrens: [
           {
             type: 'image',
@@ -3525,9 +3528,8 @@ const data = {
                 properties: {
                   name: 'euro-symbol',
                   type: 'material',
-                  color: 'black',
                   size: 25,
-                  iconStyle: {color: 'black', marginTop: 1},
+                  iconStyle: {color: 'red', marginTop: 1, color: 'red'},
                 },
               },
               {
@@ -3539,40 +3541,31 @@ const data = {
             ],
           },
           {
-            type: 'text',
+            type: 'button',
             properties: {
-              title: 'Title of image \nSubtitle',
-              style: {
-                alignSelf: 'flex-start',
-                marginLeft: 10,
-                fontWeight: 'bold',
-                fontSize: 20,
+              title: 'Log in with Facebook',
+              titleStyle: {color: 'blue', fontSize: 20},
+              buttonStyle: {
+                backgroundColor: 'white',
+                width: '90%',
+                left: 20,
+                borderWidth: 3,
+                marginTop: 30,
+                borderColor: 'red',
               },
-            },
-          },
-
-          {
-            type: 'image',
-            properties: {
-              uri:
-                'https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-              style: {
-                width: '100%',
-                height: 260,
-                borderRadius: 20,
-                position: 'relative',
-              },
-            },
-          },
-          {
-            type: 'text',
-            properties: {
-              title: 'Title of image \nSubtitle',
-              style: {
-                alignSelf: 'flex-start',
-                marginLeft: 10,
-                fontWeight: 'bold',
-                fontSize: 20,
+              onPress: {
+                navigation: 'true',
+                screenName: 'Page ',
+                source: {
+                  data: [
+                    {
+                      type: 'text',
+                      properties: {
+                        title: 'hello',
+                      },
+                    },
+                  ],
+                },
               },
             },
           },

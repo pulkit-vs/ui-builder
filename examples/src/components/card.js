@@ -8,14 +8,22 @@ import ButtonComponent from './button';
 import CheckboxComponent from './Checkbox';
 import IconComponent from './icon';
 import ImageComponent from './image';
+import {theme} from '../index';
+import {applyTheme} from '../utility/utils';
 
 export default class CardComponent extends Component {
   selectComponent(component, index) {
     switch (component.type) {
-      case 'text':
-        return <TextComponent {...component.properties} key={index} />;
+      // case 'text':
+      //   return <TextComponent {...component.properties} key={index} />;
       case 'button':
-        return <ButtonComponent {...component.properties} key={index} />;
+        return (
+          <ButtonComponent
+            {...component.properties}
+            key={index}
+            createScreen={this.props.createScreen}
+          />
+        );
       case 'icon':
         return <IconComponent {...component.properties} key={index} />;
       case 'checkbox':
@@ -36,9 +44,10 @@ export default class CardComponent extends Component {
   }
 
   render() {
+    this.props = theme ? applyTheme(this.props, theme) : this.props;
     return (
       <Card
-        title={this.props.properties.title}
+        title={this.props.title}
         titleStyle={this.props.properties.titleStyle}
         wrapperStyle={this.props.properties.wrapperStyle}
         containerStyle={this.props.properties.containerStyle}
@@ -76,15 +85,15 @@ CardComponent.propTypes = {
   }),
 };
 
-CardComponent.defaultProps = {
-  title: 'Heading',
-  containerStyle: {
-    backgroundColor: 'blue',
-    padding: 0,
-    height: 200,
-    width: 100,
-  },
-  titleStyle: {
-    fontSize: 20,
-  },
-};
+// CardComponent.defaultProps = {
+//   title: 'Heading',
+//   containerStyle: {
+//     backgroundColor: 'blue',
+//     padding: 0,
+//     height: 200,
+//     width: 100,
+//   },
+//   titleStyle: {
+//     fontSize: 20,
+//   },
+// };
