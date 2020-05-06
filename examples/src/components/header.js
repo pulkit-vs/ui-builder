@@ -1,16 +1,15 @@
-import { Header, Icon, Input } from "react-native-elements";
-import PropTypes from "prop-types";
-import React from "react";
-import { View, Text } from "react-native";
+import {Header, Icon, Input} from 'react-native-elements';
+import PropTypes from 'prop-types';
+import React from 'react';
+import {View, Text} from 'react-native';
 
-import { applyTheme } from "../utility/utils";
-import { theme } from "../../index";
-
+import {applyTheme} from '../utility/utils';
+import {theme} from '../index';
 export default class HeaderComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      ValueOfComponent: ["leftComponent", "centerComponent", "rightComponent"],
+      ValueOfComponent: ['leftComponent', 'centerComponent', 'rightComponent'],
     };
     // apply theme
     if (theme) {
@@ -35,13 +34,12 @@ export default class HeaderComponent extends React.Component {
           <View
             key={index}
             style={
-              this.props[component].childrens[0].type == "view"
+              this.props[component].childrens[0].type == 'view'
                 ? this.props[component].childrens[0].properties.style
                 : {}
-            }
-          >
+            }>
             {this.props[component].childrens.map((item, i) => {
-              if (item.type == "icon") {
+              if (item.type == 'icon') {
                 const styleOfIcon = item.properties;
 
                 return (
@@ -53,14 +51,14 @@ export default class HeaderComponent extends React.Component {
                     size={styleOfIcon.size}
                   />
                 );
-              } else if (item.type == "text") {
+              } else if (item.type == 'text') {
                 const styleOfText = item.properties;
                 return (
                   <Text key={i} style={styleOfText.style}>
                     {styleOfText.title}
                   </Text>
                 );
-              } else if (item.type == "input") {
+              } else if (item.type == 'input') {
                 const styleOfInput = item.properties;
                 return (
                   <Input
@@ -73,8 +71,7 @@ export default class HeaderComponent extends React.Component {
                           color={styleOfInput.leftIcon.color}
                           name={styleOfInput.leftIcon.name}
                           size={styleOfInput.leftIcon.size}
-                          type={styleOfInput.leftIcon.type}
-                        ></Icon>
+                          type={styleOfInput.leftIcon.type}></Icon>
                       ) : null
                     }
                     placeholder={styleOfInput.placeholder}
@@ -84,18 +81,16 @@ export default class HeaderComponent extends React.Component {
                           color={styleOfInput.rightIcon.color}
                           name={styleOfInput.rightIcon.name}
                           size={styleOfInput.rightIcon.size}
-                          type={styleOfInput.rightIcon.type}
-                        ></Icon>
+                          type={styleOfInput.rightIcon.type}></Icon>
                       ) : null
-                    }
-                  ></Input>
+                    }></Input>
                 );
               } else {
                 return null;
               }
             })}
           </View>
-        ) : null
+        ) : null,
     );
     return (
       <View>
@@ -141,32 +136,32 @@ HeaderComponent.defaultProps = {
   centerComponent: {
     childrens: [
       {
-        type: "view",
-        properties: { style: { flexDirection: "row" } },
+        type: 'view',
+        properties: {style: {flexDirection: 'row'}},
       },
     ],
   },
   containerStyle: {
-    backgroundColor: "blue",
-    justifyContent: "space-around",
-    borderColor: "black",
+    backgroundColor: 'blue',
+    justifyContent: 'space-around',
+    borderColor: 'black',
     borderWidth: 0,
     height: 70,
   },
   leftComponent: {
     childrens: [
       {
-        type: "view",
-        properties: { style: { flexDirection: "row" } },
+        type: 'view',
+        properties: {style: {flexDirection: 'row'}},
       },
     ],
   },
-  placement: "center",
+  placement: 'center',
   rightComponent: {
     childrens: [
       {
-        type: "view",
-        properties: { style: { flexDirection: "row" } },
+        type: 'view',
+        properties: {style: {flexDirection: 'row'}},
       },
     ],
   },
