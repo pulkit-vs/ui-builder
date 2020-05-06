@@ -14,8 +14,8 @@ import {applyTheme} from '../utility/utils';
 export default class CardComponent extends Component {
   selectComponent(component, index) {
     switch (component.type) {
-      // case 'text':
-      //   return <TextComponent {...component.properties} key={index} />;
+      case 'text':
+        return <TextComponent {...component.properties} key={index} />;
       case 'button':
         return (
           <ButtonComponent
@@ -85,15 +85,15 @@ CardComponent.propTypes = {
   }),
 };
 
-// CardComponent.defaultProps = {
-//   title: 'Heading',
-//   containerStyle: {
-//     backgroundColor: 'blue',
-//     padding: 0,
-//     height: 200,
-//     width: 100,
-//   },
-//   titleStyle: {
-//     fontSize: 20,
-//   },
-// };
+CardComponent.defaultProps = {
+  title: 'Heading',
+  containerStyle: {
+    backgroundColor: 'blue',
+    padding: 0,
+    height: 200,
+    width: 100,
+  },
+  titleStyle: {
+    fontSize: 20,
+  },
+};
