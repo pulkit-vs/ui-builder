@@ -1,11 +1,6 @@
-import Carousel from 'react-native-snap-carousel';
+import Carousel, {Pagination} from 'react-native-snap-carousel';
 import PropTypes from 'prop-types';
 import React from 'react';
-import {View, Image, Dimensions, Text} from 'react-native';
-
-const SLIDER_WIDTH = Dimensions.get('window').width;
-const ITEM_WIDTH = Math.round(SLIDER_WIDTH * 0.7);
-const ITEM_HEIGHT = Math.round((ITEM_WIDTH * 3) / 4);
 
 export default class MyCarousel extends React.Component {
   state = {
@@ -18,60 +13,72 @@ export default class MyCarousel extends React.Component {
   }
 
   _renderItem({item}) {
+    return <>{item}</>;
+  }
+
+  get pagination() {
+    const style = this.props.pagination;
     return (
-      <View>
-        <Image
-          source={{
-            uri: item,
-          }}
-          style={{width: 400, height: 300, resizeMode: 'contain'}}
-        />
-      </View>
+      <Pagination
+        activeDotIndex={this.state.index}
+        containerStyle={style.containerStyle}
+        dotsLength={this.props.data.length}
+        dotStyle={style.dotStyle}
+        inactiveDotStyle={style.inactiveDotStyle}
+        inactiveDotOpacity={style.inactiveDotOpacity}
+        inactiveDotScale={style.inactiveDotScale}
+      />
     );
   }
 
   render() {
-    // console.log('value', this.props.autoplay);
     return (
-      <View>
+      <>
         <Carousel
-          //   ref={(c) => (this.carousel = c)}
-          data={this.props.images}
-          renderItem={this._renderItem}
-          itemWidth={this.props.itemWidth}
-          sliderWidth={this.props.sliderWidth}
-          itemHeight={this.props.itemHeight}
-          sliderHeight={this.props.sliderHeight}
-          containerCustomStyle={this.props.containerCustomStyle}
-          inactiveSlideShift={0}
-          onSnapToItem={(index) => this.setState({index})}
-          useScrollView={true}
           autoplay={this.props.autoplay}
           autoplayInterval={this.props.autoplayInterval}
+          containerCustomStyle={this.props.containerCustomStyle}
+          data={this.props.data}
+          itemHeight={this.props.itemHeight}
+          itemWidth={this.props.itemWidth}
           layout={this.props.layout}
+          loop={this.props.loop}
+          onSnapToItem={(index) => this.setState({index})}
+          ref={(c) => (this.carousel = c)}
+          renderItem={this._renderItem}
+          sliderWidth={this.props.sliderWidth}
+          sliderHeight={this.props.sliderHeight}
+          useScrollView={true}
           vertical={this.props.vertical}
         />
-        <Text>{this.state.index}</Text>
-      </View>
+        {this.props.pagination ? this.pagination : null}
+      </>
     );
   }
 }
 
 MyCarousel.propTypes = {
-  title: PropTypes.string,
-  itemWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  sliderWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  itemHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  sliderHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  containerCustomStyle: PropTypes.object,
-  useScrollView: PropTypes.bool,
   autoplay: PropTypes.bool,
   autoplayInterval: PropTypes.number,
+  containerCustomStyle: PropTypes.object,
+  itemHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  itemWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   layout: PropTypes.string,
+  loop: PropTypes.bool,
+  pagination: PropTypes.object,
+  sliderWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  sliderHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  title: PropTypes.string,
+  useScrollView: PropTypes.bool,
   vertical: PropTypes.bool,
 };
 MyCarousel.defaultProps = {
   autoplay: false,
+  itemHeight: 400,
+  itemWidth: 400,
   layout: 'default',
+  loop: false,
+  sliderHeight: 400,
+  sliderWidth: 400,
   vertical: false,
 };

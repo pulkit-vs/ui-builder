@@ -12,6 +12,7 @@ import {get} from 'lodash';
 import {applyTheme} from './utility/utils';
 
 import ButtonComponent from './components/button';
+import CardComponent from './components/card';
 import MyCarousel from './components/carousel';
 import HeaderComponent from './components/header';
 import IconComponent from './components/icon';
@@ -45,8 +46,22 @@ export default class Components extends React.Component {
             key={index}
           />
         );
-      case 'carousel':
-        return <MyCarousel {...component.properties} key={index} />;
+      case 'carousel': {
+        let tempData = component.properties.data.map((componentData, i) => {
+          return this.selectComponent(componentData, i);
+        });
+        return (
+          <MyCarousel {...component.properties} data={tempData} key={index} />
+        );
+      }
+      case 'card':
+        return (
+          <CardComponent
+            {...component}
+            key={index}
+            createScreen={this.props.createScreen}
+          />
+        );
 
       case 'header':
         return (

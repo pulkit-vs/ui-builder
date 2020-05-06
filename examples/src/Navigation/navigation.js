@@ -1,6 +1,6 @@
-import {createStackNavigator} from './node_modules/@react-navigation/stack';
-import React from './node_modules/react';
-import {NavigationContainer} from './node_modules/@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
+import React from 'react';
+import {NavigationContainer} from '@react-navigation/native';
 
 import Components from '../index';
 
@@ -52,14 +52,6 @@ export default class UiBuilder extends React.Component {
           screenOptions={{
             headerShown: false,
           }}>
-          {/* <Stack.Screen name={this.props.source.screenName}>
-            {(props) => (
-              <Components
-                createScreen={this.createScreen}
-                source={this.props.source}
-              />
-            )}
-          </Stack.Screen> */}
           {this.state.stackScreens}
         </Stack.Navigator>
       </NavigationContainer>
