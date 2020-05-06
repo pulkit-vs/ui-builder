@@ -13,13 +13,13 @@ import { View, KeyboardAvoidingView, ScrollView } from "react-native";
 import { applyTheme } from "./src/utility/utils";
 import ButtonComponent from "./src/components/button";
 import { COMPONENTS } from "./src/utility/constant";
+import DividerComponent from "./src/components/divider";
 import HeaderComponent from "./src/components/header";
 import IconComponent from "./src/components/icon";
 import ImageComponent from "./src/components/image";
-import TextInput from "./src/components/input";
 import ModalComponent from "./src/components/modal";
+import TextInput from "./src/components/input";
 import TextComponent from "./src/components/text";
-import DividerComponent from "./src/components/divider";
 
 // Global variable to get theme type in other files.
 export let theme;

@@ -12,53 +12,36 @@ export default class CheckboxComponent extends Component {
       checked: false,
       color: "",
     };
+    if (theme) {
+      // Applying theme on components.
+      props = applyTheme(props, theme);
+    }
   }
 
   componentDidMount() {
-    let updatedTextColor;
-    if (this.props.checked) {
-      updatedTextColor = this.props.titleStyle.checkedColor
-        ? this.props.titleStyle.checkedColor
-        : this.props.titleStyle.color;
-    } else {
-      updatedTextColor = this.props.titleStyle.uncheckedColor
-        ? this.props.titleStyle.uncheckedColor
-        : this.props.titleStyle.color;
-    }
     // to set the initial state of checkbox component given by user and color of text content
     this.setState({
       checked: this.props.checked,
-      color: updatedTextColor,
     });
   }
+  // this method is used to change the state of checkbox from unchecked to checked and vice versa.
 
   handleCheckboxStatus = () => {
-    const checkedColor = this.props.titleStyle.checkedColor
-      ? this.props.titleStyle.checkedColor
-      : this.props.titleStyle.color;
-
-    const uncheckedColor = this.props.titleStyle.uncheckedColor
-      ? this.props.titleStyle.uncheckedColor
-      : this.props.titleStyle.color;
-
-    if (this.state.checked) {
-      this.setState({
-        checked: !this.state.checked,
-        color: uncheckedColor,
-      });
-    } else {
-      this.setState({
-        checked: !this.state.checked,
-        color: checkedColor,
-      });
-    }
+    this.setState({
+      checked: !this.state.checked,
+    });
   };
 
   render() {
-    props.titleStyle.color = this.state.color
-      ? this.state.color
-      : props.titleStyle.color;
-    this.props = theme ? applyTheme(this.props, theme) : this.props;
+    if (this.state.checked) {
+      this.props.titleStyle.color = this.props.titleStyle.checkedColor
+        ? this.props.titleStyle.checkedColor
+        : this.props.titleStyle.color;
+    } else {
+      this.props.titleStyle.color = this.props.titleStyle.uncheckedColor
+        ? this.props.titleStyle.uncheckedColor
+        : this.props.titleStyle.color;
+    }
 
     return (
       <View>
