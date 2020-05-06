@@ -5,7 +5,7 @@ import {View, Text} from 'react-native';
 import {NavigationContext} from '@react-navigation/native';
 
 import {applyTheme} from '../utility/utils';
-import {ComponentName} from '../utility/constant';
+import {COMPONENTS} from '../utility/constant';
 import {theme} from '../index';
 
 export default class HeaderComponent extends React.Component {
@@ -57,12 +57,12 @@ export default class HeaderComponent extends React.Component {
           <View
             key={index}
             style={
-              this.props[component].childrens[0].type == ComponentName.view
+              this.props[component].childrens[0].type == COMPONENTS.VIEW
                 ? this.props[component].childrens[0].properties.style
                 : {}
             }>
             {this.props[component].childrens.map((item, i) => {
-              if (item.type == ComponentName.icon) {
+              if (item.type == COMPONENTS.ICON) {
                 // creating screen for header'icon onPress
                 if (item.properties.onPress) {
                   item.properties.onPress.navigation
@@ -89,13 +89,13 @@ export default class HeaderComponent extends React.Component {
                     size={item.properties.size}
                   />
                 );
-              } else if (item.type == ComponentName.text) {
+              } else if (item.type == COMPONENTS.TEXT) {
                 return (
                   <Text key={i} style={item.properties.style}>
                     {item.properties.title}
                   </Text>
                 );
-              } else if (item.type == ComponentName.input) {
+              } else if (item.type == COMPONENTS.INPUT) {
                 return (
                   <Input
                     containerStyle={item.properties.containerStyle}

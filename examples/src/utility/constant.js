@@ -1,11 +1,13 @@
-export const ComponentName = {
-  button: 'button',
-  divider: 'divider',
-  header: 'header',
-  input: 'input',
-  icon: 'icon',
-  image: 'image',
-  modal: 'modal',
-  text: 'text',
-  view: 'view',
+export const COMPONENTS = {
+  BUTTON: 'button',
+  CAROUSEL: 'carousel',
+  CARD: 'card',
+  DIVIDER: 'divider',
+  HEADER: 'header',
+  INPUT: 'input',
+  ICON: 'icon',
+  IMAGE: 'image',
+  MODAL: 'modal',
+  TEXT: 'text',
+  VIEW: 'view',
 };

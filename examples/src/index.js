@@ -12,7 +12,7 @@ import {get} from 'lodash';
 
 import {applyTheme} from './utility/utils';
 import ButtonComponent from './components/button';
-import {ComponentName} from './utility/constant';
+import {COMPONENTS} from './utility/constant';
 import HeaderComponent from './components/header';
 import IconComponent from './components/icon';
 import ImageComponent from './components/image';
@@ -33,11 +33,11 @@ export default class Components extends React.Component {
   selectComponent(component, index) {
     const type = get(component, 'type', '');
     switch (type) {
-      case ComponentName.input:
+      case COMPONENTS.INPUT:
         return <TextInput {...component.properties} key={index} />;
-      case ComponentName.icon:
+      case COMPONENTS.ICON:
         return <IconComponent {...component.properties} key={index} />;
-      case ComponentName.button:
+      case COMPONENTS.BUTTON:
         return (
           <ButtonComponent
             {...component.properties}
@@ -45,7 +45,7 @@ export default class Components extends React.Component {
             key={index}
           />
         );
-      case ComponentName.header:
+      case COMPONENTS.HEADER:
         return (
           <HeaderComponent
             {...component.properties}
@@ -53,7 +53,7 @@ export default class Components extends React.Component {
             key={index}
           />
         );
-      case ComponentName.text:
+      case COMPONENTS.TEXT:
         return (
           <TextComponent
             {...component.properties}
@@ -61,7 +61,7 @@ export default class Components extends React.Component {
             key={index}
           />
         );
-      case ComponentName.modal:
+      case COMPONENTS.MODAL:
         return (
           <ModalComponent
             {...component}
@@ -70,7 +70,7 @@ export default class Components extends React.Component {
           />
         );
 
-      case ComponentName.view: {
+      case COMPONENTS.VIEW: {
         if (theme) {
           component.style = applyTheme(component.style, theme);
         }
@@ -82,9 +82,9 @@ export default class Components extends React.Component {
           </View>
         );
       }
-      case ComponentName.image:
+      case COMPONENTS.IMAGE:
         return <ImageComponent {...component.properties} key={index} />;
-      case ComponentName.divider:
+      case COMPONENTS.DIVIDER:
         return <DividerComponent {...component.properties} key={index} />;
     }
   }
