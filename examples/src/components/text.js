@@ -11,7 +11,7 @@ import React from 'react';
 import {Text} from 'react-native';
 
 import {applyTheme} from '../utility/utils';
-import {theme} from '../../index';
+import {theme} from '../index';
 
 export default class TextComponent extends React.Component {
   componentWillMount() {
