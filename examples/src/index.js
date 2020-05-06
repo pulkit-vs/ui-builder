@@ -9,8 +9,8 @@
 import React from 'react';
 import {View} from 'react-native';
 import {get} from 'lodash';
-import {applyTheme} from './utility/utils';
 
+import {applyTheme} from './utility/utils';
 import ButtonComponent from './components/button';
 import CardComponent from './components/card';
 import MyCarousel from './components/carousel';
