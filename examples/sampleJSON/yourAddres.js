@@ -1,18 +1,5 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
-import React from 'react';
-import UiBuilder from './src/index';
-
-// Add Address Screen Json
-const addAdressData = {
+export const sourceData = {
   theme: '',
-  screenName: 'Add Address',
   data: [
     {
       type: 'view',
@@ -35,13 +22,12 @@ const addAdressData = {
                   childrens: [
                     {
                       type: 'view',
-                      properties: {style: {flexDirection: 'row'}},
+                      style: {flexDirection: 'row'},
                     },
                     {
                       type: 'icon',
                       properties: {
                         name: 'long-arrow-left',
-                        type: 'font-awesome',
                         color: 'white',
                         size: 30,
                       },
@@ -76,32 +62,23 @@ const addAdressData = {
               childrens: [
                 {
                   type: 'view',
-                  properties: {
-                    style: {
-                      width: 500,
-                      marginLeft: -10,
-                      flexDirection: 'row',
-                      borderBottomWidth: 2,
-                      borderBottomColor: 'grey',
-                      backgroundColor: 'white',
-                    },
+                  style: {
+                    flexDirection: 'row',
+                    borderBottomWidth: 2,
+                    borderBottomColor: 'grey',
                   },
                 },
                 {
                   type: 'icon',
                   properties: {
                     name: 'plus-circle',
-                    type: 'font-awesome',
                     color: 'red',
-                    iconStyle: {
-                      marginLeft: 4,
-                    },
                   },
                 },
                 {
                   type: 'text',
                   properties: {
-                    title: 'Edit Your Addresses',
+                    title: 'Add Your Addresses',
                     style: {
                       color: 'red',
                       fontSize: 18,
@@ -123,11 +100,9 @@ const addAdressData = {
         style: {
           margin: 0,
           width: '100%',
-          marginTop: '110%',
+          marginTop: 350,
           backgroundColor: 'white',
           borderRadius: 0,
-          borderTopLeftRadius: 10,
-          borderTopRightRadius: 10,
         },
         backdropColor: 'grey',
         closeModal: ['onBackButtonPress', 'onSwipeComplete'],
@@ -290,14 +265,14 @@ const addAdressData = {
             title: 'SAVE ADDRESS',
             onPress: 'closeModal',
             buttonStyle: {
-              backgroundColor: 'red',
+              backgroundColor: 'yellow',
               borderColor: 'red',
               width: '98%',
               left: 70,
               borderWidth: 3,
               marginTop: 5,
               alignSelf: 'center',
-              marginRight: 140,
+              marginRight: 137,
             },
             titleStyle: {color: 'white'},
           },
@@ -306,13 +281,3 @@ const addAdressData = {
     },
   ],
 };
-
-export default class App extends React.Component {
-  render() {
-    return (
-      <>
-        <UiBuilder source={addAdressData} />
-      </>
-    );
-  }
-}

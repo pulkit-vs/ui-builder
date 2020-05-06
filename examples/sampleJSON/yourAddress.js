@@ -1,18 +1,5 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
-import React from 'react';
-import UiBuilder from './src/index';
-
-// Add Address Screen Json
-const addAdressData = {
+export const sourceData = {
   theme: '',
-  screenName: 'Add Address',
   data: [
     {
       type: 'view',
@@ -28,22 +15,24 @@ const addAdressData = {
                 containerStyle: {
                   backgroundColor: 'red',
                   borderBottomWidth: 0,
-                  height: 65,
+                  height: 30,
                   textAlign: 'center',
                 },
                 centerComponent: {
                   childrens: [
                     {
                       type: 'view',
-                      properties: {style: {flexDirection: 'row'}},
+                      style: {flexDirection: 'row'},
                     },
                     {
                       type: 'icon',
                       properties: {
                         name: 'long-arrow-left',
-                        type: 'font-awesome',
                         color: 'white',
                         size: 30,
+                        style: {
+                          marginTop: 3,
+                        },
                       },
                     },
                     {
@@ -68,43 +57,35 @@ const addAdressData = {
           properties: {
             containerStyle: {
               backgroundColor: 'white',
-              borderBottomWidth: 0,
+              borderBottomWidth: 2,
+              borderBottomColor: 'grey',
 
-              height: 40,
+              height: 45,
             },
             leftComponent: {
               childrens: [
                 {
                   type: 'view',
-                  properties: {
-                    style: {
-                      width: 500,
-                      marginLeft: -10,
-                      flexDirection: 'row',
-                      borderBottomWidth: 2,
-                      borderBottomColor: 'grey',
-                      backgroundColor: 'white',
-                    },
-                  },
+                  style: {flexDirection: 'row'},
                 },
                 {
                   type: 'icon',
                   properties: {
                     name: 'plus-circle',
-                    type: 'font-awesome',
                     color: 'red',
-                    iconStyle: {
-                      marginLeft: 4,
+                    size: 22,
+                    style: {
+                      marginTop: -2,
                     },
                   },
                 },
                 {
                   type: 'text',
                   properties: {
-                    title: 'Edit Your Addresses',
+                    title: ' ADD NEW ADDRESSES',
                     style: {
                       color: 'red',
-                      fontSize: 18,
+                      fontSize: 12,
                       width: 200,
                       marginBottom: 10,
                       marginLeft: 7,
@@ -123,11 +104,12 @@ const addAdressData = {
         style: {
           margin: 0,
           width: '100%',
-          marginTop: '110%',
+          height: 500,
+          marginTop: 350,
           backgroundColor: 'white',
-          borderRadius: 0,
-          borderTopLeftRadius: 10,
-          borderTopRightRadius: 10,
+
+          borderTopLeftRadius: 15,
+          borderTopRightRadius: 15,
         },
         backdropColor: 'grey',
         closeModal: ['onBackButtonPress', 'onSwipeComplete'],
@@ -140,6 +122,7 @@ const addAdressData = {
             containerStyle: {
               alignSelf: 'flex-end',
               right: 20,
+
               position: 'absolute',
             },
             name: 'close',
@@ -152,14 +135,14 @@ const addAdressData = {
           type: 'text',
           properties: {
             style: {
-              fontSize: 20,
+              fontSize: 16,
               fontWeight: 'bold',
               textAlign: 'center',
               color: 'black',
               alignSelf: 'flex-start',
               marginLeft: 10,
             },
-            title: 'Add new address',
+            title: 'Add new Address',
           },
         },
 
@@ -171,7 +154,7 @@ const addAdressData = {
               backgroundColor: 'white',
               borderColor: '#D3D3D3',
               borderWidth: 2,
-              width: '47%',
+              width: '47.8%',
               left: 5,
               position: 'absolute',
               height: 40,
@@ -222,7 +205,7 @@ const addAdressData = {
               backgroundColor: 'white',
               borderColor: '#D3D3D3',
               borderWidth: 2,
-              width: '47%',
+              width: '47.8%',
               left: 5,
               position: 'absolute',
               height: 40,
@@ -257,7 +240,7 @@ const addAdressData = {
               backgroundColor: 'white',
               borderColor: '#D3D3D3',
               borderWidth: 2,
-              width: '47%',
+              width: '47.8%',
               left: 5,
               position: 'absolute',
               height: 40,
@@ -295,9 +278,9 @@ const addAdressData = {
               width: '98%',
               left: 70,
               borderWidth: 3,
-              marginTop: 5,
+              marginTop: 7,
               alignSelf: 'center',
-              marginRight: 140,
+              marginRight: 137,
             },
             titleStyle: {color: 'white'},
           },
@@ -306,13 +289,3 @@ const addAdressData = {
     },
   ],
 };
-
-export default class App extends React.Component {
-  render() {
-    return (
-      <>
-        <UiBuilder source={addAdressData} />
-      </>
-    );
-  }
-}
