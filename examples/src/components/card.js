@@ -1,27 +1,27 @@
 import PropTypes from 'prop-types';
 import React, {Component} from 'react';
-import {View, ScrollView} from 'react-native';
 import {Card, Button, Icon} from 'react-native-elements';
+import {View, ScrollView} from 'react-native';
 
-import TextComponent from './text';
 import ButtonComponent from './button';
 import CheckboxComponent from './Checkbox';
 import IconComponent from './icon';
 import ImageComponent from './image';
-import {theme} from '../index';
+import TextComponent from './text';
 import {applyTheme} from '../utility/utils';
+import {theme} from '../index';
 
 export default class CardComponent extends Component {
   render() {
-    //  this.props = theme ? applyTheme(this.props, theme) : this.props;
+    this.props = theme ? applyTheme(this.props, theme) : this.props;
     console.log('props of card', this.props);
     return (
       <Card
+        containerStyle={this.props.containerStyle}
+        dividerStyle={this.props.dividerStyle}
         title={this.props.title}
         titleStyle={this.props.titleStyle}
-        wrapperStyle={this.props.wrapperStyle}
-        containerStyle={this.props.containerStyle}
-        dividerStyle={this.props.dividerStyle}>
+        wrapperStyle={this.props.wrapperStyle}>
         <ScrollView>{this.props.childrens}</ScrollView>
       </Card>
     );
@@ -34,20 +34,20 @@ CardComponent.propTypes = {
     color: PropTypes.string,
     fontSize: PropTypes.number,
     marginTop: PropTypes.number,
-    textAlign: PropTypes.string,
     padding: PropTypes.number,
+    textAlign: PropTypes.string,
   }),
   wrapperStyle: PropTypes.shape({
     color: PropTypes.string,
     fontSize: PropTypes.number,
     marginTop: PropTypes.number,
-    textAlign: PropTypes.string,
     padding: PropTypes.number,
+    textAlign: PropTypes.string,
   }),
   dividerStyle: PropTypes.shape({
     borderColor: PropTypes.string,
-    padding: PropTypes.number,
     borderWidth: PropTypes.number,
+    padding: PropTypes.number,
   }),
 };
 
