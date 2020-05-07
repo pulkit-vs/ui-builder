@@ -1,318 +1,152 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
-import React from 'react';
-import UiBuilder from './src/index';
-
-// Add Address Screen Json
-const addAdressData = {
-  theme: '',
-  screenName: 'Add Address',
-  data: [
-    {
-      type: 'view',
-      style: {},
-      childrens: [
-        {
-          type: 'view',
-          style: {borderBottomWidth: 25, borderBottomColor: 'red'},
-          childrens: [
-            {
-              type: 'header',
-              properties: {
-                containerStyle: {
-                  backgroundColor: 'red',
-                  borderBottomWidth: 0,
-                  height: 65,
-                  textAlign: 'center',
-                },
-                centerComponent: {
-                  childrens: [
-                    {
-                      type: 'view',
-                      properties: {style: {flexDirection: 'row'}},
-                    },
-                    {
-                      type: 'icon',
-                      properties: {
-                        name: 'long-arrow-left',
-                        type: 'font-awesome',
-                        color: 'white',
-                        size: 30,
-                      },
-                    },
-                    {
-                      type: 'text',
-                      properties: {
-                        title: 'Your Adresses',
-                        style: {
-                          color: 'white',
-                          fontSize: 23,
-                          marginLeft: 7,
-                        },
-                      },
-                    },
-                  ],
-                },
-              },
-            },
-          ],
-        },
-        {
-          type: 'header',
-          properties: {
-            containerStyle: {
-              backgroundColor: 'white',
-              borderBottomWidth: 0,
-
-              height: 40,
-            },
-            leftComponent: {
-              childrens: [
-                {
-                  type: 'view',
-                  properties: {
-                    style: {
-                      width: 500,
-                      marginLeft: -10,
-                      flexDirection: 'row',
-                      borderBottomWidth: 2,
-                      borderBottomColor: 'grey',
-                      backgroundColor: 'white',
-                    },
-                  },
-                },
-                {
-                  type: 'icon',
-                  properties: {
-                    name: 'plus-circle',
-                    type: 'font-awesome',
-                    color: 'red',
-                    iconStyle: {
-                      marginLeft: 4,
-                    },
-                  },
-                },
-                {
-                  type: 'text',
-                  properties: {
-                    title: 'Edit Your Addresses',
-                    style: {
-                      color: 'red',
-                      fontSize: 18,
-                      width: 200,
-                      marginBottom: 10,
-                      marginLeft: 7,
-                    },
-                  },
-                },
-              ],
-            },
-          },
-        },
-      ],
-    },
-    {
-      type: 'modal',
-      properties: {
-        style: {
-          margin: 0,
-          width: '100%',
-          marginTop: '110%',
-          backgroundColor: 'white',
-          borderRadius: 0,
-          borderTopLeftRadius: 10,
-          borderTopRightRadius: 10,
-        },
-        backdropColor: 'grey',
-        closeModal: ['onBackButtonPress', 'onSwipeComplete'],
-        swipeDirection: 'left',
-      },
-      childrens: [
-        {
-          type: 'icon',
-          properties: {
-            containerStyle: {
-              alignSelf: 'flex-end',
-              right: 20,
-              position: 'absolute',
-            },
-            name: 'close',
-            color: 'grey',
-            size: 20,
-            onPress: 'closeModal',
-          },
-        },
-        {
-          type: 'text',
-          properties: {
-            style: {
-              fontSize: 20,
-              fontWeight: 'bold',
-              textAlign: 'center',
-              color: 'black',
-              alignSelf: 'flex-start',
-              marginLeft: 10,
-            },
-            title: 'Add new address',
-          },
-        },
-
-        {
-          type: 'input',
-          properties: {
-            label: 'First Name',
-            style: {
-              backgroundColor: 'white',
-              borderColor: '#D3D3D3',
-              borderWidth: 2,
-              width: '47%',
-              left: 5,
-              position: 'absolute',
-              height: 40,
-              marginTop: 10,
-            },
-            placeholderTextColor: 'grey',
-          },
-        },
-        {
-          type: 'input',
-          properties: {
-            label: 'Last Name',
-            style: {
-              backgroundColor: 'white',
-              borderColor: '#D3D3D3',
-              borderWidth: 2,
-              width: '48%',
-              marginRight: 5,
-              left: 207,
-
-              height: 40,
-              marginTop: 10,
-            },
-            placeholderTextColor: 'grey',
-          },
-        },
-        {
-          type: 'input',
-          properties: {
-            label: 'Address',
-            style: {
-              backgroundColor: 'white',
-              borderColor: '#D3D3D3',
-              borderWidth: 2,
-              width: '97.5%',
-              height: 65,
-              marginLeft: 5,
-              marginTop: 4,
-            },
-            placeholderTextColor: 'grey',
-          },
-        },
-        {
-          type: 'input',
-          properties: {
-            label: 'City',
-            style: {
-              backgroundColor: 'white',
-              borderColor: '#D3D3D3',
-              borderWidth: 2,
-              width: '47%',
-              left: 5,
-              position: 'absolute',
-              height: 40,
-              marginTop: 4,
-            },
-            placeholderTextColor: 'grey',
-          },
-        },
-        {
-          type: 'input',
-          properties: {
-            label: 'Select State',
-            style: {
-              backgroundColor: 'white',
-              borderColor: '#D3D3D3',
-              borderWidth: 2,
-              width: '48%',
-              marginRight: 5,
-              left: 207,
-
-              height: 40,
-              marginTop: 4,
-            },
-            placeholderTextColor: 'grey',
-          },
-        },
-        {
-          type: 'input',
-          properties: {
-            label: 'Pin Code(6 digit)',
-            style: {
-              backgroundColor: 'white',
-              borderColor: '#D3D3D3',
-              borderWidth: 2,
-              width: '47%',
-              left: 5,
-              position: 'absolute',
-              height: 40,
-              marginTop: 4,
-            },
-            placeholderTextColor: 'grey',
-          },
-        },
-        {
-          type: 'input',
-          properties: {
-            label: 'Mobile Number',
-            style: {
-              backgroundColor: 'white',
-              borderColor: '#D3D3D3',
-              borderWidth: 2,
-              width: '48%',
-              marginRight: 5,
-              left: 207,
-
-              height: 40,
-              marginTop: 4,
-            },
-            placeholderTextColor: 'grey',
-          },
-        },
-        {
-          type: 'button',
-          properties: {
-            title: 'SAVE ADDRESS',
-            onPress: 'closeModal',
-            buttonStyle: {
-              backgroundColor: 'red',
-              borderColor: 'red',
-              width: '98%',
-              left: 70,
-              borderWidth: 3,
-              marginTop: 5,
-              alignSelf: 'center',
-              marginRight: 140,
-            },
-            titleStyle: {color: 'white'},
-          },
-        },
-      ],
-    },
-  ],
+import React, { useState, useEffect } from "react";
+import {
+  SafeAreaView,
+  StyleSheet,
+  TouchableOpacity,
+  View,
+  Text,
+  Platform
+} from "react-native";
+import KeyboardSpacer from "react-native-keyboard-spacer";
+import RNDraftView from "react-native-draftjs-editor";
+ 
+const ControlButton = ({ text, action, isActive }) => {
+  return (
+    <TouchableOpacity
+      style={[
+        styles.controlButtonContainer,
+        isActive ? { backgroundColor: "gold" } : {}
+      ]}
+      onPress={action}
+    >
+      <Text>{text}</Text>
+    </TouchableOpacity>
+  );
 };
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <>
-        <UiBuilder source={addAdressData} />
-      </>
-    );
+const EditorToolBar = ({
+  activeStyles,
+  blockType,
+  toggleStyle,
+  toggleBlockType
+}) => {
+  return (
+    <View style={styles.toolbarContainer}>
+      <ControlButton
+        text={"B"}
+        isActive={activeStyles.includes("BOLD")}
+        action={() => toggleStyle("BOLD")}
+      />
+      <ControlButton
+        text={"I"}
+        isActive={activeStyles.includes("ITALIC")}
+        action={() => toggleStyle("ITALIC")}
+      />
+      <ControlButton
+        text={"H"}
+        isActive={blockType === "header-one"}
+        action={() => toggleBlockType("header-one")}
+      />
+      <ControlButton
+        text={"ul"}
+        isActive={blockType === "unordered-list-item"}
+        action={() => toggleBlockType("unordered-list-item")}
+      />
+      <ControlButton
+        text={"ol"}
+        isActive={blockType === "ordered-list-item"}
+        action={() => toggleBlockType("ordered-list-item")}
+      />
+      <ControlButton
+        text={"--"}
+        isActive={activeStyles.includes("STRIKETHROUGH")}
+        action={() => toggleStyle("STRIKETHROUGH")}
+      />
+    </View>
+  );
+};
+ 
+const styleMap = {
+  STRIKETHROUGH: {
+    textDecoration: "line-through"
   }
-}
+};
+ 
+const App = () => {
+  const _draftRef = React.createRef();
+  const [activeStyles, setActiveStyles] = useState([]);
+  const [blockType, setActiveBlockType] = useState("unstyled");
+  const [editorState, setEditorState] = useState("");
+ 
+  const defaultValue =
+    "<h1>A Full fledged Text Editor</h1><p>This editor is built with Draft.js. Hence should be suitable for most projects. However, Draft.js Isn’t fully compatible with mobile yet. So you might face some issues.</p><p><br></p><p>This is a simple implementation</p><ul>  <li>It contains <strong>Text formatting </strong>and <em>Some blocks formatting</em></li>  <li>Each for it’s own purpose</li></ul><p>You can also do</p><ol>  <li>Custom style map</li>  <li>Own css styles</li>  <li>Custom block styling</li></ol><p>You are welcome to try it!</p>";
+ 
+  const editorLoaded = () => {
+    _draftRef.current && _draftRef.current.focus();
+  };
+ 
+  const toggleStyle = style => {
+    _draftRef.current && _draftRef.current.setStyle(style);
+  };
+ 
+  const toggleBlockType = blockType => {
+    _draftRef.current && _draftRef.current.setBlockType(blockType);
+  };
+ 
+  useEffect(() => {
+    /**
+     * Get the current editor state in HTML.
+     * Usually keep it in the submit or next action to get output after user has typed.
+     */
+    setEditorState(_draftRef.current ? _draftRef.current.getEditorState() : "");
+  }, [_draftRef]);
+  console.log(editorState);
+ 
+  return (
+    <SafeAreaView style={styles.containerStyle}>
+      <RNDraftView
+      // defaultValue pick text
+       defaultValue={defaultValue}
+        onEditorReady={editorLoaded}
+        style={{ flex: 1 }}
+        placeholder={"Add text here..."}
+        ref={_draftRef}
+        onStyleChanged={setActiveStyles}
+        onBlockTypeChanged={setActiveBlockType}
+        styleMap={styleMap}
+      />
+      <EditorToolBar
+        activeStyles={activeStyles}
+        blockType={blockType}
+        toggleStyle={toggleStyle}
+        toggleBlockType={toggleBlockType}
+      />
+      {Platform.OS === "ios" ? <KeyboardSpacer /> : null}
+    </SafeAreaView>
+  );
+};
+
+const styles = StyleSheet.create({
+  containerStyle: {
+    flex: 1,
+    marginTop: 36
+  },
+  toolbarContainer: {
+    height: 56,
+    flexDirection: "row",
+    backgroundColor: "silver",
+    alignItems: "center",
+    justifyContent: "space-around"
+  },
+  controlButtonContainer: {
+    padding: 8,
+    borderRadius: 2
+  }
+});
+ 
+export default App;
+
+
+// This editor - bold 
+// 1. line no -> cursor - selected line /word 
+// 2. action perform - bold func call 
