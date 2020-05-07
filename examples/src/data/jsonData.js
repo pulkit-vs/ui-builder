@@ -3479,7 +3479,6 @@ const data = {
       {
         type: 'card',
         properties: {
-          title: 'Hello',
           containerStyle: {
             height: 320,
             width: 250,
@@ -3489,10 +3488,6 @@ const data = {
             padding: 0,
             alignSelf: 'center',
             marginTop: '40%',
-          },
-          titleStyle: {
-            fontWeight: 'bold',
-            color: 'red',
           },
         },
 

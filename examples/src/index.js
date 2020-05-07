@@ -91,12 +91,17 @@ export default class Components extends React.Component {
         );
       case 'divider':
         return <DividerComponent {...component.properties} key={index} />;
+
       case 'card':
+        const childComponents = component.childrens.map((component, index) => {
+          return this.selectComponent(component, index);
+        });
+
         return (
           <CardComponent
-            {...component}
+            {...component.properties}
+            childrens={childComponents}
             key={index}
-            createScreen={this.props.createScreen}
           />
         );
     }
