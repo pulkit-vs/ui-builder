@@ -7,7 +7,9 @@ import {applyTheme} from '../utility/utils';
 import {theme} from '../index';
 
 export default class IconComponent extends Component {
-  constructor() {
+  constructor(props) {
+    super(props);
+
     this.props = theme ? applyTheme(this.props, theme) : this.props;
   }
   render() {

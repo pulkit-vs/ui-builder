@@ -3,17 +3,13 @@ import React, {Component} from 'react';
 import {Card, Button, Icon} from 'react-native-elements';
 import {View, ScrollView} from 'react-native';
 
-import ButtonComponent from './button';
-import CheckboxComponent from './Checkbox';
-import IconComponent from './icon';
-import ImageComponent from './image';
-import TextComponent from './text';
 import {applyTheme} from '../utility/utils';
 import {theme} from '../index';
 
 export default class CardComponent extends Component {
-  constructor() {
-    this.props = theme ? applyTheme(this.props, theme) : this.props;
+  constructor(props) {
+    super(props);
+    props = theme ? applyTheme(props, theme) : props;
   }
   render() {
     return (

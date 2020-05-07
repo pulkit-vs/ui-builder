@@ -3,11 +3,6 @@ import React, { Component } from "react";
 import { Card, Button, Icon } from "react-native-elements";
 import { View, ScrollView } from "react-native";
 
-import ButtonComponent from "./button";
-import CheckboxComponent from "./Checkbox";
-import IconComponent from "./icon";
-import ImageComponent from "./image";
-import TextComponent from "./text";
 import { applyTheme } from "../utility/utils";
 import { theme } from "../../index";
 
