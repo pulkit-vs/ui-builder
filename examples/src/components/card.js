@@ -12,9 +12,10 @@ import {applyTheme} from '../utility/utils';
 import {theme} from '../index';
 
 export default class CardComponent extends Component {
-  render() {
+  constructor() {
     this.props = theme ? applyTheme(this.props, theme) : this.props;
-    console.log('props of card', this.props);
+  }
+  render() {
     return (
       <Card
         containerStyle={this.props.containerStyle}
