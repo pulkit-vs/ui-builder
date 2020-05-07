@@ -12,18 +12,35 @@ import {Text} from 'react-native';
 
 import {applyTheme} from '../utility/utils';
 import {theme} from '../index';
+import {NavigationContext} from '@react-navigation/native';
 
 export default class TextComponent extends React.Component {
   componentWillMount() {
     // Applying theme on text
     this.props = theme ? applyTheme(this.props, theme) : this.props;
   }
-
+  componentDidMount() {
+    if (this.props.onPress) {
+      this.props.onPress.navigation
+        ? this.props.createScreen(this.props.onPress)
+        : null;
+    }
+  }
+  static contextType = NavigationContext;
   render() {
+    const navigation = this.context;
     const props = this.props;
     return (
       <>
-        <Text style={props.style}>{props.title}</Text>
+        <Text
+          style={props.style}
+          onPress={
+            this.props.onPress.navigation
+              ? () => navigation.navigate(this.props.onPress.screenName)
+              : () => this.props.onPress()
+          }>
+          {props.title}
+        </Text>
       </>
     );
   }
@@ -35,7 +52,7 @@ TextComponent.propTypes = {
     color: PropTypes.string,
     fontSize: PropTypes.number,
     fontWeight: PropTypes.string,
-    marginTop: PropTypes.number,
+    marginTop: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     textAlign: PropTypes.string,
   }),
 };
@@ -48,5 +65,8 @@ TextComponent.defaultProps = {
     fontWeight: 'bold',
     marginTop: 0,
     textAlign: 'center',
+  },
+  onPress() {
+    alert('Please attach a method');
   },
 };

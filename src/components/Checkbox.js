@@ -10,6 +10,7 @@ export default class CheckboxComponent extends Component {
     super(props);
     this.state = {
       checked: false,
+      color: "",
     };
     if (theme) {
       // Applying theme on components.

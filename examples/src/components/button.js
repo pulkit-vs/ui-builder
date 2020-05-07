@@ -11,6 +11,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import {Button} from 'react-native-elements';
 import {View} from 'react-native';
+import {NavigationContext} from '@react-navigation/native';
 
 import {applyTheme} from '../utility/utils';
 import {shapeStyles} from '../style/buttonStyle';
@@ -23,8 +24,15 @@ export default class ButtonComponent extends React.Component {
       properties: {},
     };
   }
+  static contextType = NavigationContext;
 
   async componentDidMount() {
+    // Creating Screen for Button onPress
+    if (this.props.onPress) {
+      this.props.onPress.navigation
+        ? this.props.createScreen(this.props.onPress)
+        : null;
+    }
     await this.setState({properties: this.props});
 
     // Customizing button style
@@ -63,11 +71,16 @@ export default class ButtonComponent extends React.Component {
   }
 
   render() {
+    const navigation = this.context;
     return (
       <View>
         <Button
           title={this.state.properties.title}
-          onPress={() => this.state.properties.onPress()}
+          onPress={() => {
+            this.props.onPress.navigation
+              ? navigation.navigate(this.props.onPress.screenName)
+              : this.props.onPress();
+          }}
           disabled={this.state.properties.disabled}
           buttonStyle={this.state.properties.buttonStyle}
           titleStyle={this.state.properties.titleStyle}
@@ -83,7 +96,7 @@ export default class ButtonComponent extends React.Component {
 // To run typechecking on the props for a component, for validating a props
 ButtonComponent.propTypes = {
   title: PropTypes.string,
-  onPress: PropTypes.func,
+  onPress: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
   disabled: PropTypes.bool,
   buttonStyle: PropTypes.shape({
     backgroundColor: PropTypes.string,

@@ -4,6 +4,7 @@ import {View, Image} from 'react-native';
 
 import {applyTheme} from '../utility/utils';
 import {theme} from '../index';
+
 export default class ImageComponent extends React.Component {
   constructor(props) {
     super(props);
