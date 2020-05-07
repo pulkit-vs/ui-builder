@@ -1,4 +1,4 @@
-export const source = {
+export const carouselSource = {
   navigation: true,
   screenName: 'Home',
 

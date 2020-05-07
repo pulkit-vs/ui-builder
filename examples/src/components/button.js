@@ -28,11 +28,10 @@ export default class ButtonComponent extends React.Component {
 
   async componentDidMount() {
     // Creating Screen for Button onPress
-    if (this.props.onPress) {
-      this.props.onPress.navigation
-        ? this.props.createScreen(this.props.onPress)
-        : null;
-    }
+    this.props.onPress && this.props.onPress.navigation
+      ? this.props.createScreen(this.props.onPress)
+      : null;
+
     await this.setState({properties: this.props});
 
     // Customizing button style
@@ -76,9 +75,8 @@ export default class ButtonComponent extends React.Component {
       <View>
         <Button
           title={this.state.properties.title}
-          // onPress={() => this.state.properties.onPress()}
           onPress={() => {
-            this.props.onPress.navigation
+            this.props.onPress && this.props.onPress.navigation
               ? navigation.navigate(this.props.onPress.screenName)
               : this.props.onPress();
           }}
@@ -97,7 +95,6 @@ export default class ButtonComponent extends React.Component {
 // To run typechecking on the props for a component, for validating a props
 ButtonComponent.propTypes = {
   title: PropTypes.string,
-  // onPress: PropTypes.func,
   disabled: PropTypes.bool,
   buttonStyle: PropTypes.shape({
     backgroundColor: PropTypes.string,

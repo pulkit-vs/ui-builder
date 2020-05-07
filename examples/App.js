@@ -10,10 +10,10 @@
 import React from 'react';
 import UiBuilder from './src/navigation/navigation';
 
-import {source} from './sampleJSON/carouselJson';
+import data from './src/data/jsonData';
 
 export default class App extends React.Component {
   render() {
-    return <UiBuilder source={source} />;
+    return <UiBuilder source={data.carouselSource} />;
   }
 }

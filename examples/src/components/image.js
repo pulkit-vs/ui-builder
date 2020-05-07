@@ -42,7 +42,7 @@ ImageComponent.propTypes = {
     borderWidth: PropTypes.number,
     height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     opacity: PropTypes.number,
-    overflow: PropTypes.strig,
+    overflow: PropTypes.string,
     width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   }),
 };

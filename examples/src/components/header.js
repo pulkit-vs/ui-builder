@@ -65,13 +65,14 @@ export default class HeaderComponent extends React.Component {
                     name={styleOfIcon.name}
                     type={styleOfIcon.type}
                     onPress={
-                      item.properties.onPress &&
-                      item.properties.onPress.navigation
-                        ? () =>
-                            navigation.navigate(
-                              item.properties.onPress.screenName,
-                            )
-                        : item.properties.onPress
+                      item.properties.onPress
+                        ? item.properties.onPress.navigation
+                          ? () =>
+                              navigation.navigate(
+                                item.properties.onPress.screenName,
+                              )
+                          : item.properties.onPress
+                        : null
                     }
                     size={styleOfIcon.size}
                   />

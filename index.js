@@ -10,19 +10,22 @@ import React from "react";
 import { View } from "react-native";
 import { get } from "lodash";
 
+import { applyTheme } from "./src/utility/utils";
 import ButtonComponent from "./src/components/button";
+import CardComponent from "./src/components/card";
+import DividerComponent from "./src/components/divider";
 import HeaderComponent from "./src/components/header";
 import IconComponent from "./src/components/icon";
-import ImageComponent from "./src/components/image";
 import Input from "./src/components/input";
+import ImageComponent from "./src/components/image";
 import ModalComponent from "./src/components/modal";
+import MyCarousel from "./src/components/carousel";
 import TextComponent from "./src/components/text";
-import { applyTheme } from "./src/utility/utils";
 
 // Global variable to get theme type in other files.
 export let theme;
 
-export default class UiBuilder extends React.Component {
+export default class Components extends React.Component {
   constructor() {
     super();
     this.selectComponent = this.selectComponent.bind(this);
@@ -36,11 +39,46 @@ export default class UiBuilder extends React.Component {
       case "icon":
         return <IconComponent {...component.properties} key={index} />;
       case "button":
-        return <ButtonComponent {...component.properties} key={index} />;
+        return (
+          <ButtonComponent
+            {...component.properties}
+            createScreen={this.props.createScreen}
+            key={index}
+          />
+        );
+      case "carousel": {
+        let tempData = component.properties.data.map((componentData, i) => {
+          return this.selectComponent(componentData, i);
+        });
+        return (
+          <MyCarousel {...component.properties} data={tempData} key={index} />
+        );
+      }
+      case "card":
+        return (
+          <CardComponent
+            {...component}
+            key={index}
+            createScreen={this.props.createScreen}
+          />
+        );
+
       case "header":
-        return <HeaderComponent {...component.properties} key={index} />;
+        return (
+          <HeaderComponent
+            {...component.properties}
+            createScreen={this.props.createScreen}
+            key={index}
+          />
+        );
       case "text":
-        return <TextComponent {...component.properties} key={index} />;
+        return (
+          <TextComponent
+            {...component.properties}
+            createScreen={this.props.createScreen}
+            key={index}
+          />
+        );
       case "modal":
         return <ModalComponent {...component} key={index} />;
       case "view": {
@@ -57,6 +95,8 @@ export default class UiBuilder extends React.Component {
       }
       case "image":
         return <ImageComponent {...component.properties} key={index} />;
+      case "divider":
+        return <DividerComponent {...component.properties} key={index} />;
     }
   }
 
