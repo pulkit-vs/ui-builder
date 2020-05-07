@@ -34,20 +34,20 @@ CardComponent.propTypes = {
   containerStyle: PropTypes.shape({
     color: PropTypes.string,
     fontSize: PropTypes.number,
-    marginTop: PropTypes.number,
+    marginTop: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     padding: PropTypes.number,
     textAlign: PropTypes.string,
   }),
   wrapperStyle: PropTypes.shape({
     color: PropTypes.string,
     fontSize: PropTypes.number,
-    marginTop: PropTypes.number,
+    marginTop: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     padding: PropTypes.number,
     textAlign: PropTypes.string,
   }),
   dividerStyle: PropTypes.shape({
     borderColor: PropTypes.string,
-    borderWidth: PropTypes.number,
+    borderWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     padding: PropTypes.number,
   }),
 };

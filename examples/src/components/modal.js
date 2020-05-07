@@ -12,7 +12,7 @@ import React from 'react';
 import {Button, Icon} from 'react-native-elements';
 
 import {CLOSE_MODAL} from '../utility/utils';
-import {View, Text, TextInput} from 'react-native';
+import {View, Text, TextInput, KeyboardAvoidingView} from 'react-native';
 import {applyTheme} from '../utility/utils';
 import {theme} from '../index';
 
@@ -22,7 +22,7 @@ export default class ModalComponent extends React.Component {
 
     this.state = {
       isModalVisible: true,
-      value: '',
+      values: [],
     };
     if (theme) {
       // Applying theme on components.
@@ -38,11 +38,23 @@ export default class ModalComponent extends React.Component {
     this.setState({isModalVisible: !this.state.isModalVisible});
   }
 
-  onChangeText(event) {
-    this.setState({value: event});
+  onChangeText(event, index) {
+    let updateState = this.state.values;
+    if (
+      this.state.values.length === 0 ||
+      this.state.values.findIndex((val) => val.key === index) === -1
+    ) {
+      updateState.push({key: index, value: event});
+    } else {
+      const activeIndex = this.state.values.findIndex(
+        (val) => val.key === index,
+      );
+      updateState[activeIndex].value = event;
+    }
+    this.setState({values: updateState});
   }
 
-  getChildrenData(children) {
+  getChildrenData(index, children) {
     return (
       <View>
         {(() => {
@@ -77,11 +89,15 @@ export default class ModalComponent extends React.Component {
           if (children.type === 'input') {
             return (
               <TextInput
-                onChangeText={() => this.onChangeText()}
+                onChangeText={(event) => this.onChangeText(event, index)}
                 placeholder={children.properties.label}
                 selectionColor={children.properties.style.selectionColor}
                 style={children.properties.style}
-                value={this.state.value}
+                value={
+                  this.state.values.find((val) => val.key === index)
+                    ? this.state.values.find((val) => val.key === index).value
+                    : ''
+                }
                 placeholderTextColor={children.properties.placeholderTextColor}
               />
             );
@@ -135,9 +151,11 @@ export default class ModalComponent extends React.Component {
             ? this.props.properties.swipeDirection
             : null
         }>
-        {this.props.childrens.map((children) => {
-          return this.getChildrenData(children);
-        })}
+        <KeyboardAvoidingView behavior="position" enabled>
+          {this.props.childrens.map((children, index) => {
+            return this.getChildrenData(index, children);
+          })}
+        </KeyboardAvoidingView>
       </Modal>
     );
   }
@@ -150,7 +168,7 @@ ModalComponent.propTypes = {
       backgroundColor: PropTypes.string,
       margin: PropTypes.number,
       marginBottom: PropTypes.number,
-      marginTop: PropTypes.string,
+      marginTop: PropTypes.number,
       width: PropTypes.string,
     }),
     backdropColor: PropTypes.string,

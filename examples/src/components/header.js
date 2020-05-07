@@ -29,10 +29,8 @@ export default class HeaderComponent extends React.Component {
   }
   static contextType = NavigationContext;
   componentDidMount() {
-    if (this.props.onPress) {
-      this.props.onPress.navigation
-        ? this.props.createScreen(this.props.onPress)
-        : null;
+    if (this.props.onPress && this.props.onPress.navigation) {
+      this.props.createScreen(this.props.onPress);
     }
   }
   render() {
@@ -51,10 +49,11 @@ export default class HeaderComponent extends React.Component {
             {this.props[component].childrens.map((item, i) => {
               if (item.type == 'icon') {
                 const styleOfIcon = item.properties;
-                if (item.properties.onPress) {
+                if (
+                  item.properties.onPress &&
                   item.properties.onPress.navigation
-                    ? this.props.createScreen(item.properties.onPress)
-                    : null;
+                ) {
+                  this.props.createScreen(item.properties.onPress);
                 }
 
                 return (
@@ -65,7 +64,8 @@ export default class HeaderComponent extends React.Component {
                     name={styleOfIcon.name}
                     type={styleOfIcon.type}
                     onPress={
-                      item.properties.onPress &&  item.properties.onPress.navigation
+                      item.properties.onPress &&
+                      item.properties.onPress.navigation
                         ? () =>
                             navigation.navigate(
                               item.properties.onPress.screenName,
