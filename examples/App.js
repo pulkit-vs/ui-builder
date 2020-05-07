@@ -20,6 +20,7 @@ const ControlButton = ({ text, action, isActive }) => {
       onPress={action}
     >
       <Text>{text}</Text>
+      
     </TouchableOpacity>
   );
 };
@@ -77,30 +78,52 @@ const App = () => {
   const [activeStyles, setActiveStyles] = useState([]);
   const [blockType, setActiveBlockType] = useState("unstyled");
   const [editorState, setEditorState] = useState("");
- 
+
+  console.log("editorState:", JSON.stringify(editorState))
+  console.log("setEditorState:", JSON.stringify(setEditorState))
+  // console.log("setEditorState:", JSON.stringify(setEditorState))
+
+  // console.log("setActiveBlockType:", JSON.stringify(setActiveBlockType))
+
   const defaultValue =
     "<h1>A Full fledged Text Editor</h1><p>This editor is built with Draft.js. Hence should be suitable for most projects. However, Draft.js Isn’t fully compatible with mobile yet. So you might face some issues.</p><p><br></p><p>This is a simple implementation</p><ul>  <li>It contains <strong>Text formatting </strong>and <em>Some blocks formatting</em></li>  <li>Each for it’s own purpose</li></ul><p>You can also do</p><ol>  <li>Custom style map</li>  <li>Own css styles</li>  <li>Custom block styling</li></ol><p>You are welcome to try it!</p>";
  
   const editorLoaded = () => {
+    console.log("editorLoaded")
     _draftRef.current && _draftRef.current.focus();
   };
  
   const toggleStyle = style => {
+    console.log("toggleStyle-1:", style)
+    console.log("toggleStyle-2:", (_draftRef))
+    console.log("toggleStyle-3:", (_draftRef.current))
+    console.log("toggleStyle-4:", (_draftRef.current.setStyle))
+
+
     _draftRef.current && _draftRef.current.setStyle(style);
   };
  
   const toggleBlockType = blockType => {
+    console.log("toggleBlockType:", blockType)
+
     _draftRef.current && _draftRef.current.setBlockType(blockType);
   };
  
   useEffect(() => {
+    // console.log("useEffect-1:", (_draftRef))
+    // console.log("useEffect-2:", (_draftRef.current._webViewRef))
+
+    console.log("useEffect-2:", ( _draftRef.current._webViewRef.current._reactInternalFiber._debugSource))
+
+    //console.log("useEffect-_debugSource:", _draftRef && _draftRef._debugSource)
+
     /**
      * Get the current editor state in HTML.
      * Usually keep it in the submit or next action to get output after user has typed.
      */
     setEditorState(_draftRef.current ? _draftRef.current.getEditorState() : "");
   }, [_draftRef]);
-  console.log(editorState);
+  //console.log(editorState);
  
   return (
     <SafeAreaView style={styles.containerStyle}>
@@ -150,3 +173,10 @@ export default App;
 // This editor - bold 
 // 1. line no -> cursor - selected line /word 
 // 2. action perform - bold func call 
+
+// speech - results[] - state - 0 element pick
+// Select " This editor" at line no 1  - text editor select 
+// make it bold - bold keyword -> bold method call (text)- result bold 
+
+
+// selected text - 
