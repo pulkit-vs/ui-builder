@@ -1,65 +1,41 @@
-import PropTypes from 'prop-types';
 import React, {Component} from 'react';
-import {CheckBox, Icon, colors} from 'react-native-elements';
 import {View} from 'react-native';
+import {CheckBox, Icon, colors} from 'react-native-elements';
+
 import {applyTheme} from '../utility/utils';
-import {theme} from '../index';
+import {theme} from '../../App';
+import PropTypes from 'prop-types';
 
 export default class CheckboxComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
       checked: false,
-      color: '',
     };
-
-    this.props = theme ? applyTheme(this.props, theme) : this.props;
+    props = theme ? applyTheme(props, theme) : props;
   }
 
   componentDidMount() {
-    let updatedTextColor;
-    if (this.props.checked) {
-      updatedTextColor = this.props.titleStyle.checkedColor
-        ? this.props.titleStyle.checkedColor
-        : this.props.titleStyle.color;
-    } else {
-      updatedTextColor = this.props.titleStyle.uncheckedColor
-        ? this.props.titleStyle.uncheckedColor
-        : this.props.titleStyle.color;
-    }
     // to set the initial state of checkbox component given by user and color of text content
     this.setState({
       checked: this.props.checked,
-      color: updatedTextColor,
     });
   }
-
   handleCheckboxStatus = () => {
-    const checkedColor = this.props.titleStyle.checkedColor
-      ? this.props.titleStyle.checkedColor
-      : this.props.titleStyle.color;
-
-    const uncheckedColor = this.props.titleStyle.uncheckedColor
-      ? this.props.titleStyle.uncheckedColor
-      : this.props.titleStyle.color;
-
-    if (this.state.checked) {
-      this.setState({
-        checked: !this.state.checked,
-        color: uncheckedColor,
-      });
-    } else {
-      this.setState({
-        checked: !this.state.checked,
-        color: checkedColor,
-      });
-    }
+    this.setState({
+      checked: !this.state.checked,
+    });
   };
-
   render() {
-    props.titleStyle.color = this.state.color
-      ? this.state.color
-      : props.titleStyle.color;
+    if (this.state.checked) {
+      this.props.titleStyle.color = this.props.titleStyle.checkedColor
+        ? this.props.titleStyle.checkedColor
+        : this.props.titleStyle.color;
+    } else {
+      this.props.titleStyle.color = this.props.titleStyle.uncheckedColor
+        ? this.props.titleStyle.uncheckedColor
+        : this.props.titleStyle.color;
+    }
 
     return (
       <View>
@@ -114,6 +90,7 @@ CheckboxComponent.defaultProps = {
     //borderWidth: '80%',
     borderRadius: 20,
     backgroundColor: 'red',
+
     borderColor: 'black',
   },
 };
