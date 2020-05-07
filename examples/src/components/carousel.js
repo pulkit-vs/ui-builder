@@ -16,20 +16,19 @@ export default class MyCarousel extends React.Component {
     return <>{item}</>;
   }
 
-  get pagination() {
-    const style = this.props.pagination;
+  pagination = () => {
     return (
       <Pagination
         activeDotIndex={this.state.index}
         containerStyle={style.containerStyle}
         dotsLength={this.props.data.length}
-        dotStyle={style.dotStyle}
+        dotStyle={this.props.pagination.dotStyle}
         inactiveDotStyle={style.inactiveDotStyle}
         inactiveDotOpacity={style.inactiveDotOpacity}
         inactiveDotScale={style.inactiveDotScale}
       />
     );
-  }
+  };
 
   render() {
     return (
