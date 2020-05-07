@@ -79,13 +79,14 @@ export default class HeaderComponent extends React.Component {
                     name={item.properties.name}
                     type={item.properties.type}
                     onPress={
-                      item.properties.onPress &&
-                      item.properties.onPress.navigation
-                        ? () =>
-                            navigation.navigate(
-                              item.properties.onPress.screenName
-                            )
-                        : item.properties.onPress
+                      item.properties.onPress
+                        ? item.properties.onPress.navigation
+                          ? () =>
+                              navigation.navigate(
+                                item.properties.onPress.screenName
+                              )
+                          : item.properties.onPress
+                        : null
                     }
                     size={item.properties.size}
                   />
