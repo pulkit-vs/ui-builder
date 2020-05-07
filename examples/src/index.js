@@ -93,6 +93,7 @@ export default class Components extends React.Component {
         return <DividerComponent {...component.properties} key={index} />;
 
       case 'card':
+        // map to store children components of card
         const childComponents = component.childrens.map((component, index) => {
           return this.selectComponent(component, index);
         });
