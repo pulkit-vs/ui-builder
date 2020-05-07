@@ -20,6 +20,7 @@ import ModalComponent from './components/modal';
 import TextComponent from './components/text';
 import DividerComponent from './components/divider';
 import CardComponent from './components/card';
+import CheckboxComponent from './components/Checkbox';
 
 // Global variable to get theme type in other files.
 export let theme;
@@ -89,6 +90,8 @@ export default class Components extends React.Component {
             createScreen={this.props.createScreen}
           />
         );
+      case 'checkbox':
+        return <CheckboxComponent {...component.properties} key={index} />;
       case 'divider':
         return <DividerComponent {...component.properties} key={index} />;
 
@@ -110,7 +113,7 @@ export default class Components extends React.Component {
 
   render() {
     const {source} = this.props;
-    theme = source.theme;
+    theme = 'lightTheme';
     return (
       <View>
         {source.data.map((component, index) => {
