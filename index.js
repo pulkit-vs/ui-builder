@@ -11,6 +11,8 @@ import { View } from "react-native";
 import { get } from "lodash";
 
 import ButtonComponent from "./src/components/button";
+import CardComponent from "./src/components/icon";
+import CheckboxComponent from "./src/components/icon";
 import HeaderComponent from "./src/components/header";
 import IconComponent from "./src/components/icon";
 import ImageComponent from "./src/components/image";
@@ -55,8 +57,24 @@ export default class UiBuilder extends React.Component {
           </View>
         );
       }
+      case "checkbox":
+        return <CheckboxComponent {...component.properties} key={index} />;
+
       case "image":
         return <ImageComponent {...component.properties} key={index} />;
+      case "card":
+        // map to store children components of card
+        const childComponents = component.childrens.map((component, index) => {
+          return this.selectComponent(component, index);
+        });
+
+        return (
+          <CardComponent
+            {...component.properties}
+            childrens={childComponents}
+            key={index}
+          />
+        );
     }
   }
 

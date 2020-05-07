@@ -9,7 +9,7 @@ import IconComponent from "./icon";
 import ImageComponent from "./image";
 import TextComponent from "./text";
 import { applyTheme } from "../utility/utils";
-import { theme } from "../index";
+import { theme } from "../../index";
 
 export default class CardComponent extends Component {
   render() {
