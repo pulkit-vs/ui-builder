@@ -27,7 +27,7 @@ export default class UiBuilder extends React.Component {
     };
   }
 
-  // Method for creating a given screen from given source onPress to a component
+  // Method for creating a screen from given source on onPress of a component
   createScreen({screenName, source}) {
     if (!this.state.screenNames.includes(screenName)) {
       let tempScreenNames = this.state.screenNames;
