@@ -1,8 +1,8 @@
-import Carousel, {Pagination} from 'react-native-snap-carousel';
-import PropTypes from 'prop-types';
-import React from 'react';
+import Carousel, { Pagination } from "react-native-snap-carousel";
+import PropTypes from "prop-types";
+import React from "react";
 
-export default class MyCarousel extends React.Component {
+export default class CarouselComponent extends React.Component {
   state = {
     index: 0,
   };
@@ -12,10 +12,10 @@ export default class MyCarousel extends React.Component {
     this._renderItem = this._renderItem.bind(this);
   }
 
-  _renderItem({item}) {
+  _renderItem({ item }) {
     return <>{item}</>;
   }
-
+  // for adding Pagination on carousel
   get pagination() {
     const style = this.props.pagination;
     return (
@@ -43,7 +43,7 @@ export default class MyCarousel extends React.Component {
           itemWidth={this.props.itemWidth}
           layout={this.props.layout}
           loop={this.props.loop}
-          onSnapToItem={(index) => this.setState({index})}
+          onSnapToItem={(index) => this.setState({ index })}
           ref={(c) => (this.carousel = c)}
           renderItem={this._renderItem}
           sliderWidth={this.props.sliderWidth}
@@ -57,7 +57,7 @@ export default class MyCarousel extends React.Component {
   }
 }
 
-MyCarousel.propTypes = {
+CarouselComponent.propTypes = {
   autoplay: PropTypes.bool,
   autoplayInterval: PropTypes.number,
   containerCustomStyle: PropTypes.object,
@@ -72,11 +72,11 @@ MyCarousel.propTypes = {
   useScrollView: PropTypes.bool,
   vertical: PropTypes.bool,
 };
-MyCarousel.defaultProps = {
+CarouselComponent.defaultProps = {
   autoplay: false,
   itemHeight: 400,
   itemWidth: 400,
-  layout: 'default',
+  layout: "default",
   loop: false,
   sliderHeight: 400,
   sliderWidth: 400,

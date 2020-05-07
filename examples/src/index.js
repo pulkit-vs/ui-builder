@@ -13,14 +13,14 @@ import {get} from 'lodash';
 import {applyTheme} from './utility/utils';
 import ButtonComponent from './components/button';
 import CardComponent from './components/card';
-import MyCarousel from './components/carousel';
+import CarouselComponent from './components/carousel';
+import DividerComponent from './components/divider';
 import HeaderComponent from './components/header';
 import IconComponent from './components/icon';
 import ImageComponent from './components/image';
 import Input from './components/input';
 import ModalComponent from './components/modal';
 import TextComponent from './components/text';
-import DividerComponent from './components/divider';
 
 // Global variable to get theme type in other files.
 export let theme;
@@ -47,11 +47,15 @@ export default class Components extends React.Component {
           />
         );
       case 'carousel': {
-        let tempData = component.properties.data.map((componentData, i) => {
+        let itemsData = component.properties.data.map((componentData, i) => {
           return this.selectComponent(componentData, i);
         });
         return (
-          <MyCarousel {...component.properties} data={tempData} key={index} />
+          <CarouselComponent
+            {...component.properties}
+            data={itemsData}
+            key={index}
+          />
         );
       }
       case 'card':
