@@ -12,14 +12,16 @@ import {get} from 'lodash';
 
 import {applyTheme} from './utility/utils';
 import ButtonComponent from './components/button';
+import CardComponent from './components/card';
+import CarouselComponent from './components/carousel';
 import {COMPONENTS} from './utility/constant';
+import DividerComponent from './components/divider';
 import HeaderComponent from './components/header';
 import IconComponent from './components/icon';
 import ImageComponent from './components/image';
-import TextInput from './components/input';
 import ModalComponent from './components/modal';
 import TextComponent from './components/text';
-import DividerComponent from './components/divider';
+import TextInput from './components/input';
 
 // Global variable to get theme type in other files.
 export let theme;
@@ -43,6 +45,26 @@ export default class Components extends React.Component {
             {...component.properties}
             createScreen={this.props.createScreen}
             key={index}
+          />
+        );
+      case COMPONENTS.CAROUSEL: {
+        let itemsData = component.properties.data.map((componentData, i) => {
+          return this.selectComponent(componentData, i);
+        });
+        return (
+          <CarouselComponent
+            {...component.properties}
+            data={itemsData}
+            key={index}
+          />
+        );
+      }
+      case COMPONENTS.CARD:
+        return (
+          <CardComponent
+            {...component}
+            key={index}
+            createScreen={this.props.createScreen}
           />
         );
       case COMPONENTS.HEADER:
@@ -69,7 +91,6 @@ export default class Components extends React.Component {
             key={index}
           />
         );
-
       case COMPONENTS.VIEW: {
         if (theme) {
           component.style = applyTheme(component.style, theme);
@@ -82,6 +103,8 @@ export default class Components extends React.Component {
           </View>
         );
       }
+      case COMPONENTS.CHECKBOX:
+        return <CheckboxComponent {...component.properties} key={index} />;
       case COMPONENTS.IMAGE:
         return <ImageComponent {...component.properties} key={index} />;
       case COMPONENTS.DIVIDER:

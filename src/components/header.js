@@ -64,13 +64,6 @@ export default class HeaderComponent extends React.Component {
           >
             {this.props[component].childrens.map((item, i) => {
               if (item.type == COMPONENTS.ICON) {
-                // creating screen for header'icon onPress
-                if (item.properties.onPress) {
-                  item.properties.onPress.navigation
-                    ? this.props.createScreen(item.properties.onPress)
-                    : null;
-                }
-
                 return (
                   <Icon
                     iconStyle={item.properties.iconStyle}
