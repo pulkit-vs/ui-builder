@@ -16,8 +16,7 @@ export default class CarouselComponent extends React.Component {
     return <>{item}</>;
   }
 
-  // for adding Pagination on carousel
-
+  // Enabling pagination in the carousel
   get pagination() {
     const style = this.props.pagination;
     return (

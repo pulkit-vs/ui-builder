@@ -6,12 +6,12 @@
  * @flow strict-local
  */
 
-import PropTypes from 'prop-types';
-import React from 'react';
-import { Divider } from 'react-native-elements';
+import PropTypes from "prop-types";
+import React from "react";
+import { Divider } from "react-native-elements";
 
-import { applyTheme } from '../utility/utils';
-import { theme } from '../index';
+import { applyTheme } from "../utility/utils";
+import { theme } from "../../index";
 
 export default class DividerComponent extends React.Component {
   constructor(props) {
@@ -22,7 +22,6 @@ export default class DividerComponent extends React.Component {
   }
 
   async componentDidMount() {
-
     await this.setState({ properties: this.props });
     // Applying theme on divider style
     if (theme) {
@@ -33,9 +32,7 @@ export default class DividerComponent extends React.Component {
   }
 
   render() {
-    return (
-      <Divider style={this.state.properties.style} />
-    );
+    return <Divider style={this.state.properties.style} />;
   }
 }
 
@@ -43,14 +40,14 @@ DividerComponent.propTypes = {
   style: PropTypes.shape({
     borderWidth: PropTypes.number,
     marginTop: PropTypes.number,
-    borderColor: PropTypes.string
-  })
+    borderColor: PropTypes.string,
+  }),
 };
 
 DividerComponent.defaultProps = {
   style: {
     borderWidth: 1,
     marginTop: 50,
-    borderColor: 'green'
-  }
+    borderColor: "green",
+  },
 };

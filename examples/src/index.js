@@ -7,20 +7,21 @@
  */
 
 import React from 'react';
-import {View} from 'react-native';
+import {View, KeyboardAvoidingView, ScrollView} from 'react-native';
 import {get} from 'lodash';
 
 import {applyTheme} from './utility/utils';
 import ButtonComponent from './components/button';
 import CardComponent from './components/card';
 import CarouselComponent from './components/carousel';
+import {COMPONENTS} from './utility/constant';
 import DividerComponent from './components/divider';
 import HeaderComponent from './components/header';
 import IconComponent from './components/icon';
 import ImageComponent from './components/image';
-import Input from './components/input';
 import ModalComponent from './components/modal';
 import TextComponent from './components/text';
+import TextInput from './components/input';
 
 // Global variable to get theme type in other files.
 export let theme;
@@ -34,11 +35,11 @@ export default class Components extends React.Component {
   selectComponent(component, index) {
     const type = get(component, 'type', '');
     switch (type) {
-      case 'input':
-        return <Input {...component.properties} key={index} />;
-      case 'icon':
+      case COMPONENTS.INPUT:
+        return <TextInput {...component.properties} key={index} />;
+      case COMPONENTS.ICON:
         return <IconComponent {...component.properties} key={index} />;
-      case 'button':
+      case COMPONENTS.BUTTON:
         return (
           <ButtonComponent
             {...component.properties}
@@ -46,7 +47,7 @@ export default class Components extends React.Component {
             key={index}
           />
         );
-      case 'carousel': {
+      case COMPONENTS.CAROUSEL: {
         let itemsData = component.properties.data.map((componentData, i) => {
           return this.selectComponent(componentData, i);
         });
@@ -58,7 +59,7 @@ export default class Components extends React.Component {
           />
         );
       }
-      case 'card':
+      case COMPONENTS.CARD:
         return (
           <CardComponent
             {...component}
@@ -66,8 +67,7 @@ export default class Components extends React.Component {
             createScreen={this.props.createScreen}
           />
         );
-
-      case 'header':
+      case COMPONENTS.HEADER:
         return (
           <HeaderComponent
             {...component.properties}
@@ -75,7 +75,7 @@ export default class Components extends React.Component {
             key={index}
           />
         );
-      case 'text':
+      case COMPONENTS.TEXT:
         return (
           <TextComponent
             {...component.properties}
@@ -83,9 +83,15 @@ export default class Components extends React.Component {
             key={index}
           />
         );
-      case 'modal':
-        return <ModalComponent {...component} key={index} />;
-      case 'view': {
+      case COMPONENTS.MODAL:
+        return (
+          <ModalComponent
+            {...component}
+            createScreen={this.props.createScreen}
+            key={index}
+          />
+        );
+      case COMPONENTS.VIEW: {
         if (theme) {
           component.style = applyTheme(component.style, theme);
         }
@@ -97,9 +103,11 @@ export default class Components extends React.Component {
           </View>
         );
       }
-      case 'image':
+      case COMPONENTS.CHECKBOX:
+        return <CheckboxComponent {...component.properties} key={index} />;
+      case COMPONENTS.IMAGE:
         return <ImageComponent {...component.properties} key={index} />;
-      case 'divider':
+      case COMPONENTS.DIVIDER:
         return <DividerComponent {...component.properties} key={index} />;
     }
   }
@@ -108,11 +116,18 @@ export default class Components extends React.Component {
     const {source} = this.props;
     theme = source.theme;
     return (
-      <View>
-        {source.data.map((component, index) => {
-          return this.selectComponent(component, index);
-        })}
-      </View>
+      <KeyboardAvoidingView
+        enabled
+        behavior={'position'}
+        keyboardVerticalOffset={-200}>
+        <ScrollView>
+          <View>
+            {source.data.map((component, index) => {
+              return this.selectComponent(component, index);
+            })}
+          </View>
+        </ScrollView>
+      </KeyboardAvoidingView>
     );
   }
 }
