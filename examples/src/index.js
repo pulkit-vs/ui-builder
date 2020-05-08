@@ -13,7 +13,7 @@ import {View, KeyboardAvoidingView, ScrollView} from 'react-native';
 import {applyTheme} from './utility/utils';
 import ButtonComponent from './components/button';
 import CardComponent from './components/card';
-import CheckboxComponent from './components/card';
+import CheckboxComponent from './components/Checkbox';
 import CarouselComponent from './components/carousel';
 import {COMPONENTS} from './utility/constant';
 import DividerComponent from './components/divider';
@@ -35,6 +35,7 @@ export default class Components extends React.Component {
 
   selectComponent(component, index) {
     const type = get(component, 'type', '');
+    console.log(component);
     switch (type) {
       case COMPONENTS.INPUT:
         return <TextInput {...component.properties} key={index} />;
@@ -60,14 +61,7 @@ export default class Components extends React.Component {
           />
         );
       }
-      case COMPONENTS.CARD:
-        return (
-          <CardComponent
-            {...component}
-            key={index}
-            createScreen={this.props.createScreen}
-          />
-        );
+
       case COMPONENTS.HEADER:
         return (
           <HeaderComponent

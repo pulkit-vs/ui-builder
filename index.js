@@ -52,14 +52,7 @@ export default class Components extends React.Component {
           />
         );
       }
-      case COMPONENTS.CARD:
-        return (
-          <CardComponent
-            {...component}
-            key={index}
-            createScreen={this.props.createScreen}
-          />
-        );
+
       case COMPONENTS.HEADER:
         return (
           <HeaderComponent

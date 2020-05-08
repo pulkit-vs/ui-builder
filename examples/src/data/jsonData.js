@@ -4093,87 +4093,14 @@ const data = {
             width: 250,
             borderRadius: 20,
             borderWidth: 4,
-            borderColor: 'blue',
+            borderColor: 'red',
             padding: 0,
             alignSelf: 'center',
             marginTop: '40%',
           },
         },
 
-        childrens: [
-          {
-            type: 'image',
-            properties: {
-              uri:
-                'https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-              style: {
-                width: '100%',
-                height: 260,
-                borderRadius: 20,
-                position: 'relative',
-              },
-            },
-          },
-          {
-            type: 'view',
-            style: {
-              height: 30,
-              width: 80,
-              backgroundColor: 'white',
-              borderRadius: 40,
-              position: 'absolute',
-              right: 5,
-              top: 219,
-              flexDirection: 'row',
-            },
-            childrens: [
-              {
-                type: 'icon',
-                properties: {
-                  name: 'euro-symbol',
-                  type: 'material',
-                  size: 25,
-                  iconStyle: {color: 'red', marginTop: 1, color: 'red'},
-                },
-              },
-              {
-                type: 'text',
-                properties: {
-                  title: '899',
-                },
-              },
-            ],
-          },
-          {
-            type: 'button',
-            properties: {
-              title: 'Log in with Facebook',
-              titleStyle: {color: 'blue', fontSize: 20},
-              buttonStyle: {
-                backgroundColor: 'white',
-                width: '90%',
-                left: 20,
-                borderWidth: 3,
-                marginTop: 30,
-                borderColor: 'red',
-              },
-              onPress: {
-                navigation: 'true',
-                screenName: 'Page ',
-                source: {
-                  data: [
-                    {
-                      type: 'text',
-                      properties: {
-                        title: 'hello',
-                      },
-                    },
-                  ],
-                },
-              },
-            },
-          },
-        ],
+        childrens: [],
       },
     ],
   },

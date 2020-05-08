@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React, {Component} from 'react';
 import {Card} from 'react-native-elements';
-import {ScrollView} from 'react-native';
+import {ScrollView, Text} from 'react-native';
 
 import {applyTheme} from '../utility/utils';
 import {theme} from '../index';
@@ -9,7 +9,9 @@ import {theme} from '../index';
 export default class CardComponent extends Component {
   constructor(props) {
     super(props);
-    props = theme ? applyTheme(props, theme) : props;
+    if (theme) {
+      props = theme ? applyTheme(props, theme) : props;
+    }
   }
   render() {
     return (
@@ -19,7 +21,13 @@ export default class CardComponent extends Component {
         title={this.props.title}
         titleStyle={this.props.titleStyle}
         wrapperStyle={this.props.wrapperStyle}>
-        <ScrollView>{this.props.childrens}</ScrollView>
+        <ScrollView>
+          {this.props.childrens.size === 0 ? (
+            <Text>Add</Text>
+          ) : (
+            this.props.childrens
+          )}
+        </ScrollView>
       </Card>
     );
   }

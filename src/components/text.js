@@ -17,7 +17,9 @@ import { theme } from "../../index";
 export default class TextComponent extends React.Component {
   componentWillMount() {
     // Applying theme on text
-    this.props = theme ? applyTheme(this.props, theme) : this.props;
+    if (theme) {
+      this.props = theme ? applyTheme(this.props, theme) : this.props;
+    }
   }
   componentDidMount() {
     if (this.props.onPress && this.props.onPress.navigation) {

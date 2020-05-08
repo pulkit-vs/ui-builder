@@ -12,7 +12,9 @@ export default class CheckboxComponent extends Component {
     this.state = {
       checked: false,
     };
-    props = theme ? applyTheme(props, theme) : props;
+    if (theme) {
+      props = theme ? applyTheme(props, theme) : props;
+    }
   }
 
   componentDidMount() {
