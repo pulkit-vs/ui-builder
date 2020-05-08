@@ -6,6 +6,7 @@
  * @flow strict-local
  */
 
+// TODO: Will use package later.
 // import UiBuilder from 'react-native-ui-builder';
 import React from 'react';
 import UiBuilder from './src/navigation/navigation';

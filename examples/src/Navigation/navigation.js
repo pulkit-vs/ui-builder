@@ -6,6 +6,7 @@ import Components from '../index';
 
 const Stack = createStackNavigator();
 
+// TODO: Will unhandle invalid screenName (non-empty string)
 export default class UiBuilder extends React.Component {
   constructor(props) {
     super(props);

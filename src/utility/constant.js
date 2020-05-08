@@ -1,14 +1,15 @@
 export const COMPONENTS = {
   BUTTON: "button",
-  CAROUSEL: "carousel",
   CARD: "card",
+  CAROUSEL: "carousel",
   CHECKBOX: "checkbox",
   DIVIDER: "divider",
   HEADER: "header",
-  INPUT: "input",
   ICON: "icon",
   IMAGE: "image",
+  INPUT: "input",
   MODAL: "modal",
+  SLIDER: "slider",
   TEXT: "text",
   VIEW: "view",
 };

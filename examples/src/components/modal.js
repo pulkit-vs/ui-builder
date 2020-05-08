@@ -13,9 +13,9 @@ import {Button, Icon} from 'react-native-elements';
 import {NavigationContext} from '@react-navigation/native';
 import {View, Text, TextInput, KeyboardAvoidingView} from 'react-native';
 
-import {CLOSE_MODAL} from '../utility/utils';
-import {applyTheme} from '../utility/utils';
-import {theme} from '../index';
+import { CLOSE_MODAL } from '../utility/utils';
+import { applyTheme } from '../utility/utils';
+import { theme } from '../index';
 
 export default class ModalComponent extends React.Component {
   constructor(props) {
