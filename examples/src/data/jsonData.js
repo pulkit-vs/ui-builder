@@ -4082,7 +4082,6 @@ const data = {
     ],
   },
 
-<<<<<<< HEAD
   cardData: {
     screenName: 'Card Screen',
     data: [
@@ -4105,29 +4104,6 @@ const data = {
       },
     ],
   },
-=======
-  slider:  {
-    screenName: 'slider',
-    data: [
-      {
-        type: 'slider',
-        properties: {
-          maximumTrackTintColor: 'grey',
-          minimumTrackTintColor: "lightgrey",
-          onSlidingComplete: () => { console.log('onSlidingComplete') },
-          onSlidingStart: () => { console.log('onSlidingStart') },
-          thumbTintColor: 'yellow',
-          style: { height: 200 },
-          thumbStyle: {
-            width: 30,
-            height: 30, borderRadius: 0, top: "50%", borderColor: 'green', borderWidth: 1
-          },
-          trackStyle: { height: 2 }
-        }
-      }
-    ]
-  }
->>>>>>> master
 };
 
 export default data;

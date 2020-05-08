@@ -22,8 +22,17 @@ export default class CardComponent extends Component {
         wrapperStyle={this.props.wrapperStyle}
       >
         <ScrollView>
-          {this.props.childrens.size === 0 ? (
-            <View style={{ height: 100, width: 100, color: "black" }}></View>
+          {this.props.childrens.length === 0 ? (
+            <Text
+              style={{
+                fontWeight: "bold",
+                fontSize: 20,
+                marginTop: 100,
+                marginLeft: 30,
+              }}
+            >
+              Please Add Your Component Inside Card
+            </Text>
           ) : (
             this.props.childrens
           )}
