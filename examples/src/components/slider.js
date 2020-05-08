@@ -9,7 +9,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Slider } from 'react-native-elements';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 
 import { applyTheme } from '../utility/utils';
 import { theme } from '../index';
@@ -19,18 +19,13 @@ export default class SliderComponent extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            properties: {},
+            properties: { ...this.props },
             value: 0
         }
-    }
-
-    async componentDidMount() {
-
-        await this.setState({ properties: this.props })
 
         // Applying theme on slider style
         if (theme) {
-            await this.setState({ properties: applyTheme(this.state.properties, theme) })
+            this.setState({ properties: applyTheme(this.state.properties, theme) })
         }
     }
 
@@ -59,24 +54,30 @@ export default class SliderComponent extends React.Component {
                     trackStyle={this.state.properties.trackStyle}
 
                 />
-                <Text> Value: {this.state.value}</Text>
             </View>
         );
     }
 }
 
 
-SliderComponent.prototypes = {
-    value: PropTypes.number,
-    onValueChange: PropTypes.func,
+SliderComponent.propTypes = {
     maximumTrackTintColor: PropTypes.string,
     minimumTrackTintColor: PropTypes.string,
     onSlidingComplete: PropTypes.func,
     onSlidingStart: PropTypes.func,
+    onValueChange: PropTypes.func,
+    style: PropTypes.object,
+    thumbStyle: PropTypes.objectOf({
+        width: PropTypes.number,
+        height: PropTypes.number,
+        borderRadius: PropTypes.number,
+        top: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+        borderColor: PropTypes.string,
+        borderWidth: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    }),
     thumbTintColor: PropTypes.string,
-    style: PropTypes.func,
-    thumbStyle: PropTypes.func,
-    trackStyle: PropTypes.func
+    trackStyle: PropTypes.func,
+    value: PropTypes.number
 }
 
 SliderComponent.defaultProps = {
@@ -85,10 +86,10 @@ SliderComponent.defaultProps = {
     minimumTrackTintColor: 'lightgrey',
     onSlidingComplete: () => { console.log('Please attach a method on slide complete') },
     onSlidingStart: () => { console.log('Please attach a method on slide starts') },
-    thumbTintColor: 'white',
     thumbStyle: {
         borderColor: 'green', borderWidth: 1, height: 40, width: 40, borderRadius: 20
     },
+    thumbTintColor: 'white',
     trackStyle: {
         height: 2
     }
