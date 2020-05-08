@@ -1,11 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
 import React from "react";
 import { get } from "lodash";
 import { View, KeyboardAvoidingView, ScrollView } from "react-native";
@@ -14,14 +6,15 @@ import { applyTheme } from "./src/utility/utils";
 import ButtonComponent from "./src/components/button";
 import CardComponent from "./src/components/card";
 import CheckboxComponent from "./src/components/Checkbox";
+import CarouselComponent from "./src/components/carousel";
 import { COMPONENTS } from "./src/utility/constant";
 import DividerComponent from "./src/components/divider";
 import HeaderComponent from "./src/components/header";
 import IconComponent from "./src/components/icon";
 import ImageComponent from "./src/components/image";
 import ModalComponent from "./src/components/modal";
-import TextInput from "./src/components/input";
 import TextComponent from "./src/components/text";
+import TextInput from "./src/components/input";
 
 // Global variable to get theme type in other files.
 export let theme;
@@ -45,6 +38,26 @@ export default class Components extends React.Component {
             {...component.properties}
             createScreen={this.props.createScreen}
             key={index}
+          />
+        );
+      case COMPONENTS.CAROUSEL: {
+        let itemsData = component.properties.data.map((componentData, i) => {
+          return this.selectComponent(componentData, i);
+        });
+        return (
+          <CarouselComponent
+            {...component.properties}
+            data={itemsData}
+            key={index}
+          />
+        );
+      }
+      case COMPONENTS.CARD:
+        return (
+          <CardComponent
+            {...component}
+            key={index}
+            createScreen={this.props.createScreen}
           />
         );
       case COMPONENTS.HEADER:
@@ -71,7 +84,6 @@ export default class Components extends React.Component {
             key={index}
           />
         );
-
       case COMPONENTS.VIEW: {
         if (theme) {
           component.style = applyTheme(component.style, theme);

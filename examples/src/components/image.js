@@ -40,10 +40,10 @@ ImageComponent.propTypes = {
     borderColor: PropTypes.string,
     borderRadius: PropTypes.number,
     borderWidth: PropTypes.number,
-    height: PropTypes.number,
+    height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     opacity: PropTypes.number,
-    overflow: PropTypes.strig,
-    width: PropTypes.number,
+    overflow: PropTypes.string,
+    width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   }),
 };
 ImageComponent.defaultProps = {

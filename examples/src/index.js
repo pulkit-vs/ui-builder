@@ -14,6 +14,7 @@ import {applyTheme} from './utility/utils';
 import ButtonComponent from './components/button';
 import CardComponent from './components/card';
 import CheckboxComponent from './components/card';
+import CarouselComponent from './components/carousel';
 import {COMPONENTS} from './utility/constant';
 import DividerComponent from './components/divider';
 import HeaderComponent from './components/header';
@@ -47,6 +48,26 @@ export default class Components extends React.Component {
             key={index}
           />
         );
+      case COMPONENTS.CAROUSEL: {
+        let itemsData = component.properties.data.map((componentData, i) => {
+          return this.selectComponent(componentData, i);
+        });
+        return (
+          <CarouselComponent
+            {...component.properties}
+            data={itemsData}
+            key={index}
+          />
+        );
+      }
+      case COMPONENTS.CARD:
+        return (
+          <CardComponent
+            {...component}
+            key={index}
+            createScreen={this.props.createScreen}
+          />
+        );
       case COMPONENTS.HEADER:
         return (
           <HeaderComponent
@@ -71,7 +92,6 @@ export default class Components extends React.Component {
             key={index}
           />
         );
-
       case COMPONENTS.VIEW: {
         if (theme) {
           component.style = applyTheme(component.style, theme);
