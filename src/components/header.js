@@ -30,11 +30,10 @@ export default class HeaderComponent extends React.Component {
       children.properties = theme
         ? applyTheme(children.properties, theme)
         : children.properties;
-      if (children.properties.onPress) {
-        children.properties.onPress.navigation
-          ? this.props.createScreen(children.properties.onPress)
-          : null;
-      }
+
+      children.properties.onPress && children.properties.onPress.navigation
+        ? this.props.createScreen(children.properties.onPress)
+        : null;
     });
     props.centerComponent.childrens.forEach((children) => {
       children.properties = theme

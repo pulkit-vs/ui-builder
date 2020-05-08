@@ -28,10 +28,8 @@ export default class ButtonComponent extends React.Component {
 
   async componentDidMount() {
     // Creating Screen for Button onPress
-    if (this.props.onPress) {
-      this.props.onPress.navigation
-        ? this.props.createScreen(this.props.onPress)
-        : null;
+    if (this.props.onPress && this.props.onPress.navigation) {
+      this.props.createScreen(this.props.onPress);
     }
     await this.setState({properties: this.props});
 
@@ -77,7 +75,7 @@ export default class ButtonComponent extends React.Component {
         <Button
           title={this.state.properties.title}
           onPress={() => {
-            this.props.onPress.navigation
+            this.props.onPress && this.props.onPress.navigation
               ? navigation.navigate(this.props.onPress.screenName)
               : this.props.onPress();
           }}

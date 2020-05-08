@@ -20,20 +20,22 @@ export default class HeaderComponent extends React.Component {
       children.properties = theme
         ? applyTheme(children.properties, theme)
         : children.properties;
-      if (children.properties.onPress) {
+      if (
+        children.properties.onPress &&
         children.properties.onPress.navigation
-          ? this.props.createScreen(children.properties.onPress)
-          : null;
+      ) {
+        this.props.createScreen(children.properties.onPress);
       }
     });
     props.rightComponent.childrens.forEach((children) => {
       children.properties = theme
         ? applyTheme(children.properties, theme)
         : children.properties;
-      if (children.properties.onPress) {
+      if (
+        children.properties.onPress &&
         children.properties.onPress.navigation
-          ? this.props.createScreen(children.properties.onPress)
-          : null;
+      ) {
+        this.props.createScreen(children.properties.onPress);
       }
     });
     props.centerComponent.childrens.forEach((children) => {
@@ -64,10 +66,11 @@ export default class HeaderComponent extends React.Component {
             {this.props[component].childrens.map((item, i) => {
               if (item.type == COMPONENTS.ICON) {
                 // creating screen for header'icon onPress
-                if (item.properties.onPress) {
+                if (
+                  item.properties.onPress &&
                   item.properties.onPress.navigation
-                    ? this.props.createScreen(item.properties.onPress)
-                    : null;
+                ) {
+                  this.props.createScreen(item.properties.onPress);
                 }
 
                 return (
