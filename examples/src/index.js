@@ -7,21 +7,22 @@
  */
 
 import React from 'react';
-import {View, KeyboardAvoidingView, ScrollView} from 'react-native';
-import {get} from 'lodash';
+import { View, KeyboardAvoidingView, ScrollView } from 'react-native';
+import { get } from 'lodash';
 
-import {applyTheme} from './utility/utils';
 import ButtonComponent from './components/button';
 import CardComponent from './components/card';
 import CarouselComponent from './components/carousel';
-import {COMPONENTS} from './utility/constant';
 import DividerComponent from './components/divider';
 import HeaderComponent from './components/header';
 import IconComponent from './components/icon';
 import ImageComponent from './components/image';
 import ModalComponent from './components/modal';
+import SliderComponent from "./components/slider";
 import TextComponent from './components/text';
 import TextInput from './components/input';
+import { COMPONENTS } from './utility/constant';
+import { applyTheme } from "./utility/utils";
 
 // Global variable to get theme type in other files.
 export let theme;
@@ -107,13 +108,15 @@ export default class Components extends React.Component {
         return <CheckboxComponent {...component.properties} key={index} />;
       case COMPONENTS.IMAGE:
         return <ImageComponent {...component.properties} key={index} />;
+      case COMPONENTS.SLIDER:
+        return <SliderComponent {...component.properties} key={index} />;
       case COMPONENTS.DIVIDER:
         return <DividerComponent {...component.properties} key={index} />;
     }
   }
 
   render() {
-    const {source} = this.props;
+    const { source } = this.props;
     theme = source.theme;
     return (
       <KeyboardAvoidingView

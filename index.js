@@ -1,19 +1,20 @@
 import React from "react";
-import { get } from "lodash";
 import { View, KeyboardAvoidingView, ScrollView } from "react-native";
+import { get } from "lodash";
 
-import { applyTheme } from "./src/utility/utils";
 import ButtonComponent from "./src/components/button";
 import CardComponent from "./src/components/card";
 import CarouselComponent from "./src/components/carousel";
-import { COMPONENTS } from "./src/utility/constant";
 import DividerComponent from "./src/components/divider";
 import HeaderComponent from "./src/components/header";
 import IconComponent from "./src/components/icon";
 import ImageComponent from "./src/components/image";
 import ModalComponent from "./src/components/modal";
+import SliderComponent from "./src/components/slider";
 import TextComponent from "./src/components/text";
 import TextInput from "./src/components/input";
+import { COMPONENTS } from "./src/utility/constant";
+import { applyTheme } from "./src/utility/utils";
 
 // Global variable to get theme type in other files.
 export let theme;
@@ -99,6 +100,8 @@ export default class Components extends React.Component {
         return <CheckboxComponent {...component.properties} key={index} />;
       case COMPONENTS.IMAGE:
         return <ImageComponent {...component.properties} key={index} />;
+      case COMPONENTS.SLIDER:
+        return <SliderComponent {...component.properties} key = {index} />;
       case COMPONENTS.DIVIDER:
         return <DividerComponent {...component.properties} key={index} />;
     }
