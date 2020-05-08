@@ -18,10 +18,10 @@ const lightTheme = {
 };
 
 export const CLOSE_MODAL = {
-  onBackdropPress: "onBackdropPress",
-  onBackButtonPress: "onBackButtonPress",
-  onSwipeComplete: "onSwipeComplete",
-};
+  onBackdropPress: 'onBackdropPress',
+  onBackButtonPress: 'onBackButtonPress',
+  onSwipeComplete: 'onSwipeComplete'
+}
 
 const darkTheme = {
   color: "white",

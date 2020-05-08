@@ -1,29 +1,25 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
 import React from "react";
 import { View, KeyboardAvoidingView, ScrollView } from "react-native";
 import { get } from "lodash";
 
 import ButtonComponent from "./src/components/button";
+import CardComponent from "./src/components/card";
+import CarouselComponent from "./src/components/carousel";
+import DividerComponent from "./src/components/divider";
 import HeaderComponent from "./src/components/header";
 import IconComponent from "./src/components/icon";
 import ImageComponent from "./src/components/image";
-import Input from "./src/components/input";
 import ModalComponent from "./src/components/modal";
 import SliderComponent from "./src/components/slider";
 import TextComponent from "./src/components/text";
+import TextInput from "./src/components/input";
+import { COMPONENTS } from "./src/utility/constant";
 import { applyTheme } from "./src/utility/utils";
 
 // Global variable to get theme type in other files.
 export let theme;
 
-export default class UiBuilder extends React.Component {
+export default class Components extends React.Component {
   constructor() {
     super();
     this.selectComponent = this.selectComponent.bind(this);
@@ -32,19 +28,63 @@ export default class UiBuilder extends React.Component {
   selectComponent(component, index) {
     const type = get(component, "type", "");
     switch (type) {
-      case "input":
-        return <Input {...component.properties} key={index} />;
-      case "icon":
+      case COMPONENTS.INPUT:
+        return <TextInput {...component.properties} key={index} />;
+      case COMPONENTS.ICON:
         return <IconComponent {...component.properties} key={index} />;
-      case "button":
-        return <ButtonComponent {...component.properties} key={index} />;
-      case "header":
-        return <HeaderComponent {...component.properties} key={index} />;
-      case "text":
-        return <TextComponent {...component.properties} key={index} />;
-      case "modal":
-        return <ModalComponent {...component} key={index} />;
-      case "view": {
+      case COMPONENTS.BUTTON:
+        return (
+          <ButtonComponent
+            {...component.properties}
+            createScreen={this.props.createScreen}
+            key={index}
+          />
+        );
+      case COMPONENTS.CAROUSEL: {
+        let itemsData = component.properties.data.map((componentData, i) => {
+          return this.selectComponent(componentData, i);
+        });
+        return (
+          <CarouselComponent
+            {...component.properties}
+            data={itemsData}
+            key={index}
+          />
+        );
+      }
+      case COMPONENTS.CARD:
+        return (
+          <CardComponent
+            {...component}
+            key={index}
+            createScreen={this.props.createScreen}
+          />
+        );
+      case COMPONENTS.HEADER:
+        return (
+          <HeaderComponent
+            {...component.properties}
+            createScreen={this.props.createScreen}
+            key={index}
+          />
+        );
+      case COMPONENTS.TEXT:
+        return (
+          <TextComponent
+            {...component.properties}
+            createScreen={this.props.createScreen}
+            key={index}
+          />
+        );
+      case COMPONENTS.MODAL:
+        return (
+          <ModalComponent
+            {...component}
+            createScreen={this.props.createScreen}
+            key={index}
+          />
+        );
+      case COMPONENTS.VIEW: {
         if (theme) {
           component.style = applyTheme(component.style, theme);
         }
@@ -56,10 +96,14 @@ export default class UiBuilder extends React.Component {
           </View>
         );
       }
-      case "image":
+      case COMPONENTS.CHECKBOX:
+        return <CheckboxComponent {...component.properties} key={index} />;
+      case COMPONENTS.IMAGE:
         return <ImageComponent {...component.properties} key={index} />;
-      case "slider":
+      case COMPONENTS.SLIDER:
         return <SliderComponent {...component.properties} key = {index} />;
+      case COMPONENTS.DIVIDER:
+        return <DividerComponent {...component.properties} key={index} />;
     }
   }
 
@@ -67,7 +111,11 @@ export default class UiBuilder extends React.Component {
     const { source } = this.props;
     theme = source.theme;
     return (
-      <KeyboardAvoidingView enabled behavior={"position"} keyboardVerticalOffset={-200}>
+      <KeyboardAvoidingView
+        enabled
+        behavior={"position"}
+        keyboardVerticalOffset={-200}
+      >
         <ScrollView>
           <View>
             {source.data.map((component, index) => {

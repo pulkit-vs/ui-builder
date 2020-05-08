@@ -8,36 +8,13 @@
 
 // TODO: Will use package later.
 // import UiBuilder from 'react-native-ui-builder';
-import UiBuilder from "./src/index";
 import React from 'react';
+import UiBuilder from './src/navigation/navigation';
 
-const source = {
-  data: [
-    {
-      type: 'slider',
-      properties: {
-        maximumTrackTintColor: 'grey',
-        minimumTrackTintColor: "lightgrey",
-        onSlidingComplete: () => { console.log('onSlidingComplete') },
-        onSlidingStart: () => { console.log('onSlidingStart') },
-        thumbTintColor: 'yellow',
-        style: { height: 200 },
-        thumbStyle: {
-          width: 30,
-          height: 30, borderRadius: 0, top: "50%", borderColor: 'green', borderWidth: 1
-        },
-        trackStyle: { height: 2 }
-      }
-    }
-  ]
-}
+import data from './src/data/jsonData';
 
 export default class App extends React.Component {
   render() {
-    return (
-      <>
-        <UiBuilder source={source} />
-      </>
-    );
+    return <UiBuilder source={data.slider} />;
   }
 }

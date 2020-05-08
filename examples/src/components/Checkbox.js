@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import {CheckBox, Icon, colors} from 'react-native-elements';
 import {View} from 'react-native';
 import {applyTheme} from '../utility/utils';
-import {theme} from '../../App';
+import {theme} from '../index';
 
 export default class CheckboxComponent extends Component {
   constructor(props) {
