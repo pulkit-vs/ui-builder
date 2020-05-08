@@ -21,9 +21,8 @@ import ModalComponent from './components/modal';
 import SliderComponent from "./components/slider";
 import TextComponent from './components/text';
 import TextInput from './components/input';
-import { applyTheme } from "./utility/utils";
 import { COMPONENTS } from './utility/constant';
-import { applyTheme } from './utility/utils';
+import { applyTheme } from "./utility/utils";
 
 // Global variable to get theme type in other files.
 export let theme;

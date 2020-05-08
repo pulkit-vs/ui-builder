@@ -4084,6 +4084,7 @@ const data = {
   },
 
   slider:  {
+    screenName: 'slider',
     data: [
       {
         type: 'slider',

@@ -14,7 +14,6 @@ import {NavigationContext} from '@react-navigation/native';
 import {View, Text, TextInput, KeyboardAvoidingView} from 'react-native';
 
 import { CLOSE_MODAL } from '../utility/utils';
-import { View, Text, TextInput, KeyboardAvoidingView} from 'react-native';
 import { applyTheme } from '../utility/utils';
 import { theme } from '../index';
 
