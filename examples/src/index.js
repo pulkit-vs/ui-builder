@@ -7,20 +7,21 @@
  */
 
 import React from 'react';
-import {View} from 'react-native';
 import {get} from 'lodash';
-import {applyTheme} from './utility/utils';
+import {View, KeyboardAvoidingView, ScrollView} from 'react-native';
 
+import {applyTheme} from './utility/utils';
 import ButtonComponent from './components/button';
+import CardComponent from './components/card';
+import CheckboxComponent from './components/card';
+import {COMPONENTS} from './utility/constant';
+import DividerComponent from './components/divider';
 import HeaderComponent from './components/header';
 import IconComponent from './components/icon';
 import ImageComponent from './components/image';
-import TextInput from './components/input';
 import ModalComponent from './components/modal';
+import TextInput from './components/input';
 import TextComponent from './components/text';
-import DividerComponent from './components/divider';
-import CardComponent from './components/card';
-import CheckboxComponent from './components/Checkbox';
 
 // Global variable to get theme type in other files.
 export let theme;
@@ -34,17 +35,11 @@ export default class Components extends React.Component {
   selectComponent(component, index) {
     const type = get(component, 'type', '');
     switch (type) {
-      case 'input':
+      case COMPONENTS.INPUT:
         return <TextInput {...component.properties} key={index} />;
-      case 'icon':
-        return (
-          <IconComponent
-            {...component.properties}
-            key={index}
-            createScreen={this.props.createScreen}
-          />
-        );
-      case 'button':
+      case COMPONENTS.ICON:
+        return <IconComponent {...component.properties} key={index} />;
+      case COMPONENTS.BUTTON:
         return (
           <ButtonComponent
             {...component.properties}
@@ -52,7 +47,7 @@ export default class Components extends React.Component {
             key={index}
           />
         );
-      case 'header':
+      case COMPONENTS.HEADER:
         return (
           <HeaderComponent
             {...component.properties}
@@ -60,7 +55,7 @@ export default class Components extends React.Component {
             key={index}
           />
         );
-      case 'text':
+      case COMPONENTS.TEXT:
         return (
           <TextComponent
             {...component.properties}
@@ -68,9 +63,16 @@ export default class Components extends React.Component {
             key={index}
           />
         );
-      case 'modal':
-        return <ModalComponent {...component} key={index} />;
-      case 'view': {
+      case COMPONENTS.MODAL:
+        return (
+          <ModalComponent
+            {...component}
+            createScreen={this.props.createScreen}
+            key={index}
+          />
+        );
+
+      case COMPONENTS.VIEW: {
         if (theme) {
           component.style = applyTheme(component.style, theme);
         }
@@ -82,25 +84,16 @@ export default class Components extends React.Component {
           </View>
         );
       }
-      case 'image':
-        return (
-          <ImageComponent
-            {...component.properties}
-            key={index}
-            createScreen={this.props.createScreen}
-          />
-        );
-      case 'checkbox':
+      case COMPONENTS.CHECKBOX:
         return <CheckboxComponent {...component.properties} key={index} />;
-      case 'divider':
-        return <DividerComponent {...component.properties} key={index} />;
 
-      case 'card':
+      case COMPONENTS.CARD:
         // map to store children components of card
         const childComponents = component.childrens.map((component, index) => {
           return this.selectComponent(component, index);
         });
 
+        console.log(component);
         return (
           <CardComponent
             {...component.properties}
@@ -108,18 +101,29 @@ export default class Components extends React.Component {
             key={index}
           />
         );
+      case COMPONENTS.IMAGE:
+        return <ImageComponent {...component.properties} key={index} />;
+      case COMPONENTS.DIVIDER:
+        return <DividerComponent {...component.properties} key={index} />;
     }
   }
 
   render() {
     const {source} = this.props;
-    theme = 'lightTheme';
+    theme = source.theme;
     return (
-      <View>
-        {source.data.map((component, index) => {
-          return this.selectComponent(component, index);
-        })}
-      </View>
+      <KeyboardAvoidingView
+        enabled
+        behavior={'position'}
+        keyboardVerticalOffset={-200}>
+        <ScrollView>
+          <View>
+            {source.data.map((component, index) => {
+              return this.selectComponent(component, index);
+            })}
+          </View>
+        </ScrollView>
+      </KeyboardAvoidingView>
     );
   }
 }

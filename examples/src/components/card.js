@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React, {Component} from 'react';
-import {Card, Button, Icon} from 'react-native-elements';
-import {View, ScrollView} from 'react-native';
+import {Card} from 'react-native-elements';
+import {ScrollView} from 'react-native';
 
 import {applyTheme} from '../utility/utils';
 import {theme} from '../index';

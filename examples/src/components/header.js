@@ -5,6 +5,7 @@ import {View, Text} from 'react-native';
 import {NavigationContext} from '@react-navigation/native';
 
 import {applyTheme} from '../utility/utils';
+import {COMPONENTS} from '../utility/constant';
 import {theme} from '../index';
 
 export default class HeaderComponent extends React.Component {
@@ -14,25 +15,39 @@ export default class HeaderComponent extends React.Component {
       ValueOfComponent: ['leftComponent', 'centerComponent', 'rightComponent'],
     };
     // apply theme
-    if (theme) {
-      props = applyTheme(this.props, theme);
-      props.leftComponent.childrens.forEach((children) => {
-        children.properties = applyTheme(children.properties, theme);
-      });
-      props.rightComponent.childrens.forEach((children) => {
-        children.properties = applyTheme(children.properties, theme);
-      });
-      props.centerComponent.childrens.forEach((children) => {
-        children.properties = applyTheme(children.properties, theme);
-      });
-    }
+    props = theme ? applyTheme(this.props, theme) : this.props;
+    props.leftComponent.childrens.forEach((children) => {
+      children.properties = theme
+        ? applyTheme(children.properties, theme)
+        : children.properties;
+      if (children.properties.onPress) {
+        children.properties.onPress.navigation
+          ? this.props.createScreen(children.properties.onPress)
+          : null;
+      }
+    });
+    props.rightComponent.childrens.forEach((children) => {
+      children.properties = theme
+        ? applyTheme(children.properties, theme)
+        : children.properties;
+      if (children.properties.onPress) {
+        children.properties.onPress.navigation
+          ? this.props.createScreen(children.properties.onPress)
+          : null;
+      }
+    });
+    props.centerComponent.childrens.forEach((children) => {
+      children.properties = theme
+        ? applyTheme(children.properties, theme)
+        : children.properties;
+      if (children.properties.onPress) {
+        children.properties.onPress.navigation
+          ? this.props.createScreen(children.properties.onPress)
+          : null;
+      }
+    });
   }
   static contextType = NavigationContext;
-  componentDidMount() {
-    if (this.props.onPress && this.props.onPress.navigation) {
-      this.props.createScreen(this.props.onPress);
-    }
-  }
   render() {
     const navigation = this.context;
     //for creating customized header's (left , right and center component)
@@ -42,72 +57,70 @@ export default class HeaderComponent extends React.Component {
           <View
             key={index}
             style={
-              this.props[component].childrens[0].type == 'view'
+              this.props[component].childrens[0].type == COMPONENTS.VIEW
                 ? this.props[component].childrens[0].properties.style
                 : {}
             }>
             {this.props[component].childrens.map((item, i) => {
-              if (item.type == 'icon') {
-                const styleOfIcon = item.properties;
-                if (
-                  item.properties.onPress &&
+              if (item.type == COMPONENTS.ICON) {
+                // creating screen for header'icon onPress
+                if (item.properties.onPress) {
                   item.properties.onPress.navigation
-                ) {
-                  this.props.createScreen(item.properties.onPress);
+                    ? this.props.createScreen(item.properties.onPress)
+                    : null;
                 }
 
                 return (
                   <Icon
-                    iconStyle={styleOfIcon.iconStyle}
-                    color={styleOfIcon.color}
+                    iconStyle={item.properties.iconStyle}
+                    color={item.properties.color}
                     key={i}
-                    name={styleOfIcon.name}
-                    type={styleOfIcon.type}
+                    name={item.properties.name}
+                    type={item.properties.type}
                     onPress={
-                      item.properties.onPress &&
-                      item.properties.onPress.navigation
-                        ? () =>
-                            navigation.navigate(
-                              item.properties.onPress.screenName,
-                            )
-                        : item.properties.onPress
+                      item.properties.onPress
+                        ? item.properties.onPress.navigation
+                          ? () =>
+                              navigation.navigate(
+                                item.properties.onPress.screenName,
+                              )
+                          : item.properties.onPress
+                        : null
                     }
-                    size={styleOfIcon.size}
+                    size={item.properties.size}
                   />
                 );
-              } else if (item.type == 'text') {
-                const styleOfText = item.properties;
+              } else if (item.type == COMPONENTS.TEXT) {
                 return (
-                  <Text key={i} style={styleOfText.style}>
-                    {styleOfText.title}
+                  <Text key={i} style={item.properties.style}>
+                    {item.properties.title}
                   </Text>
                 );
-              } else if (item.type == 'input') {
-                const styleOfInput = item.properties;
+              } else if (item.type == COMPONENTS.INPUT) {
                 return (
                   <Input
-                    containerStyle={styleOfInput.containerStyle}
-                    inputStyle={styleOfInput.inputStyle}
+                    containerStyle={item.properties.containerStyle}
+                    inputStyle={item.properties.inputStyle}
                     key={i}
                     leftIcon={
-                      styleOfInput.leftIcon ? (
+                      item.properties.leftIcon ? (
                         <Icon
-                          iconStyle={styleOfInput.leftIcon.iconStyle}
-                          color={styleOfInput.leftIcon.color}
-                          name={styleOfInput.leftIcon.name}
-                          size={styleOfInput.leftIcon.size}
-                          type={styleOfInput.leftIcon.type}></Icon>
+                          iconStyle={item.properties.leftIcon.iconStyle}
+                          color={item.properties.leftIcon.color}
+                          name={item.properties.leftIcon.name}
+                          size={item.properties.leftIcon.size}
+                          type={item.properties.leftIcon.type}></Icon>
                       ) : null
                     }
-                    placeholder={styleOfInput.placeholder}
+                    placeholder={item.properties.placeholder}
                     rightIcon={
-                      styleOfInput.rightIcon ? (
+                      item.properties.rightIcon ? (
                         <Icon
-                          iconStyle={styleOfInput.rightIcon.iconStyle}
-                          color={styleOfInput.rightIcon.color}
-                          name={styleOfInput.rightIcon.name}
-                          size={styleOfInput.rightIcon.size}
-                          type={styleOfInput.rightIcon.type}></Icon>
+                          iconStyle={item.properties.rightIcon.iconStyle}
+                          color={item.properties.rightIcon.color}
+                          name={item.properties.rightIcon.name}
+                          size={item.properties.rightIcon.size}
+                          type={item.properties.rightIcon.type}></Icon>
                       ) : null
                     }></Input>
                 );
