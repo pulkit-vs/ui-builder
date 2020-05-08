@@ -59,7 +59,6 @@ export default class SliderComponent extends React.Component {
     }
 }
 
-
 SliderComponent.propTypes = {
     maximumTrackTintColor: PropTypes.string,
     minimumTrackTintColor: PropTypes.string,
@@ -67,7 +66,7 @@ SliderComponent.propTypes = {
     onSlidingStart: PropTypes.func,
     onValueChange: PropTypes.func,
     style: PropTypes.object,
-    thumbStyle: PropTypes.objectOf({
+    thumbStyle: PropTypes.shape({
         width: PropTypes.number,
         height: PropTypes.number,
         borderRadius: PropTypes.number,
@@ -76,7 +75,7 @@ SliderComponent.propTypes = {
         borderWidth: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     }),
     thumbTintColor: PropTypes.string,
-    trackStyle: PropTypes.func,
+    trackStyle: PropTypes.object,
     value: PropTypes.number
 }
 
