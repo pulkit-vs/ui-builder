@@ -29,14 +29,11 @@ export default class CheckboxComponent extends Component {
     });
   };
   render() {
-    if (this.state.checked) {
-      this.props.titleStyle.color = this.props.titleStyle.checkedColor
-        ? this.props.titleStyle.checkedColor
-        : this.props.titleStyle.color;
-    } else {
-      this.props.titleStyle.color = this.props.titleStyle.uncheckedColor
-        ? this.props.titleStyle.uncheckedColor
-        : this.props.titleStyle.color;
+    if (this.state.checked && this.props.titleStyle.checkedColor) {
+      this.props.titleStyle.color = this.props.titleStyle.checkedColor;
+    }
+    if (!this.state.checked && this.props.titleStyle.uncheckedColor) {
+      this.props.titleStyle.color = this.props.titleStyle.uncheckedColor;
     }
 
     return (
