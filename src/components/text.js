@@ -17,13 +17,13 @@ import { theme } from "../../index";
 export default class TextComponent extends React.Component {
   componentWillMount() {
     // Applying theme on text
-    this.props = theme ? applyTheme(this.props, theme) : this.props;
+    if (theme) {
+      this.props = applyTheme(this.props, theme);
+    }
   }
   componentDidMount() {
-    if (this.props.onPress) {
-      this.props.onPress.navigation
-        ? this.props.createScreen(this.props.onPress)
-        : null;
+    if (this.props.onPress && this.props.onPress.navigation) {
+      this.props.createScreen(this.props.onPress);
     }
   }
   static contextType = NavigationContext;
@@ -35,7 +35,7 @@ export default class TextComponent extends React.Component {
         <Text
           style={props.style}
           onPress={
-            this.props.onPress.navigation
+            this.props.onPress && this.props.onPress.navigation
               ? () => navigation.navigate(this.props.onPress.screenName)
               : () => this.props.onPress()
           }

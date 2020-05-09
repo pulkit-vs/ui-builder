@@ -4,6 +4,7 @@ import { get } from "lodash";
 
 import ButtonComponent from "./src/components/button";
 import CardComponent from "./src/components/card";
+import CheckboxComponent from "./src/components/Checkbox";
 import CarouselComponent from "./src/components/carousel";
 import DividerComponent from "./src/components/divider";
 import HeaderComponent from "./src/components/header";
@@ -52,14 +53,7 @@ export default class Components extends React.Component {
           />
         );
       }
-      case COMPONENTS.CARD:
-        return (
-          <CardComponent
-            {...component}
-            key={index}
-            createScreen={this.props.createScreen}
-          />
-        );
+
       case COMPONENTS.HEADER:
         return (
           <HeaderComponent
@@ -98,6 +92,20 @@ export default class Components extends React.Component {
       }
       case COMPONENTS.CHECKBOX:
         return <CheckboxComponent {...component.properties} key={index} />;
+
+      case COMPONENTS.CARD:
+        // map to store children components of card
+        const childComponents = component.childrens.map((component, index) => {
+          return this.selectComponent(component, index);
+        });
+
+        return (
+          <CardComponent
+            {...component.properties}
+            childrens={childComponents}
+            key={index}
+          />
+        );
       case COMPONENTS.IMAGE:
         return <ImageComponent {...component.properties} key={index} />;
       case COMPONENTS.SLIDER:

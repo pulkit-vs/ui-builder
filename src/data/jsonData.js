@@ -1,31 +1,31 @@
 const data = {
   // Low Level Component
   source: {
-    screenName: 'First Screen',
+    screenName: "First Screen",
     data: [
       {
-        type: 'button',
+        type: "button",
         properties: {
-          title: 'Click Me',
-          titleStyle: {color: 'white', fontSize: 20},
+          title: "Click Me",
+          titleStyle: { color: "white", fontSize: 20 },
           buttonStyle: {
-            backgroundColor: 'blue',
-            width: '90%',
+            backgroundColor: "blue",
+            width: "90%",
             left: 20,
             marginTop: 20,
           },
         },
       },
       {
-        type: 'input',
+        type: "input",
         properties: {
-          label: 'Mobile Number (10 digits)',
-          selectionColor: 'grey',
+          label: "Mobile Number (10 digits)",
+          selectionColor: "grey",
           containerStyle: {
-            backgroundColor: 'white',
-            borderColor: 'grey',
+            backgroundColor: "white",
+            borderColor: "grey",
             borderWidth: 1,
-            width: '90%',
+            width: "90%",
             left: 20,
             marginTop: 40,
           },
@@ -34,14 +34,14 @@ const data = {
           },
           rightIcon: {
             properties: {
-              name: 'arrow-right',
-              color: 'white',
+              name: "arrow-right",
+              color: "white",
               size: 20,
-              type: 'font-awesome',
+              type: "font-awesome",
               rightIconContainerStyle: {
-                backgroundColor: 'grey',
+                backgroundColor: "grey",
                 borderWidth: 24,
-                borderColor: 'lightgrey',
+                borderColor: "lightgrey",
                 left: 10,
               },
             },
@@ -49,20 +49,20 @@ const data = {
         },
       },
       {
-        type: 'divider',
+        type: "divider",
         properties: {
-          style: {borderWidth: 1, marginTop: 50, borderColor: 'green'},
+          style: { borderWidth: 1, marginTop: 50, borderColor: "green" },
         },
       },
       {
-        type: 'text',
+        type: "text",
         properties: {
-          title: 'Text',
+          title: "Text",
           style: {
             marginTop: 40,
             fontSize: 20,
-            textAlign: 'center',
-            color: 'green',
+            textAlign: "center",
+            color: "green",
           },
         },
       },
@@ -71,47 +71,47 @@ const data = {
 
   // Add Address Screen Json
   addAdressData: {
-    theme: '',
-    screenName: 'Add Address',
+    theme: "",
+    screenName: "Add Address",
     data: [
       {
-        type: 'view',
+        type: "view",
         style: {},
         childrens: [
           {
-            type: 'view',
-            style: {borderBottomWidth: 25, borderBottomColor: 'red'},
+            type: "view",
+            style: { borderBottomWidth: 25, borderBottomColor: "red" },
             childrens: [
               {
-                type: 'header',
+                type: "header",
                 properties: {
                   containerStyle: {
-                    backgroundColor: 'red',
+                    backgroundColor: "red",
                     borderBottomWidth: 0,
                     height: 65,
-                    textAlign: 'center',
+                    textAlign: "center",
                   },
                   centerComponent: {
                     childrens: [
                       {
-                        type: 'view',
-                        properties: {style: {flexDirection: 'row'}},
+                        type: "view",
+                        properties: { style: { flexDirection: "row" } },
                       },
                       {
-                        type: 'icon',
+                        type: "icon",
                         properties: {
-                          name: 'long-arrow-left',
-                          type: 'font-awesome',
-                          color: 'white',
+                          name: "long-arrow-left",
+                          type: "font-awesome",
+                          color: "white",
                           size: 30,
                         },
                       },
                       {
-                        type: 'text',
+                        type: "text",
                         properties: {
-                          title: 'Your Adresses',
+                          title: "Your Adresses",
                           style: {
-                            color: 'white',
+                            color: "white",
                             fontSize: 23,
                             marginLeft: 7,
                           },
@@ -124,10 +124,10 @@ const data = {
             ],
           },
           {
-            type: 'header',
+            type: "header",
             properties: {
               containerStyle: {
-                backgroundColor: 'white',
+                backgroundColor: "white",
                 borderBottomWidth: 0,
 
                 height: 40,
@@ -135,35 +135,35 @@ const data = {
               leftComponent: {
                 childrens: [
                   {
-                    type: 'view',
+                    type: "view",
                     properties: {
                       style: {
                         width: 500,
                         marginLeft: -10,
-                        flexDirection: 'row',
+                        flexDirection: "row",
                         borderBottomWidth: 2,
-                        borderBottomColor: 'grey',
-                        backgroundColor: 'white',
+                        borderBottomColor: "grey",
+                        backgroundColor: "white",
                       },
                     },
                   },
                   {
-                    type: 'icon',
+                    type: "icon",
                     properties: {
-                      name: 'plus-circle',
-                      type: 'font-awesome',
-                      color: 'red',
+                      name: "plus-circle",
+                      type: "font-awesome",
+                      color: "red",
                       iconStyle: {
                         marginLeft: 4,
                       },
                     },
                   },
                   {
-                    type: 'text',
+                    type: "text",
                     properties: {
-                      title: 'Edit Your Addresses',
+                      title: "Edit Your Addresses",
                       style: {
-                        color: 'red',
+                        color: "red",
                         fontSize: 18,
                         width: 200,
                         marginBottom: 10,
@@ -178,188 +178,188 @@ const data = {
         ],
       },
       {
-        type: 'modal',
+        type: "modal",
         properties: {
           style: {
             margin: 0,
-            width: '100%',
-            marginTop: '110%',
-            backgroundColor: 'white',
+            width: "100%",
+            marginTop: "110%",
+            backgroundColor: "white",
             borderRadius: 0,
             borderTopLeftRadius: 10,
             borderTopRightRadius: 10,
           },
-          backdropColor: 'grey',
-          closeModal: ['onBackButtonPress', 'onSwipeComplete'],
-          swipeDirection: 'left',
+          backdropColor: "grey",
+          closeModal: ["onBackButtonPress", "onSwipeComplete"],
+          swipeDirection: "left",
         },
         childrens: [
           {
-            type: 'icon',
+            type: "icon",
             properties: {
               containerStyle: {
-                alignSelf: 'flex-end',
+                alignSelf: "flex-end",
                 right: 20,
-                position: 'absolute',
+                position: "absolute",
               },
-              name: 'close',
-              color: 'grey',
+              name: "close",
+              color: "grey",
               size: 20,
-              onPress: 'closeModal',
+              onPress: "closeModal",
             },
           },
           {
-            type: 'text',
+            type: "text",
             properties: {
               style: {
                 fontSize: 20,
-                fontWeight: 'bold',
-                textAlign: 'center',
-                color: 'black',
-                alignSelf: 'flex-start',
+                fontWeight: "bold",
+                textAlign: "center",
+                color: "black",
+                alignSelf: "flex-start",
                 marginLeft: 10,
               },
-              title: 'Add new address',
+              title: "Add new address",
             },
           },
 
           {
-            type: 'input',
+            type: "input",
             properties: {
-              label: 'First Name',
+              label: "First Name",
               style: {
-                backgroundColor: 'white',
-                borderColor: '#D3D3D3',
+                backgroundColor: "white",
+                borderColor: "#D3D3D3",
                 borderWidth: 2,
-                width: '47%',
+                width: "47%",
                 left: 5,
-                position: 'absolute',
+                position: "absolute",
                 height: 40,
                 marginTop: 10,
               },
-              placeholderTextColor: 'grey',
+              placeholderTextColor: "grey",
             },
           },
           {
-            type: 'input',
+            type: "input",
             properties: {
-              label: 'Last Name',
+              label: "Last Name",
               style: {
-                backgroundColor: 'white',
-                borderColor: '#D3D3D3',
+                backgroundColor: "white",
+                borderColor: "#D3D3D3",
                 borderWidth: 2,
-                width: '48%',
+                width: "48%",
                 marginRight: 5,
                 left: 207,
 
                 height: 40,
                 marginTop: 10,
               },
-              placeholderTextColor: 'grey',
+              placeholderTextColor: "grey",
             },
           },
           {
-            type: 'input',
+            type: "input",
             properties: {
-              label: 'Address',
+              label: "Address",
               style: {
-                backgroundColor: 'white',
-                borderColor: '#D3D3D3',
+                backgroundColor: "white",
+                borderColor: "#D3D3D3",
                 borderWidth: 2,
-                width: '97.5%',
+                width: "97.5%",
                 height: 65,
                 marginLeft: 5,
                 marginTop: 4,
               },
-              placeholderTextColor: 'grey',
+              placeholderTextColor: "grey",
             },
           },
           {
-            type: 'input',
+            type: "input",
             properties: {
-              label: 'City',
+              label: "City",
               style: {
-                backgroundColor: 'white',
-                borderColor: '#D3D3D3',
+                backgroundColor: "white",
+                borderColor: "#D3D3D3",
                 borderWidth: 2,
-                width: '47%',
+                width: "47%",
                 left: 5,
-                position: 'absolute',
+                position: "absolute",
                 height: 40,
                 marginTop: 4,
               },
-              placeholderTextColor: 'grey',
+              placeholderTextColor: "grey",
             },
           },
           {
-            type: 'input',
+            type: "input",
             properties: {
-              label: 'Select State',
+              label: "Select State",
               style: {
-                backgroundColor: 'white',
-                borderColor: '#D3D3D3',
+                backgroundColor: "white",
+                borderColor: "#D3D3D3",
                 borderWidth: 2,
-                width: '48%',
+                width: "48%",
                 marginRight: 5,
                 left: 207,
 
                 height: 40,
                 marginTop: 4,
               },
-              placeholderTextColor: 'grey',
+              placeholderTextColor: "grey",
             },
           },
           {
-            type: 'input',
+            type: "input",
             properties: {
-              label: 'Pin Code(6 digit)',
+              label: "Pin Code(6 digit)",
               style: {
-                backgroundColor: 'white',
-                borderColor: '#D3D3D3',
+                backgroundColor: "white",
+                borderColor: "#D3D3D3",
                 borderWidth: 2,
-                width: '47%',
+                width: "47%",
                 left: 5,
-                position: 'absolute',
+                position: "absolute",
                 height: 40,
                 marginTop: 4,
               },
-              placeholderTextColor: 'grey',
+              placeholderTextColor: "grey",
             },
           },
           {
-            type: 'input',
+            type: "input",
             properties: {
-              label: 'Mobile Number',
+              label: "Mobile Number",
               style: {
-                backgroundColor: 'white',
-                borderColor: '#D3D3D3',
+                backgroundColor: "white",
+                borderColor: "#D3D3D3",
                 borderWidth: 2,
-                width: '48%',
+                width: "48%",
                 marginRight: 5,
                 left: 207,
 
                 height: 40,
                 marginTop: 4,
               },
-              placeholderTextColor: 'grey',
+              placeholderTextColor: "grey",
             },
           },
           {
-            type: 'button',
+            type: "button",
             properties: {
-              title: 'SAVE ADDRESS',
-              onPress: 'closeModal',
+              title: "SAVE ADDRESS",
+              onPress: "closeModal",
               buttonStyle: {
-                backgroundColor: 'red',
-                borderColor: 'red',
-                width: '98%',
+                backgroundColor: "red",
+                borderColor: "red",
+                width: "98%",
                 left: 70,
                 borderWidth: 3,
                 marginTop: 5,
-                alignSelf: 'center',
+                alignSelf: "center",
                 marginRight: 140,
               },
-              titleStyle: {color: 'white'},
+              titleStyle: { color: "white" },
             },
           },
         ],
@@ -371,30 +371,34 @@ const data = {
   loginPageData: {
     // theme: 'darkTheme',
     navigation: true,
-    screenName: 'Home',
+    screenName: "Home",
     data: [
       {
-        type: 'view',
-        style: {backgroundColor: 'red', width: '100%', height: '100%'},
+        type: "view",
+        style: { backgroundColor: "red", width: "100%", height: "100%" },
         childrens: [
           {
-            type: 'header',
+            type: "header",
             properties: {
               containerStyle: {
-                backgroundColor: 'red',
+                backgroundColor: "red",
                 borderBottomWidth: 0,
               },
               centerComponent: {
                 childrens: [
                   {
-                    type: 'view',
-                    properties: {style: {flexDirection: 'row'}},
+                    type: "view",
+                    properties: { style: { flexDirection: "row" } },
                   },
                   {
-                    type: 'text',
+                    type: "text",
                     properties: {
-                      title: 'Account',
-                      style: {color: 'white', fontSize: 30, fontWeight: 'bold'},
+                      title: "Account",
+                      style: {
+                        color: "white",
+                        fontSize: 30,
+                        fontWeight: "bold",
+                      },
                     },
                   },
                 ],
@@ -402,44 +406,44 @@ const data = {
             },
           },
           {
-            type: 'view',
-            style: {marginLeft: 30},
+            type: "view",
+            style: { marginLeft: 30 },
             childrens: [
               {
-                type: 'header',
+                type: "header",
                 properties: {
                   containerStyle: {
                     height: 150,
-                    backgroundColor: 'red',
+                    backgroundColor: "red",
                     borderBottomWidth: 0,
                   },
-                  placement: 'left',
+                  placement: "left",
                   centerComponent: {
                     childrens: [
                       {
-                        type: 'view',
-                        properties: {style: {flexDirection: 'row'}},
+                        type: "view",
+                        properties: { style: { flexDirection: "row" } },
                       },
                       {
-                        type: 'icon',
+                        type: "icon",
                         properties: {
-                          name: 'plus-circle',
-                          type: 'font-awesome',
-                          color: 'white',
+                          name: "plus-circle",
+                          type: "font-awesome",
+                          color: "white",
                           size: 60,
                         },
                       },
                       {
-                        type: 'text',
+                        type: "text",
                         properties: {
-                          title: 'Medipick',
+                          title: "Medipick",
                           style: {
-                            color: 'white',
+                            color: "white",
                             fontSize: 50,
-                            fontFamily: 'arial',
+                            fontFamily: "arial",
                             marginBottom: 5,
                             paddingLeft: 5,
-                            fontWeight: 'bold',
+                            fontWeight: "bold",
                           },
                         },
                       },
@@ -455,71 +459,71 @@ const data = {
           },
 
           {
-            type: 'view',
-            style: {flexDirection: 'row', marginTop: 30, marginLeft: 20},
+            type: "view",
+            style: { flexDirection: "row", marginTop: 30, marginLeft: 20 },
             childrens: [
               {
-                type: 'text',
+                type: "text",
                 properties: {
-                  title: 'Welcome',
+                  title: "Welcome",
                   style: {
-                    color: 'white',
+                    color: "white",
                     fontSize: 24,
-                    fontWeight: 'bold',
+                    fontWeight: "bold",
                   },
                 },
               },
               {
-                type: 'text',
+                type: "text",
                 properties: {
-                  title: 'Please login here',
+                  title: "Please login here",
                   style: {
-                    color: 'white',
+                    color: "white",
                     fontSize: 21,
                     marginLeft: 5,
                     marginTop: 3,
-                    fontWeight: 'bold',
+                    fontWeight: "bold",
                   },
                 },
               },
             ],
           },
           {
-            type: 'view',
+            type: "view",
             style: {
-              width: '100%',
+              width: "100%",
               height: 50,
-              flexDirection: 'row',
-              backgroundColor: 'red',
+              flexDirection: "row",
+              backgroundColor: "red",
               marginLeft: 20,
               marginTop: 15,
             },
             childrens: [
               {
-                type: 'icon',
+                type: "icon",
                 properties: {
-                  name: 'user',
+                  name: "user",
                   size: 30,
-                  iconType: 'font-awesome',
+                  iconType: "font-awesome",
                   disabled: false,
                   raised: false,
                   iconStyle: {
-                    color: 'maroon',
+                    color: "maroon",
                   },
                   containerStyle: {
-                    alignSelf: 'flex-end',
+                    alignSelf: "flex-end",
                     marginTop: 12,
                   },
                 },
               },
               {
-                type: 'input',
+                type: "input",
                 properties: {
-                  label: 'User Name / Email',
-                  placeholderTextColor: 'maroon',
+                  label: "User Name / Email",
+                  placeholderTextColor: "maroon",
                   style: {
                     borderBottomWidth: 2,
-                    borderBottomColor: 'maroon',
+                    borderBottomColor: "maroon",
                     width: 270,
                     left: 20,
                     fontSize: 16,
@@ -529,40 +533,40 @@ const data = {
             ],
           },
           {
-            type: 'view',
+            type: "view",
             style: {
               height: 50,
-              flexDirection: 'row',
-              backgroundColor: 'red',
+              flexDirection: "row",
+              backgroundColor: "red",
               marginLeft: 20,
               marginTop: 15,
             },
             childrens: [
               {
-                type: 'icon',
+                type: "icon",
                 properties: {
-                  name: 'lock',
+                  name: "lock",
                   size: 30,
-                  iconType: 'font-awesome',
+                  iconType: "font-awesome",
                   disabled: false,
                   raised: false,
                   iconStyle: {
-                    color: 'maroon',
+                    color: "maroon",
                   },
                   containerStyle: {
-                    alignSelf: 'flex-end',
+                    alignSelf: "flex-end",
                     marginTop: 12,
                   },
                 },
               },
               {
-                type: 'input',
+                type: "input",
                 properties: {
-                  label: 'Password',
-                  placeholderTextColor: 'maroon',
+                  label: "Password",
+                  placeholderTextColor: "maroon",
                   style: {
                     borderBottomWidth: 2,
-                    borderBottomColor: 'maroon',
+                    borderBottomColor: "maroon",
                     width: 270,
                     left: 20,
                     fontSize: 16,
@@ -572,58 +576,58 @@ const data = {
             ],
           },
           {
-            type: 'text',
+            type: "text",
             properties: {
-              title: 'Forgot Password ?',
+              title: "Forgot Password ?",
               style: {
-                color: 'white',
+                color: "white",
                 fontSize: 20,
                 marginLeft: 150,
                 marginTop: 18,
-                fontWeight: 'bold',
+                fontWeight: "bold",
               },
             },
           },
           {
-            type: 'button',
+            type: "button",
             properties: {
-              title: 'Login',
-              titleStyle: {color: 'white', fontSize: 20},
+              title: "Login",
+              titleStyle: { color: "white", fontSize: 20 },
               buttonStyle: {
-                backgroundColor: 'firebrick',
-                width: '90%',
+                backgroundColor: "firebrick",
+                width: "90%",
                 left: 20,
-                borderColor: 'red',
+                borderColor: "red",
                 marginTop: 30,
                 borderRadius: 30,
               },
               onPress: {
                 navigation: true,
-                screenName: 'Add Address',
+                screenName: "Add Address",
                 source: {
                   data: [
                     {
-                      type: 'button',
+                      type: "button",
                       properties: {
-                        title: 'Sign Up',
-                        titleStyle: {color: 'white', fontSize: 20},
+                        title: "Sign Up",
+                        titleStyle: { color: "white", fontSize: 20 },
                         buttonStyle: {
-                          backgroundColor: 'lightcoral',
-                          width: '90%',
+                          backgroundColor: "lightcoral",
+                          width: "90%",
                           left: 20,
-                          borderColor: 'red',
+                          borderColor: "red",
                           marginTop: 40,
                           borderRadius: 30,
                         },
                         onPress: {
                           navigation: true,
-                          screenName: 'page3',
+                          screenName: "page3",
                           source: {
                             data: [
                               {
-                                type: 'text',
+                                type: "text",
                                 properties: {
-                                  title: 'You Are on Page3',
+                                  title: "You Are on Page3",
                                 },
                               },
                             ],
@@ -637,15 +641,15 @@ const data = {
             },
           },
           {
-            type: 'button',
+            type: "button",
             properties: {
-              title: 'Sign Up',
-              titleStyle: {color: 'white', fontSize: 20},
+              title: "Sign Up",
+              titleStyle: { color: "white", fontSize: 20 },
               buttonStyle: {
-                backgroundColor: 'lightcoral',
-                width: '90%',
+                backgroundColor: "lightcoral",
+                width: "90%",
                 left: 20,
-                borderColor: 'red',
+                borderColor: "red",
                 marginTop: 30,
                 borderRadius: 30,
               },
@@ -658,49 +662,49 @@ const data = {
 
   // Navigation Screens Json
   navigationData: {
-    screenName: 'Login Page',
+    screenName: "Login Page",
     data: [
       {
-        type: 'text',
+        type: "text",
         properties: {
-          title: 'Log In',
+          title: "Log In",
           style: {
-            color: 'black',
-            textAlign: 'center',
+            color: "black",
+            textAlign: "center",
             marginTop: 20,
             fontSize: 40,
-            fontWeight: 'bold',
+            fontWeight: "bold",
           },
         },
       },
       {
-        type: 'view',
+        type: "view",
         style: {
-          flexDirection: 'row',
+          flexDirection: "row",
           paddingLeft: 80,
         },
         childrens: [
           {
-            type: 'text',
+            type: "text",
             properties: {
-              title: 'New to this site ?',
+              title: "New to this site ?",
               style: {
-                color: 'black',
+                color: "black",
                 marginTop: 20,
                 fontSize: 20,
-                fontWeight: 'bold',
+                fontWeight: "bold",
               },
             },
           },
           {
-            type: 'text',
+            type: "text",
             properties: {
-              title: ' Sign Up',
+              title: " Sign Up",
               style: {
-                color: 'green',
+                color: "green",
                 marginTop: 20,
                 fontSize: 20,
-                fontWeight: 'bold',
+                fontWeight: "bold",
               },
             },
           },
@@ -708,45 +712,45 @@ const data = {
       },
 
       {
-        type: 'button',
+        type: "button",
         properties: {
-          title: 'Log in with Facebook',
-          titleStyle: {color: 'blue', fontSize: 20},
+          title: "Log in with Facebook",
+          titleStyle: { color: "blue", fontSize: 20 },
           buttonStyle: {
-            backgroundColor: 'white',
-            width: '90%',
+            backgroundColor: "white",
+            width: "90%",
             left: 20,
             borderWidth: 3,
             marginTop: 30,
           },
           onPress: {
             navigation: true,
-            screenName: 'Checkout',
+            screenName: "Checkout",
             source: {
               data: [
                 {
-                  type: 'header',
+                  type: "header",
                   properties: {
                     containerStyle: {
-                      backgroundColor: 'white',
+                      backgroundColor: "white",
                       borderBottomWidth: 1,
-                      borderBottomColor: 'black',
+                      borderBottomColor: "black",
                     },
-                    placement: 'left',
+                    placement: "left",
                     centerComponent: {
                       childrens: [
                         {
-                          type: 'view',
-                          properties: {style: {flexDirection: 'row'}},
+                          type: "view",
+                          properties: { style: { flexDirection: "row" } },
                         },
                         {
-                          type: 'text',
+                          type: "text",
                           properties: {
-                            title: 'Log in With Facebook',
+                            title: "Log in With Facebook",
                             style: {
-                              color: 'black',
+                              color: "black",
                               fontSize: 19,
-                              textAlign: 'left',
+                              textAlign: "left",
                               // fontWeight: 'bold',
                             },
                           },
@@ -756,18 +760,18 @@ const data = {
                     rightComponent: {
                       childrens: [
                         {
-                          type: 'view',
-                          properties: {style: {flexDirection: 'row'}},
+                          type: "view",
+                          properties: { style: { flexDirection: "row" } },
                         },
                         {
-                          type: 'icon',
+                          type: "icon",
                           properties: {
-                            name: 'close',
-                            color: 'black',
+                            name: "close",
+                            color: "black",
                             size: 30,
                             onPress: {
                               navigation: true,
-                              screenName: 'Login Page',
+                              screenName: "Login Page",
                             },
                           },
                         },
@@ -776,71 +780,71 @@ const data = {
                   },
                 },
                 {
-                  type: 'input',
+                  type: "input",
                   properties: {
-                    label: 'Mobile Number (10 digits)',
-                    placeholderTextColor: 'grey',
+                    label: "Mobile Number (10 digits)",
+                    placeholderTextColor: "grey",
                     style: {
-                      backgroundColor: 'white',
-                      borderColor: 'grey',
+                      backgroundColor: "white",
+                      borderColor: "grey",
                       borderWidth: 2,
-                      width: '90%',
+                      width: "90%",
                       left: 20,
                       marginTop: 40,
                     },
                   },
                   childrens: [
                     {
-                      type: 'icon',
+                      type: "icon",
                       properties: {
-                        name: 'search',
-                        color: 'red',
+                        name: "search",
+                        color: "red",
                         size: 40,
                       },
                     },
                     {
-                      type: 'icon',
+                      type: "icon",
                       properties: {
-                        name: 'facebook',
-                        color: 'red',
+                        name: "facebook",
+                        color: "red",
                         size: 40,
                       },
                     },
                   ],
                 },
                 {
-                  type: 'button',
+                  type: "button",
                   properties: {
-                    title: 'FACEBOOK',
-                    titleStyle: {color: 'blue', fontSize: 20},
+                    title: "FACEBOOK",
+                    titleStyle: { color: "blue", fontSize: 20 },
                     buttonStyle: {
-                      backgroundColor: 'white',
-                      width: '90%',
+                      backgroundColor: "white",
+                      width: "90%",
                       left: 20,
                       borderWidth: 3,
                       marginTop: 20,
                     },
                     onPress: {
                       navigation: true,
-                      screenName: 'faceBook HomePage',
+                      screenName: "faceBook HomePage",
                       source: {
                         data: [
                           {
-                            type: 'text',
+                            type: "text",
                             properties: {
-                              title: 'Welcome to our Facebook Page!',
+                              title: "Welcome to our Facebook Page!",
                               style: {
                                 marginTop: 20,
                                 fontSize: 20,
-                                fontWeight: 'bold',
-                                textAlign: 'center',
+                                fontWeight: "bold",
+                                textAlign: "center",
                               },
                             },
                           },
                           {
-                            type: 'text',
+                            type: "text",
                             properties: {
-                              title: 'Back to Login Page',
+                              title: "Back to Login Page",
                               style: {
                                 // position: 'absolute',
                                 left: 50,
@@ -848,7 +852,7 @@ const data = {
                                 fontSize: 20,
                               },
                               onPress: {
-                                screenName: 'Login Page',
+                                screenName: "Login Page",
                               },
                             },
                           },
@@ -863,13 +867,13 @@ const data = {
         },
       },
       {
-        type: 'button',
+        type: "button",
         properties: {
-          title: 'Log in with Google',
-          titleStyle: {color: 'blue', fontSize: 20},
+          title: "Log in with Google",
+          titleStyle: { color: "blue", fontSize: 20 },
           buttonStyle: {
-            backgroundColor: 'white',
-            width: '90%',
+            backgroundColor: "white",
+            width: "90%",
             left: 20,
             borderWidth: 3,
             marginTop: 30,
@@ -881,32 +885,32 @@ const data = {
 
   // Sample JSON Structure
   data1: {
-    type: 'input',
+    type: "input",
     properties: {
-      label: 'Email',
+      label: "Email",
       style: {
-        backgroundColor: 'white',
-        borderColor: 'grey',
+        backgroundColor: "white",
+        borderColor: "grey",
         borderWidth: 2,
-        width: '60%',
+        width: "60%",
         left: 70,
         marginTop: 40,
       },
-      placeholderTextColor: 'grey',
+      placeholderTextColor: "grey",
       childrens: [
         {
-          type: 'icon',
+          type: "icon",
           properties: {
-            name: 'search',
-            color: 'red',
+            name: "search",
+            color: "red",
             size: 40,
           },
         },
         {
-          type: 'icon',
+          type: "icon",
           properties: {
-            name: 'facebook',
-            color: 'red',
+            name: "facebook",
+            color: "red",
             size: 40,
           },
         },
@@ -917,52 +921,52 @@ const data = {
   data2: {
     childrens: [
       {
-        type: 'view',
+        type: "view",
         properties: {
           viewStyle: {},
         },
       },
       {
-        type: 'input',
+        type: "input",
         properties: {
-          label: 'Mobile Number (10 digits)',
-          placeholderTextColor: 'grey',
+          label: "Mobile Number (10 digits)",
+          placeholderTextColor: "grey",
           style: {
-            backgroundColor: 'white',
-            borderColor: 'grey',
+            backgroundColor: "white",
+            borderColor: "grey",
             borderWidth: 2,
-            width: '90%',
+            width: "90%",
             left: 20,
             marginTop: 40,
           },
         },
         childrens: [
           {
-            type: 'icon',
+            type: "icon",
             properties: {
-              name: 'search',
-              color: 'red',
+              name: "search",
+              color: "red",
               size: 40,
             },
           },
           {
-            type: 'icon',
+            type: "icon",
             properties: {
-              name: 'facebook',
-              color: 'red',
+              name: "facebook",
+              color: "red",
               size: 40,
             },
           },
         ],
       },
       {
-        type: 'button',
+        type: "button",
         properties: {
-          title: 'FACEBOOK',
-          titleStyle: {color: 'blue', fontSize: 20},
+          title: "FACEBOOK",
+          titleStyle: { color: "blue", fontSize: 20 },
           buttonStyle: {
-            backgroundColor: 'white',
-            width: '90%',
+            backgroundColor: "white",
+            width: "90%",
             left: 20,
             borderWidth: 3,
             marginTop: 20,
@@ -974,136 +978,136 @@ const data = {
 
   // Sample json
   sample: {
-    theme: 'lightTheme',
-    screenName: 'sample',
+    theme: "lightTheme",
+    screenName: "sample",
     navigation: true,
     data: [
       {
-        type: 'modal',
+        type: "modal",
         properties: {
           style: {
             margin: 0,
-            width: '100%',
+            width: "100%",
             marginBottom: 200,
             marginTop: 200,
-            backgroundColor: 'white',
+            backgroundColor: "white",
           },
-          backdropColor: 'grey',
+          backdropColor: "grey",
           closeModal: [
-            'onBackdropPress',
-            'onBackButtonPress',
-            'onSwipeComplete',
+            "onBackdropPress",
+            "onBackButtonPress",
+            "onSwipeComplete",
           ],
-          swipeDirection: 'left',
+          swipeDirection: "left",
         },
         childrens: [
           {
-            type: 'icon',
+            type: "icon",
             properties: {
               containerStyle: {
-                alignSelf: 'flex-end',
+                alignSelf: "flex-end",
                 right: 20,
                 marginBottom: 10,
-                position: 'absolute',
+                position: "absolute",
               },
-              name: 'close',
-              color: 'red',
+              name: "close",
+              color: "red",
               size: 40,
-              onPress: 'closeModal',
+              onPress: "closeModal",
             },
           },
           {
-            type: 'text',
+            type: "text",
             properties: {
               style: {
                 fontSize: 20,
-                fontWeight: 'bold',
-                textAlign: 'center',
+                fontWeight: "bold",
+                textAlign: "center",
                 marginBottom: 10,
-                color: 'black',
+                color: "black",
               },
-              title: 'Custom Modal',
+              title: "Custom Modal",
             },
           },
           {
-            type: 'input',
+            type: "input",
             properties: {
-              label: 'Email',
+              label: "Email",
               style: {
-                backgroundColor: 'white',
-                borderColor: 'grey',
+                backgroundColor: "white",
+                borderColor: "grey",
                 borderWidth: 2,
-                width: '60%',
+                width: "60%",
                 left: 70,
                 marginTop: 40,
               },
-              placeholderTextColor: 'grey',
+              placeholderTextColor: "grey",
             },
           },
           {
-            type: 'button',
+            type: "button",
             properties: {
-              title: 'Close Modal',
-              onPress: 'closeModal',
+              title: "Close Modal",
+              onPress: "closeModal",
               buttonStyle: {
-                backgroundColor: 'white',
-                width: '60%',
+                backgroundColor: "white",
+                width: "60%",
                 left: 70,
                 borderWidth: 3,
                 marginTop: 60,
               },
-              titleStyle: {color: 'black'},
+              titleStyle: { color: "black" },
             },
           },
         ],
       },
       {
-        type: 'checkbox',
+        type: "checkbox",
         properties: {
-          title: 'JAVASCRIPT',
+          title: "JAVASCRIPT",
           titleStyle: {
-            color: 'pink',
+            color: "pink",
             fontSize: 22,
-            uncheckedColor: 'black',
-            checkedColor: 'pink',
+            uncheckedColor: "black",
+            checkedColor: "pink",
           },
           checkboxStyle: {
-            color: 'red',
+            color: "red",
             size: 25,
           },
           containerStyle: {
-            borderColor: '#DCDCDC',
+            borderColor: "#DCDCDC",
             borderRadius: 20,
-            width: '80%',
+            width: "80%",
           },
         },
       },
       {
-        type: 'icon',
+        type: "icon",
         properties: {
-          name: 'battery',
+          name: "battery",
           size: 30,
-          iconType: 'font-awesome',
+          iconType: "font-awesome",
           disabled: false,
           //onPress: onIconClick,
           raised: false,
           iconStyle: {
-            color: 'blue',
+            color: "blue",
           },
           containerStyle: {
-            alignSelf: 'flex-end',
+            alignSelf: "flex-end",
           },
         },
       },
 
       {
-        type: 'view',
-        style: {flexDirection: 'row'},
+        type: "view",
+        style: { flexDirection: "row" },
         childrens: [
           {
-            type: 'image',
+            type: "image",
             properties: {
-              uri: 'https://picsum.photos/seed/picsum/200/300',
+              uri: "https://picsum.photos/seed/picsum/200/300",
               style: {
                 width: 180,
                 height: 300,
@@ -1111,9 +1115,9 @@ const data = {
             },
           },
           {
-            type: 'image',
+            type: "image",
             properties: {
-              uri: 'https://picsum.photos/200/300/?blur=1',
+              uri: "https://picsum.photos/200/300/?blur=1",
               style: {
                 width: 200,
                 height: 300,
@@ -1124,24 +1128,24 @@ const data = {
       },
 
       {
-        type: 'header',
+        type: "header",
         properties: {
           containerStyle: {
-            borderBottomColor: 'grey',
+            borderBottomColor: "grey",
             borderBottomWidth: 1,
-            backgroundColor: 'white',
+            backgroundColor: "white",
             height: 80,
           },
-          placement: 'left',
+          placement: "left",
           fontSize: 30,
-          width: '10%',
+          width: "10%",
           leftComponent: {
             childrens: [
               {
-                type: 'icon',
+                type: "icon",
                 properties: {
-                  name: 'menu',
-                  color: 'grey',
+                  name: "menu",
+                  color: "grey",
                   size: 40,
                 },
               },
@@ -1150,10 +1154,10 @@ const data = {
           centerComponent: {
             childrens: [
               {
-                type: 'text',
+                type: "text",
                 properties: {
-                  title: 'Welcome',
-                  style: {color: 'black', fontSize: 15},
+                  title: "Welcome",
+                  style: { color: "black", fontSize: 15 },
                 },
               },
             ],
@@ -1161,16 +1165,16 @@ const data = {
           rightComponent: {
             childrens: [
               {
-                type: 'view',
+                type: "view",
                 properties: {
                   style: {
                     flex: 1,
-                    flexDirection: 'row',
+                    flexDirection: "row",
                   },
                 },
               },
               {
-                type: 'input',
+                type: "input",
                 properties: {
                   containerStyle: {
                     width: 150,
@@ -1179,21 +1183,21 @@ const data = {
                   inputStyle: {
                     height: 10,
                     width: 200,
-                    color: 'black',
+                    color: "black",
                   },
                   rightIcon: {
-                    name: 'search',
-                    color: 'lightblue',
+                    name: "search",
+                    color: "lightblue",
                     size: 40,
                   },
-                  placeholder: 'search user',
+                  placeholder: "search user",
                 },
               },
               {
-                type: 'icon',
+                type: "icon",
                 properties: {
-                  name: 'home',
-                  color: 'lightblue',
+                  name: "home",
+                  color: "lightblue",
                   size: 40,
                 },
               },
@@ -1202,28 +1206,28 @@ const data = {
         },
       },
       {
-        type: 'input',
+        type: "input",
         properties: {
-          label: 'Mobile Number (10 digits)',
-          placeholderTextColor: 'grey',
+          label: "Mobile Number (10 digits)",
+          placeholderTextColor: "grey",
           style: {
-            backgroundColor: 'white',
-            borderColor: 'grey',
+            backgroundColor: "white",
+            borderColor: "grey",
             borderWidth: 2,
-            width: '90%',
+            width: "90%",
             left: 20,
             marginTop: 40,
           },
         },
       },
       {
-        type: 'button',
+        type: "button",
         properties: {
-          title: 'FACEBOOK',
-          titleStyle: {color: 'blue', fontSize: 20},
+          title: "FACEBOOK",
+          titleStyle: { color: "blue", fontSize: 20 },
           buttonStyle: {
-            backgroundColor: 'white',
-            width: '90%',
+            backgroundColor: "white",
+            width: "90%",
             left: 20,
             borderWidth: 3,
             marginTop: 20,
@@ -1234,98 +1238,98 @@ const data = {
   },
 
   debugNavigator: {
-    theme: '',
-    screenName: 'Debug Navigator',
+    theme: "",
+    screenName: "Debug Navigator",
     data: [
       {
-        type: 'text',
+        type: "text",
         properties: {
-          title: 'Debug Navigator',
+          title: "Debug Navigator",
           style: {
-            color: 'black',
+            color: "black",
             fontSize: 35,
-            marginTop: '10%',
-            width: '100%',
+            marginTop: "10%",
+            width: "100%",
             left: 30,
-            fontWeight: 'bold',
+            fontWeight: "bold",
           },
         },
       },
       {
-        type: 'text',
+        type: "text",
         properties: {
-          title: 'Select a screen to view .This\nscreen is temporary',
+          title: "Select a screen to view .This\nscreen is temporary",
           style: {
-            color: 'grey',
+            color: "grey",
             fontSize: 18,
-            width: '200%',
+            width: "200%",
             left: 30,
-            marginTop: '5%',
+            marginTop: "5%",
           },
         },
       },
       {
-        type: 'view',
-        style: {flexDirection: 'row', marginTop: '10%', left: 50},
+        type: "view",
+        style: { flexDirection: "row", marginTop: "10%", left: 50 },
         childrens: [
           {
-            type: 'text',
+            type: "text",
             properties: {
-              title: 'Add Address',
+              title: "Add Address",
               style: {
-                color: 'black',
+                color: "black",
                 fontSize: 25,
               },
               onPress: {
                 navigation: true,
-                screenName: 'Add Address',
+                screenName: "Add Address",
                 source: {
-                  theme: '',
-                  screenName: 'Add Address',
+                  theme: "",
+                  screenName: "Add Address",
                   data: [
                     {
-                      type: 'view',
+                      type: "view",
                       style: {},
                       childrens: [
                         {
-                          type: 'view',
+                          type: "view",
                           style: {
                             borderBottomWidth: 25,
-                            borderBottomColor: 'red',
+                            borderBottomColor: "red",
                           },
                           childrens: [
                             {
-                              type: 'header',
+                              type: "header",
                               properties: {
                                 containerStyle: {
-                                  backgroundColor: 'red',
+                                  backgroundColor: "red",
                                   borderBottomWidth: 0,
                                   height: 65,
-                                  textAlign: 'center',
+                                  textAlign: "center",
                                 },
                                 centerComponent: {
                                   childrens: [
                                     {
-                                      type: 'view',
+                                      type: "view",
                                       properties: {
-                                        style: {flexDirection: 'row'},
+                                        style: { flexDirection: "row" },
                                       },
                                     },
                                     {
-                                      type: 'icon',
+                                      type: "icon",
                                       properties: {
-                                        name: 'long-arrow-left',
-                                        type: 'font-awesome',
-                                        color: 'white',
+                                        name: "long-arrow-left",
+                                        type: "font-awesome",
+                                        color: "white",
                                         size: 30,
                                       },
                                     },
                                     {
-                                      type: 'text',
+                                      type: "text",
                                       properties: {
-                                        title: 'Your Adresses',
+                                        title: "Your Adresses",
                                         style: {
-                                          color: 'white',
+                                          color: "white",
                                           fontSize: 23,
                                           marginLeft: 7,
                                         },
@@ -1338,10 +1342,10 @@ const data = {
                           ],
                         },
                         {
-                          type: 'header',
+                          type: "header",
                           properties: {
                             containerStyle: {
-                              backgroundColor: 'white',
+                              backgroundColor: "white",
                               borderBottomWidth: 0,
 
                               height: 40,
@@ -1349,35 +1353,35 @@ const data = {
                             leftComponent: {
                               childrens: [
                                 {
-                                  type: 'view',
+                                  type: "view",
                                   properties: {
                                     style: {
                                       width: 500,
                                       marginLeft: -10,
-                                      flexDirection: 'row',
+                                      flexDirection: "row",
                                       borderBottomWidth: 2,
-                                      borderBottomColor: 'grey',
-                                      backgroundColor: 'white',
+                                      borderBottomColor: "grey",
+                                      backgroundColor: "white",
                                     },
                                   },
                                 },
                                 {
-                                  type: 'icon',
+                                  type: "icon",
                                   properties: {
-                                    name: 'plus-circle',
-                                    type: 'font-awesome',
-                                    color: 'red',
+                                    name: "plus-circle",
+                                    type: "font-awesome",
+                                    color: "red",
                                     iconStyle: {
                                       marginLeft: 4,
                                     },
                                   },
                                 },
                                 {
-                                  type: 'text',
+                                  type: "text",
                                   properties: {
-                                    title: 'Edit Your Addresses',
+                                    title: "Edit Your Addresses",
                                     style: {
-                                      color: 'red',
+                                      color: "red",
                                       fontSize: 18,
                                       width: 200,
                                       marginBottom: 10,
@@ -1392,189 +1396,189 @@ const data = {
                       ],
                     },
                     {
-                      type: 'modal',
+                      type: "modal",
                       properties: {
                         style: {
                           margin: 0,
-                          width: '100%',
-                          marginTop: '110%',
-                          backgroundColor: 'white',
+                          width: "100%",
+                          marginTop: "110%",
+                          backgroundColor: "white",
                           borderRadius: 0,
                           //height: "20%",
                           borderTopLeftRadius: 10,
                           borderTopRightRadius: 10,
                         },
-                        backdropColor: 'grey',
-                        closeModal: ['onBackButtonPress', 'onSwipeComplete'],
-                        swipeDirection: 'left',
+                        backdropColor: "grey",
+                        closeModal: ["onBackButtonPress", "onSwipeComplete"],
+                        swipeDirection: "left",
                       },
                       childrens: [
                         {
-                          type: 'icon',
+                          type: "icon",
                           properties: {
                             containerStyle: {
-                              alignSelf: 'flex-end',
+                              alignSelf: "flex-end",
                               right: 20,
-                              position: 'absolute',
+                              position: "absolute",
                             },
-                            name: 'close',
-                            color: 'grey',
+                            name: "close",
+                            color: "grey",
                             size: 20,
-                            onPress: 'closeModal',
+                            onPress: "closeModal",
                           },
                         },
                         {
-                          type: 'text',
+                          type: "text",
                           properties: {
                             style: {
                               fontSize: 20,
-                              fontWeight: 'bold',
-                              textAlign: 'center',
-                              color: 'black',
-                              alignSelf: 'flex-start',
+                              fontWeight: "bold",
+                              textAlign: "center",
+                              color: "black",
+                              alignSelf: "flex-start",
                               marginLeft: 10,
                             },
-                            title: 'Add new address',
+                            title: "Add new address",
                           },
                         },
 
                         {
-                          type: 'input',
+                          type: "input",
                           properties: {
-                            label: 'First Name',
+                            label: "First Name",
                             style: {
-                              backgroundColor: 'white',
-                              borderColor: '#D3D3D3',
+                              backgroundColor: "white",
+                              borderColor: "#D3D3D3",
                               borderWidth: 2,
-                              width: '47%',
+                              width: "47%",
                               left: 5,
-                              position: 'absolute',
+                              position: "absolute",
                               height: 40,
                               marginTop: 10,
                             },
-                            placeholderTextColor: 'grey',
+                            placeholderTextColor: "grey",
                           },
                         },
                         {
-                          type: 'input',
+                          type: "input",
                           properties: {
-                            label: 'Last Name',
+                            label: "Last Name",
                             style: {
-                              backgroundColor: 'white',
-                              borderColor: '#D3D3D3',
+                              backgroundColor: "white",
+                              borderColor: "#D3D3D3",
                               borderWidth: 2,
-                              width: '48%',
+                              width: "48%",
                               marginRight: 5,
                               left: 207,
 
                               height: 40,
                               marginTop: 10,
                             },
-                            placeholderTextColor: 'grey',
+                            placeholderTextColor: "grey",
                           },
                         },
                         {
-                          type: 'input',
+                          type: "input",
                           properties: {
-                            label: 'Address',
+                            label: "Address",
                             style: {
-                              backgroundColor: 'white',
-                              borderColor: '#D3D3D3',
+                              backgroundColor: "white",
+                              borderColor: "#D3D3D3",
                               borderWidth: 2,
-                              width: '97.5%',
+                              width: "97.5%",
                               height: 65,
                               marginLeft: 5,
                               marginTop: 4,
                             },
-                            placeholderTextColor: 'grey',
+                            placeholderTextColor: "grey",
                           },
                         },
                         {
-                          type: 'input',
+                          type: "input",
                           properties: {
-                            label: 'City',
+                            label: "City",
                             style: {
-                              backgroundColor: 'white',
-                              borderColor: '#D3D3D3',
+                              backgroundColor: "white",
+                              borderColor: "#D3D3D3",
                               borderWidth: 2,
-                              width: '47%',
+                              width: "47%",
                               left: 5,
-                              position: 'absolute',
+                              position: "absolute",
                               height: 40,
                               marginTop: 4,
                             },
-                            placeholderTextColor: 'grey',
+                            placeholderTextColor: "grey",
                           },
                         },
                         {
-                          type: 'input',
+                          type: "input",
                           properties: {
-                            label: 'Select State',
+                            label: "Select State",
                             style: {
-                              backgroundColor: 'white',
-                              borderColor: '#D3D3D3',
+                              backgroundColor: "white",
+                              borderColor: "#D3D3D3",
                               borderWidth: 2,
-                              width: '48%',
+                              width: "48%",
                               marginRight: 5,
                               left: 207,
 
                               height: 40,
                               marginTop: 4,
                             },
-                            placeholderTextColor: 'grey',
+                            placeholderTextColor: "grey",
                           },
                         },
                         {
-                          type: 'input',
+                          type: "input",
                           properties: {
-                            label: 'Pin Code(6 digit)',
+                            label: "Pin Code(6 digit)",
                             style: {
-                              backgroundColor: 'white',
-                              borderColor: '#D3D3D3',
+                              backgroundColor: "white",
+                              borderColor: "#D3D3D3",
                               borderWidth: 2,
-                              width: '47%',
+                              width: "47%",
                               left: 5,
-                              position: 'absolute',
+                              position: "absolute",
                               height: 40,
                               marginTop: 4,
                             },
-                            placeholderTextColor: 'grey',
+                            placeholderTextColor: "grey",
                           },
                         },
                         {
-                          type: 'input',
+                          type: "input",
                           properties: {
-                            label: 'Mobile Number',
+                            label: "Mobile Number",
                             style: {
-                              backgroundColor: 'white',
-                              borderColor: '#D3D3D3',
+                              backgroundColor: "white",
+                              borderColor: "#D3D3D3",
                               borderWidth: 2,
-                              width: '48%',
+                              width: "48%",
                               marginRight: 5,
                               left: 207,
 
                               height: 40,
                               marginTop: 4,
                             },
-                            placeholderTextColor: 'grey',
+                            placeholderTextColor: "grey",
                           },
                         },
                         {
-                          type: 'button',
+                          type: "button",
                           properties: {
-                            title: 'SAVE ADDRESS',
-                            onPress: 'closeModal',
+                            title: "SAVE ADDRESS",
+                            onPress: "closeModal",
                             buttonStyle: {
-                              backgroundColor: 'red',
-                              borderColor: 'red',
-                              width: '98%',
+                              backgroundColor: "red",
+                              borderColor: "red",
+                              width: "98%",
                               left: 70,
                               borderWidth: 3,
                               marginTop: 5,
-                              alignSelf: 'center',
+                              alignSelf: "center",
                               marginRight: 140,
                             },
-                            titleStyle: {color: 'white'},
+                            titleStyle: { color: "white" },
                           },
                         },
                       ],
@@ -1585,72 +1589,74 @@ const data = {
             },
           },
           {
-            type: 'icon',
+            type: "icon",
             properties: {
-              name: 'chevron-right',
-              type: 'font-awesome',
-              color: 'black',
+              name: "chevron-right",
+              type: "font-awesome",
+              color: "black",
               size: 35,
-              iconStyle: {marginLeft: '45%', marginTop: '3%'},
+              iconStyle: { marginLeft: "45%", marginTop: "3%" },
             },
           },
         ],
       },
       {
-        type: 'divider',
+        type: "divider",
         properties: {
-          style: {borderWidth: 1, borderColor: 'lightgrey', left: 30},
+          style: { borderWidth: 1, borderColor: "lightgrey", left: 30 },
         },
       },
       {
-        type: 'view',
-        style: {flexDirection: 'row', marginTop: '10%', left: 50},
+        type: "view",
+        style: { flexDirection: "row", marginTop: "10%", left: 50 },
         childrens: [
           {
-            type: 'text',
+            type: "text",
             properties: {
-              title: 'Log-in',
+              title: "Log-in",
               style: {
-                color: 'black',
+                color: "black",
                 fontSize: 25,
               },
               onPress: {
                 navigation: true,
-                screenName: 'Home',
+                screenName: "Home",
                 source: {
                   // theme: 'darkTheme',
                   navigation: true,
-                  screenName: 'Home',
+                  screenName: "Home",
                   data: [
                     {
-                      type: 'view',
+                      type: "view",
                       style: {
-                        backgroundColor: 'red',
-                        width: '100%',
-                        height: '100%',
+                        backgroundColor: "red",
+                        width: "100%",
+                        height: "100%",
                       },
                       childrens: [
                         {
-                          type: 'header',
+                          type: "header",
                           properties: {
                             containerStyle: {
-                              backgroundColor: 'red',
+                              backgroundColor: "red",
                               borderBottomWidth: 0,
                             },
                             centerComponent: {
                               childrens: [
                                 {
-                                  type: 'view',
-                                  properties: {style: {flexDirection: 'row'}},
+                                  type: "view",
+                                  properties: {
+                                    style: { flexDirection: "row" },
+                                  },
                                 },
                                 {
-                                  type: 'text',
+                                  type: "text",
                                   properties: {
-                                    title: 'Account',
+                                    title: "Account",
                                     style: {
-                                      color: 'white',
+                                      color: "white",
                                       fontSize: 30,
-                                      fontWeight: 'bold',
+                                      fontWeight: "bold",
                                     },
                                   },
                                 },
@@ -1659,46 +1665,46 @@ const data = {
                           },
                         },
                         {
-                          type: 'view',
-                          style: {marginLeft: 30},
+                          type: "view",
+                          style: { marginLeft: 30 },
                           childrens: [
                             {
-                              type: 'header',
+                              type: "header",
                               properties: {
                                 containerStyle: {
                                   height: 150,
-                                  backgroundColor: 'red',
+                                  backgroundColor: "red",
                                   borderBottomWidth: 0,
                                 },
-                                placement: 'left',
+                                placement: "left",
                                 centerComponent: {
                                   childrens: [
                                     {
-                                      type: 'view',
+                                      type: "view",
                                       properties: {
-                                        style: {flexDirection: 'row'},
+                                        style: { flexDirection: "row" },
                                       },
                                     },
                                     {
-                                      type: 'icon',
+                                      type: "icon",
                                       properties: {
-                                        name: 'plus-circle',
-                                        type: 'font-awesome',
-                                        color: 'white',
+                                        name: "plus-circle",
+                                        type: "font-awesome",
+                                        color: "white",
                                         size: 60,
                                       },
                                     },
                                     {
-                                      type: 'text',
+                                      type: "text",
                                       properties: {
-                                        title: 'Medipick',
+                                        title: "Medipick",
                                         style: {
-                                          color: 'white',
+                                          color: "white",
                                           fontSize: 50,
-                                          fontFamily: 'arial',
+                                          fontFamily: "arial",
                                           marginBottom: 5,
                                           paddingLeft: 5,
-                                          fontWeight: 'bold',
+                                          fontWeight: "bold",
                                         },
                                       },
                                     },
@@ -1714,41 +1720,41 @@ const data = {
                         },
 
                         {
-                          type: 'view',
+                          type: "view",
                           style: {
-                            flexDirection: 'row',
+                            flexDirection: "row",
                             marginTop: 30,
                             marginLeft: 20,
                           },
                           childrens: [
                             {
-                              type: 'text',
+                              type: "text",
                               properties: {
-                                title: 'Welcome',
+                                title: "Welcome",
                                 style: {
-                                  color: 'white',
+                                  color: "white",
                                   fontSize: 24,
-                                  fontWeight: 'bold',
+                                  fontWeight: "bold",
                                 },
                               },
                             },
                             {
-                              type: 'text',
+                              type: "text",
                               properties: {
-                                title: 'Please login here',
+                                title: "Please login here",
                                 style: {
-                                  color: 'white',
+                                  color: "white",
                                   fontSize: 21,
                                   marginLeft: 5,
                                   marginTop: 3,
-                                  fontWeight: 'bold',
+                                  fontWeight: "bold",
                                 },
                               },
                             },
                           ],
                         },
                         {
-                          type: 'view',
+                          type: "view",
                           style: {
                             height: 50,
                             marginLeft: 10,
@@ -1756,19 +1762,19 @@ const data = {
                           },
                           childrens: [
                             {
-                              type: 'input',
+                              type: "input",
                               properties: {
                                 leftIcon: {
                                   properties: {
-                                    type: 'font-awesome',
-                                    name: 'user',
-                                    color: 'maroon',
+                                    type: "font-awesome",
+                                    name: "user",
+                                    color: "maroon",
                                   },
                                 },
-                                label: '  User Name / Email',
+                                label: "  User Name / Email",
                                 inputContainerStyle: {
                                   borderBottomWidth: 2,
-                                  borderBottomColor: 'maroon',
+                                  borderBottomColor: "maroon",
                                   width: 300,
                                   fontSize: 20,
                                 },
@@ -1778,7 +1784,7 @@ const data = {
                           ],
                         },
                         {
-                          type: 'view',
+                          type: "view",
                           style: {
                             height: 50,
                             marginLeft: 10,
@@ -1786,19 +1792,19 @@ const data = {
                           },
                           childrens: [
                             {
-                              type: 'input',
+                              type: "input",
                               properties: {
                                 leftIcon: {
                                   properties: {
-                                    type: 'font-awesome',
-                                    name: 'lock',
-                                    color: 'maroon',
+                                    type: "font-awesome",
+                                    name: "lock",
+                                    color: "maroon",
                                   },
                                 },
-                                label: '  Password',
+                                label: "  Password",
                                 inputContainerStyle: {
                                   borderBottomWidth: 2,
-                                  borderBottomColor: 'maroon',
+                                  borderBottomColor: "maroon",
                                   width: 300,
                                   fontSize: 20,
                                 },
@@ -1808,61 +1814,61 @@ const data = {
                           ],
                         },
                         {
-                          type: 'text',
+                          type: "text",
                           properties: {
-                            title: 'Forgot Password ?',
+                            title: "Forgot Password ?",
                             style: {
-                              color: 'white',
+                              color: "white",
                               fontSize: 20,
                               marginLeft: 150,
                               marginTop: 18,
-                              fontWeight: 'bold',
+                              fontWeight: "bold",
                             },
                           },
                         },
                         {
-                          type: 'button',
+                          type: "button",
                           properties: {
-                            title: 'Login',
-                            titleStyle: {color: 'white', fontSize: 20},
+                            title: "Login",
+                            titleStyle: { color: "white", fontSize: 20 },
                             buttonStyle: {
-                              backgroundColor: 'firebrick',
-                              width: '90%',
+                              backgroundColor: "firebrick",
+                              width: "90%",
                               left: 20,
-                              borderColor: 'red',
+                              borderColor: "red",
                               marginTop: 30,
                               borderRadius: 30,
                             },
                             onPress: {
                               navigation: true,
-                              screenName: 'Add Address',
+                              screenName: "Add Address",
                               source: {
                                 data: [
                                   {
-                                    type: 'button',
+                                    type: "button",
                                     properties: {
-                                      title: 'Sign Up',
+                                      title: "Sign Up",
                                       titleStyle: {
-                                        color: 'white',
+                                        color: "white",
                                         fontSize: 20,
                                       },
                                       buttonStyle: {
-                                        backgroundColor: 'lightcoral',
-                                        width: '90%',
+                                        backgroundColor: "lightcoral",
+                                        width: "90%",
                                         left: 20,
-                                        borderColor: 'red',
+                                        borderColor: "red",
                                         marginTop: 40,
                                         borderRadius: 30,
                                       },
                                       onPress: {
                                         navigation: true,
-                                        screenName: 'page3',
+                                        screenName: "page3",
                                         source: {
                                           data: [
                                             {
-                                              type: 'text',
+                                              type: "text",
                                               properties: {
-                                                title: 'You Are on Page3',
+                                                title: "You Are on Page3",
                                               },
                                             },
                                           ],
@@ -1876,15 +1882,15 @@ const data = {
                           },
                         },
                         {
-                          type: 'button',
+                          type: "button",
                           properties: {
-                            title: 'Sign Up',
-                            titleStyle: {color: 'white', fontSize: 20},
+                            title: "Sign Up",
+                            titleStyle: { color: "white", fontSize: 20 },
                             buttonStyle: {
-                              backgroundColor: 'lightcoral',
-                              width: '90%',
+                              backgroundColor: "lightcoral",
+                              width: "90%",
                               left: 20,
-                              borderColor: 'red',
+                              borderColor: "red",
                               marginTop: 30,
                               borderRadius: 30,
                             },
@@ -1898,82 +1904,82 @@ const data = {
             },
           },
           {
-            type: 'icon',
+            type: "icon",
             properties: {
-              name: 'chevron-right',
-              type: 'font-awesome',
-              color: 'black',
+              name: "chevron-right",
+              type: "font-awesome",
+              color: "black",
               size: 35,
-              iconStyle: {marginLeft: '62%', marginTop: '3%'},
+              iconStyle: { marginLeft: "62%", marginTop: "3%" },
             },
           },
         ],
       },
       {
-        type: 'divider',
+        type: "divider",
         properties: {
-          style: {borderWidth: 1, borderColor: 'lightgrey', left: 30},
+          style: { borderWidth: 1, borderColor: "lightgrey", left: 30 },
         },
       },
       {
-        type: 'view',
-        style: {flexDirection: 'row', marginTop: '10%', left: 50},
+        type: "view",
+        style: { flexDirection: "row", marginTop: "10%", left: 50 },
         childrens: [
           {
-            type: 'text',
+            type: "text",
             properties: {
-              title: 'Login with Facebook',
+              title: "Login with Facebook",
               style: {
-                color: 'black',
+                color: "black",
                 fontSize: 25,
               },
               onPress: {
-                screenName: 'Login Page',
+                screenName: "Login Page",
                 navigation: true,
                 source: {
-                  screenName: 'Login Page',
+                  screenName: "Login Page",
                   data: [
                     {
-                      type: 'text',
+                      type: "text",
                       properties: {
-                        title: 'Log In',
+                        title: "Log In",
                         style: {
-                          color: 'black',
-                          textAlign: 'center',
+                          color: "black",
+                          textAlign: "center",
                           marginTop: 20,
                           fontSize: 40,
-                          fontWeight: 'bold',
+                          fontWeight: "bold",
                         },
                       },
                     },
                     {
-                      type: 'view',
+                      type: "view",
                       style: {
-                        flexDirection: 'row',
+                        flexDirection: "row",
                         paddingLeft: 80,
                       },
                       childrens: [
                         {
-                          type: 'text',
+                          type: "text",
                           properties: {
-                            title: 'New to this site ?',
+                            title: "New to this site ?",
                             style: {
-                              color: 'black',
+                              color: "black",
                               marginTop: 20,
                               fontSize: 20,
-                              fontWeight: 'bold',
+                              fontWeight: "bold",
                             },
                           },
                         },
                         {
-                          type: 'text',
+                          type: "text",
                           properties: {
-                            title: ' Sign Up',
+                            title: " Sign Up",
                             style: {
-                              color: 'green',
+                              color: "green",
                               marginTop: 20,
                               fontSize: 20,
-                              fontWeight: 'bold',
+                              fontWeight: "bold",
                             },
                           },
                         },
@@ -1981,47 +1987,47 @@ const data = {
                     },
 
                     {
-                      type: 'button',
+                      type: "button",
                       properties: {
-                        title: 'Log in with Facebook',
-                        titleStyle: {color: 'blue', fontSize: 20},
+                        title: "Log in with Facebook",
+                        titleStyle: { color: "blue", fontSize: 20 },
                         buttonStyle: {
-                          backgroundColor: 'white',
-                          width: '90%',
+                          backgroundColor: "white",
+                          width: "90%",
                           left: 20,
                           borderWidth: 3,
                           marginTop: 30,
                         },
                         onPress: {
                           navigation: true,
-                          screenName: 'Checkout',
+                          screenName: "Checkout",
                           source: {
                             data: [
                               {
-                                type: 'header',
+                                type: "header",
                                 properties: {
                                   containerStyle: {
-                                    backgroundColor: 'white',
+                                    backgroundColor: "white",
                                     borderBottomWidth: 1,
-                                    borderBottomColor: 'black',
+                                    borderBottomColor: "black",
                                   },
-                                  placement: 'left',
+                                  placement: "left",
                                   centerComponent: {
                                     childrens: [
                                       {
-                                        type: 'view',
+                                        type: "view",
                                         properties: {
-                                          style: {flexDirection: 'row'},
+                                          style: { flexDirection: "row" },
                                         },
                                       },
                                       {
-                                        type: 'text',
+                                        type: "text",
                                         properties: {
-                                          title: 'Log in With Facebook',
+                                          title: "Log in With Facebook",
                                           style: {
-                                            color: 'black',
+                                            color: "black",
                                             fontSize: 19,
-                                            textAlign: 'left',
+                                            textAlign: "left",
                                             // fontWeight: 'bold',
                                           },
                                         },
@@ -2031,20 +2037,20 @@ const data = {
                                   rightComponent: {
                                     childrens: [
                                       {
-                                        type: 'view',
+                                        type: "view",
                                         properties: {
-                                          style: {flexDirection: 'row'},
+                                          style: { flexDirection: "row" },
                                         },
                                       },
                                       {
-                                        type: 'icon',
+                                        type: "icon",
                                         properties: {
-                                          name: 'close',
-                                          color: 'black',
+                                          name: "close",
+                                          color: "black",
                                           size: 30,
                                           onPress: {
                                             navigation: true,
-                                            screenName: 'Login Page',
+                                            screenName: "Login Page",
                                           },
                                         },
                                       },
@@ -2053,15 +2059,15 @@ const data = {
                                 },
                               },
                               {
-                                type: 'input',
+                                type: "input",
                                 properties: {
-                                  label: 'Mobile Number (10 digits)',
-                                  selectionColor: 'grey',
+                                  label: "Mobile Number (10 digits)",
+                                  selectionColor: "grey",
                                   containerStyle: {
-                                    backgroundColor: 'white',
-                                    borderColor: 'grey',
+                                    backgroundColor: "white",
+                                    borderColor: "grey",
                                     borderWidth: 1,
-                                    width: '90%',
+                                    width: "90%",
                                     left: 20,
                                     marginTop: 40,
                                   },
@@ -2070,14 +2076,14 @@ const data = {
                                   },
                                   rightIcon: {
                                     properties: {
-                                      name: 'arrow-right',
-                                      color: 'white',
+                                      name: "arrow-right",
+                                      color: "white",
                                       size: 20,
-                                      type: 'font-awesome',
+                                      type: "font-awesome",
                                       rightIconContainerStyle: {
-                                        backgroundColor: 'grey',
+                                        backgroundColor: "grey",
                                         borderWidth: 24,
-                                        borderColor: 'lightgrey',
+                                        borderColor: "lightgrey",
                                         left: 10,
                                       },
                                     },
@@ -2085,39 +2091,39 @@ const data = {
                                 },
                               },
                               {
-                                type: 'button',
+                                type: "button",
                                 properties: {
-                                  title: 'FACEBOOK',
-                                  titleStyle: {color: 'blue', fontSize: 20},
+                                  title: "FACEBOOK",
+                                  titleStyle: { color: "blue", fontSize: 20 },
                                   buttonStyle: {
-                                    backgroundColor: 'white',
-                                    width: '90%',
+                                    backgroundColor: "white",
+                                    width: "90%",
                                     left: 20,
                                     borderWidth: 3,
                                     marginTop: 20,
                                   },
                                   onPress: {
                                     navigation: true,
-                                    screenName: 'faceBook HomePage',
+                                    screenName: "faceBook HomePage",
                                     source: {
                                       data: [
                                         {
-                                          type: 'text',
+                                          type: "text",
                                           properties: {
                                             title:
-                                              'Welcome to our Facebook Page!',
+                                              "Welcome to our Facebook Page!",
                                             style: {
                                               marginTop: 20,
                                               fontSize: 20,
-                                              fontWeight: 'bold',
-                                              textAlign: 'center',
+                                              fontWeight: "bold",
+                                              textAlign: "center",
                                             },
                                           },
                                         },
                                         {
-                                          type: 'text',
+                                          type: "text",
                                           properties: {
-                                            title: 'Back to Login Page',
+                                            title: "Back to Login Page",
                                             style: {
                                               // position: 'absolute',
                                               left: 50,
@@ -2125,7 +2131,7 @@ const data = {
                                               fontSize: 20,
                                             },
                                             onPress: {
-                                              screenName: 'Login Page',
+                                              screenName: "Login Page",
                                             },
                                           },
                                         },
@@ -2140,13 +2146,13 @@ const data = {
                       },
                     },
                     {
-                      type: 'button',
+                      type: "button",
                       properties: {
-                        title: 'Log in with Google',
-                        titleStyle: {color: 'blue', fontSize: 20},
+                        title: "Log in with Google",
+                        titleStyle: { color: "blue", fontSize: 20 },
                         buttonStyle: {
-                          backgroundColor: 'white',
-                          width: '90%',
+                          backgroundColor: "white",
+                          width: "90%",
                           left: 20,
                           borderWidth: 3,
                           marginTop: 30,
@@ -2159,114 +2165,116 @@ const data = {
             },
           },
           {
-            type: 'icon',
+            type: "icon",
             properties: {
-              name: 'chevron-right',
-              type: 'font-awesome',
-              color: 'black',
+              name: "chevron-right",
+              type: "font-awesome",
+              color: "black",
               size: 35,
-              iconStyle: {marginLeft: '21%', marginTop: '3%'},
+              iconStyle: { marginLeft: "21%", marginTop: "3%" },
             },
           },
         ],
       },
       {
-        type: 'divider',
+        type: "divider",
         properties: {
-          style: {borderWidth: 1, borderColor: 'lightgrey', left: 30},
+          style: { borderWidth: 1, borderColor: "lightgrey", left: 30 },
         },
       },
       {
-        type: 'view',
-        style: {flexDirection: 'row', marginTop: '10%', left: 50},
+        type: "view",
+        style: { flexDirection: "row", marginTop: "10%", left: 50 },
         childrens: [
           {
-            type: 'text',
+            type: "text",
             properties: {
-              title: 'Open Modal',
+              title: "Open Modal",
               style: {
-                color: 'black',
+                color: "black",
                 fontSize: 25,
               },
               onPress: {
                 navigation: true,
-                screenName: 'Modal Screen',
+                screenName: "Modal Screen",
                 source: {
-                  screenName: 'Modal Screen',
+                  screenName: "Modal Screen",
                   data: [
                     {
-                      type: 'modal',
+                      type: "modal",
                       properties: {
                         style: {
                           margin: 0,
-                          width: '100%',
-                          marginTop: '140%',
+                          width: "100%",
+                          marginTop: "140%",
                           maxHeight: 200,
-                          backgroundColor: 'white',
+                          backgroundColor: "white",
                           borderRadius: 0,
                           borderTopLeftRadius: 10,
                           borderTopRightRadius: 10,
                         },
-                        backdropColor: 'grey',
-                        closeModal: ['onSwipeComplete'],
-                        swipeDirection: 'left',
+                        backdropColor: "grey",
+                        closeModal: ["onSwipeComplete"],
+                        swipeDirection: "left",
                         onBackButtonPress: {
                           navigation: true,
-                          screenName: 'Debug Navigator',
+                          screenName: "Debug Navigator",
                         },
                       },
                       childrens: [
                         {
-                          type: 'button',
+                          type: "button",
                           properties: {
-                            title: 'OPTION 1',
+                            title: "OPTION 1",
                             buttonStyle: {
-                              backgroundColor: 'white',
-                              borderColor: 'black',
-                              width: '98%',
+                              backgroundColor: "white",
+                              borderColor: "black",
+                              width: "98%",
                               left: 70,
                               borderWidth: 3,
                               marginTop: 5,
-                              alignSelf: 'center',
+                              alignSelf: "center",
                               marginRight: 140,
                             },
-                            titleStyle: {color: 'black'},
+                            titleStyle: { color: "black" },
                             onPress: {
-                              screenName: 'Home',
+                              screenName: "Home",
                               navigation: true,
                               source: {
                                 data: [
                                   {
-                                    type: 'view',
+                                    type: "view",
                                     style: {
-                                      backgroundColor: 'red',
-                                      width: '100%',
-                                      height: '100%',
+                                      backgroundColor: "red",
+                                      width: "100%",
+                                      height: "100%",
                                     },
                                     childrens: [
                                       {
-                                        type: 'header',
+                                        type: "header",
                                         properties: {
                                           containerStyle: {
-                                            backgroundColor: 'red',
+                                            backgroundColor: "red",
                                             borderBottomWidth: 0,
                                           },
                                           centerComponent: {
                                             childrens: [
                                               {
-                                                type: 'view',
+                                                type: "view",
                                                 properties: {
-                                                  style: {flexDirection: 'row'},
+                                                  style: {
+                                                    flexDirection: "row",
+                                                  },
                                                 },
                                               },
                                               {
-                                                type: 'text',
+                                                type: "text",
                                                 properties: {
-                                                  title: 'Account',
+                                                  title: "Account",
                                                   style: {
-                                                    color: 'white',
+                                                    color: "white",
                                                     fontSize: 30,
-                                                    fontWeight: 'bold',
+                                                    fontWeight: "bold",
                                                   },
                                                 },
                                               },
@@ -2275,48 +2283,48 @@ const data = {
                                         },
                                       },
                                       {
-                                        type: 'view',
-                                        style: {marginLeft: 30},
+                                        type: "view",
+                                        style: { marginLeft: 30 },
                                         childrens: [
                                           {
-                                            type: 'header',
+                                            type: "header",
                                             properties: {
                                               containerStyle: {
                                                 height: 150,
-                                                backgroundColor: 'red',
+                                                backgroundColor: "red",
                                                 borderBottomWidth: 0,
                                               },
-                                              placement: 'left',
+                                              placement: "left",
                                               centerComponent: {
                                                 childrens: [
                                                   {
-                                                    type: 'view',
+                                                    type: "view",
                                                     properties: {
                                                       style: {
-                                                        flexDirection: 'row',
+                                                        flexDirection: "row",
                                                       },
                                                     },
                                                   },
                                                   {
-                                                    type: 'icon',
+                                                    type: "icon",
                                                     properties: {
-                                                      name: 'plus-circle',
-                                                      type: 'font-awesome',
-                                                      color: 'white',
+                                                      name: "plus-circle",
+                                                      type: "font-awesome",
+                                                      color: "white",
                                                       size: 60,
                                                     },
                                                   },
                                                   {
-                                                    type: 'text',
+                                                    type: "text",
                                                     properties: {
-                                                      title: 'Medipick',
+                                                      title: "Medipick",
                                                       style: {
-                                                        color: 'white',
+                                                        color: "white",
                                                         fontSize: 50,
-                                                        fontFamily: 'arial',
+                                                        fontFamily: "arial",
                                                         marginBottom: 5,
                                                         paddingLeft: 5,
-                                                        fontWeight: 'bold',
+                                                        fontWeight: "bold",
                                                       },
                                                     },
                                                   },
@@ -2332,75 +2340,75 @@ const data = {
                                       },
 
                                       {
-                                        type: 'view',
+                                        type: "view",
                                         style: {
-                                          flexDirection: 'row',
+                                          flexDirection: "row",
                                           marginTop: 30,
                                           marginLeft: 20,
                                         },
                                         childrens: [
                                           {
-                                            type: 'text',
+                                            type: "text",
                                             properties: {
-                                              title: 'Welcome',
+                                              title: "Welcome",
                                               style: {
-                                                color: 'white',
+                                                color: "white",
                                                 fontSize: 24,
-                                                fontWeight: 'bold',
+                                                fontWeight: "bold",
                                               },
                                             },
                                           },
                                           {
-                                            type: 'text',
+                                            type: "text",
                                             properties: {
-                                              title: 'Please login here',
+                                              title: "Please login here",
                                               style: {
-                                                color: 'white',
+                                                color: "white",
                                                 fontSize: 21,
                                                 marginLeft: 5,
                                                 marginTop: 3,
-                                                fontWeight: 'bold',
+                                                fontWeight: "bold",
                                               },
                                             },
                                           },
                                         ],
                                       },
                                       {
-                                        type: 'view',
+                                        type: "view",
                                         style: {
-                                          width: '100%',
+                                          width: "100%",
                                           height: 50,
-                                          flexDirection: 'row',
-                                          backgroundColor: 'red',
+                                          flexDirection: "row",
+                                          backgroundColor: "red",
                                           marginLeft: 20,
                                           marginTop: 15,
                                         },
                                         childrens: [
                                           {
-                                            type: 'icon',
+                                            type: "icon",
                                             properties: {
-                                              name: 'user',
+                                              name: "user",
                                               size: 30,
-                                              iconType: 'font-awesome',
+                                              iconType: "font-awesome",
                                               disabled: false,
                                               raised: false,
                                               iconStyle: {
-                                                color: 'maroon',
+                                                color: "maroon",
                                               },
                                               containerStyle: {
-                                                alignSelf: 'flex-end',
+                                                alignSelf: "flex-end",
                                                 marginTop: 12,
                                               },
                                             },
                                           },
                                           {
-                                            type: 'input',
+                                            type: "input",
                                             properties: {
-                                              label: 'User Name / Email',
-                                              placeholderTextColor: 'maroon',
+                                              label: "User Name / Email",
+                                              placeholderTextColor: "maroon",
                                               style: {
                                                 borderBottomWidth: 2,
-                                                borderBottomColor: 'maroon',
+                                                borderBottomColor: "maroon",
                                                 width: 270,
                                                 left: 20,
                                                 fontSize: 16,
@@ -2410,40 +2418,40 @@ const data = {
                                         ],
                                       },
                                       {
-                                        type: 'view',
+                                        type: "view",
                                         style: {
                                           height: 50,
-                                          flexDirection: 'row',
-                                          backgroundColor: 'red',
+                                          flexDirection: "row",
+                                          backgroundColor: "red",
                                           marginLeft: 20,
                                           marginTop: 15,
                                         },
                                         childrens: [
                                           {
-                                            type: 'icon',
+                                            type: "icon",
                                             properties: {
-                                              name: 'lock',
+                                              name: "lock",
                                               size: 30,
-                                              iconType: 'font-awesome',
+                                              iconType: "font-awesome",
                                               disabled: false,
                                               raised: false,
                                               iconStyle: {
-                                                color: 'maroon',
+                                                color: "maroon",
                                               },
                                               containerStyle: {
-                                                alignSelf: 'flex-end',
+                                                alignSelf: "flex-end",
                                                 marginTop: 12,
                                               },
                                             },
                                           },
                                           {
-                                            type: 'input',
+                                            type: "input",
                                             properties: {
-                                              label: 'Password',
-                                              placeholderTextColor: 'maroon',
+                                              label: "Password",
+                                              placeholderTextColor: "maroon",
                                               style: {
                                                 borderBottomWidth: 2,
-                                                borderBottomColor: 'maroon',
+                                                borderBottomColor: "maroon",
                                                 width: 270,
                                                 left: 20,
                                                 fontSize: 16,
@@ -2453,66 +2461,66 @@ const data = {
                                         ],
                                       },
                                       {
-                                        type: 'text',
+                                        type: "text",
                                         properties: {
-                                          title: 'Forgot Password ?',
+                                          title: "Forgot Password ?",
                                           style: {
-                                            color: 'white',
+                                            color: "white",
                                             fontSize: 20,
                                             marginLeft: 150,
                                             marginTop: 18,
-                                            fontWeight: 'bold',
+                                            fontWeight: "bold",
                                           },
                                         },
                                       },
                                       {
-                                        type: 'button',
+                                        type: "button",
                                         properties: {
-                                          title: 'Login',
+                                          title: "Login",
                                           titleStyle: {
-                                            color: 'white',
+                                            color: "white",
                                             fontSize: 20,
                                           },
                                           buttonStyle: {
-                                            backgroundColor: 'firebrick',
-                                            width: '90%',
+                                            backgroundColor: "firebrick",
+                                            width: "90%",
                                             left: 20,
-                                            borderColor: 'red',
+                                            borderColor: "red",
                                             marginTop: 30,
                                             borderRadius: 30,
                                           },
                                           onPress: {
                                             navigation: true,
-                                            screenName: 'Add Address',
+                                            screenName: "Add Address",
                                             source: {
                                               data: [
                                                 {
-                                                  type: 'button',
+                                                  type: "button",
                                                   properties: {
-                                                    title: 'Sign Up',
+                                                    title: "Sign Up",
                                                     titleStyle: {
-                                                      color: 'white',
+                                                      color: "white",
                                                       fontSize: 20,
                                                     },
                                                     buttonStyle: {
                                                       backgroundColor:
-                                                        'lightcoral',
-                                                      width: '90%',
+                                                        "lightcoral",
+                                                      width: "90%",
                                                       left: 20,
-                                                      borderColor: 'red',
+                                                      borderColor: "red",
                                                       marginTop: 40,
                                                       borderRadius: 30,
                                                     },
                                                     onPress: {
                                                       navigation: true,
-                                                      screenName: 'page3',
+                                                      screenName: "page3",
                                                       source: {
                                                         data: [
                                                           {
-                                                            type: 'text',
+                                                            type: "text",
                                                             properties: {
                                                               title:
-                                                                'You Are on Page3',
+                                                                "You Are on Page3",
                                                             },
                                                           },
                                                         ],
@@ -2526,18 +2534,18 @@ const data = {
                                         },
                                       },
                                       {
-                                        type: 'button',
+                                        type: "button",
                                         properties: {
-                                          title: 'Sign Up',
+                                          title: "Sign Up",
                                           titleStyle: {
-                                            color: 'white',
+                                            color: "white",
                                             fontSize: 20,
                                           },
                                           buttonStyle: {
-                                            backgroundColor: 'lightcoral',
-                                            width: '90%',
+                                            backgroundColor: "lightcoral",
+                                            width: "90%",
                                             left: 20,
-                                            borderColor: 'red',
+                                            borderColor: "red",
                                             marginTop: 30,
                                             borderRadius: 30,
                                           },
@@ -2551,67 +2559,67 @@ const data = {
                           },
                         },
                         {
-                          type: 'button',
+                          type: "button",
                           properties: {
-                            title: 'OPTION 2',
+                            title: "OPTION 2",
                             buttonStyle: {
-                              backgroundColor: 'white',
-                              borderColor: 'black',
-                              width: '98%',
+                              backgroundColor: "white",
+                              borderColor: "black",
+                              width: "98%",
                               left: 70,
                               borderWidth: 3,
                               marginTop: 5,
-                              alignSelf: 'center',
+                              alignSelf: "center",
                               marginRight: 140,
                             },
-                            titleStyle: {color: 'black'},
+                            titleStyle: { color: "black" },
                             onPress: {
-                              screenName: 'Login Page',
+                              screenName: "Login Page",
                               navigation: true,
                               source: {
-                                screenName: 'Login Page',
+                                screenName: "Login Page",
                                 data: [
                                   {
-                                    type: 'text',
+                                    type: "text",
                                     properties: {
-                                      title: 'Log In',
+                                      title: "Log In",
                                       style: {
-                                        color: 'black',
-                                        textAlign: 'center',
+                                        color: "black",
+                                        textAlign: "center",
                                         marginTop: 20,
                                         fontSize: 40,
-                                        fontWeight: 'bold',
+                                        fontWeight: "bold",
                                       },
                                     },
                                   },
                                   {
-                                    type: 'view',
+                                    type: "view",
                                     style: {
-                                      flexDirection: 'row',
+                                      flexDirection: "row",
                                       paddingLeft: 80,
                                     },
                                     childrens: [
                                       {
-                                        type: 'text',
+                                        type: "text",
                                         properties: {
-                                          title: 'New to this site ?',
+                                          title: "New to this site ?",
                                           style: {
-                                            color: 'black',
+                                            color: "black",
                                             marginTop: 20,
                                             fontSize: 20,
-                                            fontWeight: 'bold',
+                                            fontWeight: "bold",
                                           },
                                         },
                                       },
                                       {
-                                        type: 'text',
+                                        type: "text",
                                         properties: {
-                                          title: ' Sign Up',
+                                          title: " Sign Up",
                                           style: {
-                                            color: 'green',
+                                            color: "green",
                                             marginTop: 20,
                                             fontSize: 20,
-                                            fontWeight: 'bold',
+                                            fontWeight: "bold",
                                           },
                                         },
                                       },
@@ -2619,50 +2627,53 @@ const data = {
                                   },
 
                                   {
-                                    type: 'button',
+                                    type: "button",
                                     properties: {
-                                      title: 'Log in with Facebook',
-                                      titleStyle: {color: 'blue', fontSize: 20},
+                                      title: "Log in with Facebook",
+                                      titleStyle: {
+                                        color: "blue",
+                                        fontSize: 20,
+                                      },
                                       buttonStyle: {
-                                        backgroundColor: 'white',
-                                        width: '90%',
+                                        backgroundColor: "white",
+                                        width: "90%",
                                         left: 20,
                                         borderWidth: 3,
                                         marginTop: 30,
                                       },
                                       onPress: {
                                         navigation: true,
-                                        screenName: 'Checkout',
+                                        screenName: "Checkout",
                                         source: {
                                           data: [
                                             {
-                                              type: 'header',
+                                              type: "header",
                                               properties: {
                                                 containerStyle: {
-                                                  backgroundColor: 'white',
+                                                  backgroundColor: "white",
                                                   borderBottomWidth: 1,
-                                                  borderBottomColor: 'black',
+                                                  borderBottomColor: "black",
                                                 },
-                                                placement: 'left',
+                                                placement: "left",
                                                 centerComponent: {
                                                   childrens: [
                                                     {
-                                                      type: 'view',
+                                                      type: "view",
                                                       properties: {
                                                         style: {
-                                                          flexDirection: 'row',
+                                                          flexDirection: "row",
                                                         },
                                                       },
                                                     },
                                                     {
-                                                      type: 'text',
+                                                      type: "text",
                                                       properties: {
                                                         title:
-                                                          'Log in With Facebook',
+                                                          "Log in With Facebook",
                                                         style: {
-                                                          color: 'black',
+                                                          color: "black",
                                                           fontSize: 19,
-                                                          textAlign: 'left',
+                                                          textAlign: "left",
                                                           // fontWeight: 'bold',
                                                         },
                                                       },
@@ -2672,23 +2683,23 @@ const data = {
                                                 rightComponent: {
                                                   childrens: [
                                                     {
-                                                      type: 'view',
+                                                      type: "view",
                                                       properties: {
                                                         style: {
-                                                          flexDirection: 'row',
+                                                          flexDirection: "row",
                                                         },
                                                       },
                                                     },
                                                     {
-                                                      type: 'icon',
+                                                      type: "icon",
                                                       properties: {
-                                                        name: 'close',
-                                                        color: 'black',
+                                                        name: "close",
+                                                        color: "black",
                                                         size: 30,
                                                         onPress: {
                                                           navigation: true,
                                                           screenName:
-                                                            'Login Page',
+                                                            "Login Page",
                                                         },
                                                       },
                                                     },
@@ -2731,16 +2742,16 @@ const data = {
                                             //   ],
                                             // },
                                             {
-                                              type: 'button',
+                                              type: "button",
                                               properties: {
-                                                title: 'FACEBOOK',
+                                                title: "FACEBOOK",
                                                 titleStyle: {
-                                                  color: 'blue',
+                                                  color: "blue",
                                                   fontSize: 20,
                                                 },
                                                 buttonStyle: {
-                                                  backgroundColor: 'white',
-                                                  width: '90%',
+                                                  backgroundColor: "white",
+                                                  width: "90%",
                                                   left: 20,
                                                   borderWidth: 3,
                                                   marginTop: 20,
@@ -2748,27 +2759,27 @@ const data = {
                                                 onPress: {
                                                   navigation: true,
                                                   screenName:
-                                                    'faceBook HomePage',
+                                                    "faceBook HomePage",
                                                   source: {
                                                     data: [
                                                       {
-                                                        type: 'text',
+                                                        type: "text",
                                                         properties: {
                                                           title:
-                                                            'Welcome to our Facebook Page!',
+                                                            "Welcome to our Facebook Page!",
                                                           style: {
                                                             marginTop: 20,
                                                             fontSize: 20,
-                                                            fontWeight: 'bold',
-                                                            textAlign: 'center',
+                                                            fontWeight: "bold",
+                                                            textAlign: "center",
                                                           },
                                                         },
                                                       },
                                                       {
-                                                        type: 'text',
+                                                        type: "text",
                                                         properties: {
                                                           title:
-                                                            'Back to Login Page',
+                                                            "Back to Login Page",
                                                           style: {
                                                             // position: 'absolute',
                                                             left: 50,
@@ -2777,7 +2788,7 @@ const data = {
                                                           },
                                                           onPress: {
                                                             screenName:
-                                                              'Login Page',
+                                                              "Login Page",
                                                           },
                                                         },
                                                       },
@@ -2792,13 +2803,16 @@ const data = {
                                     },
                                   },
                                   {
-                                    type: 'button',
+                                    type: "button",
                                     properties: {
-                                      title: 'Log in with Google',
-                                      titleStyle: {color: 'blue', fontSize: 20},
+                                      title: "Log in with Google",
+                                      titleStyle: {
+                                        color: "blue",
+                                        fontSize: 20,
+                                      },
                                       buttonStyle: {
-                                        backgroundColor: 'white',
-                                        width: '90%',
+                                        backgroundColor: "white",
+                                        width: "90%",
                                         left: 20,
                                         borderWidth: 3,
                                         marginTop: 30,
@@ -2811,71 +2825,71 @@ const data = {
                           },
                         },
                         {
-                          type: 'button',
+                          type: "button",
                           properties: {
-                            title: 'OPTION 3',
+                            title: "OPTION 3",
                             buttonStyle: {
-                              backgroundColor: 'white',
-                              borderColor: 'black',
-                              width: '98%',
+                              backgroundColor: "white",
+                              borderColor: "black",
+                              width: "98%",
                               left: 70,
                               borderWidth: 3,
                               marginTop: 5,
-                              alignSelf: 'center',
+                              alignSelf: "center",
                               marginRight: 140,
                             },
                             onPress: {
-                              screenName: 'Add Address',
+                              screenName: "Add Address",
                               navigation: true,
                               source: {
-                                theme: '',
-                                screenName: 'Add Address',
+                                theme: "",
+                                screenName: "Add Address",
                                 data: [
                                   {
-                                    type: 'view',
+                                    type: "view",
                                     style: {},
                                     childrens: [
                                       {
-                                        type: 'view',
+                                        type: "view",
                                         style: {
                                           borderBottomWidth: 25,
-                                          borderBottomColor: 'red',
+                                          borderBottomColor: "red",
                                         },
                                         childrens: [
                                           {
-                                            type: 'header',
+                                            type: "header",
                                             properties: {
                                               containerStyle: {
-                                                backgroundColor: 'red',
+                                                backgroundColor: "red",
                                                 borderBottomWidth: 0,
                                                 height: 65,
-                                                textAlign: 'center',
+                                                textAlign: "center",
                                               },
                                               centerComponent: {
                                                 childrens: [
                                                   {
-                                                    type: 'view',
+                                                    type: "view",
                                                     properties: {
                                                       style: {
-                                                        flexDirection: 'row',
+                                                        flexDirection: "row",
                                                       },
                                                     },
                                                   },
                                                   {
-                                                    type: 'icon',
+                                                    type: "icon",
                                                     properties: {
-                                                      name: 'long-arrow-left',
-                                                      type: 'font-awesome',
-                                                      color: 'white',
+                                                      name: "long-arrow-left",
+                                                      type: "font-awesome",
+                                                      color: "white",
                                                       size: 30,
                                                     },
                                                   },
                                                   {
-                                                    type: 'text',
+                                                    type: "text",
                                                     properties: {
-                                                      title: 'Your Adresses',
+                                                      title: "Your Adresses",
                                                       style: {
-                                                        color: 'white',
+                                                        color: "white",
                                                         fontSize: 23,
                                                         marginLeft: 7,
                                                       },
@@ -2888,10 +2902,10 @@ const data = {
                                         ],
                                       },
                                       {
-                                        type: 'header',
+                                        type: "header",
                                         properties: {
                                           containerStyle: {
-                                            backgroundColor: 'white',
+                                            backgroundColor: "white",
                                             borderBottomWidth: 0,
 
                                             height: 40,
@@ -2899,35 +2913,35 @@ const data = {
                                           leftComponent: {
                                             childrens: [
                                               {
-                                                type: 'view',
+                                                type: "view",
                                                 properties: {
                                                   style: {
                                                     width: 500,
                                                     marginLeft: -10,
-                                                    flexDirection: 'row',
+                                                    flexDirection: "row",
                                                     borderBottomWidth: 2,
-                                                    borderBottomColor: 'grey',
-                                                    backgroundColor: 'white',
+                                                    borderBottomColor: "grey",
+                                                    backgroundColor: "white",
                                                   },
                                                 },
                                               },
                                               {
-                                                type: 'icon',
+                                                type: "icon",
                                                 properties: {
-                                                  name: 'plus-circle',
-                                                  type: 'font-awesome',
-                                                  color: 'red',
+                                                  name: "plus-circle",
+                                                  type: "font-awesome",
+                                                  color: "red",
                                                   iconStyle: {
                                                     marginLeft: 4,
                                                   },
                                                 },
                                               },
                                               {
-                                                type: 'text',
+                                                type: "text",
                                                 properties: {
-                                                  title: 'Edit Your Addresses',
+                                                  title: "Edit Your Addresses",
                                                   style: {
-                                                    color: 'red',
+                                                    color: "red",
                                                     fontSize: 18,
                                                     width: 200,
                                                     marginBottom: 10,
@@ -2942,192 +2956,192 @@ const data = {
                                     ],
                                   },
                                   {
-                                    type: 'modal',
+                                    type: "modal",
                                     properties: {
                                       style: {
                                         margin: 0,
-                                        width: '100%',
-                                        marginTop: '110%',
-                                        backgroundColor: 'white',
+                                        width: "100%",
+                                        marginTop: "110%",
+                                        backgroundColor: "white",
                                         borderRadius: 0,
                                         //height: "20%",
                                         borderTopLeftRadius: 10,
                                         borderTopRightRadius: 10,
                                       },
-                                      backdropColor: 'grey',
+                                      backdropColor: "grey",
                                       closeModal: [
-                                        'onBackButtonPress',
-                                        'onSwipeComplete',
+                                        "onBackButtonPress",
+                                        "onSwipeComplete",
                                       ],
-                                      swipeDirection: 'left',
+                                      swipeDirection: "left",
                                     },
                                     childrens: [
                                       {
-                                        type: 'icon',
+                                        type: "icon",
                                         properties: {
                                           containerStyle: {
-                                            alignSelf: 'flex-end',
+                                            alignSelf: "flex-end",
                                             right: 20,
-                                            position: 'absolute',
+                                            position: "absolute",
                                           },
-                                          name: 'close',
-                                          color: 'grey',
+                                          name: "close",
+                                          color: "grey",
                                           size: 20,
-                                          onPress: 'closeModal',
+                                          onPress: "closeModal",
                                         },
                                       },
                                       {
-                                        type: 'text',
+                                        type: "text",
                                         properties: {
                                           style: {
                                             fontSize: 20,
-                                            fontWeight: 'bold',
-                                            textAlign: 'center',
-                                            color: 'black',
-                                            alignSelf: 'flex-start',
+                                            fontWeight: "bold",
+                                            textAlign: "center",
+                                            color: "black",
+                                            alignSelf: "flex-start",
                                             marginLeft: 10,
                                           },
-                                          title: 'Add new address',
+                                          title: "Add new address",
                                         },
                                       },
 
                                       {
-                                        type: 'input',
+                                        type: "input",
                                         properties: {
-                                          label: 'First Name',
+                                          label: "First Name",
                                           style: {
-                                            backgroundColor: 'white',
-                                            borderColor: '#D3D3D3',
+                                            backgroundColor: "white",
+                                            borderColor: "#D3D3D3",
                                             borderWidth: 2,
-                                            width: '47%',
+                                            width: "47%",
                                             left: 5,
-                                            position: 'absolute',
+                                            position: "absolute",
                                             height: 40,
                                             marginTop: 10,
                                           },
-                                          placeholderTextColor: 'grey',
+                                          placeholderTextColor: "grey",
                                         },
                                       },
                                       {
-                                        type: 'input',
+                                        type: "input",
                                         properties: {
-                                          label: 'Last Name',
+                                          label: "Last Name",
                                           style: {
-                                            backgroundColor: 'white',
-                                            borderColor: '#D3D3D3',
+                                            backgroundColor: "white",
+                                            borderColor: "#D3D3D3",
                                             borderWidth: 2,
-                                            width: '48%',
+                                            width: "48%",
                                             marginRight: 5,
                                             left: 207,
 
                                             height: 40,
                                             marginTop: 10,
                                           },
-                                          placeholderTextColor: 'grey',
+                                          placeholderTextColor: "grey",
                                         },
                                       },
                                       {
-                                        type: 'input',
+                                        type: "input",
                                         properties: {
-                                          label: 'Address',
+                                          label: "Address",
                                           style: {
-                                            backgroundColor: 'white',
-                                            borderColor: '#D3D3D3',
+                                            backgroundColor: "white",
+                                            borderColor: "#D3D3D3",
                                             borderWidth: 2,
-                                            width: '97.5%',
+                                            width: "97.5%",
                                             height: 65,
                                             marginLeft: 5,
                                             marginTop: 4,
                                           },
-                                          placeholderTextColor: 'grey',
+                                          placeholderTextColor: "grey",
                                         },
                                       },
                                       {
-                                        type: 'input',
+                                        type: "input",
                                         properties: {
-                                          label: 'City',
+                                          label: "City",
                                           style: {
-                                            backgroundColor: 'white',
-                                            borderColor: '#D3D3D3',
+                                            backgroundColor: "white",
+                                            borderColor: "#D3D3D3",
                                             borderWidth: 2,
-                                            width: '47%',
+                                            width: "47%",
                                             left: 5,
-                                            position: 'absolute',
+                                            position: "absolute",
                                             height: 40,
                                             marginTop: 4,
                                           },
-                                          placeholderTextColor: 'grey',
+                                          placeholderTextColor: "grey",
                                         },
                                       },
                                       {
-                                        type: 'input',
+                                        type: "input",
                                         properties: {
-                                          label: 'Select State',
+                                          label: "Select State",
                                           style: {
-                                            backgroundColor: 'white',
-                                            borderColor: '#D3D3D3',
+                                            backgroundColor: "white",
+                                            borderColor: "#D3D3D3",
                                             borderWidth: 2,
-                                            width: '48%',
+                                            width: "48%",
                                             marginRight: 5,
                                             left: 207,
 
                                             height: 40,
                                             marginTop: 4,
                                           },
-                                          placeholderTextColor: 'grey',
+                                          placeholderTextColor: "grey",
                                         },
                                       },
                                       {
-                                        type: 'input',
+                                        type: "input",
                                         properties: {
-                                          label: 'Pin Code(6 digit)',
+                                          label: "Pin Code(6 digit)",
                                           style: {
-                                            backgroundColor: 'white',
-                                            borderColor: '#D3D3D3',
+                                            backgroundColor: "white",
+                                            borderColor: "#D3D3D3",
                                             borderWidth: 2,
-                                            width: '47%',
+                                            width: "47%",
                                             left: 5,
-                                            position: 'absolute',
+                                            position: "absolute",
                                             height: 40,
                                             marginTop: 4,
                                           },
-                                          placeholderTextColor: 'grey',
+                                          placeholderTextColor: "grey",
                                         },
                                       },
                                       {
-                                        type: 'input',
+                                        type: "input",
                                         properties: {
-                                          label: 'Mobile Number',
+                                          label: "Mobile Number",
                                           style: {
-                                            backgroundColor: 'white',
-                                            borderColor: '#D3D3D3',
+                                            backgroundColor: "white",
+                                            borderColor: "#D3D3D3",
                                             borderWidth: 2,
-                                            width: '48%',
+                                            width: "48%",
                                             marginRight: 5,
                                             left: 207,
 
                                             height: 40,
                                             marginTop: 4,
                                           },
-                                          placeholderTextColor: 'grey',
+                                          placeholderTextColor: "grey",
                                         },
                                       },
                                       {
-                                        type: 'button',
+                                        type: "button",
                                         properties: {
-                                          title: 'SAVE ADDRESS',
-                                          onPress: 'closeModal',
+                                          title: "SAVE ADDRESS",
+                                          onPress: "closeModal",
                                           buttonStyle: {
-                                            backgroundColor: 'red',
-                                            borderColor: 'red',
-                                            width: '98%',
+                                            backgroundColor: "red",
+                                            borderColor: "red",
+                                            width: "98%",
                                             left: 70,
                                             borderWidth: 3,
                                             marginTop: 5,
-                                            alignSelf: 'center',
+                                            alignSelf: "center",
                                             marginRight: 140,
                                           },
-                                          titleStyle: {color: 'white'},
+                                          titleStyle: { color: "white" },
                                         },
                                       },
                                     ],
@@ -3135,7 +3149,7 @@ const data = {
                                 ],
                               },
                             },
-                            titleStyle: {color: 'black'},
+                            titleStyle: { color: "black" },
                           },
                         },
                       ],
@@ -3146,95 +3160,97 @@ const data = {
             },
           },
           {
-            type: 'icon',
+            type: "icon",
             properties: {
-              name: 'chevron-right',
-              type: 'font-awesome',
-              color: 'black',
+              name: "chevron-right",
+              type: "font-awesome",
+              color: "black",
               size: 35,
-              iconStyle: {marginLeft: '47%', marginTop: '3%'},
+              iconStyle: { marginLeft: "47%", marginTop: "3%" },
             },
           },
         ],
       },
       {
-        type: 'divider',
+        type: "divider",
         properties: {
-          style: {borderWidth: 1, borderColor: 'lightgrey', left: 30},
+          style: { borderWidth: 1, borderColor: "lightgrey", left: 30 },
         },
       },
     ],
   },
 
   modalData: {
-    screenName: 'Modal Screen',
+    screenName: "Modal Screen",
     data: [
       {
-        type: 'modal',
+        type: "modal",
         properties: {
           style: {
             margin: 0,
-            width: '100%',
+            width: "100%",
             marginTop: 550,
-            backgroundColor: 'white',
+            backgroundColor: "white",
             borderRadius: 0,
             borderTopLeftRadius: 10,
             borderTopRightRadius: 10,
           },
-          backdropColor: 'grey',
-          closeModal: ['onBackButtonPress', 'onSwipeComplete'],
-          swipeDirection: 'left',
+          backdropColor: "grey",
+          closeModal: ["onBackButtonPress", "onSwipeComplete"],
+          swipeDirection: "left",
         },
         childrens: [
           {
-            type: 'button',
+            type: "button",
             properties: {
-              title: 'OPTION 1',
+              title: "OPTION 1",
               buttonStyle: {
-                backgroundColor: 'red',
-                borderColor: 'red',
-                width: '98%',
+                backgroundColor: "red",
+                borderColor: "red",
+                width: "98%",
                 left: 70,
                 borderWidth: 3,
                 marginTop: 5,
-                alignSelf: 'center',
+                alignSelf: "center",
                 marginRight: 140,
               },
-              titleStyle: {color: 'white'},
+              titleStyle: { color: "white" },
               onPress: {
-                screenName: 'Home',
+                screenName: "Home",
                 navigation: true,
                 source: {
                   data: [
                     {
-                      type: 'view',
+                      type: "view",
                       style: {
-                        backgroundColor: 'red',
-                        width: '100%',
-                        height: '100%',
+                        backgroundColor: "red",
+                        width: "100%",
+                        height: "100%",
                       },
                       childrens: [
                         {
-                          type: 'header',
+                          type: "header",
                           properties: {
                             containerStyle: {
-                              backgroundColor: 'red',
+                              backgroundColor: "red",
                               borderBottomWidth: 0,
                             },
                             centerComponent: {
                               childrens: [
                                 {
-                                  type: 'view',
-                                  properties: {style: {flexDirection: 'row'}},
+                                  type: "view",
+                                  properties: {
+                                    style: { flexDirection: "row" },
+                                  },
                                 },
                                 {
-                                  type: 'text',
+                                  type: "text",
                                   properties: {
-                                    title: 'Account',
+                                    title: "Account",
                                     style: {
-                                      color: 'white',
+                                      color: "white",
                                       fontSize: 30,
-                                      fontWeight: 'bold',
+                                      fontWeight: "bold",
                                     },
                                   },
                                 },
@@ -3243,46 +3259,46 @@ const data = {
                           },
                         },
                         {
-                          type: 'view',
-                          style: {marginLeft: 30},
+                          type: "view",
+                          style: { marginLeft: 30 },
                           childrens: [
                             {
-                              type: 'header',
+                              type: "header",
                               properties: {
                                 containerStyle: {
                                   height: 150,
-                                  backgroundColor: 'red',
+                                  backgroundColor: "red",
                                   borderBottomWidth: 0,
                                 },
-                                placement: 'left',
+                                placement: "left",
                                 centerComponent: {
                                   childrens: [
                                     {
-                                      type: 'view',
+                                      type: "view",
                                       properties: {
-                                        style: {flexDirection: 'row'},
+                                        style: { flexDirection: "row" },
                                       },
                                     },
                                     {
-                                      type: 'icon',
+                                      type: "icon",
                                       properties: {
-                                        name: 'plus-circle',
-                                        type: 'font-awesome',
-                                        color: 'white',
+                                        name: "plus-circle",
+                                        type: "font-awesome",
+                                        color: "white",
                                         size: 60,
                                       },
                                     },
                                     {
-                                      type: 'text',
+                                      type: "text",
                                       properties: {
-                                        title: 'Medipick',
+                                        title: "Medipick",
                                         style: {
-                                          color: 'white',
+                                          color: "white",
                                           fontSize: 50,
-                                          fontFamily: 'arial',
+                                          fontFamily: "arial",
                                           marginBottom: 5,
                                           paddingLeft: 5,
-                                          fontWeight: 'bold',
+                                          fontWeight: "bold",
                                         },
                                       },
                                     },
@@ -3298,75 +3314,75 @@ const data = {
                         },
 
                         {
-                          type: 'view',
+                          type: "view",
                           style: {
-                            flexDirection: 'row',
+                            flexDirection: "row",
                             marginTop: 30,
                             marginLeft: 20,
                           },
                           childrens: [
                             {
-                              type: 'text',
+                              type: "text",
                               properties: {
-                                title: 'Welcome',
+                                title: "Welcome",
                                 style: {
-                                  color: 'white',
+                                  color: "white",
                                   fontSize: 24,
-                                  fontWeight: 'bold',
+                                  fontWeight: "bold",
                                 },
                               },
                             },
                             {
-                              type: 'text',
+                              type: "text",
                               properties: {
-                                title: 'Please login here',
+                                title: "Please login here",
                                 style: {
-                                  color: 'white',
+                                  color: "white",
                                   fontSize: 21,
                                   marginLeft: 5,
                                   marginTop: 3,
-                                  fontWeight: 'bold',
+                                  fontWeight: "bold",
                                 },
                               },
                             },
                           ],
                         },
                         {
-                          type: 'view',
+                          type: "view",
                           style: {
-                            width: '100%',
+                            width: "100%",
                             height: 50,
-                            flexDirection: 'row',
-                            backgroundColor: 'red',
+                            flexDirection: "row",
+                            backgroundColor: "red",
                             marginLeft: 20,
                             marginTop: 15,
                           },
                           childrens: [
                             {
-                              type: 'icon',
+                              type: "icon",
                               properties: {
-                                name: 'user',
+                                name: "user",
                                 size: 30,
-                                iconType: 'font-awesome',
+                                iconType: "font-awesome",
                                 disabled: false,
                                 raised: false,
                                 iconStyle: {
-                                  color: 'maroon',
+                                  color: "maroon",
                                 },
                                 containerStyle: {
-                                  alignSelf: 'flex-end',
+                                  alignSelf: "flex-end",
                                   marginTop: 12,
                                 },
                               },
                             },
                             {
-                              type: 'input',
+                              type: "input",
                               properties: {
-                                label: 'User Name / Email',
-                                placeholderTextColor: 'maroon',
+                                label: "User Name / Email",
+                                placeholderTextColor: "maroon",
                                 style: {
                                   borderBottomWidth: 2,
-                                  borderBottomColor: 'maroon',
+                                  borderBottomColor: "maroon",
                                   width: 270,
                                   left: 20,
                                   fontSize: 16,
@@ -3376,40 +3392,40 @@ const data = {
                           ],
                         },
                         {
-                          type: 'view',
+                          type: "view",
                           style: {
                             height: 50,
-                            flexDirection: 'row',
-                            backgroundColor: 'red',
+                            flexDirection: "row",
+                            backgroundColor: "red",
                             marginLeft: 20,
                             marginTop: 15,
                           },
                           childrens: [
                             {
-                              type: 'icon',
+                              type: "icon",
                               properties: {
-                                name: 'lock',
+                                name: "lock",
                                 size: 30,
-                                iconType: 'font-awesome',
+                                iconType: "font-awesome",
                                 disabled: false,
                                 raised: false,
                                 iconStyle: {
-                                  color: 'maroon',
+                                  color: "maroon",
                                 },
                                 containerStyle: {
-                                  alignSelf: 'flex-end',
+                                  alignSelf: "flex-end",
                                   marginTop: 12,
                                 },
                               },
                             },
                             {
-                              type: 'input',
+                              type: "input",
                               properties: {
-                                label: 'Password',
-                                placeholderTextColor: 'maroon',
+                                label: "Password",
+                                placeholderTextColor: "maroon",
                                 style: {
                                   borderBottomWidth: 2,
-                                  borderBottomColor: 'maroon',
+                                  borderBottomColor: "maroon",
                                   width: 270,
                                   left: 20,
                                   fontSize: 16,
@@ -3419,61 +3435,61 @@ const data = {
                           ],
                         },
                         {
-                          type: 'text',
+                          type: "text",
                           properties: {
-                            title: 'Forgot Password ?',
+                            title: "Forgot Password ?",
                             style: {
-                              color: 'white',
+                              color: "white",
                               fontSize: 20,
                               marginLeft: 150,
                               marginTop: 18,
-                              fontWeight: 'bold',
+                              fontWeight: "bold",
                             },
                           },
                         },
                         {
-                          type: 'button',
+                          type: "button",
                           properties: {
-                            title: 'Login',
-                            titleStyle: {color: 'white', fontSize: 20},
+                            title: "Login",
+                            titleStyle: { color: "white", fontSize: 20 },
                             buttonStyle: {
-                              backgroundColor: 'firebrick',
-                              width: '90%',
+                              backgroundColor: "firebrick",
+                              width: "90%",
                               left: 20,
-                              borderColor: 'red',
+                              borderColor: "red",
                               marginTop: 30,
                               borderRadius: 30,
                             },
                             onPress: {
                               navigation: true,
-                              screenName: 'Add Address',
+                              screenName: "Add Address",
                               source: {
                                 data: [
                                   {
-                                    type: 'button',
+                                    type: "button",
                                     properties: {
-                                      title: 'Sign Up',
+                                      title: "Sign Up",
                                       titleStyle: {
-                                        color: 'white',
+                                        color: "white",
                                         fontSize: 20,
                                       },
                                       buttonStyle: {
-                                        backgroundColor: 'lightcoral',
-                                        width: '90%',
+                                        backgroundColor: "lightcoral",
+                                        width: "90%",
                                         left: 20,
-                                        borderColor: 'red',
+                                        borderColor: "red",
                                         marginTop: 40,
                                         borderRadius: 30,
                                       },
                                       onPress: {
                                         navigation: true,
-                                        screenName: 'page3',
+                                        screenName: "page3",
                                         source: {
                                           data: [
                                             {
-                                              type: 'text',
+                                              type: "text",
                                               properties: {
-                                                title: 'You Are on Page3',
+                                                title: "You Are on Page3",
                                               },
                                             },
                                           ],
@@ -3487,15 +3503,15 @@ const data = {
                           },
                         },
                         {
-                          type: 'button',
+                          type: "button",
                           properties: {
-                            title: 'Sign Up',
-                            titleStyle: {color: 'white', fontSize: 20},
+                            title: "Sign Up",
+                            titleStyle: { color: "white", fontSize: 20 },
                             buttonStyle: {
-                              backgroundColor: 'lightcoral',
-                              width: '90%',
+                              backgroundColor: "lightcoral",
+                              width: "90%",
                               left: 20,
-                              borderColor: 'red',
+                              borderColor: "red",
                               marginTop: 30,
                               borderRadius: 30,
                             },
@@ -3509,67 +3525,67 @@ const data = {
             },
           },
           {
-            type: 'button',
+            type: "button",
             properties: {
-              title: 'OPTION 2',
+              title: "OPTION 2",
               buttonStyle: {
-                backgroundColor: 'red',
-                borderColor: 'red',
-                width: '98%',
+                backgroundColor: "red",
+                borderColor: "red",
+                width: "98%",
                 left: 70,
                 borderWidth: 3,
                 marginTop: 5,
-                alignSelf: 'center',
+                alignSelf: "center",
                 marginRight: 140,
               },
-              titleStyle: {color: 'white'},
+              titleStyle: { color: "white" },
               onPress: {
-                screenName: 'Login Page',
+                screenName: "Login Page",
                 navigation: true,
                 source: {
-                  screenName: 'Login Page',
+                  screenName: "Login Page",
                   data: [
                     {
-                      type: 'text',
+                      type: "text",
                       properties: {
-                        title: 'Log In',
+                        title: "Log In",
                         style: {
-                          color: 'black',
-                          textAlign: 'center',
+                          color: "black",
+                          textAlign: "center",
                           marginTop: 20,
                           fontSize: 40,
-                          fontWeight: 'bold',
+                          fontWeight: "bold",
                         },
                       },
                     },
                     {
-                      type: 'view',
+                      type: "view",
                       style: {
-                        flexDirection: 'row',
+                        flexDirection: "row",
                         paddingLeft: 80,
                       },
                       childrens: [
                         {
-                          type: 'text',
+                          type: "text",
                           properties: {
-                            title: 'New to this site ?',
+                            title: "New to this site ?",
                             style: {
-                              color: 'black',
+                              color: "black",
                               marginTop: 20,
                               fontSize: 20,
-                              fontWeight: 'bold',
+                              fontWeight: "bold",
                             },
                           },
                         },
                         {
-                          type: 'text',
+                          type: "text",
                           properties: {
-                            title: ' Sign Up',
+                            title: " Sign Up",
                             style: {
-                              color: 'green',
+                              color: "green",
                               marginTop: 20,
                               fontSize: 20,
-                              fontWeight: 'bold',
+                              fontWeight: "bold",
                             },
                           },
                         },
@@ -3577,47 +3593,47 @@ const data = {
                     },
 
                     {
-                      type: 'button',
+                      type: "button",
                       properties: {
-                        title: 'Log in with Facebook',
-                        titleStyle: {color: 'blue', fontSize: 20},
+                        title: "Log in with Facebook",
+                        titleStyle: { color: "blue", fontSize: 20 },
                         buttonStyle: {
-                          backgroundColor: 'white',
-                          width: '90%',
+                          backgroundColor: "white",
+                          width: "90%",
                           left: 20,
                           borderWidth: 3,
                           marginTop: 30,
                         },
                         onPress: {
                           navigation: true,
-                          screenName: 'Checkout',
+                          screenName: "Checkout",
                           source: {
                             data: [
                               {
-                                type: 'header',
+                                type: "header",
                                 properties: {
                                   containerStyle: {
-                                    backgroundColor: 'white',
+                                    backgroundColor: "white",
                                     borderBottomWidth: 1,
-                                    borderBottomColor: 'black',
+                                    borderBottomColor: "black",
                                   },
-                                  placement: 'left',
+                                  placement: "left",
                                   centerComponent: {
                                     childrens: [
                                       {
-                                        type: 'view',
+                                        type: "view",
                                         properties: {
-                                          style: {flexDirection: 'row'},
+                                          style: { flexDirection: "row" },
                                         },
                                       },
                                       {
-                                        type: 'text',
+                                        type: "text",
                                         properties: {
-                                          title: 'Log in With Facebook',
+                                          title: "Log in With Facebook",
                                           style: {
-                                            color: 'black',
+                                            color: "black",
                                             fontSize: 19,
-                                            textAlign: 'left',
+                                            textAlign: "left",
                                             // fontWeight: 'bold',
                                           },
                                         },
@@ -3627,20 +3643,20 @@ const data = {
                                   rightComponent: {
                                     childrens: [
                                       {
-                                        type: 'view',
+                                        type: "view",
                                         properties: {
-                                          style: {flexDirection: 'row'},
+                                          style: { flexDirection: "row" },
                                         },
                                       },
                                       {
-                                        type: 'icon',
+                                        type: "icon",
                                         properties: {
-                                          name: 'close',
-                                          color: 'black',
+                                          name: "close",
+                                          color: "black",
                                           size: 30,
                                           onPress: {
                                             navigation: true,
-                                            screenName: 'Login Page',
+                                            screenName: "Login Page",
                                           },
                                         },
                                       },
@@ -3649,72 +3665,72 @@ const data = {
                                 },
                               },
                               {
-                                type: 'input',
+                                type: "input",
                                 properties: {
-                                  label: 'Mobile Number (10 digits)',
-                                  placeholderTextColor: 'grey',
+                                  label: "Mobile Number (10 digits)",
+                                  placeholderTextColor: "grey",
                                   style: {
-                                    backgroundColor: 'white',
-                                    borderColor: 'grey',
+                                    backgroundColor: "white",
+                                    borderColor: "grey",
                                     borderWidth: 2,
-                                    width: '90%',
+                                    width: "90%",
                                     left: 20,
                                     marginTop: 40,
                                   },
                                 },
                                 childrens: [
                                   {
-                                    type: 'icon',
+                                    type: "icon",
                                     properties: {
-                                      name: 'search',
-                                      color: 'red',
+                                      name: "search",
+                                      color: "red",
                                       size: 40,
                                     },
                                   },
                                   {
-                                    type: 'icon',
+                                    type: "icon",
                                     properties: {
-                                      name: 'facebook',
-                                      color: 'red',
+                                      name: "facebook",
+                                      color: "red",
                                       size: 40,
                                     },
                                   },
                                 ],
                               },
                               {
-                                type: 'button',
+                                type: "button",
                                 properties: {
-                                  title: 'FACEBOOK',
-                                  titleStyle: {color: 'blue', fontSize: 20},
+                                  title: "FACEBOOK",
+                                  titleStyle: { color: "blue", fontSize: 20 },
                                   buttonStyle: {
-                                    backgroundColor: 'white',
-                                    width: '90%',
+                                    backgroundColor: "white",
+                                    width: "90%",
                                     left: 20,
                                     borderWidth: 3,
                                     marginTop: 20,
                                   },
                                   onPress: {
                                     navigation: true,
-                                    screenName: 'faceBook HomePage',
+                                    screenName: "faceBook HomePage",
                                     source: {
                                       data: [
                                         {
-                                          type: 'text',
+                                          type: "text",
                                           properties: {
                                             title:
-                                              'Welcome to our Facebook Page!',
+                                              "Welcome to our Facebook Page!",
                                             style: {
                                               marginTop: 20,
                                               fontSize: 20,
-                                              fontWeight: 'bold',
-                                              textAlign: 'center',
+                                              fontWeight: "bold",
+                                              textAlign: "center",
                                             },
                                           },
                                         },
                                         {
-                                          type: 'text',
+                                          type: "text",
                                           properties: {
-                                            title: 'Back to Login Page',
+                                            title: "Back to Login Page",
                                             style: {
                                               // position: 'absolute',
                                               left: 50,
@@ -3722,7 +3738,7 @@ const data = {
                                               fontSize: 20,
                                             },
                                             onPress: {
-                                              screenName: 'Login Page',
+                                              screenName: "Login Page",
                                             },
                                           },
                                         },
@@ -3737,13 +3753,13 @@ const data = {
                       },
                     },
                     {
-                      type: 'button',
+                      type: "button",
                       properties: {
-                        title: 'Log in with Google',
-                        titleStyle: {color: 'blue', fontSize: 20},
+                        title: "Log in with Google",
+                        titleStyle: { color: "blue", fontSize: 20 },
                         buttonStyle: {
-                          backgroundColor: 'white',
-                          width: '90%',
+                          backgroundColor: "white",
+                          width: "90%",
                           left: 20,
                           borderWidth: 3,
                           marginTop: 30,
@@ -3756,69 +3772,69 @@ const data = {
             },
           },
           {
-            type: 'button',
+            type: "button",
             properties: {
-              title: 'OPTION 3',
+              title: "OPTION 3",
               buttonStyle: {
-                backgroundColor: 'red',
-                borderColor: 'red',
-                width: '98%',
+                backgroundColor: "red",
+                borderColor: "red",
+                width: "98%",
                 left: 70,
                 borderWidth: 3,
                 marginTop: 5,
-                alignSelf: 'center',
+                alignSelf: "center",
                 marginRight: 140,
               },
               onPress: {
-                screenName: 'Add Address',
+                screenName: "Add Address",
                 navigation: true,
                 source: {
-                  theme: '',
-                  screenName: 'Add Address',
+                  theme: "",
+                  screenName: "Add Address",
                   data: [
                     {
-                      type: 'view',
+                      type: "view",
                       style: {},
                       childrens: [
                         {
-                          type: 'view',
+                          type: "view",
                           style: {
                             borderBottomWidth: 25,
-                            borderBottomColor: 'red',
+                            borderBottomColor: "red",
                           },
                           childrens: [
                             {
-                              type: 'header',
+                              type: "header",
                               properties: {
                                 containerStyle: {
-                                  backgroundColor: 'red',
+                                  backgroundColor: "red",
                                   borderBottomWidth: 0,
                                   height: 65,
-                                  textAlign: 'center',
+                                  textAlign: "center",
                                 },
                                 centerComponent: {
                                   childrens: [
                                     {
-                                      type: 'view',
+                                      type: "view",
                                       properties: {
-                                        style: {flexDirection: 'row'},
+                                        style: { flexDirection: "row" },
                                       },
                                     },
                                     {
-                                      type: 'icon',
+                                      type: "icon",
                                       properties: {
-                                        name: 'long-arrow-left',
-                                        type: 'font-awesome',
-                                        color: 'white',
+                                        name: "long-arrow-left",
+                                        type: "font-awesome",
+                                        color: "white",
                                         size: 30,
                                       },
                                     },
                                     {
-                                      type: 'text',
+                                      type: "text",
                                       properties: {
-                                        title: 'Your Adresses',
+                                        title: "Your Adresses",
                                         style: {
-                                          color: 'white',
+                                          color: "white",
                                           fontSize: 23,
                                           marginLeft: 7,
                                         },
@@ -3831,10 +3847,10 @@ const data = {
                           ],
                         },
                         {
-                          type: 'header',
+                          type: "header",
                           properties: {
                             containerStyle: {
-                              backgroundColor: 'white',
+                              backgroundColor: "white",
                               borderBottomWidth: 0,
 
                               height: 40,
@@ -3842,35 +3858,35 @@ const data = {
                             leftComponent: {
                               childrens: [
                                 {
-                                  type: 'view',
+                                  type: "view",
                                   properties: {
                                     style: {
                                       width: 500,
                                       marginLeft: -10,
-                                      flexDirection: 'row',
+                                      flexDirection: "row",
                                       borderBottomWidth: 2,
-                                      borderBottomColor: 'grey',
-                                      backgroundColor: 'white',
+                                      borderBottomColor: "grey",
+                                      backgroundColor: "white",
                                     },
                                   },
                                 },
                                 {
-                                  type: 'icon',
+                                  type: "icon",
                                   properties: {
-                                    name: 'plus-circle',
-                                    type: 'font-awesome',
-                                    color: 'red',
+                                    name: "plus-circle",
+                                    type: "font-awesome",
+                                    color: "red",
                                     iconStyle: {
                                       marginLeft: 4,
                                     },
                                   },
                                 },
                                 {
-                                  type: 'text',
+                                  type: "text",
                                   properties: {
-                                    title: 'Edit Your Addresses',
+                                    title: "Edit Your Addresses",
                                     style: {
-                                      color: 'red',
+                                      color: "red",
                                       fontSize: 18,
                                       width: 200,
                                       marginBottom: 10,
@@ -3885,189 +3901,189 @@ const data = {
                       ],
                     },
                     {
-                      type: 'modal',
+                      type: "modal",
                       properties: {
                         style: {
                           margin: 0,
-                          width: '100%',
-                          marginTop: '110%',
-                          backgroundColor: 'white',
+                          width: "100%",
+                          marginTop: "110%",
+                          backgroundColor: "white",
                           borderRadius: 0,
                           //height: "20%",
                           borderTopLeftRadius: 10,
                           borderTopRightRadius: 10,
                         },
-                        backdropColor: 'grey',
-                        closeModal: ['onBackButtonPress', 'onSwipeComplete'],
-                        swipeDirection: 'left',
+                        backdropColor: "grey",
+                        closeModal: ["onBackButtonPress", "onSwipeComplete"],
+                        swipeDirection: "left",
                       },
                       childrens: [
                         {
-                          type: 'icon',
+                          type: "icon",
                           properties: {
                             containerStyle: {
-                              alignSelf: 'flex-end',
+                              alignSelf: "flex-end",
                               right: 20,
-                              position: 'absolute',
+                              position: "absolute",
                             },
-                            name: 'close',
-                            color: 'grey',
+                            name: "close",
+                            color: "grey",
                             size: 20,
-                            onPress: 'closeModal',
+                            onPress: "closeModal",
                           },
                         },
                         {
-                          type: 'text',
+                          type: "text",
                           properties: {
                             style: {
                               fontSize: 20,
-                              fontWeight: 'bold',
-                              textAlign: 'center',
-                              color: 'black',
-                              alignSelf: 'flex-start',
+                              fontWeight: "bold",
+                              textAlign: "center",
+                              color: "black",
+                              alignSelf: "flex-start",
                               marginLeft: 10,
                             },
-                            title: 'Add new address',
+                            title: "Add new address",
                           },
                         },
 
                         {
-                          type: 'input',
+                          type: "input",
                           properties: {
-                            label: 'First Name',
+                            label: "First Name",
                             style: {
-                              backgroundColor: 'white',
-                              borderColor: '#D3D3D3',
+                              backgroundColor: "white",
+                              borderColor: "#D3D3D3",
                               borderWidth: 2,
-                              width: '47%',
+                              width: "47%",
                               left: 5,
-                              position: 'absolute',
+                              position: "absolute",
                               height: 40,
                               marginTop: 10,
                             },
-                            placeholderTextColor: 'grey',
+                            placeholderTextColor: "grey",
                           },
                         },
                         {
-                          type: 'input',
+                          type: "input",
                           properties: {
-                            label: 'Last Name',
+                            label: "Last Name",
                             style: {
-                              backgroundColor: 'white',
-                              borderColor: '#D3D3D3',
+                              backgroundColor: "white",
+                              borderColor: "#D3D3D3",
                               borderWidth: 2,
-                              width: '48%',
+                              width: "48%",
                               marginRight: 5,
                               left: 207,
 
                               height: 40,
                               marginTop: 10,
                             },
-                            placeholderTextColor: 'grey',
+                            placeholderTextColor: "grey",
                           },
                         },
                         {
-                          type: 'input',
+                          type: "input",
                           properties: {
-                            label: 'Address',
+                            label: "Address",
                             style: {
-                              backgroundColor: 'white',
-                              borderColor: '#D3D3D3',
+                              backgroundColor: "white",
+                              borderColor: "#D3D3D3",
                               borderWidth: 2,
-                              width: '97.5%',
+                              width: "97.5%",
                               height: 65,
                               marginLeft: 5,
                               marginTop: 4,
                             },
-                            placeholderTextColor: 'grey',
+                            placeholderTextColor: "grey",
                           },
                         },
                         {
-                          type: 'input',
+                          type: "input",
                           properties: {
-                            label: 'City',
+                            label: "City",
                             style: {
-                              backgroundColor: 'white',
-                              borderColor: '#D3D3D3',
+                              backgroundColor: "white",
+                              borderColor: "#D3D3D3",
                               borderWidth: 2,
-                              width: '47%',
+                              width: "47%",
                               left: 5,
-                              position: 'absolute',
+                              position: "absolute",
                               height: 40,
                               marginTop: 4,
                             },
-                            placeholderTextColor: 'grey',
+                            placeholderTextColor: "grey",
                           },
                         },
                         {
-                          type: 'input',
+                          type: "input",
                           properties: {
-                            label: 'Select State',
+                            label: "Select State",
                             style: {
-                              backgroundColor: 'white',
-                              borderColor: '#D3D3D3',
+                              backgroundColor: "white",
+                              borderColor: "#D3D3D3",
                               borderWidth: 2,
-                              width: '48%',
+                              width: "48%",
                               marginRight: 5,
                               left: 207,
 
                               height: 40,
                               marginTop: 4,
                             },
-                            placeholderTextColor: 'grey',
+                            placeholderTextColor: "grey",
                           },
                         },
                         {
-                          type: 'input',
+                          type: "input",
                           properties: {
-                            label: 'Pin Code(6 digit)',
+                            label: "Pin Code(6 digit)",
                             style: {
-                              backgroundColor: 'white',
-                              borderColor: '#D3D3D3',
+                              backgroundColor: "white",
+                              borderColor: "#D3D3D3",
                               borderWidth: 2,
-                              width: '47%',
+                              width: "47%",
                               left: 5,
-                              position: 'absolute',
+                              position: "absolute",
                               height: 40,
                               marginTop: 4,
                             },
-                            placeholderTextColor: 'grey',
+                            placeholderTextColor: "grey",
                           },
                         },
                         {
-                          type: 'input',
+                          type: "input",
                           properties: {
-                            label: 'Mobile Number',
+                            label: "Mobile Number",
                             style: {
-                              backgroundColor: 'white',
-                              borderColor: '#D3D3D3',
+                              backgroundColor: "white",
+                              borderColor: "#D3D3D3",
                               borderWidth: 2,
-                              width: '48%',
+                              width: "48%",
                               marginRight: 5,
                               left: 207,
 
                               height: 40,
                               marginTop: 4,
                             },
-                            placeholderTextColor: 'grey',
+                            placeholderTextColor: "grey",
                           },
                         },
                         {
-                          type: 'button',
+                          type: "button",
                           properties: {
-                            title: 'SAVE ADDRESS',
-                            onPress: 'closeModal',
+                            title: "SAVE ADDRESS",
+                            onPress: "closeModal",
                             buttonStyle: {
-                              backgroundColor: 'red',
-                              borderColor: 'red',
-                              width: '98%',
+                              backgroundColor: "red",
+                              borderColor: "red",
+                              width: "98%",
                               left: 70,
                               borderWidth: 3,
                               marginTop: 5,
-                              alignSelf: 'center',
+                              alignSelf: "center",
                               marginRight: 140,
                             },
-                            titleStyle: {color: 'white'},
+                            titleStyle: { color: "white" },
                           },
                         },
                       ],
@@ -4075,7 +4091,102 @@ const data = {
                   ],
                 },
               },
-              titleStyle: {color: 'white'},
+              titleStyle: { color: "white" },
+            },
+          },
+        ],
+      },
+    ],
+  },
+  cardData: {
+    screenName: "Card Screen",
+    data: [
+      {
+        type: "card",
+        properties: {
+          containerStyle: {
+            height: 320,
+            width: 250,
+            borderRadius: 20,
+            borderWidth: 4,
+            borderColor: "red",
+            padding: 0,
+            alignSelf: "center",
+            marginTop: "40%",
+          },
+        },
+
+        childrens: [
+          {
+            type: "image",
+            properties: {
+              uri:
+                "https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+              style: {
+                width: "100%",
+                height: 260,
+                borderRadius: 20,
+                position: "relative",
+              },
+            },
+          },
+          {
+            type: "view",
+            style: {
+              height: 30,
+              width: 80,
+              backgroundColor: "white",
+              borderRadius: 40,
+              position: "absolute",
+              right: 5,
+              top: 219,
+              flexDirection: "row",
+            },
+            childrens: [
+              {
+                type: "icon",
+                properties: {
+                  name: "euro-symbol",
+                  type: "material",
+                  size: 25,
+                  iconStyle: { color: "red", marginTop: 1, color: "red" },
+                },
+              },
+              {
+                type: "text",
+                properties: {
+                  title: "899",
+                },
+              },
+            ],
+          },
+          {
+            type: "button",
+            properties: {
+              title: "Log in with Facebook",
+              titleStyle: { color: "blue", fontSize: 20 },
+              buttonStyle: {
+                backgroundColor: "white",
+                width: "90%",
+                left: 20,
+                borderWidth: 3,
+                marginTop: 30,
+                borderColor: "red",
+              },
+              onPress: {
+                navigation: "true",
+                screenName: "Page ",
+                source: {
+                  data: [
+                    {
+                      type: "text",
+                      properties: {
+                        title: "hello",
+                      },
+                    },
+                  ],
+                },
+              },
             },
           },
         ],

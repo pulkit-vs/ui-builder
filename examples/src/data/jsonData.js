@@ -3165,7 +3165,6 @@ const data = {
       },
     ],
   },
-
   modalData: {
     screenName: 'Modal Screen',
     data: [
@@ -4083,27 +4082,28 @@ const data = {
     ],
   },
 
-  slider:  {
-    screenName: 'slider',
+  cardData: {
+    screenName: 'Card Screen',
     data: [
       {
-        type: 'slider',
+        type: 'card',
         properties: {
-          maximumTrackTintColor: 'grey',
-          minimumTrackTintColor: "lightgrey",
-          onSlidingComplete: () => { console.log('onSlidingComplete') },
-          onSlidingStart: () => { console.log('onSlidingStart') },
-          thumbTintColor: 'yellow',
-          style: { height: 200 },
-          thumbStyle: {
-            width: 30,
-            height: 30, borderRadius: 0, top: "50%", borderColor: 'green', borderWidth: 1
+          containerStyle: {
+            height: 320,
+            width: 250,
+            borderRadius: 20,
+            borderWidth: 4,
+            borderColor: 'red',
+            padding: 0,
+            alignSelf: 'center',
+            marginTop: '40%',
           },
-          trackStyle: { height: 2 }
-        }
-      }
-    ]
-  }
+        },
+
+        childrens: [],
+      },
+    ],
+  },
 };
 
 export default data;

@@ -7,22 +7,23 @@
  */
 
 import React from 'react';
-import { View, KeyboardAvoidingView, ScrollView } from 'react-native';
-import { get } from 'lodash';
+import {get} from 'lodash';
+import {View, KeyboardAvoidingView, ScrollView} from 'react-native';
 
 import ButtonComponent from './components/button';
 import CardComponent from './components/card';
 import CarouselComponent from './components/carousel';
+import CheckboxComponent from './components/Checkbox';
 import DividerComponent from './components/divider';
 import HeaderComponent from './components/header';
 import IconComponent from './components/icon';
 import ImageComponent from './components/image';
 import ModalComponent from './components/modal';
-import SliderComponent from "./components/slider";
+import SliderComponent from './components/slider';
 import TextComponent from './components/text';
 import TextInput from './components/input';
-import { COMPONENTS } from './utility/constant';
-import { applyTheme } from "./utility/utils";
+import {COMPONENTS} from './utility/constant';
+import {applyTheme} from './utility/utils';
 
 // Global variable to get theme type in other files.
 export let theme;
@@ -35,6 +36,7 @@ export default class Components extends React.Component {
 
   selectComponent(component, index) {
     const type = get(component, 'type', '');
+    console.log(component);
     switch (type) {
       case COMPONENTS.INPUT:
         return <TextInput {...component.properties} key={index} />;
@@ -60,14 +62,7 @@ export default class Components extends React.Component {
           />
         );
       }
-      case COMPONENTS.CARD:
-        return (
-          <CardComponent
-            {...component}
-            key={index}
-            createScreen={this.props.createScreen}
-          />
-        );
+
       case COMPONENTS.HEADER:
         return (
           <HeaderComponent
@@ -106,6 +101,21 @@ export default class Components extends React.Component {
       }
       case COMPONENTS.CHECKBOX:
         return <CheckboxComponent {...component.properties} key={index} />;
+
+      case COMPONENTS.CARD:
+        // map to store children components of card
+        const childComponents = component.childrens.map((component, index) => {
+          return this.selectComponent(component, index);
+        });
+
+        console.log(component);
+        return (
+          <CardComponent
+            {...component.properties}
+            childrens={childComponents}
+            key={index}
+          />
+        );
       case COMPONENTS.IMAGE:
         return <ImageComponent {...component.properties} key={index} />;
       case COMPONENTS.SLIDER:
@@ -116,7 +126,7 @@ export default class Components extends React.Component {
   }
 
   render() {
-    const { source } = this.props;
+    const {source} = this.props;
     theme = source.theme;
     return (
       <KeyboardAvoidingView
