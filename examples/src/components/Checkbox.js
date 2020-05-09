@@ -1,10 +1,10 @@
+import PropTypes from 'prop-types';
 import React, {Component} from 'react';
+import {CheckBox} from 'react-native-elements';
 import {View} from 'react-native';
-import {CheckBox, Icon, colors} from 'react-native-elements';
 
 import {applyTheme} from '../utility/utils';
 import {theme} from '../index';
-import PropTypes from 'prop-types';
 
 export default class CheckboxComponent extends Component {
   constructor(props) {
