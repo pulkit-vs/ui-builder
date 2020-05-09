@@ -10,7 +10,7 @@ export default class CardComponent extends Component {
   constructor(props) {
     super(props);
     if (theme) {
-      props = theme ? applyTheme(props, theme) : props;
+      props = applyTheme(props, theme);
     }
   }
   render() {

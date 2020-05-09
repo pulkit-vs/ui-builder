@@ -11,7 +11,7 @@ export default class IconComponent extends Component {
   constructor(props) {
     super(props);
     if (theme) {
-      this.props = theme ? applyTheme(this.props, theme) : this.props;
+      props = applyTheme(props, theme);
     }
   }
   componentDidMount() {

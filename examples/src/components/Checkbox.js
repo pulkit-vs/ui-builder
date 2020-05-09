@@ -3,7 +3,7 @@ import {View} from 'react-native';
 import {CheckBox, Icon, colors} from 'react-native-elements';
 
 import {applyTheme} from '../utility/utils';
-import {theme} from '../../App';
+import {theme} from '../index';
 import PropTypes from 'prop-types';
 
 export default class CheckboxComponent extends Component {
@@ -13,7 +13,7 @@ export default class CheckboxComponent extends Component {
       checked: false,
     };
     if (theme) {
-      props = theme ? applyTheme(props, theme) : props;
+      props = applyTheme(props, theme);
     }
   }
 
@@ -43,15 +43,15 @@ export default class CheckboxComponent extends Component {
       <View>
         <CheckBox
           checked={this.state.checked}
-          title={this.props.title}
-          onPress={this.handleCheckboxStatus}
-          containerStyle={this.props.containerStyle}
-          textStyle={this.props.titleStyle}
-          disabled={this.props.disabled}
-          uncheckedColor={this.props.checkboxStyle.color}
           checkedColor={this.props.checkboxStyle.color}
-          iconRight={this.props.checkboxStyle.iconRight}
           checkedIcon={this.props.checkboxStyle.checkedIcon}
+          containerStyle={this.props.containerStyle}
+          disabled={this.props.disabled}
+          iconRight={this.props.checkboxStyle.iconRight}
+          onPress={this.handleCheckboxStatus}
+          textStyle={this.props.titleStyle}
+          title={this.props.title}
+          uncheckedColor={this.props.checkboxStyle.color}
           uncheckedIcon={this.props.checkboxStyle.uncheckedIcon}
         />
       </View>

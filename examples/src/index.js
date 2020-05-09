@@ -12,8 +12,8 @@ import {View, KeyboardAvoidingView, ScrollView} from 'react-native';
 
 import ButtonComponent from './components/button';
 import CardComponent from './components/card';
-import CheckboxComponent from './components/Checkbox';
 import CarouselComponent from './components/carousel';
+import CheckboxComponent from './components/Checkbox';
 import DividerComponent from './components/divider';
 import HeaderComponent from './components/header';
 import IconComponent from './components/icon';
