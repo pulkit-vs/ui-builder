@@ -4,6 +4,7 @@ import { Card } from "react-native-elements";
 import { ScrollView, Text, View } from "react-native";
 
 import { applyTheme } from "../utility/utils";
+import { COMPONENT_CONSTANTS } from "../utility/constant";
 import { theme } from "../../index";
 
 export default class CardComponent extends Component {
@@ -32,7 +33,7 @@ export default class CardComponent extends Component {
                 marginLeft: 30,
               }}
             >
-              Please Add Your Component Inside Card
+              {COMPONENT_CONSTANTS.ADD_COMPONENT_TEXT}
             </Text>
           ) : (
             this.props.childrens
