@@ -68,7 +68,7 @@ Carousel:
 - where source containing a JSON data for building UI components.
 
 ## JSON Structure-
-- JSON must contain the intended component "type".
+- JSON must contain the intended component "type" and "screenName".
 - Customize a component by passing styles in "properties" Json. 
 
 ## A complete example
@@ -78,6 +78,7 @@ import React from 'react';
 
 const source = {
   theme: 'lightTheme',
+  screenName: 'Login Facebook'
   data: [
     {
       type: 'input',
@@ -217,3 +218,4 @@ You can use flex-end and marginRight for moving an icon at the rightmost-corner.
 ```
 
 ## Note: For more information, check onto the attached documentation.
+[a link](https://docs.google.com/document/d/1Mjs-Dz0n9lGIHL8POHZEfoc6rXsOI5EsQcOazOcGj4M/edit?usp=sharing)
