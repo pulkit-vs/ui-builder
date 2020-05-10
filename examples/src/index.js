@@ -36,7 +36,6 @@ export default class Components extends React.Component {
 
   selectComponent(component, index) {
     const type = get(component, 'type', '');
-    console.log(component);
     switch (type) {
       case COMPONENTS.INPUT:
         return <TextInput {...component.properties} key={index} />;

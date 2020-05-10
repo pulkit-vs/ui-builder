@@ -7,14 +7,15 @@
  */
 
 // TODO: Will use package later.
-// import UiBuilder from 'react-native-ui-builder';
+//TODO : backPress not working with debug Navigator Screen
+
+//import UiBuilder from 'react-native-ui-builder';
 import React from 'react';
 import UiBuilder from './src/navigation/navigation';
-
 import data from './src/data/jsonData';
 
 export default class App extends React.Component {
   render() {
-    return <UiBuilder source={data.cardData} />;
+    return <UiBuilder source={data.debugNavigator} />;
   }
 }
