@@ -218,4 +218,4 @@ You can use flex-end and marginRight for moving an icon at the rightmost-corner.
 ```
 
 ## Note: For more information, check onto the attached documentation.
-[a link](https://docs.google.com/document/d/1Mjs-Dz0n9lGIHL8POHZEfoc6rXsOI5EsQcOazOcGj4M/edit?usp=sharing)
+[check here](https://docs.google.com/document/d/1Mjs-Dz0n9lGIHL8POHZEfoc6rXsOI5EsQcOazOcGj4M/edit?usp=sharing)
