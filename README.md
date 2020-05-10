@@ -8,10 +8,15 @@
 - Button
 - Text Input
 - Icon
+- Checkbox
 - Image
 - Modal
 - Header
-- Theme
+- Themes
+- Divider
+- Card
+- Carousel
+- Navigation
 
 ## Highlights- 
 
@@ -41,6 +46,14 @@ Icon :
 ```
 - You can move icons anywhere in the screen by passing selfAlign and margin.
 - Basic props for the icon are: name, size, iconType. You can customize the icon by passing more props in JSON structure.
+```
+Card:
+```
+Cards supports a wide variety of low-level components including images, text, button and checkbox.
+```
+Carousel:
+```
+- You can customize carousel by including cards and by supporting pagination.
 ```
 
 ## Steps for Installation [Android steps]-
