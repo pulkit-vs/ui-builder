@@ -1,23 +1,21 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import {Text} from 'react-native';
-import {NavigationContext} from '@react-navigation/native';
+import { Text } from 'react-native';
+import { NavigationContext } from '@react-navigation/native';
 
-import {applyTheme} from '../utility/utils';
-import {theme} from '../index';
+import { applyTheme } from '../utility/utils';
+import { theme } from '../index';
 
 export default class TextComponent extends React.Component {
-  componentWillMount() {
+
+  componentDidMount() {
     // Applying theme on text
     if (theme) {
       this.props = applyTheme(this.props, theme);
     }
-  }
-  componentDidMount() {
-    if (this.props.onPress) {
-      this.props.onPress.navigation
-        ? this.props.createScreen(this.props.onPress)
-        : null;
+
+    if (this.props.onPress && this.props.onPress.navigation) {
+      this.props.createScreen(this.props.onPress)
     }
   }
   static contextType = NavigationContext;
@@ -29,12 +27,11 @@ export default class TextComponent extends React.Component {
         <Text
           style={props.style}
           onPress={
-            this.props.onPress
-              ? this.props.onPress.navigation
-                ? () => navigation.navigate(this.props.onPress.screenName)
-                : () => this.props.onPress()
-              : null
-          }>
+            this.props.onPress && this.props.onPress.navigation
+              ? () => navigation.navigate(this.props.onPress.screenName)
+              : () => this.props.onPress()
+          }
+        >
           {props.title}
         </Text>
       </>
