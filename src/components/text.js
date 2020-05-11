@@ -16,31 +16,42 @@ import { theme } from "../../index";
 
 export default class TextComponent extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      properties: {},
+    };
+  }
+  static contextType = NavigationContext;
+
   componentDidMount() {
+
+    // Creating Screen for text onPress
+    this.props.onPress && this.props.onPress.navigation
+      ? this.props.createScreen(this.props.onPress)
+      : null;
+
+    this.setState({properties: this.props});
+
     // Applying theme on text
     if (theme) {
       this.props = applyTheme(this.props, theme);
     }
-
-    if (this.props.onPress && this.props.onPress.navigation) {
-      this.props.createScreen(this.props.onPress)
-    }
   }
-  static contextType = NavigationContext;
+
   render() {
     const navigation = this.context;
-    const props = this.props;
     return (
       <>
         <Text
-          style={props.style}
+          style={this.state.properties.style}
           onPress={
             this.props.onPress && this.props.onPress.navigation
               ? () => navigation.navigate(this.props.onPress.screenName)
               : () => this.props.onPress()
           }
         >
-          {props.title}
+          {this.state.properties.title}
         </Text>
       </>
     );
