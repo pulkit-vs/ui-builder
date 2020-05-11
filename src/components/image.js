@@ -50,7 +50,7 @@ ImageComponent.defaultProps = {
   blurRadius: 0,
   capInsets: {},
   fadeDuration: 0,
-  resizeMethod: "auto",
-  resizeMode: "cover",
-  style: { height: 100, width: 100, borderColor: "red" },
+  resizeMethod: 'auto',
+  resizeMode: 'cover',
+  style: {height: 100, width: 100, borderColor: 'red'},
 };

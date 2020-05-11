@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
-import React, {Component} from 'react';
-import {Icon} from 'react-native-elements';
-import {NavigationContext} from '@react-navigation/native';
-import {View} from 'react-native';
+import React, { Component } from 'react';
+import { Icon } from 'react-native-elements';
+import { NavigationContext } from '@react-navigation/native';
+import { View } from 'react-native';
 
-import {applyTheme} from '../utility/utils';
-import {theme} from '../index';
+import { applyTheme } from '../utility/utils';
+import { theme } from '../index';
 
 export default class IconComponent extends Component {
   constructor(props) {
@@ -14,16 +14,14 @@ export default class IconComponent extends Component {
       props = applyTheme(props, theme);
     }
   }
+
   componentDidMount() {
     // Creating Screen for icon onPress
 
-    if (this.props.onPress) {
-      this.props.onPress.navigation
-        ? this.props.createScreen(this.props.onPress)
-        : null;
+    if (this.props.onPress && this.props.onPress.navigation) {
+      this.props.createScreen(this.props.onPress);
     }
   }
-
   static contextType = NavigationContext;
 
   render() {

@@ -77,7 +77,7 @@ CarouselComponent.defaultProps = {
   autoplay: false,
   itemHeight: 400,
   itemWidth: 400,
-  layout: "default",
+  layout: 'default',
   loop: false,
   sliderHeight: 400,
   sliderWidth: 400,

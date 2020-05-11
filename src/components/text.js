@@ -22,8 +22,8 @@ export default class TextComponent extends React.Component {
       this.props = applyTheme(this.props, theme);
     }
 
-    if (this.props.onPress &&  this.props.onPress.navigation) {
-        this.props.createScreen(this.props.onPress)
+    if (this.props.onPress && this.props.onPress.navigation) {
+      this.props.createScreen(this.props.onPress)
     }
   }
   static contextType = NavigationContext;
@@ -32,7 +32,7 @@ export default class TextComponent extends React.Component {
     const props = this.props;
     return (
       <>
-              <Text
+        <Text
           style={props.style}
           onPress={
             this.props.onPress && this.props.onPress.navigation

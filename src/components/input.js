@@ -18,7 +18,7 @@ export default class TextInput extends React.Component {
   constructor() {
     super();
     this.state = {
-      value: "",
+      value: '',
       props: {},
     };
 
@@ -27,12 +27,12 @@ export default class TextInput extends React.Component {
   }
 
   onChangeText(event) {
-    this.setState({ value: event });
+    this.setState({value: event});
   }
 
   componentDidMount() {
     // Customize button style
-    this.setState({ props: this.props });
+    this.setState({props: this.props});
 
     // Applying theme on text input
     this.state.props = theme
@@ -100,10 +100,10 @@ TextInput.propTypes = {
 };
 
 TextInput.defaultProps = {
-  label: "Enter input here",
-  placeholderTextColor: "pink",
+  label: 'Enter input here',
+  placeholderTextColor: 'pink',
   containerStyle: {
-    backgroundColor: "white",
+    backgroundColor: 'white',
     marginTop: 40,
   },
 };

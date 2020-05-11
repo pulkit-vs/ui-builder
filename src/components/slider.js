@@ -79,7 +79,6 @@ SliderComponent.propTypes = {
     value: PropTypes.number
 }
 
-
 SliderComponent.defaultProps = {
 
     maximumTrackTintColor: 'lightgrey',

@@ -14,6 +14,7 @@ export default class IconComponent extends Component {
       props = applyTheme(props, theme);
     }
   }
+  
   componentDidMount() {
     // Creating Screen for icon onPress
 
@@ -21,7 +22,6 @@ export default class IconComponent extends Component {
       this.props.createScreen(this.props.onPress);
     }
   }
-
   static contextType = NavigationContext;
 
   render() {
@@ -60,12 +60,12 @@ IconComponent.propTypes = {
 //Defaultprops is to set the default props for the class.
 IconComponent.defaultProps = {
   disabled: false,
-  onPress: () => console.log("Please add message on Icon click"),
+  onPress: () => console.log('Please add message on Icon click'),
   size: 30,
-  type: "material",
+  type: 'material',
   iconStyle: {
-    backgroundColor: "black",
-    color: "white",
+    backgroundColor: 'black',
+    color: 'white',
   },
   containerStyle: {
     margin: 0,

@@ -21,23 +21,21 @@ export default class CardComponent extends Component {
         dividerStyle={this.props.dividerStyle}
         title={this.props.title}
         titleStyle={this.props.titleStyle}
-        wrapperStyle={this.props.wrapperStyle}
-      >
+        wrapperStyle={this.props.wrapperStyle}>
         <ScrollView>
           {this.props.childrens.length === 0 ? (
             <Text
               style={{
-                fontWeight: "bold",
+                fontWeight: 'bold',
                 fontSize: 20,
                 marginTop: 100,
                 marginLeft: 30,
-              }}
-            >
+              }}>
               {COMPONENT_CONSTANTS.ADD_COMPONENT_TEXT}
             </Text>
           ) : (
-            this.props.childrens
-          )}
+              this.props.childrens
+            )}
         </ScrollView>
       </Card>
     );
@@ -49,27 +47,27 @@ CardComponent.propTypes = {
   containerStyle: PropTypes.shape({
     color: PropTypes.string,
     fontSize: PropTypes.number,
-    marginTop: PropTypes.number,
+    marginTop: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     padding: PropTypes.number,
     textAlign: PropTypes.string,
   }),
   wrapperStyle: PropTypes.shape({
     color: PropTypes.string,
     fontSize: PropTypes.number,
-    marginTop: PropTypes.number,
+    marginTop: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     padding: PropTypes.number,
     textAlign: PropTypes.string,
   }),
   dividerStyle: PropTypes.shape({
     borderColor: PropTypes.string,
-    borderWidth: PropTypes.number,
+    borderWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     padding: PropTypes.number,
   }),
 };
 
 CardComponent.defaultProps = {
   containerStyle: {
-    backgroundColor: "white",
+    backgroundColor: 'white',
 
     height: 300,
     width: 200,

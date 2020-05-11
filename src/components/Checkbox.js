@@ -73,23 +73,23 @@ CheckboxComponent.propTypes = {
 
 // Defaultprops is to set the default props for the class.
 CheckboxComponent.defaultProps = {
-  title: "checkbox",
+  title: 'checkbox',
   disabled: false,
   iconRight: false,
   checkboxStyle: {
-    checkedColor: "black",
-    uncheckedColor: "black",
+    checkedColor: 'black',
+    uncheckedColor: 'black',
   },
   titleStyle: {
-    color: "blue",
-    fontFamily: "arial",
+    color: 'blue',
+    fontFamily: 'arial',
     fontSize: 18,
   },
   containerStyle: {
     //borderWidth: '80%',
     borderRadius: 20,
-    backgroundColor: "red",
+    backgroundColor: 'red',
 
-    borderColor: "black",
+    borderColor: 'black',
   },
 };
