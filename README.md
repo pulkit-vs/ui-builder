@@ -1,4 +1,3 @@
-## [Package is under development]
 ## Get Started - 
 - ui-builder is an npm package that can generate UI components by passing a JSON data.
 - ui-builder package suppports low-level components and some of the high-level components as well that can be used in react-native project.
