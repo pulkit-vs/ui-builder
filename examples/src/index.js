@@ -24,6 +24,7 @@ import TextComponent from './components/text';
 import TextInput from './components/input';
 import {COMPONENTS} from './utility/constant';
 import {applyTheme} from './utility/utils';
+import VideoComponent from './components/video';
 
 // Global variable to get theme type in other files.
 export let theme;
@@ -121,6 +122,10 @@ export default class Components extends React.Component {
         return <SliderComponent {...component.properties} key={index} />;
       case COMPONENTS.DIVIDER:
         return <DividerComponent {...component.properties} key={index} />;
+      case 'video':
+        return <VideoComponent 
+        {...component.properties} key={index}
+        />;
     }
   }
 

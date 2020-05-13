@@ -4421,6 +4421,29 @@ const data = {
         },
       },
     ],
+  },
+
+  videoSource: {
+    screenName: 'Video screen',
+    data: [
+    {
+      type: 'video',
+      properties: {
+        // source: {
+        //   sourceType: 'uri',
+        //   uri: ''
+        // },
+        source: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+        paused: false,
+        onError: () => alert("error"),
+        style: {
+          width: '80%',
+          height: 200
+        },
+        audioOnly: true
+      }
+    }
+    ]
   }
 };
 

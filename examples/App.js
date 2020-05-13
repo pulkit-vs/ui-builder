@@ -14,6 +14,6 @@ import data from './src/data/jsonData';
 
 export default class App extends React.Component {
   render() {
-    return <UiBuilder source={data.carouselSource} />;
+    return <UiBuilder source={data.videoSource} />;
   }
 }
