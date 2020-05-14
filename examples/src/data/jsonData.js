@@ -4431,15 +4431,15 @@ const data = {
       properties: {
         // source: {
         //   sourceType: 'uri',
-        //   uri: ''
+        //   uri: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'
         // },
-        source: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+        source: {
+          sourceType: 'local',
+          uri: "./video_device.mp4.mp4"
+        },
+        // source: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
         paused: false,
         onError: () => alert("error"),
-        style: {
-          width: '80%',
-          height: 200
-        },
         audioOnly: true
       }
     }

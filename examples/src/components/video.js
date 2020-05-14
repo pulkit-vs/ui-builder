@@ -3,18 +3,19 @@ import React from "react";
 import Video from 'react-native-video';
 import cloneDeep from 'lodash/cloneDeep';
 import { View, Dimensions } from "react-native";
+// import video from "./video_device.mp4.mp4";
+import { SOURCE_TYPE } from "../utility/constant";
 
 export default class VideoComponent extends React.Component {
 
     properties = cloneDeep(this.props)
 
     render() {
+
         return (
             <View>
                 <Video
-                    // TODO: local video is not working
                     // source can be a URL or a localfile.
-                    //source={require("Vantaa_Device_State_Update.mp4")}
                     audioOnly={this.properties.audioOnly}
                     // controls prop is used to control the video(mute, formward)
                     controls={this.properties.controls}
@@ -31,9 +32,9 @@ export default class VideoComponent extends React.Component {
                     // video will play again 
                     repeat={this.properties.repeat}
                     resizeMode={this.properties.resizeMode}
-                    source={{ uri: this.properties.source }}
+                    source={this.properties.source.sourceType === SOURCE_TYPE.uri ? { uri: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4' } : require("./video_device.mp4.mp4")}
                     style={
-                        this.style
+                        this.properties.style
                     }
                     volume={this.properties.volume}
                 />
@@ -61,21 +62,14 @@ VideoComponent.propTypes = {
 };
 
 VideoComponent.defaultProps = {
-    // resizeMode={"cover"}
     controls: true,
-    currentTime: 0.0,
-    duration: 0.0,
     fullscreen: true,
-    ignoreSilentSwitch: null,
+    ignoreSilentSwitch: "ignore",
     isBuffering: false,
     muted: true,
-    onError: alert('There is some error occured while playing a video'),
     paused: true,
-    rate: 1,
-    resizeMode: 'contain',
-    skin: 'custom',
+    resizeMode: 'cover',
     style: {
         height: Dimensions.get("window").height
     },
-    volume: 1
 };
