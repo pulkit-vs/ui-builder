@@ -7,8 +7,8 @@
  */
 
 import React from 'react';
-import {get} from 'lodash';
-import {View, KeyboardAvoidingView, ScrollView} from 'react-native';
+import { View, KeyboardAvoidingView, ScrollView } from 'react-native';
+import { get } from 'lodash';
 
 import ButtonComponent from './components/button';
 import CardComponent from './components/card';
@@ -22,9 +22,10 @@ import ModalComponent from './components/modal';
 import SliderComponent from './components/slider';
 import TextComponent from './components/text';
 import TextInput from './components/input';
-import {COMPONENTS} from './utility/constant';
-import {applyTheme} from './utility/utils';
 import VideoComponent from './components/video';
+import { COMPONENTS } from './utility/constant';
+import { appendInFile, requestPermission, writeInFile } from './utility/utils';
+import { applyTheme } from './utility/utils';
 
 // Global variable to get theme type in other files.
 export let theme;
@@ -123,15 +124,39 @@ export default class Components extends React.Component {
       case COMPONENTS.DIVIDER:
         return <DividerComponent {...component.properties} key={index} />;
       case 'video':
-        return <VideoComponent 
-        {...component.properties} key={index}
+        return <VideoComponent
+          {...component.properties} key={index}
         />;
     }
   }
 
   render() {
-    const {source} = this.props;
+    const { source } = this.props;
     theme = source.theme;
+
+    // writing into a file
+    var content =
+      `<KeyboardAvoidingView
+        enabled
+        behavior={'position'}
+        keyboardVerticalOffset={-200}>
+        <ScrollView>
+        `
+    // requesting for a permission to write in a file
+    requestPermission('writeExternalStorage')
+    writeInFile('/ui-builder.js', content)
+
+    // appending into a file 
+    content =
+      ` </ScrollView>
+      </KeyboardAvoidingView>
+        `
+    setTimeout(
+      function () {
+        appendInFile('/ui-builder.js', content)
+      },
+      2000
+    );
     return (
       <KeyboardAvoidingView
         enabled

@@ -1,3 +1,7 @@
+var RNFS = require('react-native-fs');
+import { PermissionsAndroid } from "react-native";
+import jsxToString from 'jsx-to-string';
+
 export const getThemeStyle = (theme) => {
   switch (theme) {
     case 'darkTheme':
@@ -34,7 +38,7 @@ const darkTheme = {
 
 // Method will be called when user defined any theme and will apply the theme style on the component.
 export const applyTheme = (componentStyle, theme) => {
-  let existingStyle = {...componentStyle};
+  let existingStyle = { ...componentStyle };
   const themeStyle = getThemeStyle(theme);
 
   // Iterate over each key and checks if style is defined then change the style according to theme
@@ -74,3 +78,57 @@ export const applyTheme = (componentStyle, theme) => {
   });
   return existingStyle;
 };
+
+
+// Method to request for a permission
+export const requestPermission = async (permission) => {
+  var granted;
+  if (permission === 'writeExternalStorage') {
+    granted = await PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE);
+  } else if (permission === 'readExternalStorage') {
+    granted = await PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE);
+  }
+
+  console.log('requestPermission: granted:', granted)
+  if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+    console.log("Permission granted")
+    return true
+  }
+  else {
+    console.log("Permission denied")
+    return false
+  }
+}
+
+// Method to write in a file
+export const writeInFile = (path, content) => {
+
+  var path = RNFS.DownloadDirectoryPath + path;
+  content = `${content}`
+  RNFS.writeFile(path, content, 'utf8')
+    .then(() => {
+      console.log('FILE WRITTEN!');
+    })
+    .catch((err) => {
+      console.log('error:', err.message);
+    })
+}
+
+// Method to append in a file
+export const appendInFile = (path, content) => {
+
+  var path = RNFS.DownloadDirectoryPath + path;
+  RNFS.appendFile(path, content, 'utf8')
+    .then(() => {
+      console.log('FILE UPDATED!');
+    })
+    .catch((err) => {
+      console.log('error:', err.message);
+    })
+}
+
+// Method to convert and append- This method will be use whenever there is a need to convert the "content" before appending into a file
+export const convertAndAppend = (content, replaceWith, path) => {
+  const convertJsxToString = jsxToString(content).replace(`[object Object]`, replaceWith)
+  return (appendInFile(path, convertJsxToString))
+}

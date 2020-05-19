@@ -8,11 +8,10 @@
 
 import PropTypes from 'prop-types';
 import React from 'react';
-import {View} from 'react-native';
-import {Input} from 'react-native-elements';
+import { Input } from 'react-native-elements';
 
-import {applyTheme} from '../utility/utils';
-import {theme} from '../index';
+import { applyTheme, convertAndAppend } from '../utility/utils';
+import { theme } from '../index';
 
 export default class TextInput extends React.Component {
   constructor() {
@@ -27,12 +26,12 @@ export default class TextInput extends React.Component {
   }
 
   onChangeText(event) {
-    this.setState({value: event});
+    this.setState({ value: event });
   }
 
   componentDidMount() {
     // Customize button style
-    this.setState({props: this.props});
+    this.setState({ props: this.props });
 
     // Applying theme on text input
     this.state.props = theme
@@ -43,41 +42,41 @@ export default class TextInput extends React.Component {
   // TODO: will add lodash and use its get method to avoid multiple conditions.
   // Will provide support for icon in text input using react-native-elements library.
   render() {
+
     const props = this.state.props;
-    return (
-      <View>
-        <Input
-          onChangeText={this.onChangeText}
-          placeholder={props.label}
-          containerStyle={props.containerStyle}
-          value={this.state.value}
-          selectionColor={props.selectionColor}
-          inputContainerStyle={props.inputContainerStyle}
-          rightIcon={
-            props.rightIcon && {
-              ...props.rightIcon.properties,
-            }
+    const result =
+      <Input
+        onChangeText={this.onChangeText}
+        placeholder={props.label}
+        containerStyle={props.containerStyle}
+        value={this.state.value}
+        selectionColor={props.selectionColor}
+        inputContainerStyle={props.inputContainerStyle}
+        rightIcon={
+          props.rightIcon && {
+            ...props.rightIcon.properties,
           }
-          leftIcon={
-            props.leftIcon && {
-              ...props.leftIcon.properties,
-            }
+        }
+        leftIcon={
+          props.leftIcon && {
+            ...props.leftIcon.properties,
           }
-          leftIconContainerStyle={
-            props.leftIcon &&
-            props.leftIcon.properties.leftIconContainerStyle && {
-              ...props.leftIcon.properties.leftIconContainerStyle,
-            }
+        }
+        leftIconContainerStyle={
+          props.leftIcon &&
+          props.leftIcon.properties.leftIconContainerStyle && {
+            ...props.leftIcon.properties.leftIconContainerStyle,
           }
-          rightIconContainerStyle={
-            props.rightIcon &&
-            props.rightIcon.properties.rightIconContainerStyle && {
-              ...props.rightIcon.properties.rightIconContainerStyle,
-            }
+        }
+        rightIconContainerStyle={
+          props.rightIcon &&
+          props.rightIcon.properties.rightIconContainerStyle && {
+            ...props.rightIcon.properties.rightIconContainerStyle,
           }
-        />
-      </View>
-    );
+        }
+      />
+    convertAndAppend(result, `Input`, '/ui-builder.js')
+    return result
   }
 }
 
@@ -95,7 +94,23 @@ TextInput.propTypes = {
     right: PropTypes.number,
     marginTop: PropTypes.number,
   }),
-  rightIcon: PropTypes.object,
+  // WILL REVISIT
+  rightIcon: PropTypes.shape({
+    properties: PropTypes.shape({
+      name: PropTypes.string,
+      color: PropTypes.string,
+      size: PropTypes.number,
+      type: PropTypes.string,
+      rightIconContainerStyle: PropTypes.shape({
+        properties: PropTypes.shape({
+          backgroundColor: PropTypes.string,
+          borderColor: PropTypes.string,
+          borderWidth: PropTypes.number,
+          left: PropTypes.number
+        }),
+      }),
+    }),
+  }),
   leftIcon: PropTypes.object,
 };
 

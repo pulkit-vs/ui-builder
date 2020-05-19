@@ -1,5 +1,31 @@
 const data = {
   // Low Level Component
+  inputSource: {
+    screenName: 'First Screen',
+    data: [
+    {
+        type: 'input',
+        properties: {
+          label: 'Mobile Number (10 digits)',
+          selectionColor: 'grey',
+          rightIcon: {
+            properties: {
+              name: 'arrow-right',
+              color: 'white',
+              size: 20,
+              type: 'font-awesome',
+              rightIconContainerStyle: {
+                backgroundColor: 'grey',
+                borderWidth: 24,
+                borderColor: 'lightgrey',
+                left: 10,
+              },
+            },
+          },
+        },
+    }]
+  },
+
   source: {
     screenName: 'First Screen',
     data: [
@@ -4435,7 +4461,7 @@ const data = {
         // },
         source: {
           sourceType: 'local',
-          uri: "./video_device.mp4.mp4"
+          uri: "./video_device.mp4"
         },
         // source: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
         paused: false,
