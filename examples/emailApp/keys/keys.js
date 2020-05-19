@@ -4,6 +4,3 @@ const keys = {
 };
 
 module.exports = keys;
-
-//#12344321saksham$
-//saksham695dummy@gmail.com

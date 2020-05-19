@@ -1,11 +1,20 @@
+// checks the email validation
 function validEmail(e) {
   var filter = /^\s*[\w\-\+_]+(\.[\w\-\+_]+)*\@[\w\-\+_]+\.[\w\-\+_]+(\.[\w\-\+_]+)*\s*$/;
   return String(e).search(filter) != -1;
 }
+
 function fillArray(myString) {
   let array = [];
   let temp = '';
   const length = myString.length;
+  if (myString) {
+    let newString = myString.replace(/dot/g, '.');
+    newString = newString.replace(/Dot/g, '.');
+    myString = newString;
+  }
+  myString = myString.split(' ').join('').toLocaleLowerCase();
+
   for (let i = 0; i < length; i++) {
     temp = temp + myString[i];
     if (
@@ -14,17 +23,14 @@ function fillArray(myString) {
       myString[i - 2] === 'c' &&
       myString[i - 3] === '.'
     ) {
-      temp = temp.split(' ').join('').toLocaleLowerCase();
-
       const checkValidity = validEmail(temp);
-      console.log('temp', temp);
       if (checkValidity) {
         array.push(temp);
       }
       temp = '';
     }
   }
-  console.log('array values', array);
+  console.log(array);
   return array;
 }
 
@@ -37,6 +43,6 @@ export function emailDataCleaning(values) {
       values[itr] = array;
     }
   });
-  console.log('final update email data', values);
+  console.log(values);
   return values;
 }

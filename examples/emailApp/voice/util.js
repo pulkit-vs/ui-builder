@@ -2,16 +2,16 @@ import Tts from 'react-native-tts';
 
 export function checkStatus(state) {
   const boolSend = state.sendEmail.includes('yes');
-
   const addMore = state.recipient.includes('yes');
-  console.log('speak function', state.index, boolSend, addMore);
+
   if (state.index === 0) {
     Tts.speak(
       'Welcome to this email sending app , I can help you in sending emails .  Do you want to send emails ?',
     );
   }
+
   if (state.index === 1 && boolSend) {
-    Tts.speak(' Then you can tell me what do you want to send');
+    Tts.speak(' Tell me the content you want to send ');
   }
   if (state.index === 2 && boolSend) {
     Tts.speak('Now you can add subject for your mail');
@@ -34,14 +34,15 @@ export function checkStatus(state) {
     Tts.speak(' you  can  add more  recipients here ');
   }
   if (state.index === 7 && !addMore) {
-    Tts.speak(' you  can  send e-mail bt clicking on send button ');
+    Tts.speak(' Are you sure you want to send this e-mail. ');
   }
+  if (state.index === 8 && addMore) {
+    Tts.speak(' Are you sure you want to send this e-mail. ? ');
+  }
+
   if (state.index === 1 && !boolSend) {
     Tts.speak(
       'I am glad that you visited here . Wish I could help you  somehow . Dont forget to come here when you need to send emails',
     );
   }
-}
-export function emailStatus(state) {
-  return state.to.length !== 0 && state.body.length !== 0;
 }

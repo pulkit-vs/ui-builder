@@ -8,7 +8,7 @@
 
 import React from 'react';
 import {Text, View} from 'react-native';
-import {Button, Icon} from 'react-native-elements';
+import {Icon} from 'react-native-elements';
 import Voice from '@react-native-community/voice';
 
 export default class VoiceComponent extends React.Component {
@@ -37,11 +37,11 @@ export default class VoiceComponent extends React.Component {
     });
   }
 
+  // will record your voice and send covert it into text and  send it to the function which set attributes of email.
   onSpeechResultsHandler = async (e) => {
     await this.setState({
       results: e.value,
     });
-
     await this.props.handle(e.value[0]);
   };
 
@@ -69,13 +69,13 @@ export default class VoiceComponent extends React.Component {
           size={50}
           color="#CC6699"
           onPress={(e) => this._startRecognition(e)}
-          underlayColor="#99CCFF"
+          underlayColor="thistle"
           containerStyle={{margin: '30%', alignSelf: 'center'}}
         />
 
         <Text
           style={{
-            marginTop: 20,
+            marginBottom: 15,
             textAlign: 'center',
             fontSize: 20,
             fontWeight: 'bold',
