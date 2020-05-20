@@ -12,7 +12,6 @@ import React from 'react';
 import {Button} from 'react-native-elements';
 import {NavigationContext} from '@react-navigation/native';
 import {View} from 'react-native';
-import {NavigationContext} from '@react-navigation/native';
 
 import {applyTheme} from '../utility/utils';
 import {shapeStyles} from '../style/buttonStyle';

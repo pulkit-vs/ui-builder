@@ -1,14 +1,12 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Text } from 'react-native';
-import { NavigationContext } from '@react-navigation/native';
+import {Text} from 'react-native';
+import {NavigationContext} from '@react-navigation/native';
 
 import {applyTheme} from '../utility/utils';
 import {theme} from '../index';
-import {NavigationContext} from '@react-navigation/native';
 
 export default class TextComponent extends React.Component {
-
   componentDidMount() {
     // Applying theme on text
     if (theme) {
@@ -16,7 +14,7 @@ export default class TextComponent extends React.Component {
     }
 
     if (this.props.onPress && this.props.onPress.navigation) {
-      this.props.createScreen(this.props.onPress)
+      this.props.createScreen(this.props.onPress);
     }
   }
   static contextType = NavigationContext;
@@ -31,8 +29,7 @@ export default class TextComponent extends React.Component {
             this.props.onPress && this.props.onPress.navigation
               ? () => navigation.navigate(this.props.onPress.screenName)
               : () => this.props.onPress()
-          }
-        >
+          }>
           {props.title}
         </Text>
       </>

@@ -61,11 +61,11 @@ export default class ModalComponent extends React.Component {
   getChildrenData(index, children) {
     const navigation = this.context;
 
-    // Creating Screen onPress of modal components 
+    // Creating Screen onPress of modal components
     children.properties.onPress && children.properties.onPress.navigation
-    ? this.props.createScreen(children.properties.onPress)
-    : null;
-    
+      ? this.props.createScreen(children.properties.onPress)
+      : null;
+
     return (
       <View>
         {(() => {
