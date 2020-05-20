@@ -1,34 +1,37 @@
 import PropTypes from 'prop-types';
-import React, {Component} from 'react';
-import {Icon} from 'react-native-elements';
-import {NavigationContext} from '@react-navigation/native';
-import {View} from 'react-native';
+import React, { Component } from 'react';
+import { Icon } from 'react-native-elements';
+import { NavigationContext } from '@react-navigation/native';
+import { View } from 'react-native';
 
-import {applyTheme} from '../utility/utils';
-import {theme} from '../index';
+import { applyTheme } from '../utility/utils';
+import { theme } from '../index';
 
 export default class IconComponent extends Component {
-  componentDidMount() {
-    // Creating Screen for icon onPress
-
-    if (this.props.onPress) {
-      this.props.onPress.navigation
-        ? this.props.createScreen(this.props.onPress)
-        : null;
+  constructor(props) {
+    super(props);
+    if (theme) {
+      props = applyTheme(props, theme);
     }
   }
 
+  componentDidMount() {
+    // Creating Screen for icon onPress
+
+    if (this.props.onPress && this.props.onPress.navigation) {
+      this.props.createScreen(this.props.onPress);
+    }
+  }
   static contextType = NavigationContext;
 
   render() {
-    this.props = theme ? applyTheme(this.props, theme) : this.props;
     const navigation = this.context;
     return (
       <View>
         <Icon
           name={this.props.name}
           onPress={
-            this.props.onPress.navigation
+            this.props.onPress && this.props.onPress.navigation
               ? () => navigation.navigate(this.props.onPress.screenName)
               : this.props.onPress
           }

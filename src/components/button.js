@@ -10,8 +10,8 @@ import Icon from "react-native-vector-icons/FontAwesome";
 import PropTypes from "prop-types";
 import React from "react";
 import { Button } from "react-native-elements";
-import { View } from "react-native";
 import { NavigationContext } from "@react-navigation/native";
+import { View } from "react-native";
 
 import { applyTheme } from "../utility/utils";
 import { shapeStyles } from "../style/buttonStyle";

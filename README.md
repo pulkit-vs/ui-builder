@@ -1,4 +1,3 @@
-## [Package is under development]
 ## Get Started - 
 - ui-builder is an npm package that can generate UI components by passing a JSON data.
 - ui-builder package suppports low-level components and some of the high-level components as well that can be used in react-native project.
@@ -8,10 +7,15 @@
 - Button
 - Text Input
 - Icon
+- Checkbox
 - Image
 - Modal
 - Header
-- Theme
+- Themes
+- Divider
+- Card
+- Carousel
+- Navigation
 
 ## Highlights- 
 
@@ -42,6 +46,14 @@ Icon :
 - You can move icons anywhere in the screen by passing selfAlign and margin.
 - Basic props for the icon are: name, size, iconType. You can customize the icon by passing more props in JSON structure.
 ```
+Card:
+```
+Cards supports a wide variety of low-level components including images, text, button and checkbox.
+```
+Carousel:
+```
+- You can customize carousel by including cards and by supporting pagination.
+```
 
 ## Steps for Installation [Android steps]-
 - Install using 'npm i react-native-ui-builder'
@@ -55,7 +67,7 @@ Icon :
 - where source containing a JSON data for building UI components.
 
 ## JSON Structure-
-- JSON must contain the intended component "type".
+- JSON must contain the intended component "type" and "screenName".
 - Customize a component by passing styles in "properties" Json. 
 
 ## A complete example
@@ -65,6 +77,7 @@ import React from 'react';
 
 const source = {
   theme: 'lightTheme',
+  screenName: 'Login Facebook'
   data: [
     {
       type: 'input',
@@ -204,3 +217,4 @@ You can use flex-end and marginRight for moving an icon at the rightmost-corner.
 ```
 
 ## Note: For more information, check onto the attached documentation.
+[check here](https://docs.google.com/document/d/1Mjs-Dz0n9lGIHL8POHZEfoc6rXsOI5EsQcOazOcGj4M/edit?usp=sharing)

@@ -1,12 +1,11 @@
-import {createStackNavigator} from '@react-navigation/stack';
-import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
 
-import Components from '../index';
+import  Components  from './index';
 
 const Stack = createStackNavigator();
 
-// TODO: Will unhandle invalid screenName (non-empty string)
 export default class UiBuilder extends React.Component {
   constructor(props) {
     super(props);
@@ -15,7 +14,8 @@ export default class UiBuilder extends React.Component {
       stackScreens: [
         <Stack.Screen
           name={this.props.source.screenName}
-          key={this.props.source.screenName}>
+          key={this.props.source.screenName}
+        >
           {(props) => (
             <Components
               createScreen={this.createScreen}
@@ -28,8 +28,8 @@ export default class UiBuilder extends React.Component {
     };
   }
 
-  // Method for creating a screen from given source on onPress of a component
-  createScreen({screenName, source}) {
+  // Method for creating a given screen from given source onPress to a component
+  createScreen({ screenName, source }) {
     if (!this.state.screenNames.includes(screenName)) {
       let tempScreenNames = this.state.screenNames;
       let screenJson = this.state.stackScreens;
@@ -40,9 +40,9 @@ export default class UiBuilder extends React.Component {
           {(props) => (
             <Components createScreen={this.createScreen} source={source} />
           )}
-        </Stack.Screen>,
+        </Stack.Screen>
       );
-      this.setState({stackScreens: screenJson, screenNames: tempScreenNames});
+      this.setState({ stackScreens: screenJson, screenNames: tempScreenNames });
     }
   }
 
@@ -52,7 +52,8 @@ export default class UiBuilder extends React.Component {
         <Stack.Navigator
           screenOptions={{
             headerShown: false,
-          }}>
+          }}
+        >
           {this.state.stackScreens}
         </Stack.Navigator>
       </NavigationContainer>

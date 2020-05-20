@@ -42,17 +42,17 @@ ImageComponent.propTypes = {
     borderColor: PropTypes.string,
     borderRadius: PropTypes.number,
     borderWidth: PropTypes.number,
-    height: PropTypes.number,
+    height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     opacity: PropTypes.number,
-    overflow: PropTypes.strig,
-    width: PropTypes.number,
+    overflow: PropTypes.string,
+    width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   }),
 };
 ImageComponent.defaultProps = {
   blurRadius: 0,
   capInsets: {},
   fadeDuration: 0,
-  resizeMethod: "auto",
-  resizeMode: "cover",
-  style: { height: 100, width: 100, borderColor: "red" },
+  resizeMethod: 'auto',
+  resizeMode: 'cover',
+  style: {height: 100, width: 100, borderColor: 'red'},
 };

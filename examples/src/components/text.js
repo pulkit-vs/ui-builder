@@ -1,29 +1,22 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
 import PropTypes from 'prop-types';
 import React from 'react';
-import {Text} from 'react-native';
+import { Text } from 'react-native';
+import { NavigationContext } from '@react-navigation/native';
 
 import {applyTheme} from '../utility/utils';
 import {theme} from '../index';
 import {NavigationContext} from '@react-navigation/native';
 
 export default class TextComponent extends React.Component {
-  componentWillMount() {
-    // Applying theme on text
-    this.props = theme ? applyTheme(this.props, theme) : this.props;
-  }
+
   componentDidMount() {
-    if (this.props.onPress) {
-      this.props.onPress.navigation
-        ? this.props.createScreen(this.props.onPress)
-        : null;
+    // Applying theme on text
+    if (theme) {
+      this.props = applyTheme(this.props, theme);
+    }
+
+    if (this.props.onPress && this.props.onPress.navigation) {
+      this.props.createScreen(this.props.onPress)
     }
   }
   static contextType = NavigationContext;
@@ -35,10 +28,11 @@ export default class TextComponent extends React.Component {
         <Text
           style={props.style}
           onPress={
-            this.props.onPress.navigation
+            this.props.onPress && this.props.onPress.navigation
               ? () => navigation.navigate(this.props.onPress.screenName)
               : () => this.props.onPress()
-          }>
+          }
+        >
           {props.title}
         </Text>
       </>

@@ -19,13 +19,11 @@ export default class DividerComponent extends React.Component {
     this.state = {
       properties: {},
     };
-  }
+    this.setState({ properties: this.props });
 
-  async componentDidMount() {
-    await this.setState({ properties: this.props });
     // Applying theme on divider style
     if (theme) {
-      await this.setState({
+      this.setState({
         properties: applyTheme(this.props, theme),
       });
     }
