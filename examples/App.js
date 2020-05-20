@@ -11,7 +11,7 @@
 
 //import UiBuilder from 'react-native-ui-builder';
 import React from 'react';
-import UiBuilder from './src/navigation/navigation';
+import UiBuilder from './src/navigation/Navigation';
 import data from './src/data/jsonData';
 
 export default class App extends React.Component {
