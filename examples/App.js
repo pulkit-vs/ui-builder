@@ -1,21 +1,19 @@
 /**
- * Sample React Native App
- * https://github.com/facebook/react-native
+ * Sample React Native Ui Builder App
+ * https://github.com/pulkit-vs/ui-builder
  *
  * @format
  * @flow strict-local
  */
 
-// TODO: Will use package later.
-//TODO : backPress not working with debug Navigator Screen
-
-//import UiBuilder from 'react-native-ui-builder';
+//TODO : BackPress not working with debug Navigator Screen
+// import UiBuilder from 'react-native-ui-builder';
 import React from 'react';
 import UiBuilder from './src/navigation/Navigation';
 import data from './src/data/jsonData';
 
 export default class App extends React.Component {
   render() {
-    return <UiBuilder source={data.debugNavigator} />;
+    return <UiBuilder source={data.carouselSource} />;
   }
 }

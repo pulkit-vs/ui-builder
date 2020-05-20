@@ -1,8 +1,8 @@
 {
   "name": "react-native-ui-builder",
-  "version": "1.1.16",
+  "version": "1.1.19",
   "description": "A package for generating UI by consuming json data.",
-  "main": "index.js",
+  "main": "navigation.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
