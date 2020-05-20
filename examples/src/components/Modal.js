@@ -6,16 +6,17 @@
  * @flow strict-local
  */
 
-import Modal from "react-native-modal";
-import PropTypes from "prop-types";
-import React from "react";
-import { Button, Icon } from "react-native-elements";
-import { NavigationContext } from "@react-navigation/native";
-import { View, Text, TextInput, KeyboardAvoidingView } from "react-native";
+//TODO: Will improve setState handling
+import Modal from 'react-native-modal';
+import PropTypes from 'prop-types';
+import React from 'react';
+import {Button, Icon} from 'react-native-elements';
+import {NavigationContext} from '@react-navigation/native';
+import {View, Text, TextInput, KeyboardAvoidingView} from 'react-native';
 
-import { CLOSE_MODAL } from "../utility/utils";
-import { applyTheme } from "../utility/utils";
-import { theme } from "../../index";
+import {CLOSE_MODAL} from '../utility/utils';
+import {applyTheme} from '../utility/utils';
+import {theme} from '../index';
 
 export default class ModalComponent extends React.Component {
   constructor(props) {
@@ -60,11 +61,11 @@ export default class ModalComponent extends React.Component {
   getChildrenData(index, children) {
     const navigation = this.context;
 
-    // Creating Screen onPress of modal components 
+    // Creating Screen onPress of modal components
     children.properties.onPress && children.properties.onPress.navigation
-    ? this.props.createScreen(children.properties.onPress)
-    : null;
-    
+      ? this.props.createScreen(children.properties.onPress)
+      : null;
+
     return (
       <View>
         {(() => {

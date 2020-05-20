@@ -6,17 +6,16 @@
  * @flow strict-local
  */
 
-//TODO: Will improve setState handling
-import Modal from 'react-native-modal';
-import PropTypes from 'prop-types';
-import React from 'react';
-import {Button, Icon} from 'react-native-elements';
-import {NavigationContext} from '@react-navigation/native';
-import {View, Text, TextInput, KeyboardAvoidingView} from 'react-native';
+import Modal from "react-native-modal";
+import PropTypes from "prop-types";
+import React from "react";
+import { Button, Icon } from "react-native-elements";
+import { NavigationContext } from "@react-navigation/native";
+import { View, Text, TextInput, KeyboardAvoidingView } from "react-native";
 
-import {CLOSE_MODAL} from '../utility/utils';
-import {applyTheme} from '../utility/utils';
-import {theme} from '../index';
+import { CLOSE_MODAL } from "../utility/utils";
+import { applyTheme } from "../utility/utils";
+import { theme } from "../../index";
 
 export default class ModalComponent extends React.Component {
   constructor(props) {
@@ -39,7 +38,7 @@ export default class ModalComponent extends React.Component {
   static contextType = NavigationContext;
 
   inVisibleModal() {
-    this.setState({isModalVisible: !this.state.isModalVisible});
+    this.setState({ isModalVisible: !this.state.isModalVisible });
   }
 
   onChangeText(event, index) {
@@ -48,28 +47,28 @@ export default class ModalComponent extends React.Component {
       this.state.values.length === 0 ||
       this.state.values.findIndex((val) => val.key === index) === -1
     ) {
-      updateState.push({key: index, value: event});
+      updateState.push({ key: index, value: event });
     } else {
       const activeIndex = this.state.values.findIndex(
-        (val) => val.key === index,
+        (val) => val.key === index
       );
       updateState[activeIndex].value = event;
     }
-    this.setState({values: updateState});
+    this.setState({ values: updateState });
   }
 
   getChildrenData(index, children) {
     const navigation = this.context;
 
-    // Creating Screen onPress of modal components 
+    // Creating Screen onPress of modal components
     children.properties.onPress && children.properties.onPress.navigation
-    ? this.props.createScreen(children.properties.onPress)
-    : null;
-    
+      ? this.props.createScreen(children.properties.onPress)
+      : null;
+
     return (
       <View>
         {(() => {
-          if (children.type === 'text') {
+          if (children.type === "text") {
             return (
               <Text
                 style={children.properties.style}
@@ -83,7 +82,8 @@ export default class ModalComponent extends React.Component {
                       }
                     : () => this.props.onPress
                 }
-                key={index}>
+                key={index}
+              >
                 {children.properties.title}
               </Text>
             );
@@ -93,7 +93,7 @@ export default class ModalComponent extends React.Component {
         {/* TODO: We will make a common method to handle onPress for Modal. */}
 
         {(() => {
-          if (children.type === 'icon') {
+          if (children.type === "icon") {
             return (
               <Icon
                 containerStyle={children.properties.containerStyle}
@@ -101,7 +101,7 @@ export default class ModalComponent extends React.Component {
                 color={children.properties.color}
                 size={children.properties.size}
                 onPress={
-                  children.properties.onPress === 'closeModal'
+                  children.properties.onPress === "closeModal"
                     ? () => this.inVisibleModal()
                     : children.properties.onPress &&
                       children.properties.onPress.navigation
@@ -110,7 +110,7 @@ export default class ModalComponent extends React.Component {
                           isModalVisible: !this.state.isModalVisible,
                         });
                         navigation.navigate(
-                          children.properties.onPress.screenName,
+                          children.properties.onPress.screenName
                         );
                       }
                     : children.properties.onPress
@@ -122,7 +122,7 @@ export default class ModalComponent extends React.Component {
         })()}
 
         {(() => {
-          if (children.type === 'input') {
+          if (children.type === "input") {
             return (
               <TextInput
                 onChangeText={(event) => this.onChangeText(event, index)}
@@ -132,7 +132,7 @@ export default class ModalComponent extends React.Component {
                 value={
                   this.state.values.find((val) => val.key === index)
                     ? this.state.values.find((val) => val.key === index).value
-                    : ''
+                    : ""
                 }
                 placeholderTextColor={children.properties.placeholderTextColor}
                 key={index}
@@ -142,7 +142,7 @@ export default class ModalComponent extends React.Component {
         })()}
 
         {(() => {
-          if (children.type === 'button') {
+          if (children.type === "button") {
             return (
               <Button
                 title={children.properties.title}
@@ -154,10 +154,10 @@ export default class ModalComponent extends React.Component {
                           isModalVisible: !this.state.isModalVisible,
                         });
                         navigation.navigate(
-                          children.properties.onPress.screenName,
+                          children.properties.onPress.screenName
                         );
                       }
-                    : children.properties.onPress === 'closeModal'
+                    : children.properties.onPress === "closeModal"
                     ? () => this.inVisibleModal()
                     : children.properties.onPress()
                 }
@@ -195,9 +195,9 @@ export default class ModalComponent extends React.Component {
             : this.props.properties.onBackButtonPress &&
               this.props.properties.onBackButtonPress.navigation
             ? () => {
-                this.setState({isModalVisible: !this.state.isModalVisible});
+                this.setState({ isModalVisible: !this.state.isModalVisible });
                 navigation.navigate(
-                  this.props.properties.onBackButtonPress.screenName,
+                  this.props.properties.onBackButtonPress.screenName
                 );
               }
             : null
@@ -211,7 +211,8 @@ export default class ModalComponent extends React.Component {
           closeModal.includes(CLOSE_MODAL.onSwipeComplete)
             ? this.props.properties.swipeDirection
             : null
-        }>
+        }
+      >
         <KeyboardAvoidingView behavior="position" enabled>
           {this.props.childrens.map((children, index) => {
             return this.getChildrenData(index, children);
@@ -245,26 +246,26 @@ ModalComponent.defaultProps = {
   properties: {
     style: {
       margin: 0,
-      width: '100%',
+      width: "100%",
       marginBottom: 200,
       marginTop: 200,
-      backgroundColor: 'yellow',
+      backgroundColor: "yellow",
     },
-    closeModal: ['onBackdropPress', 'onBackButtonPress', 'onSwipeComplete'],
-    swipeDirection: 'left',
+    closeModal: ["onBackdropPress", "onBackButtonPress", "onSwipeComplete"],
+    swipeDirection: "left",
   },
   childrens: [
     {
-      type: 'text',
+      type: "text",
       properties: {
         style: {
           fontSize: 20,
-          fontWeight: 'bold',
-          textAlign: 'center',
+          fontWeight: "bold",
+          textAlign: "center",
           marginBottom: 10,
-          color: 'black',
+          color: "black",
         },
-        title: 'Please add components in a modal',
+        title: "Please add components in a modal",
       },
     },
   ],

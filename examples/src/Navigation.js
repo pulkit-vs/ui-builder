@@ -1,12 +1,11 @@
-import {createStackNavigator} from '@react-navigation/stack';
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
 
-import Components from '../index';
+import Components from './index';
 
 const Stack = createStackNavigator();
 
-// TODO: Will unhandle invalid screenName (non-empty string)
 export default class UiBuilder extends React.Component {
   constructor(props) {
     super(props);
@@ -28,7 +27,7 @@ export default class UiBuilder extends React.Component {
     };
   }
 
-  // Method for creating a screen from given source on onPress of a component
+  // Method for creating a given screen from given source onPress to a component
   createScreen({screenName, source}) {
     if (!this.state.screenNames.includes(screenName)) {
       let tempScreenNames = this.state.screenNames;
