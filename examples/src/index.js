@@ -10,22 +10,21 @@ import React from 'react';
 import { View, KeyboardAvoidingView, ScrollView } from 'react-native';
 import { get } from 'lodash';
 
-import ButtonComponent from './components/button';
-import CardComponent from './components/card';
-import CarouselComponent from './components/carousel';
+import ButtonComponent from './components/Button';
+import CardComponent from './components/Card';
+import CarouselComponent from './components/Carousel';
 import CheckboxComponent from './components/Checkbox';
-import DividerComponent from './components/divider';
-import HeaderComponent from './components/header';
-import IconComponent from './components/icon';
-import ImageComponent from './components/image';
-import ModalComponent from './components/modal';
-import SliderComponent from './components/slider';
-import TextComponent from './components/text';
-import TextInput from './components/input';
-import VideoComponent from './components/video';
+import DividerComponent from './components/Divider';
+import HeaderComponent from './components/Header';
+import IconComponent from './components/Icon';
+import ImageComponent from './components/Image';
+import ModalComponent from './components/Modal';
+import SliderComponent from './components/Slider';
+import TextComponent from './components/Text';
+import TextInput from './components/Input';
 import { COMPONENTS } from './utility/constant';
-import { appendInFile, requestPermission, writeInFile } from './utility/utils';
-import { applyTheme } from './utility/utils';
+import { applyTheme, appendInFile, requestPermission, writeInFile } from './utility/utils';
+import {COMPONENTS} from './utility/constant';
 
 // Global variable to get theme type in other files.
 export let theme;

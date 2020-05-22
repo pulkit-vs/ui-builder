@@ -7,6 +7,7 @@
  */
 
 //TODO : BackPress not working with debug Navigator Screen
+// import UiBuilder from 'react-native-ui-builder';
 import React from 'react';
 import UiBuilder from './src/navigation';
 import data from './src/data/jsonData';
