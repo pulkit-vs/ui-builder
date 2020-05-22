@@ -24,7 +24,6 @@ import TextComponent from './components/Text';
 import TextInput from './components/Input';
 import { COMPONENTS } from './utility/constant';
 import { applyTheme, appendInFile, requestPermission, writeInFile } from './utility/utils';
-import {COMPONENTS} from './utility/constant';
 
 // Global variable to get theme type in other files.
 export let theme;
