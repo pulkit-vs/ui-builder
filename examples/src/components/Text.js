@@ -1,38 +1,48 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Text } from 'react-native';
-import { NavigationContext } from '@react-navigation/native';
+import {Text} from 'react-native';
+import {NavigationContext} from '@react-navigation/native';
 
-import { applyTheme } from '../utility/utils';
-import { theme } from '../index';
+import {applyTheme} from '../utility/utils';
+import {theme} from '../index';
 
 export default class TextComponent extends React.Component {
-
-  componentDidMount() {
+  constructor(props) {
+    super(props);
+    this.state = {
+      newProps: props,
+    };
+  }
+  async componentDidMount() {
     // Applying theme on text
+
     if (theme) {
-      this.props = applyTheme(this.props, theme);
+      const themeProp = applyTheme(this.props, theme);
+      await this.setState({
+        newProps: themeProp,
+      });
     }
 
-    if (this.props.onPress && this.props.onPress.navigation) {
-      this.props.createScreen(this.props.onPress)
+    if (this.state.newProps.onPress && this.state.newProps.onPress.navigation) {
+      this.state.newProps.createScreen(this.state.newProps.onPress);
     }
   }
   static contextType = NavigationContext;
   render() {
     const navigation = this.context;
-    const props = this.props;
+    const updatedProps = this.state.newProps;
     return (
       <>
         <Text
-          style={props.style}
+          style={updatedProps.style}
           onPress={
-            this.props.onPress && this.props.onPress.navigation
-              ? () => navigation.navigate(this.props.onPress.screenName)
-              : () => this.props.onPress()
-          }
-        >
-          {props.title}
+            this.state.newProps.onPress &&
+            this.state.newProps.onPress.navigation
+              ? () =>
+                  navigation.navigate(this.state.newProps.onPress.screenName)
+              : () => this.state.newProps.onPress()
+          }>
+          {updatedProps.title}
         </Text>
       </>
     );

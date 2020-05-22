@@ -1,8 +1,8 @@
-import {Header, Icon, Input} from 'react-native-elements';
 import PropTypes from 'prop-types';
 import React from 'react';
-import {Text, View} from 'react-native';
+import {Header, Icon, Input} from 'react-native-elements';
 import {NavigationContext} from '@react-navigation/native';
+import {Text, View} from 'react-native';
 
 import {applyTheme} from '../utility/utils';
 import {COMPONENTS} from '../utility/constant';
@@ -11,10 +11,11 @@ import {theme} from '../index';
 export default class HeaderComponent extends React.Component {
   constructor(props) {
     super(props);
+    // moves these string to constant file
     this.state = {
       ValueOfComponent: ['leftComponent', 'centerComponent', 'rightComponent'],
     };
-    // apply theme
+    // apply theme  ---> try to put these in lifecycle methods
     props = theme ? applyTheme(this.props, theme) : this.props;
     props.leftComponent.childrens.forEach((children) => {
       children.properties = theme
@@ -130,12 +131,12 @@ export default class HeaderComponent extends React.Component {
       <View>
         <Header
           containerStyle={this.props.containerStyle}
-          centerComponent={valueOfComponent[1] ? valueOfComponent[1] : {}}
+          centerComponent={valueOfComponent[1] ? valueOfComponent[1] : null}
           centerContainerStyle={this.props.centerContainerStyle}
-          leftComponent={valueOfComponent[0] ? valueOfComponent[0] : {}}
+          leftComponent={valueOfComponent[0] ? valueOfComponent[0] : null}
           leftContainerStyle={this.props.leftContainerStyle}
           placement={this.props.placement}
-          rightComponent={valueOfComponent[2] ? valueOfComponent[2] : {}}
+          rightComponent={valueOfComponent[2] ? valueOfComponent[2] : null}
           rightContainerStyle={this.props.rightContainerStyle}
         />
       </View>
