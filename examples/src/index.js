@@ -7,8 +7,8 @@
  */
 
 import React from 'react';
-import { View, KeyboardAvoidingView, ScrollView } from 'react-native';
-import { get } from 'lodash';
+import {View, KeyboardAvoidingView, ScrollView} from 'react-native';
+import {get} from 'lodash';
 
 import ButtonComponent from './components/Button';
 import CardComponent from './components/Card';
@@ -22,8 +22,13 @@ import ModalComponent from './components/Modal';
 import SliderComponent from './components/Slider';
 import TextComponent from './components/Text';
 import TextInput from './components/Input';
-import { COMPONENTS } from './utility/constant';
-import { applyTheme, appendInFile, requestPermission, writeInFile } from './utility/utils';
+import {
+  applyTheme,
+  appendInFile,
+  requestPermission,
+  writeInFile,
+} from './utility/utils';
+import {COMPONENTS} from './utility/constant';
 
 // Global variable to get theme type in other files.
 export let theme;
@@ -122,39 +127,32 @@ export default class Components extends React.Component {
       case COMPONENTS.DIVIDER:
         return <DividerComponent {...component.properties} key={index} />;
       case 'video':
-        return <VideoComponent
-          {...component.properties} key={index}
-        />;
+        return <VideoComponent {...component.properties} key={index} />;
     }
   }
 
   render() {
-    const { source } = this.props;
+    const {source} = this.props;
     theme = source.theme;
 
     // writing into a file
-    var content =
-      `<KeyboardAvoidingView
+    var content = `<KeyboardAvoidingView
         enabled
         behavior={'position'}
         keyboardVerticalOffset={-200}>
         <ScrollView>
-        `
+        `;
     // requesting for a permission to write in a file
-    requestPermission('writeExternalStorage')
-    writeInFile('/ui-builder.js', content)
+    requestPermission('writeExternalStorage');
+    writeInFile('/ui-builder.js', content);
 
-    // appending into a file 
-    content =
-      ` </ScrollView>
+    // appending into a file
+    content = ` </ScrollView>
       </KeyboardAvoidingView>
-        `
-    setTimeout(
-      function () {
-        appendInFile('/ui-builder.js', content)
-      },
-      2000
-    );
+        `;
+    setTimeout(function () {
+      appendInFile('/ui-builder.js', content);
+    }, 2000);
     return (
       <KeyboardAvoidingView
         enabled
