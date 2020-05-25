@@ -27,22 +27,10 @@ export default class Mailer extends React.Component {
         );
   };
   componentDidMount() {
-    Tts.speak('Click on the microphone to send e-mail');
+    Tts.speak('Now we are sending this mail ');
+    this.sendEmail(this.props.emailDetails);
   }
   render() {
-    return (
-      <>
-        <Icon
-          raised
-          name="microphone"
-          type="font-awesome"
-          size={50}
-          color="#CC6699"
-          onPress={() => this.sendEmail(this.props.emailDetails)}
-          underlayColor="#99CCFF"
-          containerStyle={{margin: '30%', alignSelf: 'center'}}
-        />
-      </>
-    );
+    return <></>;
   }
 }

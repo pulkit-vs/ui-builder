@@ -24,6 +24,11 @@ export default class VoiceComponent extends React.Component {
     Voice.onSpeechEnd = this.onSpeechEndHandler.bind(this);
     Voice.onSpeechResults = this.onSpeechResultsHandler.bind(this);
   }
+  componentDidMount() {
+    setInterval(() => {
+      this._startRecognition();
+    }, 11000);
+  }
 
   onSpeechStartHandler(e) {
     this.setState({
@@ -62,17 +67,6 @@ export default class VoiceComponent extends React.Component {
   render() {
     return (
       <View>
-        <Icon
-          raised
-          name="microphone"
-          type="font-awesome"
-          size={50}
-          color="#CC6699"
-          onPress={(e) => this._startRecognition(e)}
-          underlayColor="thistle"
-          containerStyle={{margin: '30%', alignSelf: 'center'}}
-        />
-
         <Text
           style={{
             marginBottom: 15,
