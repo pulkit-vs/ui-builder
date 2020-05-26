@@ -10,7 +10,7 @@ export async function checkStatus(state) {
     );
   }
 
-  if (state.index === 0 && boolSend) {
+  if (state.index === 1 && boolSend) {
     await Tts.speak(' Tell me the content you want to send ');
   }
   if (state.index === 2 && boolSend) {
