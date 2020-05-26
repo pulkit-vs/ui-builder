@@ -29,7 +29,7 @@ export default class App extends React.Component {
 
   async componentDidMount() {
     setInterval(() => {
-      Tts.speak('Answer Now');
+      Tts.speak('Speak');
       setTimeout(() => {
         this._startRecognition();
       }, 1000);

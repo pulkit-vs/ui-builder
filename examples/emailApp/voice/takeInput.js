@@ -31,7 +31,7 @@ export default class TakeInput extends Component {
       bcc: '',
       recipient: '',
       confirm: '',
-      index: '',
+      index: 2,
     });
   };
 
@@ -47,7 +47,7 @@ export default class TakeInput extends Component {
   emailInputControls(val) {
     const stateKeys = Object.keys(this.state);
     const recipientAdded = this.state.recipient.includes('yes');
-    const position = this.state.index / 2 - 1;
+    const position = this.state.index;
     val = val.toLocaleLowerCase();
     console.log(val);
     if (val.includes('email') && this.state.index < 2) {
@@ -61,23 +61,23 @@ export default class TakeInput extends Component {
       if (val.includes('refresh')) {
         return this.startAgain();
       }
-      if (this.state.index === 13) {
+      if (this.state.index === 6) {
         this.setState({
           recipient: val,
         });
       }
-      if (this.state.index === 15 && recipientAdded) {
+      if (this.state.index === 7 && recipientAdded) {
         let newVal = this.state.to + ' ' + val;
         this.setState({
           to: newVal,
         });
       }
-      if (this.state.index === 15 && !recipientAdded) {
+      if (this.state.index === 7 && !recipientAdded) {
         this.setState({
           confirm: val,
         });
       }
-      if (this.state.index === 17 && recipientAdded) {
+      if (this.state.index === 8 && recipientAdded) {
         val = val.toLocaleLowerCase();
         this.setState({
           confirm: val,
