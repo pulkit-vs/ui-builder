@@ -23,7 +23,7 @@ export default class TakeInput extends Component {
   // this method will be called on click of refresh button and will set the index value to 1.
   startAgain = () => {
     this.setState({
-      index: 1,
+      sendEmail: '',
       body: '',
       subject: '',
       to: ' ',
@@ -31,6 +31,7 @@ export default class TakeInput extends Component {
       bcc: '',
       recipient: '',
       confirm: '',
+      index: '',
     });
   };
 
@@ -46,54 +47,59 @@ export default class TakeInput extends Component {
   emailInputControls(val) {
     const stateKeys = Object.keys(this.state);
     const recipientAdded = this.state.recipient.includes('yes');
+    const position = this.state.index / 2 - 1;
     val = val.toLocaleLowerCase();
     console.log(val);
-    if (val.includes('email')) {
+    if (val.includes('email') && this.state.index < 2) {
       return this.setState({
         index: this.state.index + 1,
       });
-    }
-    if (val.includes('back')) {
-      return this.goOneStepBack();
-    }
-    if (val.includes('refresh')) {
-      return this.startAgain();
-    }
-    if (this.state.index === 6) {
-      this.setState({
-        recipient: val,
-      });
-    }
-    if (this.state.index === 7 && recipientAdded) {
-      let newVal = this.state.to + ' ' + val;
-      this.setState({
-        to: newVal,
-      });
-    }
-    if (this.state.index === 7 && !recipientAdded) {
-      this.setState({
-        confirm: val,
-      });
-    }
-    if (this.state.index === 8 && recipientAdded) {
-      val = val.toLocaleLowerCase();
-      this.setState({
-        confirm: val,
-      });
     } else {
-      this.setState({
-        [stateKeys[this.state.index]]: val,
-      });
-    }
+      if (val.includes('back')) {
+        return this.goOneStepBack();
+      }
+      if (val.includes('refresh')) {
+        return this.startAgain();
+      }
+      if (this.state.index === 13) {
+        this.setState({
+          recipient: val,
+        });
+      }
+      if (this.state.index === 15 && recipientAdded) {
+        let newVal = this.state.to + ' ' + val;
+        this.setState({
+          to: newVal,
+        });
+      }
+      if (this.state.index === 15 && !recipientAdded) {
+        this.setState({
+          confirm: val,
+        });
+      }
+      if (this.state.index === 17 && recipientAdded) {
+        val = val.toLocaleLowerCase();
+        this.setState({
+          confirm: val,
+        });
+      } else {
+        this.setState({
+          [stateKeys[position]]: val,
+        });
+      }
 
-    this.setState({
-      index: this.state.index + 1,
-    });
+      this.setState(
+        {
+          index: this.state.index + 1,
+        },
+        () => console.log(this.state),
+      );
+    }
   }
 
   UNSAFE_componentWillUpdate(nextprops, nextState) {
     if (this.state.index !== nextState.index) {
-      const time = checkStatus(nextState);
+      checkStatus(nextState);
     }
   }
   render() {

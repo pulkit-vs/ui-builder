@@ -8,28 +8,33 @@
 
 import React from 'react';
 import {Text, View} from 'react-native';
-import {Icon} from 'react-native-elements';
+import Tts from 'react-native-tts';
+
 import Voice from '@react-native-community/voice';
 
-export default class VoiceComponent extends React.Component {
+export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       recognized: '',
       started: '',
       results: [],
+      textResponse: '',
     };
 
     Voice.onSpeechStart = this.onSpeechStartHandler.bind(this);
     Voice.onSpeechEnd = this.onSpeechEndHandler.bind(this);
     Voice.onSpeechResults = this.onSpeechResultsHandler.bind(this);
   }
-  componentDidMount() {
-    setInterval(() => {
-      this._startRecognition();
-    }, 11000);
-  }
 
+  async componentDidMount() {
+    setInterval(() => {
+      Tts.speak('Answer Now');
+      setTimeout(() => {
+        this._startRecognition();
+      }, 1000);
+    }, 10000);
+  }
   onSpeechStartHandler(e) {
     this.setState({
       started: '√',
@@ -42,7 +47,6 @@ export default class VoiceComponent extends React.Component {
     });
   }
 
-  // will record your voice and send covert it into text and  send it to the function which set attributes of email.
   onSpeechResultsHandler = async (e) => {
     await this.setState({
       results: e.value,
@@ -69,13 +73,13 @@ export default class VoiceComponent extends React.Component {
       <View>
         <Text
           style={{
-            marginBottom: 15,
+            color: 'red',
             textAlign: 'center',
             fontSize: 20,
             fontWeight: 'bold',
           }}>
           {' '}
-          {this.state.results[0]}{' '}
+          EMAIL SENDING SERVICE
         </Text>
       </View>
     );
