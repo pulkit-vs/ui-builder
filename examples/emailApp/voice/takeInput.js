@@ -31,7 +31,7 @@ export default class TakeInput extends Component {
       bcc: '',
       recipient: '',
       confirm: '',
-      index: 2,
+      index: 0,
     });
   };
 
