@@ -5,7 +5,7 @@ function validEmail(e) {
 }
 
 function fillArray(myString) {
-  let array = [];
+  let final = '';
   let temp = '';
   const length = myString.length;
   if (myString) {
@@ -25,17 +25,19 @@ function fillArray(myString) {
     ) {
       const checkValidity = validEmail(temp);
       if (checkValidity) {
-        array.push(temp);
+        if (final.length > 0) {
+          final = final + ',' + temp;
+        } else {
+          final = final + temp;
+        }
       }
       temp = '';
     }
   }
-  console.log(array);
-  return array;
+  return final;
 }
 
 export function emailDataCleaning(values) {
-  console.log('entering function', values);
   const keys = Object.keys(values);
   keys.forEach((itr) => {
     if (itr === 'to' || itr === 'cc' || itr === 'bcc') {
@@ -43,6 +45,5 @@ export function emailDataCleaning(values) {
       values[itr] = array;
     }
   });
-  console.log(values);
   return values;
 }

@@ -10,10 +10,12 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@react-native-community/google-signin": "^4.0.0",
     "@react-native-community/voice": "^1.1.4",
     "qs": "^6.9.4",
     "react": "16.11.0",
     "react-native": "0.62.0",
+    "react-native-base64": "0.0.2",
     "react-native-communications": "^2.2.1",
     "react-native-elements": "^1.2.7",
     "react-native-mail": "^4.1.0",

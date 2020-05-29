@@ -1,20 +1,20 @@
 import React, {Component} from 'react';
-import Mailer from '../sendMail/mail';
 import VoiceComponent from './voice';
 import {checkStatus} from './util';
+import ShowDetails from './ShowDetails';
 
 export default class TakeInput extends Component {
   constructor() {
     super();
     this.state = {
-      sendEmail: '',
-      body: '',
-      subject: '',
-      to: ' ',
-      cc: '',
+      sendEmail: 'yes',
+      body: 'Hello this is the bod of the mail',
+      subject: 'Subject',
+      to: 'saksham 695 @ gmail dot com saksham dot kumar @ vectoscalar dot com',
+      cc: 'saksham 695 Dummy @ gmail dot com saksham 6 9 5 @ Gmail.com',
       bcc: '',
       recipient: '',
-      confirm: '',
+      confirm: 'yes',
       index: -1,
     };
     this.emailInputControls = this.emailInputControls.bind(this);
@@ -26,7 +26,7 @@ export default class TakeInput extends Component {
       sendEmail: '',
       body: '',
       subject: '',
-      to: ' ',
+      to: '',
       cc: '',
       bcc: '',
       recipient: '',
@@ -47,9 +47,9 @@ export default class TakeInput extends Component {
   emailInputControls(val) {
     const stateKeys = Object.keys(this.state);
     const recipientAdded = this.state.recipient.includes('yes');
-    const position = this.state.index;
+    const position = this.state.index / 2 - 1;
     val = val.toLocaleLowerCase();
-    console.log(val);
+
     if (val.includes('email') && this.state.index < 2) {
       return this.setState({
         index: this.state.index + 1,
@@ -88,12 +88,9 @@ export default class TakeInput extends Component {
         });
       }
 
-      this.setState(
-        {
-          index: this.state.index + 1,
-        },
-        () => console.log(this.state),
-      );
+      this.setState({
+        index: this.state.index + 1,
+      });
     }
   }
 
@@ -103,14 +100,10 @@ export default class TakeInput extends Component {
     }
   }
   render() {
-    const sendEmail = this.state.confirm.includes('yes');
     return (
       <>
-        {sendEmail ? (
-          <Mailer emailDetails={this.state} />
-        ) : (
-          <VoiceComponent handle={this.emailInputControls} />
-        )}
+        <ShowDetails input={this.state} />
+        {/* <VoiceComponent handle={this.emailInputControls} /> */}
       </>
     );
   }

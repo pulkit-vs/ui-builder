@@ -5,13 +5,30 @@
  * @format
  * @flow strict-local
  */
-import React from 'react';
 import TakeInput from './emailApp/voice/takeInput';
 import {View} from 'react-native';
-export default function App() {
-  return (
-    <View>
-      <TakeInput />
-    </View>
-  );
+//import {Button} from 'react-native-elements';
+//import {GoogleSignin} from '@react-native-community/google-signin';
+import React, {Component} from 'react';
+
+export default class App extends Component {
+  // handleGoogleClicked = async () => {
+  //   try {
+  //     await GoogleSignin.hasPlayServices();
+  //     const userInfo = await GoogleSignin.signIn();
+  //     const tokens = await GoogleSignin.getTokens();
+  //     if (tokens) {
+  //       console.log(tokens);
+  //     }
+  //   } catch (error) {
+  //     console.log('error', error);
+  //   }
+  // };
+  render() {
+    return (
+      <View>
+        <TakeInput />
+      </View>
+    );
+  }
 }
