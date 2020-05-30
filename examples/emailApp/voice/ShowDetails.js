@@ -7,6 +7,7 @@ import {emailDataCleaning} from '../dataCleaning/cleaner';
 
 export default function ShowDetails(props) {
   const emailAttributes = emailDataCleaning(props.input);
+  console.log(emailAttributes);
   const sendEmail = emailAttributes.confirm.includes('yes');
   return (
     <>
@@ -15,7 +16,7 @@ export default function ShowDetails(props) {
       <Text>Bcc:{emailAttributes.bcc}</Text>
       <Text>Subject:{emailAttributes.subject}</Text>
       <Text>Body:{emailAttributes.body}</Text>
-      {sendEmail ? <MailInput details={emailAttributes} /> : null}
+      {/* {sendEmail ? <MailInput details={emailAttributes} /> : null} */}
     </>
   );
 }

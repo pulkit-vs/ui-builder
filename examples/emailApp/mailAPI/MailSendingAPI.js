@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import {keys} from '../keys/keys';
+import {KEYS} from '../keys/keys';
+
 const fetch = require('node-fetch');
 
 export default class MailSendingAPI extends Component {
@@ -32,17 +33,19 @@ export default class MailSendingAPI extends Component {
   }
 
   async componentDidMount() {
-    const token = `Bearer ${keys.access_token}`;
-    console.log(token);
+    const {base64Message} = this.props;
+    console.log(base64Message);
+    const token = `Bearer ${KEYS.access_TOKEN}`;
+
     const url =
-      'https://www.googleapis.com/gmail/v1/users/saksham695dummy@gmail.com/drafts';
+      'https://www.googleapis.com/gmail/v1/users/' + KEYS.EMAIL + '/drafts';
     const headers = {
       Authorization: token,
       'Content-Type': 'application/json',
     };
     const draftBODY = {
       message: {
-        raw: '',
+        raw: base64Message,
       },
     };
 
@@ -54,7 +57,7 @@ export default class MailSendingAPI extends Component {
     const sendBODY = {
       id: this.state.id,
     };
-    // for sending draft message
+    //for sending draft message
     await this.emailControls(newUrl, headers, sendBODY);
   }
 

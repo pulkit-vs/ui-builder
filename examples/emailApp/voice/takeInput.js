@@ -7,15 +7,15 @@ export default class TakeInput extends Component {
   constructor() {
     super();
     this.state = {
-      sendEmail: 'yes',
-      body: 'Hello this is the bod of the mail',
-      subject: 'Subject',
-      to: 'saksham 695 @ gmail dot com saksham dot kumar @ vectoscalar dot com',
-      cc: 'saksham 695 Dummy @ gmail dot com saksham 6 9 5 @ Gmail.com',
+      sendEmail: '',
+      body: '',
+      subject: '',
+      to: '',
+      cc: '',
       bcc: '',
       recipient: '',
-      confirm: 'yes',
-      index: -1,
+      confirm: '',
+      index: 0,
     };
     this.emailInputControls = this.emailInputControls.bind(this);
   }
@@ -31,7 +31,7 @@ export default class TakeInput extends Component {
       bcc: '',
       recipient: '',
       confirm: '',
-      index: 0,
+      index: -1,
     });
   };
 
@@ -49,7 +49,7 @@ export default class TakeInput extends Component {
     const recipientAdded = this.state.recipient.includes('yes');
     const position = this.state.index / 2 - 1;
     val = val.toLocaleLowerCase();
-
+    console.log(val);
     if (val.includes('email') && this.state.index < 2) {
       return this.setState({
         index: this.state.index + 1,
@@ -61,36 +61,37 @@ export default class TakeInput extends Component {
       if (val.includes('refresh')) {
         return this.startAgain();
       }
-      if (this.state.index === 6) {
-        this.setState({
+      if (this.state.index === 13) {
+        return this.setState({
+          index: this.state.index + 1,
           recipient: val,
         });
       }
-      if (this.state.index === 7 && recipientAdded) {
+      if (this.state.index === 15 && recipientAdded) {
         let newVal = this.state.to + ' ' + val;
-        this.setState({
+        return this.setState({
+          index: this.state.index + 1,
           to: newVal,
         });
       }
-      if (this.state.index === 7 && !recipientAdded) {
-        this.setState({
+      if (this.state.index === 15 && !recipientAdded) {
+        return this.setState({
+          index: this.state.index + 1,
           confirm: val,
         });
       }
-      if (this.state.index === 8 && recipientAdded) {
+      if (this.state.index === 17 && recipientAdded) {
         val = val.toLocaleLowerCase();
-        this.setState({
+        return this.setState({
+          index: this.state.index + 1,
           confirm: val,
         });
       } else {
-        this.setState({
+        return this.setState({
+          index: this.state.index + 1,
           [stateKeys[position]]: val,
         });
       }
-
-      this.setState({
-        index: this.state.index + 1,
-      });
     }
   }
 
@@ -103,7 +104,7 @@ export default class TakeInput extends Component {
     return (
       <>
         <ShowDetails input={this.state} />
-        {/* <VoiceComponent handle={this.emailInputControls} /> */}
+        <VoiceComponent handle={this.emailInputControls} />
       </>
     );
   }

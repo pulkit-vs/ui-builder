@@ -4,7 +4,7 @@ export async function checkStatus(state) {
   // console.log('entering function', state.index);
   const boolSend = true;
   const addMore = state.recipient.includes('yes');
-  if (state.index === 0) {
+  if (state.index === 1) {
     await Tts.speak(
       'Welcome to this email sending app , I can help you in sending emails .  Do you want to send emails ?',
     );
@@ -40,7 +40,7 @@ export async function checkStatus(state) {
     await Tts.speak(' Are you sure you want to send this e-mail. ? ');
   }
 
-  // if (state.index === 1 && !boolSend) {
+  // if (state.index === 2 && !boolSend) {
   //   await Tts.speak(
   //     'I am glad that you visited here . Wish I could help you  somehow . Do not forget to come here when you need to send emails',
   //   );

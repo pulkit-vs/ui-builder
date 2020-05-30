@@ -72,7 +72,7 @@ export default class App extends React.Component {
   render() {
     return (
       <View>
-        <Text
+        {/* <Text
           style={{
             color: 'red',
             textAlign: 'center',
@@ -81,7 +81,7 @@ export default class App extends React.Component {
           }}>
           {' '}
           EMAIL SENDING SERVICE
-        </Text>
+        </Text> */}
       </View>
     );
   }
