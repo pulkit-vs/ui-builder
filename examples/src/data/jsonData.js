@@ -14,43 +14,43 @@ const data = {
             left: 20,
             marginTop: 20,
           },
-          onPress: {
-            navigation: true,
-            screenName: 'page3',
-            source: {
-              data: [
-                {
-                  type: 'text',
-                  properties: {
-                    title: 'You Are on Page3',
-                  },
-                },
-              ],
+          // onPress: {
+          //   navigation: true,
+          //   screenName: 'next page',
+          //   source: {
+          //     data: [
+          //       {
+          //         type: 'text',
+          //         properties: {
+          //           title: 'You Are on Page3',
+          //         },
+          //       },
+          //     ],
+          //   },
+          // },
+        },
+      },
+    {
+        type: 'input',
+        properties: {
+          label: 'Mobile Number (10 digits)',
+          selectionColor: 'grey',
+          rightIcon: {
+            properties: {
+              name: 'arrow-right',
+              color: 'white',
+              size: 20,
+              type: 'font-awesome',
+              rightIconContainerStyle: {
+                backgroundColor: 'grey',
+                borderWidth: 24,
+                borderColor: 'lightgrey',
+                left: 10,
+              },
             },
           },
         },
-      }
-    // {
-    //     type: 'input',
-    //     properties: {
-    //       label: 'Mobile Number (10 digits)',
-    //       selectionColor: 'grey',
-    //       rightIcon: {
-    //         properties: {
-    //           name: 'arrow-right',
-    //           color: 'white',
-    //           size: 20,
-    //           type: 'font-awesome',
-    //           rightIconContainerStyle: {
-    //             backgroundColor: 'grey',
-    //             borderWidth: 24,
-    //             borderColor: 'lightgrey',
-    //             left: 10,
-    //           },
-    //         },
-    //       },
-    //     },
-    // }
+    }
   ]
   },
 
@@ -4484,16 +4484,13 @@ const data = {
       type: 'video',
       properties: {
         // source: {
-        //   sourceType: 'uri',
         //   uri: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'
         // },
         source: {
-          sourceType: 'local',
-          uri: "./video_device.mp4"
+          uri: require("./video_device.mp4")
         },
-        // source: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
         paused: false,
-        onError: () => alert("error"),
+        onError: () => console.log("error"),
         audioOnly: true
       }
     }

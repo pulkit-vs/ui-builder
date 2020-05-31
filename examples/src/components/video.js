@@ -4,9 +4,6 @@ import Video from 'react-native-video';
 import cloneDeep from 'lodash/cloneDeep';
 import { View, Dimensions } from "react-native";
 
-// import video from "./video_device.mp4";
-import { SOURCE_TYPE } from "../utility/constant";
-
 export default class VideoComponent extends React.Component {
 
     properties = cloneDeep(this.props)
@@ -33,7 +30,12 @@ export default class VideoComponent extends React.Component {
                     // video will play again 
                     repeat={this.properties.repeat}
                     resizeMode={this.properties.resizeMode}
-                    source={this.properties.source.sourceType === SOURCE_TYPE.uri ? { uri: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4' } : require('./video_device.mp4')}
+                    //source={this.properties.source.sourceType === SOURCE_TYPE.uri ? { uri: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4' } : require('./video_device.mp4')}
+                    source={
+                        typeof this.properties.source.uri === 'number'
+                          ? this.props.source.uri
+                          : {uri: this.properties.source.uri}
+                      }
                     style={
                         this.properties.style
                     }

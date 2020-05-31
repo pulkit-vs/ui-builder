@@ -22,6 +22,8 @@ import ModalComponent from './components/Modal';
 import SliderComponent from './components/Slider';
 import TextComponent from './components/Text';
 import TextInput from './components/Input';
+import VideoComponent from "./components/video";
+import {COMPONENTS} from './utility/constant';
 import {
   appendInFile,
   applyTheme,
@@ -30,9 +32,8 @@ import {
   writeInAFile,
   writeInFile
 } from './utility/utils';
-import {COMPONENTS} from './utility/constant';
-import {writeImports} from './utility/imports';
 import {writeFunctions} from './utility/functions';
+import {writeImports} from './utility/imports';
 
 // Global variable to get theme type in other files.
 export let theme;
