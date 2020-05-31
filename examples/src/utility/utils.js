@@ -1,5 +1,5 @@
 var RNFS = require('react-native-fs');
-import { PermissionsAndroid } from "react-native";
+import {PermissionsAndroid} from 'react-native';
 import jsxToString from 'jsx-to-string';
 
 export const getThemeStyle = (theme) => {
@@ -38,7 +38,7 @@ const darkTheme = {
 
 // Method will be called when user defined any theme and will apply the theme style on the component.
 export const applyTheme = (componentStyle, theme) => {
-  let existingStyle = { ...componentStyle };
+  let existingStyle = {...componentStyle};
   const themeStyle = getThemeStyle(theme);
 
   // Iterate over each key and checks if style is defined then change the style according to theme
@@ -79,56 +79,114 @@ export const applyTheme = (componentStyle, theme) => {
   return existingStyle;
 };
 
-
 // Method to request for a permission
 export const requestPermission = async (permission) => {
   var granted;
   if (permission === 'writeExternalStorage') {
-    granted = await PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE);
+    granted = await PermissionsAndroid.request(
+      PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
+    );
   } else if (permission === 'readExternalStorage') {
-    granted = await PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE);
+    granted = await PermissionsAndroid.request(
+      PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE,
+    );
   }
 
-  console.log('requestPermission: granted:', granted)
+  console.log('requestPermission: granted:', granted);
   if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-    console.log("Permission granted")
-    return true
+    console.log('Permission granted');
+    return true;
+  } else {
+    console.log('Permission denied');
+    return false;
   }
-  else {
-    console.log("Permission denied")
-    return false
-  }
-}
+};
 
-// Method to write in a file
-export const writeInFile = (path, content) => {
-
-  var path = RNFS.DownloadDirectoryPath + path;
-  content = `${content}`
+/**
+ * Method to write in a file
+ * @param {*} path - FILE_LOCATION
+ * @param {*} content
+ */
+const write = (path, content, convert = true) => {
+  // var path = RNFS.DownloadDirectoryPath + '/' + path;
+  convert ? (content = `${content}`) : null;
   RNFS.writeFile(path, content, 'utf8')
     .then(() => {
-      console.log('FILE WRITTEN!');
+      console.log(` ${path} FILE WRITTEN!`);
     })
     .catch((err) => {
       console.log('error:', err.message);
-    })
-}
+    });
+};
 
-// Method to append in a file
-export const appendInFile = (path, content) => {
-
-  var path = RNFS.DownloadDirectoryPath + path;
+/**
+ * Method to append in a file
+ * @param {*} path - filename
+ * @param {*} content
+ */
+const append = (path, content, convert = true) => {
+  // var path = RNFS.DownloadDirectoryPath + '/' + path;
+  convert ? (content = `${content}`) : null;
   RNFS.appendFile(path, content, 'utf8')
     .then(() => {
-      console.log('FILE UPDATED!');
+      console.log(`${path} FILE UPDATED!`);
     })
     .catch((err) => {
       console.log('error:', err.message);
-    })
-}
+    });
+};
 
-// Method to convert and append- This method will be use whenever there is a need to convert the "content" before appending into a file
-export const convertAndAppend = (content, replaceWith, path) => {
-  const convertJsxToString = jsxToString(content).replace(`[object Object]`, replaceWith)
-  return (appendInFile(path, convertJsxToString))
+/**
+ * This method will be use when there is a need to convert the "content" before appending into a file
+ * @param {*} content
+ * @param {*} replaceWith
+ * @param {*} path - FILE_LOCATION
+ */
+export const convertAndWriteInAFile = (content, replaceWith, path) => {
+  var convertedJsxToString = jsxToString(content).replace(
+    '[object Object]',
+    replaceWith,
+  );
+  convertedJsxToString = convertedJsxToString + Date.now()
+  console.log('convertJsxToString:', convertedJsxToString, Date.now());
+  return writeInAFile(path, convertedJsxToString, false);
+};
+
+/**
+ * Method to check whether a file exists or not, if file exists, append data into an existing file, if not exists, then create and write in a file.
+ * @param {*} path
+ * @param {*} content
+ * @param {*} convert
+ */
+export const writeInAFile = (path, content, convert = true) => {
+  
+  console.log('writeInAFile:path-', path)
+  var path = RNFS.DownloadDirectoryPath + '/' + path;
+  console.log('writeInAFile:path1-', path)
+  RNFS.readFile(path) // On Android, use "RNFS.DocumentDirectoryPath" (MainBundlePath is not defined)
+    .then((result) => {
+      console.log('Read File:Result->', result);
+      // data exists in a file
+      console.log('appending-', path)
+      append(path, content, convert);
+    })
+    .catch((err) => {
+      console.log('Read File:Error->', err.message, err.code);
+      // data not exists in a file
+      console.log('writing-', path)
+      write(path, content, convert);
+    });
+};
+
+export const unLinkFile = (path) => {
+
+  var path = RNFS.DownloadDirectoryPath + '/' + path;
+  RNFS.unlink(path)
+  .then(() => {
+    console.log('FILE DELETED');
+  })
+  // `unlink` will throw an error, if the item to unlink does not exist
+  .catch((err) => {
+    console.log(path + err.message);
+  });
 }

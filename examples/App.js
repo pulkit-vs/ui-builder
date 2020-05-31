@@ -11,11 +11,9 @@
 import React from 'react';
 import UiBuilder from './src/Navigation';
 import data from './src/data/jsonData';
-import { Text } from "react-native";
 
 export default class App extends React.Component {
   render() {
-    return <Text> hello </Text>
-    //<UiBuilder source={data.inputSource} />;
+    return <UiBuilder source={data.inputSource} />;
   }
 }

@@ -8,10 +8,10 @@
 
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Input } from 'react-native-elements';
+import {Input} from 'react-native-elements';
 
-import { applyTheme, convertAndAppend } from '../utility/utils';
-import { theme } from '../index';
+import {applyTheme, convertAndWriteInAFile} from '../utility/utils';
+import {theme} from '../index';
 
 export default class TextInput extends React.Component {
   constructor() {
@@ -26,12 +26,12 @@ export default class TextInput extends React.Component {
   }
 
   onChangeText(event) {
-    this.setState({ value: event });
+    this.setState({value: event});
   }
 
   componentDidMount() {
     // Customize button style
-    this.setState({ props: this.props });
+    this.setState({props: this.props});
 
     // Applying theme on text input
     this.state.props = theme
@@ -42,9 +42,8 @@ export default class TextInput extends React.Component {
   // TODO: will add lodash and use its get method to avoid multiple conditions.
   // Will provide support for icon in text input using react-native-elements library.
   render() {
-
     const props = this.state.props;
-    const result =
+    const result = (
       <Input
         onChangeText={this.onChangeText}
         placeholder={props.label}
@@ -75,8 +74,9 @@ export default class TextInput extends React.Component {
           }
         }
       />
-    convertAndAppend(result, `Input`, '/ui-builder.js')
-    return result
+    );
+    convertAndWriteInAFile(result, 'Input', 'ui-builder.js');
+    return result;
   }
 }
 
@@ -106,7 +106,7 @@ TextInput.propTypes = {
           backgroundColor: PropTypes.string,
           borderColor: PropTypes.string,
           borderWidth: PropTypes.number,
-          left: PropTypes.number
+          left: PropTypes.number,
         }),
       }),
     }),
