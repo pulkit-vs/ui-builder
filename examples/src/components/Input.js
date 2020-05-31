@@ -8,7 +8,6 @@
 
 import PropTypes from 'prop-types';
 import React from 'react';
-import {View} from 'react-native';
 import {Input} from 'react-native-elements';
 
 import {applyTheme} from '../utility/utils';
@@ -45,38 +44,36 @@ export default class TextInput extends React.Component {
   render() {
     const props = this.state.props;
     return (
-      <View>
-        <Input
-          onChangeText={this.onChangeText}
-          placeholder={props.label}
-          containerStyle={props.containerStyle}
-          value={this.state.value}
-          selectionColor={props.selectionColor}
-          inputContainerStyle={props.inputContainerStyle}
-          rightIcon={
-            props.rightIcon && {
-              ...props.rightIcon.properties,
-            }
+      <Input
+        onChangeText={this.onChangeText}
+        placeholder={props.label}
+        containerStyle={props.containerStyle}
+        value={this.state.value}
+        selectionColor={props.selectionColor}
+        inputContainerStyle={props.inputContainerStyle}
+        rightIcon={
+          props.rightIcon && {
+            ...props.rightIcon.properties,
           }
-          leftIcon={
-            props.leftIcon && {
-              ...props.leftIcon.properties,
-            }
+        }
+        leftIcon={
+          props.leftIcon && {
+            ...props.leftIcon.properties,
           }
-          leftIconContainerStyle={
-            props.leftIcon &&
-            props.leftIcon.properties.leftIconContainerStyle && {
-              ...props.leftIcon.properties.leftIconContainerStyle,
-            }
+        }
+        leftIconContainerStyle={
+          props.leftIcon &&
+          props.leftIcon.properties.leftIconContainerStyle && {
+            ...props.leftIcon.properties.leftIconContainerStyle,
           }
-          rightIconContainerStyle={
-            props.rightIcon &&
-            props.rightIcon.properties.rightIconContainerStyle && {
-              ...props.rightIcon.properties.rightIconContainerStyle,
-            }
+        }
+        rightIconContainerStyle={
+          props.rightIcon &&
+          props.rightIcon.properties.rightIconContainerStyle && {
+            ...props.rightIcon.properties.rightIconContainerStyle,
           }
-        />
-      </View>
+        }
+      />
     );
   }
 }
@@ -95,7 +92,23 @@ TextInput.propTypes = {
     right: PropTypes.number,
     marginTop: PropTypes.number,
   }),
-  rightIcon: PropTypes.object,
+  // WILL REVISIT
+  rightIcon: PropTypes.shape({
+    properties: PropTypes.shape({
+      name: PropTypes.string,
+      color: PropTypes.string,
+      size: PropTypes.number,
+      type: PropTypes.string,
+      rightIconContainerStyle: PropTypes.shape({
+        properties: PropTypes.shape({
+          backgroundColor: PropTypes.string,
+          borderColor: PropTypes.string,
+          borderWidth: PropTypes.number,
+          left: PropTypes.number,
+        }),
+      }),
+    }),
+  }),
   leftIcon: PropTypes.object,
 };
 

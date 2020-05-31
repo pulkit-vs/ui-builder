@@ -7,8 +7,8 @@
  */
 
 import React from 'react';
-import {get} from 'lodash';
 import {View, KeyboardAvoidingView, ScrollView} from 'react-native';
+import {get} from 'lodash';
 
 import ButtonComponent from './components/Button';
 import CardComponent from './components/Card';
@@ -22,8 +22,8 @@ import ModalComponent from './components/Modal';
 import SliderComponent from './components/Slider';
 import TextComponent from './components/Text';
 import TextInput from './components/Input';
+import VideoComponent from "./components/video";
 import {COMPONENTS} from './utility/constant';
-import {applyTheme} from './utility/utils';
 
 // Global variable to get theme type in other files.
 export let theme;
@@ -36,6 +36,7 @@ export default class Components extends React.Component {
 
   selectComponent(component, index) {
     const type = get(component, 'type', '');
+
     switch (type) {
       case COMPONENTS.INPUT:
         return <TextInput {...component.properties} key={index} />;
@@ -121,6 +122,8 @@ export default class Components extends React.Component {
         return <SliderComponent {...component.properties} key={index} />;
       case COMPONENTS.DIVIDER:
         return <DividerComponent {...component.properties} key={index} />;
+      case 'video':
+        return <VideoComponent {...component.properties} key={index} />;
     }
   }
 

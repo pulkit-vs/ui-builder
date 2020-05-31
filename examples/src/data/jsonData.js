@@ -1,5 +1,59 @@
 const data = {
   // Low Level Component
+  inputSource: {
+    screenName: 'First Screen',
+    data: [
+      {
+        type: 'button',
+        properties: {
+          title: 'Click Me',
+          titleStyle: {color: 'white', fontSize: 20},
+          buttonStyle: {
+            backgroundColor: 'blue',
+            width: '90%',
+            left: 20,
+            marginTop: 20,
+          },
+          // onPress: {
+          //   navigation: true,
+          //   screenName: 'next page',
+          //   source: {
+          //     data: [
+          //       {
+          //         type: 'text',
+          //         properties: {
+          //           title: 'You Are on Page3',
+          //         },
+          //       },
+          //     ],
+          //   },
+          // },
+        },
+      },
+    {
+        type: 'input',
+        properties: {
+          label: 'Mobile Number (10 digits)',
+          selectionColor: 'grey',
+          rightIcon: {
+            properties: {
+              name: 'arrow-right',
+              color: 'white',
+              size: 20,
+              type: 'font-awesome',
+              rightIconContainerStyle: {
+                backgroundColor: 'grey',
+                borderWidth: 24,
+                borderColor: 'lightgrey',
+                left: 10,
+              },
+            },
+          },
+        },
+    }
+  ]
+  },
+
   source: {
     screenName: 'First Screen',
     data: [
@@ -4421,6 +4475,26 @@ const data = {
         },
       },
     ],
+  },
+
+  videoSource: {
+    screenName: 'Video screen',
+    data: [
+    {
+      type: 'video',
+      properties: {
+        // source: {
+        //   uri: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'
+        // },
+        source: {
+          uri: require("./video_device.mp4")
+        },
+        paused: false,
+        onError: () => console.log("error"),
+        audioOnly: true
+      }
+    }
+    ]
   }
 };
 

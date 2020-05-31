@@ -11,7 +11,6 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import {Button} from 'react-native-elements';
 import {NavigationContext} from '@react-navigation/native';
-import {View} from 'react-native';
 
 import {applyTheme} from '../utility/utils';
 import {shapeStyles} from '../style/buttonStyle';
@@ -28,7 +27,7 @@ export default class ButtonComponent extends React.Component {
 
   async componentDidMount() {
     // Creating Screen for Button onPress
-    this.props.onPress && this.props.onPress.navigation
+    (await this.props.onPress) && this.props.onPress.navigation
       ? this.props.createScreen(this.props.onPress)
       : null;
 
@@ -69,26 +68,31 @@ export default class ButtonComponent extends React.Component {
     }
   }
 
+  /**
+   * Method to navigate to another screen on press of a button
+   */
+  navigateOnPress = (navigation) => {
+    this.props.onPress && this.props.onPress.navigation
+      ? navigation.navigate(this.props.onPress.screenName)
+      : this.props.onPress();
+  };
+
   render() {
     const navigation = this.context;
+    // <View>
     return (
-      <View>
-        <Button
-          title={this.state.properties.title}
-          onPress={() => {
-            this.props.onPress && this.props.onPress.navigation
-              ? navigation.navigate(this.props.onPress.screenName)
-              : this.props.onPress();
-          }}
-          disabled={this.state.properties.disabled}
-          buttonStyle={this.state.properties.buttonStyle}
-          titleStyle={this.state.properties.titleStyle}
-          type={this.state.properties.buttonType}
-          loading={this.state.properties.loading}
-          icon={<Icon {...this.state.properties.icon} />}
-        />
-      </View>
+      <Button
+        title={this.state.properties.title}
+        onPress={this.navigateOnPress(navigation)}
+        disabled={this.state.properties.disabled}
+        buttonStyle={this.state.properties.buttonStyle}
+        titleStyle={this.state.properties.titleStyle}
+        type={this.state.properties.buttonType}
+        loading={this.state.properties.loading}
+        icon={<Icon {...this.state.properties.icon} />}
+      />
     );
+    // </View>
   }
 }
 
