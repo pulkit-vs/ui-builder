@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import {Input} from 'react-native-elements';
 
-import {applyTheme, convertAndWriteInAFile} from '../utility/utils';
+import {applyTheme} from '../utility/utils';
 import {theme} from '../index';
 
 export default class TextInput extends React.Component {
@@ -43,7 +43,7 @@ export default class TextInput extends React.Component {
   // Will provide support for icon in text input using react-native-elements library.
   render() {
     const props = this.state.props;
-    const result = (
+    return (
       <Input
         onChangeText={this.onChangeText}
         placeholder={props.label}
@@ -75,8 +75,6 @@ export default class TextInput extends React.Component {
         }
       />
     );
-    convertAndWriteInAFile(result, 'Input', 'ui-builder.js');
-    return result;
   }
 }
 

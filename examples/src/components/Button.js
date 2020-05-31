@@ -12,7 +12,7 @@ import React from 'react';
 import {Button} from 'react-native-elements';
 import {NavigationContext} from '@react-navigation/native';
 
-import {applyTheme, convertAndWriteInAFile} from '../utility/utils';
+import {applyTheme} from '../utility/utils';
 import {shapeStyles} from '../style/buttonStyle';
 import {theme} from '../index';
 
@@ -80,7 +80,7 @@ export default class ButtonComponent extends React.Component {
   render() {
     const navigation = this.context;
     // <View>
-    const result = (
+    return (
       <Button
         title={this.state.properties.title}
         onPress={this.navigateOnPress(navigation)}
@@ -93,10 +93,6 @@ export default class ButtonComponent extends React.Component {
       />
     );
     // </View>
-    console.log('button-result:', result);
-    convertAndWriteInAFile(result, 'Button', 'ui-builder.js');
-
-    return result;
   }
 }
 
