@@ -7,8 +7,6 @@
  */
 
 import React from 'react';
-import {Text, View} from 'react-native';
-import Tts from 'react-native-tts';
 
 import Voice from '@react-native-community/voice';
 
@@ -30,10 +28,7 @@ export default class App extends React.Component {
   async componentDidMount() {
     this._startRecognition();
     setInterval(() => {
-      Tts.speak('Answer Now');
-      setTimeout(() => {
-        this._startRecognition();
-      }, 1000);
+      this._startRecognition();
     }, 10000);
   }
   onSpeechStartHandler(e) {
@@ -70,19 +65,6 @@ export default class App extends React.Component {
   }
 
   render() {
-    return (
-      <View>
-        {/* <Text
-          style={{
-            color: 'red',
-            textAlign: 'center',
-            fontSize: 20,
-            fontWeight: 'bold',
-          }}>
-          {' '}
-          EMAIL SENDING SERVICE
-        </Text> */}
-      </View>
-    );
+    return <></>;
   }
 }

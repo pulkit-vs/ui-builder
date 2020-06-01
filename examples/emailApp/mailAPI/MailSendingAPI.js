@@ -1,6 +1,13 @@
 import React, {Component} from 'react';
-import {KEYS} from '../keys/keys';
+import Tts from 'react-native-tts';
 
+import {KEYS} from '../keys/keys';
+import {
+  METHOD_NAMES,
+  GMAIL_URL,
+  DRAFT_PATH,
+  SEND_PATH,
+} from '../constants/constants';
 const fetch = require('node-fetch');
 
 export default class MailSendingAPI extends Component {
@@ -12,18 +19,17 @@ export default class MailSendingAPI extends Component {
   }
   async emailControls(url, headers, body) {
     await fetch(url, {
-      method: 'POST',
+      method: METHOD_NAMES.POST,
       headers: headers,
       body: JSON.stringify(body),
-    })
-      .then((res) => {
-        return res.json();
-      })
-      .then((result) => console.log(result));
+    }).then((res) => {
+      return res.json();
+    });
   }
+
   async getDraftID(url, headers) {
     await fetch(url, {
-      method: 'GET',
+      method: METHOD_NAMES.GET,
       headers: headers,
     })
       .then((res) => {
@@ -33,32 +39,34 @@ export default class MailSendingAPI extends Component {
   }
 
   async componentDidMount() {
+    Tts.speak(' We have started sending your email');
+
     const {base64Message} = this.props;
-    console.log(base64Message);
+
+    // Authentication Header
     const token = `Bearer ${KEYS.access_TOKEN}`;
 
-    const url =
-      'https://www.googleapis.com/gmail/v1/users/' + KEYS.EMAIL + '/drafts';
+    const url = GMAIL_URL + KEYS.EMAIL + DRAFT_PATH;
     const headers = {
       Authorization: token,
       'Content-Type': 'application/json',
     };
-    const draftBODY = {
+    const draftBody = {
       message: {
         raw: base64Message,
       },
     };
 
     // for creating draft
-    await this.emailControls(url, headers, draftBODY);
+    await this.emailControls(url, headers, draftBody);
     await this.getDraftID(url, headers);
-
-    const newUrl = url + `/send`;
-    const sendBODY = {
+    const mailSendURL = url + SEND_PATH;
+    const sendBody = {
       id: this.state.id,
     };
+
     //for sending draft message
-    await this.emailControls(newUrl, headers, sendBODY);
+    await this.emailControls(mailSendURL, headers, sendBody);
   }
 
   render() {

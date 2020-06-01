@@ -12,6 +12,8 @@
   "dependencies": {
     "@react-native-community/google-signin": "^4.0.3",
     "@react-native-community/voice": "^1.1.4",
+    "expo": "^37.0.12",
+    "expo-google-app-auth": "^8.1.0",
     "node-fetch": "^2.6.0",
     "qs": "^6.9.4",
     "react": "16.11.0",

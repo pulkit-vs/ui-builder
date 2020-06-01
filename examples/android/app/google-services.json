@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "687906342333",
+    "firebase_url": "https://voice-app-login.firebaseio.com",
+    "project_id": "voice-app-login",
+    "storage_bucket": "voice-app-login.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:687906342333:android:48214ca3ae47c1b5b57ed4",
+        "android_client_info": {
+          "package_name": "com.examples"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "687906342333-pdjbu4r6med4i64gbu9vqflth1mvlv7l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.examples",
+            "certificate_hash": "fa4605acd2631c3b7cbc5b4d37c51b7278e1e1e5"
+          }
+        },
+        {
+          "client_id": "687906342333-sd1rdi63ps634hlhg48t4ftnon3q1v2n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2krya1Jj-wxsMXoV77wHmy82yqSCKGw4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "687906342333-sd1rdi63ps634hlhg48t4ftnon3q1v2n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

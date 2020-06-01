@@ -1,49 +1,50 @@
+import {CONSTANTS} from '../constants/constants';
 // checks the email validation
 function validEmail(e) {
-  var filter = /^\s*[\w\-\+_]+(\.[\w\-\+_]+)*\@[\w\-\+_]+\.[\w\-\+_]+(\.[\w\-\+_]+)*\s*$/;
+  const filter = /^\s*[\w\-\+_]+(\.[\w\-\+_]+)*\@[\w\-\+_]+\.[\w\-\+_]+(\.[\w\-\+_]+)*\s*$/;
   return String(e).search(filter) != -1;
 }
 
-function fillArray(myString) {
-  let final = '';
-  let temp = '';
-  const length = myString.length;
-  if (myString) {
-    let newString = myString.replace(/dot/g, '.');
-    newString = newString.replace(/Dot/g, '.');
-    myString = newString;
+// seperate 2 emails and comma between them
+function seperateEmails(emailIDs) {
+  let updatedEmail = '';
+  let temporaryEmail = '';
+  if (emailIDs) {
+    let filteredEmailIDs = emailIDs.replace(/dot/g, '.');
+    filteredEmailIDs = filteredEmailIDs.replace(/Dot/g, '.');
+    emailIDs = filteredEmailIDs;
   }
-  myString = myString.split(' ').join('').toLocaleLowerCase();
+  emailIDs = emailIDs.split(' ').join('').toLocaleLowerCase();
 
-  for (let i = 0; i < length; i++) {
-    temp = temp + myString[i];
+  for (let i = 0; i < emailIDs.length; i++) {
+    temporaryEmail = temporaryEmail + emailIDs[i];
     if (
-      myString[i] === 'm' &&
-      myString[i - 1] === 'o' &&
-      myString[i - 2] === 'c' &&
-      myString[i - 3] === '.'
+      emailIDs[i] === CONSTANTS.M &&
+      emailIDs[i - 1] === CONSTANTS.O &&
+      emailIDs[i - 2] === CONSTANTS.C &&
+      emailIDs[i - 3] === '.'
     ) {
-      const checkValidity = validEmail(temp);
+      const checkValidity = validEmail(temporaryEmail);
       if (checkValidity) {
-        if (final.length > 0) {
-          final = final + ',' + temp;
+        if (updatedEmail.length > 0) {
+          updatedEmail = updatedEmail + ',' + temporaryEmail;
         } else {
-          final = final + temp;
+          updatedEmail = updatedEmail + temporaryEmail;
         }
       }
-      temp = '';
+      temporaryEmail = '';
     }
   }
-  return final;
+  return updatedEmail;
 }
 
-export function emailDataCleaning(values) {
-  const keys = Object.keys(values);
+export function emailDataCleaning(EmailInputs) {
+  const keys = Object.keys(EmailInputs);
   keys.forEach((itr) => {
-    if (itr === 'to' || itr === 'cc' || itr === 'bcc') {
-      const array = fillArray(values[itr]);
-      values[itr] = array;
+    if (itr === CONSTANTS.TO || itr === CONSTANTS.BCC || itr === CONSTANTS.CC) {
+      const filteredEmailInputs = seperateEmails(EmailInputs[itr]);
+      EmailInputs[itr] = filteredEmailInputs;
     }
   });
-  return values;
+  return EmailInputs;
 }

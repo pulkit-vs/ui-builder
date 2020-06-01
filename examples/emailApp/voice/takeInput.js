@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import VoiceComponent from './voice';
 import {checkStatus} from './util';
 import ShowDetails from './ShowDetails';
+import {CONSTANTS} from '../constants/constants';
 
 export default class TakeInput extends Component {
   constructor() {
@@ -13,9 +14,8 @@ export default class TakeInput extends Component {
       to: '',
       cc: '',
       bcc: '',
-      recipient: '',
       confirm: '',
-      index: 0,
+      index: -1,
     };
     this.emailInputControls = this.emailInputControls.bind(this);
   }
@@ -29,9 +29,8 @@ export default class TakeInput extends Component {
       to: '',
       cc: '',
       bcc: '',
-      recipient: '',
       confirm: '',
-      index: -1,
+      index: 0,
     });
   };
 
@@ -39,59 +38,31 @@ export default class TakeInput extends Component {
   goOneStepBack = () => {
     this.setState({
       index: this.state.index - 1,
-      confirm: 'no',
+      confirm: CONSTANTS.NO,
     });
   };
 
   //method used to set the all the attributes of email
-  emailInputControls(val) {
+  emailInputControls(emailInputs) {
     const stateKeys = Object.keys(this.state);
-    const recipientAdded = this.state.recipient.includes('yes');
-    const position = this.state.index / 2 - 1;
-    val = val.toLocaleLowerCase();
-    console.log(val);
-    if (val.includes('email') && this.state.index < 2) {
+
+    emailInputs = emailInputs.toLocaleLowerCase();
+
+    if (emailInputs.includes('email') && this.state.index < 2) {
       return this.setState({
         index: this.state.index + 1,
       });
     } else {
-      if (val.includes('back')) {
+      if (emailInputs.includes(CONSTANTS.BACK)) {
         return this.goOneStepBack();
       }
-      if (val.includes('refresh')) {
+      if (emailInputs.includes(CONSTANTS.REFRESH)) {
         return this.startAgain();
       }
-      if (this.state.index === 13) {
-        return this.setState({
-          index: this.state.index + 1,
-          recipient: val,
-        });
-      }
-      if (this.state.index === 15 && recipientAdded) {
-        let newVal = this.state.to + ' ' + val;
-        return this.setState({
-          index: this.state.index + 1,
-          to: newVal,
-        });
-      }
-      if (this.state.index === 15 && !recipientAdded) {
-        return this.setState({
-          index: this.state.index + 1,
-          confirm: val,
-        });
-      }
-      if (this.state.index === 17 && recipientAdded) {
-        val = val.toLocaleLowerCase();
-        return this.setState({
-          index: this.state.index + 1,
-          confirm: val,
-        });
-      } else {
-        return this.setState({
-          index: this.state.index + 1,
-          [stateKeys[position]]: val,
-        });
-      }
+      this.setState({
+        [stateKeys[this.state.index]]: emailInputs,
+        index: this.state.index + 1,
+      });
     }
   }
 
