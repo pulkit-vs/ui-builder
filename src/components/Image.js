@@ -23,9 +23,11 @@ export default class ImageComponent extends React.Component {
           resizeMethod={this.props.resizeMethod}
           resizeMode={this.props.resizeMode}
           style={this.props.style}
-          source={{
-            uri: this.props.uri,
-          }}
+          source={
+            typeof this.props.uri === "number"
+              ? this.props.uri
+              : { uri: this.props.uri }
+          }
         />
       </View>
     );

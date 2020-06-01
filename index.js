@@ -1,6 +1,6 @@
 import React from "react";
-import { View, KeyboardAvoidingView, ScrollView } from "react-native";
 import { get } from "lodash";
+import { View, KeyboardAvoidingView, ScrollView } from "react-native";
 
 import ButtonComponent from "./src/components/Button";
 import CardComponent from "./src/components/Card";

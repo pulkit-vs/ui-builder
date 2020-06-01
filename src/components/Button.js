@@ -27,22 +27,20 @@ export default class ButtonComponent extends React.Component {
   static contextType = NavigationContext;
 
   async componentDidMount() {
-
     // Creating Screen for Button onPress
     this.props.onPress && this.props.onPress.navigation
       ? this.props.createScreen(this.props.onPress)
       : null;
-
     await this.setState({ properties: this.props });
 
     // Customizing button style
     const shapeStyle = this.props.showCircle
       ? { ...shapeStyles.circleShapeView }
       : this.props.showSquare
-        ? { ...shapeStyles.squareShapeView }
-        : this.props.showRectangle
-          ? { ...shapeStyles.rectangleShapeView }
-          : null;
+      ? { ...shapeStyles.squareShapeView }
+      : this.props.showRectangle
+      ? { ...shapeStyles.rectangleShapeView }
+      : null;
 
     if (shapeStyle) {
       await this.setState({
@@ -111,18 +109,18 @@ ButtonComponent.propTypes = {
 
 // Defaultprops is to set the default props for the class.
 ButtonComponent.defaultProps = {
-  title: 'Button',
-  onPress: () => console.log('Please attach a method to this component'),
+  title: "Button",
+  onPress: () => console.log("Please attach a method to this component"),
   disabled: false,
   buttonStyle: {
-    backgroundColor: 'yellow',
-    borderColor: 'yellow',
+    backgroundColor: "yellow",
+    borderColor: "yellow",
   },
   titleStyle: {
     // color: 'blue',
-    fontFamily: 'arial',
+    fontFamily: "arial",
     fontSize: 40,
   },
-  type: 'solid',
+  type: "solid",
   loading: false,
 };

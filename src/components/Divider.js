@@ -19,7 +19,7 @@ export default class DividerComponent extends React.Component {
     this.state = {
       properties: {},
     };
-    this.setState({properties: this.props});
+    this.setState({ properties: this.props });
 
     // Applying theme on divider style
     if (theme) {
@@ -46,6 +46,6 @@ DividerComponent.defaultProps = {
   style: {
     borderWidth: 1,
     marginTop: 50,
-    borderColor: 'green',
+    borderColor: "green",
   },
 };

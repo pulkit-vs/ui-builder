@@ -15,7 +15,6 @@ import { applyTheme } from "../utility/utils";
 import { theme } from "../../index";
 
 export default class TextComponent extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -25,20 +24,26 @@ export default class TextComponent extends React.Component {
   static contextType = NavigationContext;
 
   componentDidMount() {
-
     // Creating Screen for text onPress
     this.props.onPress && this.props.onPress.navigation
       ? this.props.createScreen(this.props.onPress)
       : null;
 
-    this.setState({properties: this.props});
+    this.setState({ properties: this.props });
 
     // Applying theme on text
     if (theme) {
       this.props = applyTheme(this.props, theme);
     }
   }
-
+  componentDidMount() {
+    if (this.props.onPress) {
+      this.props.onPress.navigation
+        ? this.props.createScreen(this.props.onPress)
+        : null;
+    }
+  }
+  static contextType = NavigationContext;
   render() {
     const navigation = this.context;
     return (
@@ -70,15 +75,15 @@ TextComponent.propTypes = {
 };
 
 TextComponent.defaultProps = {
-  title: 'Text',
+  title: "Text",
   style: {
-    color: 'black',
+    color: "black",
     fontSize: 20,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     marginTop: 0,
-    textAlign: 'center',
+    textAlign: "center",
   },
   onPress() {
-    alert('Please attach a method');
+    alert("Please attach a method");
   },
 };

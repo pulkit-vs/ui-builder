@@ -12,7 +12,7 @@ export default class HeaderComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      ValueOfComponent: ['leftComponent', 'centerComponent', 'rightComponent'],
+      ValueOfComponent: ["leftComponent", "centerComponent", "rightComponent"],
     };
     // apply theme
     props = theme ? applyTheme(this.props, theme) : this.props;
@@ -20,22 +20,20 @@ export default class HeaderComponent extends React.Component {
       children.properties = theme
         ? applyTheme(children.properties, theme)
         : children.properties;
-      if (
-        children.properties.onPress &&
+      if (children.properties.onPress) {
         children.properties.onPress.navigation
-      ) {
-        this.props.createScreen(children.properties.onPress);
+          ? this.props.createScreen(children.properties.onPress)
+          : null;
       }
     });
     props.rightComponent.childrens.forEach((children) => {
       children.properties = theme
         ? applyTheme(children.properties, theme)
         : children.properties;
-      if (
-        children.properties.onPress &&
+      if (children.properties.onPress) {
         children.properties.onPress.navigation
-      ) {
-        this.props.createScreen(children.properties.onPress);
+          ? this.props.createScreen(children.properties.onPress)
+          : null;
       }
     });
     props.centerComponent.childrens.forEach((children) => {
@@ -62,7 +60,8 @@ export default class HeaderComponent extends React.Component {
               this.props[component].childrens[0].type == COMPONENTS.VIEW
                 ? this.props[component].childrens[0].properties.style
                 : {}
-            }>
+            }
+          >
             {this.props[component].childrens.map((item, i) => {
               if (item.type == COMPONENTS.ICON) {
                 return (
@@ -76,9 +75,9 @@ export default class HeaderComponent extends React.Component {
                       item.properties.onPress
                         ? item.properties.onPress.navigation
                           ? () =>
-                            navigation.navigate(
-                              item.properties.onPress.screenName
-                            )
+                              navigation.navigate(
+                                item.properties.onPress.screenName
+                              )
                           : item.properties.onPress
                         : null
                     }
@@ -116,16 +115,18 @@ export default class HeaderComponent extends React.Component {
                           color={item.properties.rightIcon.color}
                           name={item.properties.rightIcon.name}
                           size={item.properties.rightIcon.size}
-                          type={item.properties.rightIcon.type}></Icon>
+                          type={item.properties.rightIcon.type}
+                        ></Icon>
                       ) : null
-                    }></Input>
+                    }
+                  ></Input>
                 );
               } else {
                 return null;
               }
             })}
           </View>
-        ) : null,
+        ) : null
     );
     return (
       <View>
@@ -171,32 +172,32 @@ HeaderComponent.defaultProps = {
   centerComponent: {
     childrens: [
       {
-        type: 'view',
-        properties: { style: { flexDirection: 'row' } },
+        type: "view",
+        properties: { style: { flexDirection: "row" } },
       },
     ],
   },
   containerStyle: {
-    backgroundColor: 'blue',
-    justifyContent: 'space-around',
-    borderColor: 'black',
+    backgroundColor: "blue",
+    justifyContent: "space-around",
+    borderColor: "black",
     borderWidth: 0,
     height: 70,
   },
   leftComponent: {
     childrens: [
       {
-        type: 'view',
-        properties: { style: { flexDirection: 'row' } },
+        type: "view",
+        properties: { style: { flexDirection: "row" } },
       },
     ],
   },
-  placement: 'center',
+  placement: "center",
   rightComponent: {
     childrens: [
       {
-        type: 'view',
-        properties: { style: { flexDirection: 'row' } },
+        type: "view",
+        properties: { style: { flexDirection: "row" } },
       },
     ],
   },
