@@ -7,23 +7,22 @@
  */
 
 import React from 'react';
-import { Text, View } from 'react-native';
-import { Button } from "react-native-elements";
+import {Text, View} from 'react-native';
+import {Button} from 'react-native-elements';
 import Voice from '@react-native-community/voice';
 import Tts from 'react-native-tts';
 // import * as Permissions from 'expo-permissions';
-import { mapper } from "./Mapper";
+import {mapper} from './Mapper';
 
 export default class App extends React.Component {
-
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       recognized: '',
       started: '',
       results: [],
       textResponse: '',
-      mapper: {}
+      mapper: {},
     };
 
     Voice.onSpeechStart = this.onSpeechStartHandler.bind(this);
@@ -32,7 +31,7 @@ export default class App extends React.Component {
   }
 
   async componentDidMount() {
-    this.setState({ mapper: mapper })
+    this.setState({mapper: mapper});
   }
 
   onSpeechStartHandler(e) {
@@ -48,27 +47,30 @@ export default class App extends React.Component {
   }
 
   onSpeechResultsHandler = async (e) => {
-
     await this.setState({
       results: e.value,
     });
 
-    console.log(this.state.results[0])
+    console.log(this.state.results[0]);
     await Object.values(this.state.mapper).map((val, index) => {
       if (val.includes(this.state.results[0])) {
-        this.setState({ textResponse: `I heard your question, your answer is ${Object.keys(mapper)[index]}` })
+        this.setState({
+          textResponse: `I heard your question, your answer is ${
+            Object.keys(mapper)[index]
+          }`,
+        });
       }
-    })
+    });
 
     if (this.state.textResponse.length === 0) {
-      this.setState({ textResponse: 'Sorry, i dont know the answer' })
+      this.setState({textResponse: 'Sorry, i dont know the answer'});
     }
     await this.convertTextToSpeech(this.state.textResponse);
-  }
+  };
 
   convertTextToSpeech = (input) => {
-    console.log('convertTextToSpeech:', input)
-    Tts.speak(input)
+    console.log('convertTextToSpeech:', input);
+    Tts.speak(input);
     // input.map((val) => Tts.speak(val));
   };
 
@@ -77,7 +79,7 @@ export default class App extends React.Component {
       recognized: '',
       started: '',
       results: [],
-      textResponse: ''
+      textResponse: '',
     });
     try {
       await Voice.start('en-US');
@@ -105,12 +107,30 @@ export default class App extends React.Component {
   render() {
     return (
       <View>
-        <Text style={{ color: 'red', textAlign: 'center', fontSize: 20, fontWeight: 'bold' }}> Voice Recognition Service </Text>
-        <Text style={{ marginTop: 20, textAlign: 'center', fontSize: 20, fontWeight: 'bold' }}> {this.state.results[0]} </Text>
+        <Text
+          style={{
+            color: 'red',
+            textAlign: 'center',
+            fontSize: 20,
+            fontWeight: 'bold',
+          }}>
+          {' '}
+          Voice Recognition Service{' '}
+        </Text>
+        <Text
+          style={{
+            marginTop: 20,
+            textAlign: 'center',
+            fontSize: 20,
+            fontWeight: 'bold',
+          }}>
+          {' '}
+          {this.state.results[0]}{' '}
+        </Text>
         <Button
-          title={"Click me and say something"}
+          title={'Click me and say something'}
           onPress={(e) => this._startRecognition(e)}
-          buttonStyle={{ width: "60%", left: 70, borderWidth: 3, marginTop: 60 }}
+          buttonStyle={{width: '60%', left: 70, borderWidth: 3, marginTop: 60}}
         />
       </View>
     );
