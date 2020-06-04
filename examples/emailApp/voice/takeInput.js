@@ -43,26 +43,32 @@ export default class TakeInput extends Component {
   };
 
   //method used to set the all the attributes of email
-  emailInputControls(emailInputs) {
+  async emailInputControls(emailInputs) {
     const stateKeys = Object.keys(this.state);
 
     emailInputs = emailInputs.toLocaleLowerCase();
 
-    if (emailInputs.includes('email') && this.state.index < 2) {
+    if (emailInputs.includes('alexa') && this.state.index < 2) {
       return this.setState({
         index: this.state.index + 1,
       });
     } else {
       if (emailInputs.includes(CONSTANTS.BACK)) {
         return this.goOneStepBack();
-      }
-      if (emailInputs.includes(CONSTANTS.REFRESH)) {
+      } else if (emailInputs.includes(CONSTANTS.REFRESH)) {
         return this.startAgain();
+      } else {
+        console.log('stateKeys', stateKeys);
+        this.setState({
+          [stateKeys[this.state.index]]: emailInputs,
+        });
+        this.setState(
+          {
+            index: this.state.index + 1,
+          },
+          () => console.log(this.state),
+        );
       }
-      this.setState({
-        [stateKeys[this.state.index]]: emailInputs,
-        index: this.state.index + 1,
-      });
     }
   }
 

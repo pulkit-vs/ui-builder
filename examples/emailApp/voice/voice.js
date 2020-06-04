@@ -9,6 +9,7 @@
 import React from 'react';
 
 import Voice from '@react-native-community/voice';
+import {debounce} from 'lodash';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -26,11 +27,12 @@ export default class App extends React.Component {
   }
 
   async componentDidMount() {
-    this._startRecognition();
+    // this._startRecognition();
     setInterval(() => {
       this._startRecognition();
     }, 10000);
   }
+
   onSpeechStartHandler(e) {
     this.setState({
       started: '√',
@@ -43,12 +45,12 @@ export default class App extends React.Component {
     });
   }
 
-  onSpeechResultsHandler = async (e) => {
-    await this.setState({
+  onSpeechResultsHandler = debounce((e) => {
+    this.setState({
       results: e.value,
     });
-    await this.props.handle(e.value[0]);
-  };
+    this.props.handle(e.value[0]);
+  }, 1000);
 
   async _startRecognition(e) {
     this.setState({

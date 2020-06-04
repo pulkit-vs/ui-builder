@@ -1,5 +1,6 @@
 import Tts from 'react-native-tts';
 import {CONSTANTS} from '../constants/constants';
+
 export function checkStatus(state) {
   const boolSend = state.sendEmail.includes(CONSTANTS.YES);
 

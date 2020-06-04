@@ -19,6 +19,7 @@ export default class ShowDetails extends React.Component {
   render() {
     const emailAttributes = emailDataCleaning(this.props.input);
     const sendEmail = this.state.confirmation.includes(CONSTANTS.YES);
+    console.log(emailAttributes);
     return (
       <>
         <View style={styles.container}>
