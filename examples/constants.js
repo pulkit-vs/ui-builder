@@ -1,0 +1,5 @@
+export const APP_NAME = "Voice Recognition Service"
+export const BUTTON_MSG = "Click me and say something"
+export const ERROR_RESPONSE_MSG = "Sorry, i dont know the answer"
+export const VOICE_DEFAULT_LANG = "en-US"
+export const VOICE_RESPONSE_MSG = "I heard your question, your answer is"

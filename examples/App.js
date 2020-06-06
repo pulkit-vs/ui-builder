@@ -1,17 +1,16 @@
 /**
- * Sample React Native App
- * https://github.com/facebook/react-native
+ * Voice Recognition React Native App
  *
  * @format
  * @flow strict-local
  */
 
 import React from 'react';
-import { Text, View } from 'react-native';
-import { Button } from "react-native-elements";
-import Voice from '@react-native-community/voice';
 import Tts from 'react-native-tts';
-// import * as Permissions from 'expo-permissions';
+import Voice from '@react-native-community/voice';
+import { APP_NAME, BUTTON_MSG, ERROR_RESPONSE_MSG, VOICE_DEFAULT_LANG, VOICE_RESPONSE_MSG } from "./constants";
+import { Button } from "react-native-elements";
+import { Text, View } from 'react-native';
 import { mapper } from "./Mapper";
 
 export default class App extends React.Component {
@@ -53,15 +52,15 @@ export default class App extends React.Component {
       results: e.value,
     });
 
-    console.log(this.state.results[0])
+    console.log('onSpeechResultsHandler-response:', this.state.results[0])
     await Object.values(this.state.mapper).map((val, index) => {
       if (val.includes(this.state.results[0])) {
-        this.setState({ textResponse: `I heard your question, your answer is ${Object.keys(mapper)[index]}` })
+        this.setState({ textResponse: `${VOICE_RESPONSE_MSG} ${Object.keys(mapper)[index]}` })
       }
     })
 
     if (this.state.textResponse.length === 0) {
-      this.setState({ textResponse: 'Sorry, i dont know the answer' })
+      this.setState({ textResponse: ERROR_RESPONSE_MSG })
     }
     await this.convertTextToSpeech(this.state.textResponse);
   }
@@ -72,6 +71,10 @@ export default class App extends React.Component {
     // input.map((val) => Tts.speak(val));
   };
 
+  /**
+   * Method will be called on click of a button, it will start listening... 
+   * @param {*} e 
+   */
   async _startRecognition(e) {
     this.setState({
       recognized: '',
@@ -80,35 +83,20 @@ export default class App extends React.Component {
       textResponse: ''
     });
     try {
-      await Voice.start('en-US');
+      await Voice.start(VOICE_DEFAULT_LANG);
     } catch (e) {
       console.error(e);
     }
   }
 
-  // async componentDidMount() {
-
-  //   console.log('componentDidMount:', Permissions.AUDIO_RECORDING);
-  //   let { status, expires, permissions } = Permissions && await Permissions.askAsync(
-  //     Permissions.AUDIO_RECORDING
-  //   );
-  //   console.log('status:', status)
-  //   if (status !== "granted") {
-  //     console.log('Permissions');
-  //   } else {
-  //     console.log('no Permissions');
-  //   }
-  // }
-
   // Voice recognition understand letters in small case only, either will convert all to small before sending or ensure that values in json object should be in small case.
-
   render() {
     return (
       <View>
-        <Text style={{ color: 'red', textAlign: 'center', fontSize: 20, fontWeight: 'bold' }}> Voice Recognition Service </Text>
+        <Text style={{ color: 'red', textAlign: 'center', fontSize: 20, fontWeight: 'bold' }}> {APP_NAME} </Text>
         <Text style={{ marginTop: 20, textAlign: 'center', fontSize: 20, fontWeight: 'bold' }}> {this.state.results[0]} </Text>
         <Button
-          title={"Click me and say something"}
+          title={BUTTON_MSG}
           onPress={(e) => this._startRecognition(e)}
           buttonStyle={{ width: "60%", left: 70, borderWidth: 3, marginTop: 60 }}
         />
