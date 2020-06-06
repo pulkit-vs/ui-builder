@@ -14,15 +14,14 @@ import { Text, View } from 'react-native';
 import { mapper } from "./Mapper";
 
 export default class App extends React.Component {
-
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       recognized: '',
       started: '',
       results: [],
       textResponse: '',
-      mapper: {}
+      mapper: {},
     };
 
     Voice.onSpeechStart = this.onSpeechStartHandler.bind(this);
@@ -31,7 +30,7 @@ export default class App extends React.Component {
   }
 
   async componentDidMount() {
-    this.setState({ mapper: mapper })
+    this.setState({mapper: mapper});
   }
 
   onSpeechStartHandler(e) {
@@ -47,7 +46,6 @@ export default class App extends React.Component {
   }
 
   onSpeechResultsHandler = async (e) => {
-
     await this.setState({
       results: e.value,
     });
@@ -57,17 +55,17 @@ export default class App extends React.Component {
       if (val.includes(this.state.results[0])) {
         this.setState({ textResponse: `${VOICE_RESPONSE_MSG} ${Object.keys(mapper)[index]}` })
       }
-    })
+    });
 
     if (this.state.textResponse.length === 0) {
       this.setState({ textResponse: ERROR_RESPONSE_MSG })
     }
     await this.convertTextToSpeech(this.state.textResponse);
-  }
+  };
 
   convertTextToSpeech = (input) => {
-    console.log('convertTextToSpeech:', input)
-    Tts.speak(input)
+    console.log('convertTextToSpeech:', input);
+    Tts.speak(input);
     // input.map((val) => Tts.speak(val));
   };
 
@@ -80,7 +78,7 @@ export default class App extends React.Component {
       recognized: '',
       started: '',
       results: [],
-      textResponse: ''
+      textResponse: '',
     });
     try {
       await Voice.start(VOICE_DEFAULT_LANG);
@@ -98,7 +96,7 @@ export default class App extends React.Component {
         <Button
           title={BUTTON_MSG}
           onPress={(e) => this._startRecognition(e)}
-          buttonStyle={{ width: "60%", left: 70, borderWidth: 3, marginTop: 60 }}
+          buttonStyle={{width: '60%', left: 70, borderWidth: 3, marginTop: 60}}
         />
       </View>
     );
