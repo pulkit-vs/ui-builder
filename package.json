@@ -1,21 +1,27 @@
 {
-  "name": "Sample React Native Project",
-  "version": "1.1.1",
+  "name": "sample-project",
+  "version": "1.0.0",
   "description": "Sample React Native Project",
-  "main": "navigation.js",
+  "main": "index.js",
+  "directories": {
+    "example": "examples"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pulkitsharma1995/ui-builder.git"
+    "url": "git+https://github.com/mahima-vs/Sample-React-Native-App.git"
   },
-  "author": "",
+  "keywords": [
+    "react-native"
+  ],
+  "author": "Mahima Gupta",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/pulkitsharma1995/ui-builder/issues"
+    "url": "https://github.com/mahima-vs/Sample-React-Native-App/issues"
   },
-  "homepage": "https://github.com/pulkitsharma1995/ui-builder#readme",
+  "homepage": "https://github.com/mahima-vs/Sample-React-Native-App#readme",
   "devDependencies": {
     "metro-react-native-babel-preset": "^0.59.0"
   },
