@@ -75,15 +75,15 @@ TextComponent.propTypes = {
 };
 
 TextComponent.defaultProps = {
-  title: "Text",
+  title: 'Text',
   style: {
-    color: "black",
+    color: 'black',
     fontSize: 20,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     marginTop: 0,
-    textAlign: "center",
+    textAlign: 'center',
   },
   onPress() {
-    alert("Please attach a method");
+    alert('Please attach a method');
   },
 };

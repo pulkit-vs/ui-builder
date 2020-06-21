@@ -6,16 +6,16 @@
  * @flow strict-local
  */
 
-import Icon from "react-native-vector-icons/FontAwesome";
-import PropTypes from "prop-types";
-import React from "react";
-import { Button } from "react-native-elements";
-import { NavigationContext } from "@react-navigation/native";
-import { View } from "react-native";
+import Icon from 'react-native-vector-icons/FontAwesome';
+import PropTypes from 'prop-types';
+import React from 'react';
+import {Button} from 'react-native-elements';
+import {NavigationContext} from '@react-navigation/native';
+import {View} from 'react-native';
 
-import { applyTheme } from "../utility/utils";
-import { shapeStyles } from "../style/buttonStyle";
-import { theme } from "../../index";
+import {applyTheme} from '../utility/utils';
+import {shapeStyles} from '../style/buttonStyle';
+import {theme} from '../index';
 
 export default class ButtonComponent extends React.Component {
   constructor(props) {
@@ -31,22 +31,23 @@ export default class ButtonComponent extends React.Component {
     this.props.onPress && this.props.onPress.navigation
       ? this.props.createScreen(this.props.onPress)
       : null;
-    await this.setState({ properties: this.props });
+
+    await this.setState({properties: this.props});
 
     // Customizing button style
     const shapeStyle = this.props.showCircle
-      ? { ...shapeStyles.circleShapeView }
+      ? {...shapeStyles.circleShapeView}
       : this.props.showSquare
-        ? { ...shapeStyles.squareShapeView }
-        : this.props.showRectangle
-          ? { ...shapeStyles.rectangleShapeView }
-          : null;
+      ? {...shapeStyles.squareShapeView}
+      : this.props.showRectangle
+      ? {...shapeStyles.rectangleShapeView}
+      : null;
 
     if (shapeStyle) {
       await this.setState({
         properties: {
           ...this.state.properties,
-          buttonStyle: { ...this.state.properties.buttonStyle, ...shapeStyle },
+          buttonStyle: {...this.state.properties.buttonStyle, ...shapeStyle},
         },
       });
     }

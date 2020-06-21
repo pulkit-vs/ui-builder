@@ -1,21 +1,29 @@
-import React from "react";
-import { View, KeyboardAvoidingView, ScrollView } from "react-native";
-import { get } from "lodash";
+/**
+ * Sample React Native App
+ * https://github.com/facebook/react-native
+ *
+ * @format
+ * @flow strict-local
+ */
 
-import ButtonComponent from "./src/components/Button";
-import CardComponent from "./src/components/Card";
-import CheckboxComponent from "./src/components/Checkbox";
-import CarouselComponent from "./src/components/Carousel";
-import DividerComponent from "./src/components/Divider";
-import HeaderComponent from "./src/components/Header";
-import IconComponent from "./src/components/Icon";
-import ImageComponent from "./src/components/Image";
-import ModalComponent from "./src/components/Modal";
-import SliderComponent from "./src/components/Slider";
-import TextComponent from "./src/components/Text";
-import TextInput from "./src/components/Input";
-import { COMPONENTS } from "./src/utility/constant";
-import { applyTheme } from "./src/utility/utils";
+import React from 'react';
+import {get} from 'lodash';
+import {View, KeyboardAvoidingView, ScrollView} from 'react-native';
+
+import ButtonComponent from './components/Button';
+import CardComponent from './components/Card';
+import CarouselComponent from './components/Carousel';
+import CheckboxComponent from './components/Checkbox';
+import DividerComponent from './components/Divider';
+import HeaderComponent from './components/Header';
+import IconComponent from './components/Icon';
+import ImageComponent from './components/Image';
+import ModalComponent from './components/Modal';
+import SliderComponent from './components/Slider';
+import TextComponent from './components/Text';
+import TextInput from './components/Input';
+import {COMPONENTS} from './utility/constant';
+import {applyTheme} from './utility/utils';
 
 // Global variable to get theme type in other files.
 export let theme;
@@ -27,7 +35,7 @@ export default class Components extends React.Component {
   }
 
   selectComponent(component, index) {
-    const type = get(component, "type", "");
+    const type = get(component, 'type', '');
     switch (type) {
       case COMPONENTS.INPUT:
         return <TextInput {...component.properties} key={index} />;
@@ -99,6 +107,7 @@ export default class Components extends React.Component {
           return this.selectComponent(component, index);
         });
 
+        console.log(component);
         return (
           <CardComponent
             {...component.properties}
@@ -116,14 +125,13 @@ export default class Components extends React.Component {
   }
 
   render() {
-    const { source } = this.props;
+    const {source} = this.props;
     theme = source.theme;
     return (
       <KeyboardAvoidingView
         enabled
-        behavior={"position"}
-        keyboardVerticalOffset={-200}
-      >
+        behavior={'position'}
+        keyboardVerticalOffset={-200}>
         <ScrollView>
           <View>
             {source.data.map((component, index) => {

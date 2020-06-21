@@ -6,12 +6,12 @@
  * @flow strict-local
  */
 
-import PropTypes from "prop-types";
-import React from "react";
-import { Divider } from "react-native-elements";
+import {Divider} from 'react-native-elements';
+import PropTypes from 'prop-types';
+import React from 'react';
 
-import { applyTheme } from "../utility/utils";
-import { theme } from "../../index";
+import {applyTheme} from '../utility/utils';
+import {theme} from '../index';
 
 export default class DividerComponent extends React.Component {
   constructor(props) {

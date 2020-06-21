@@ -4104,11 +4104,11 @@ const data = {
       },
     ],
   },
-
-  carouselSource: {
+  
+  carouselSource : {
     navigation: true,
     screenName: 'Home',
-
+  
     data: [
       {
         type: 'text',
@@ -4421,7 +4421,7 @@ const data = {
         },
       },
     ],
-  },
+  }
 };
 
 export default data;
