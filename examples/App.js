@@ -6,9 +6,11 @@
  */
 
 import React from 'react';
+import UiBuilder from './src/Navigation';
+import data from './src/data/jsonData';
 
 export default class App extends React.Component {
   render() {
-    return null;
+    return <UiBuilder source={data.debugNavigator} />;
   }
 }
