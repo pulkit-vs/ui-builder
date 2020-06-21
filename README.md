@@ -11,11 +11,13 @@
 - Image
 - Modal
 - Header
+- Checkbox
 - Themes
 - Divider
 - Card
 - Carousel
 - Navigation
+- Video
 
 ## Highlights- 
 

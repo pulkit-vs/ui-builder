@@ -12,6 +12,7 @@ export const COMPONENTS = {
   SLIDER: 'slider',
   TEXT: 'text',
   VIEW: 'view',
+  VIDEO: 'video'
 };
 
 export const COMPONENT_CONSTANTS = {

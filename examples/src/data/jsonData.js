@@ -2606,6 +2606,27 @@ const data = {
         },
       },
     ],
+  },
+
+  videoSource: {
+    screenName: 'Video screen',
+    data: [
+    {
+      type: 'video',
+      properties: {
+        source: {
+          uri: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'
+        },
+        // For Local paths
+        // source: {
+        //   uri: require("./video_device.mp4")
+        // },
+        paused: false,
+        onError: () => console.log("error"),
+        audioOnly: true
+      }
+    }
+    ]
   }
 };
 
