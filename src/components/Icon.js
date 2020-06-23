@@ -14,7 +14,7 @@ export default class IconComponent extends Component {
       props = applyTheme(props, theme);
     }
   }
-  
+
   componentDidMount() {
     // Creating Screen for icon onPress
 
