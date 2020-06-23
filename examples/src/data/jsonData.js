@@ -633,7 +633,7 @@ const data = {
                       borderColor: 'red',
                       marginTop: 30,
                       borderRadius: 30,
-                      marginBottom: 40
+                      marginBottom: 120
                     },
                   },
                 },
