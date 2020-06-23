@@ -4,8 +4,8 @@ import { get } from "lodash";
 
 import ButtonComponent from "./src/components/Button";
 import CardComponent from "./src/components/Card";
-import CheckboxComponent from "./src/components/Checkbox";
 import CarouselComponent from "./src/components/Carousel";
+import CheckboxComponent from "./src/components/Checkbox";
 import DividerComponent from "./src/components/Divider";
 import HeaderComponent from "./src/components/Header";
 import IconComponent from "./src/components/Icon";
@@ -14,6 +14,7 @@ import ModalComponent from "./src/components/Modal";
 import SliderComponent from "./src/components/Slider";
 import TextComponent from "./src/components/Text";
 import TextInput from "./src/components/Input";
+import VideoComponent from "./src/components/video";
 import { COMPONENTS } from "./src/utility/constant";
 import { applyTheme } from "./src/utility/utils";
 
@@ -112,6 +113,8 @@ export default class Components extends React.Component {
         return <SliderComponent {...component.properties} key={index} />;
       case COMPONENTS.DIVIDER:
         return <DividerComponent {...component.properties} key={index} />;
+      case COMPONENTS.VIDEO:
+        return <VideoComponent {...component.properties} key={index} />;
     }
   }
 

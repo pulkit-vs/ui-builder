@@ -18,6 +18,7 @@
 - Carousel
 - Navigation
 - Video
+- Slider
 
 ## Highlights- 
 
