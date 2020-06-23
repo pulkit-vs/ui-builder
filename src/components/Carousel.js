@@ -12,7 +12,7 @@ export default class CarouselComponent extends React.Component {
     this._renderItem = this._renderItem.bind(this);
   }
 
-  _renderItem({ item }) {
+  _renderItem({item}) {
     return <>{item}</>;
   }
 
@@ -44,7 +44,7 @@ export default class CarouselComponent extends React.Component {
           itemWidth={this.props.itemWidth}
           layout={this.props.layout}
           loop={this.props.loop}
-          onSnapToItem={(index) => this.setState({ index })}
+          onSnapToItem={(index) => this.setState({index})}
           ref={(c) => (this.carousel = c)}
           renderItem={this._renderItem}
           sliderWidth={this.props.sliderWidth}
@@ -83,3 +83,4 @@ CarouselComponent.defaultProps = {
   sliderWidth: 400,
   vertical: false,
 };
+

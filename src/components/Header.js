@@ -76,9 +76,9 @@ export default class HeaderComponent extends React.Component {
                       item.properties.onPress
                         ? item.properties.onPress.navigation
                           ? () =>
-                            navigation.navigate(
-                              item.properties.onPress.screenName
-                            )
+                              navigation.navigate(
+                                item.properties.onPress.screenName,
+                              )
                           : item.properties.onPress
                         : null
                     }
@@ -104,8 +104,7 @@ export default class HeaderComponent extends React.Component {
                           color={item.properties.leftIcon.color}
                           name={item.properties.leftIcon.name}
                           size={item.properties.leftIcon.size}
-                          type={item.properties.leftIcon.type}
-                        ></Icon>
+                          type={item.properties.leftIcon.type}></Icon>
                       ) : null
                     }
                     placeholder={item.properties.placeholder}
@@ -172,7 +171,7 @@ HeaderComponent.defaultProps = {
     childrens: [
       {
         type: 'view',
-        properties: { style: { flexDirection: 'row' } },
+        properties: {style: {flexDirection: 'row'}},
       },
     ],
   },
@@ -187,7 +186,7 @@ HeaderComponent.defaultProps = {
     childrens: [
       {
         type: 'view',
-        properties: { style: { flexDirection: 'row' } },
+        properties: {style: {flexDirection: 'row'}},
       },
     ],
   },
@@ -196,7 +195,7 @@ HeaderComponent.defaultProps = {
     childrens: [
       {
         type: 'view',
-        properties: { style: { flexDirection: 'row' } },
+        properties: {style: {flexDirection: 'row'}},
       },
     ],
   },

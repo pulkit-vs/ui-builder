@@ -31,22 +31,23 @@ export default class ButtonComponent extends React.Component {
     this.props.onPress && this.props.onPress.navigation
       ? this.props.createScreen(this.props.onPress)
       : null;
-    await this.setState({ properties: this.props });
+
+    await this.setState({properties: this.props});
 
     // Customizing button style
     const shapeStyle = this.props.showCircle
-      ? { ...shapeStyles.circleShapeView }
+      ? {...shapeStyles.circleShapeView}
       : this.props.showSquare
-        ? { ...shapeStyles.squareShapeView }
-        : this.props.showRectangle
-          ? { ...shapeStyles.rectangleShapeView }
-          : null;
+      ? {...shapeStyles.squareShapeView}
+      : this.props.showRectangle
+      ? {...shapeStyles.rectangleShapeView}
+      : null;
 
     if (shapeStyle) {
       await this.setState({
         properties: {
           ...this.state.properties,
-          buttonStyle: { ...this.state.properties.buttonStyle, ...shapeStyle },
+          buttonStyle: {...this.state.properties.buttonStyle, ...shapeStyle},
         },
       });
     }

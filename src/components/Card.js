@@ -34,8 +34,8 @@ export default class CardComponent extends Component {
               {COMPONENT_CONSTANTS.ADD_COMPONENT_TEXT}
             </Text>
           ) : (
-              this.props.childrens
-            )}
+            this.props.childrens
+          )}
         </ScrollView>
       </Card>
     );
