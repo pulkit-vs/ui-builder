@@ -24,6 +24,16 @@ import TextComponent from './components/Text';
 import TextInput from './components/Input';
 import VideoComponent from "./components/video";
 import {COMPONENTS} from './utility/constant';
+import {
+  appendInFile,
+  applyTheme,
+  requestPermission,
+  unLinkFile,
+  writeInAFile,
+  writeInFile
+} from './utility/utils';
+import {writeFunctions} from './utility/functions';
+import {writeImports} from './utility/imports';
 
 // Global variable to get theme type in other files.
 export let theme;
@@ -34,11 +44,29 @@ export default class Components extends React.Component {
     this.selectComponent = this.selectComponent.bind(this);
   }
 
+  componentDidMount = () => {
+
+    // unlink file if already exists
+    unLinkFile('ui-builder-imports.js')
+
+    unLinkFile('ui-builder-functions.js')
+
+    // unlink file if already exists
+    unLinkFile('ui-builder.js')
+  }
+
   selectComponent(component, index) {
     const type = get(component, 'type', '');
 
+    // writing imports in a file
+    writeImports('ui-builder-imports.js', type);
+
+    // write functions in a file
+    writeFunctions('ui-builder-functions.js', type);
+
     switch (type) {
       case COMPONENTS.INPUT:
+        // write input import and input functions in a file
         return <TextInput {...component.properties} key={index} />;
       case COMPONENTS.ICON:
         return <IconComponent {...component.properties} key={index} />;
@@ -130,6 +158,34 @@ export default class Components extends React.Component {
   render() {
     const {source} = this.props;
     theme = source.theme;
+
+    // requesting for a permission to write in a file
+    requestPermission('writeExternalStorage');
+    console.log('request permission done')
+
+    // writing into a file
+    var content = `<KeyboardAvoidingView
+        enabled
+        behavior={'position'}
+        keyboardVerticalOffset={-200}>
+        <ScrollView>
+        `;
+  
+       writeInAFile('ui-builder.js', content);
+    // setTimeout(function () {
+    //   writeInAFile('ui-builder.js', content);
+    //   console.log('KeyboardAvoidingView done')
+
+    // }, 1000);
+
+    content = ` </ScrollView>
+      </KeyboardAvoidingView>
+        `;
+
+    setTimeout(function () {
+      writeInAFile('ui-builder.js', content);
+    }, 4000);
+
     return (
       <KeyboardAvoidingView
         enabled
